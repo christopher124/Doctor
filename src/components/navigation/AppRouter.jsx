@@ -3,6 +3,7 @@ import { ContactView } from "../../pages/ContactView";
 import { HomeView } from "../../pages/HomeView";
 import { LoginView } from "../../pages/LoginView";
 import { NotFound } from "../../pages/NotFound";
+import { QuotesView } from "../../pages/QuotesView";
 import { ServicesView } from "../../pages/ServicesView";
 import { UsView } from "../../pages/UsView";
 export function AppRouter() {
@@ -14,6 +15,8 @@ export function AppRouter() {
         <Route path="/servicios" element={<ServicesView />} />
         <Route path="/nosotros" element={<UsView />} />
         <Route path="/contacto" element={<ContactView />} />
+        <Route path="/citas" element={<QuotesView />} />
+
         <Route path="/login" element={<LoginView />} />
 
         <Route path="*" element={<NotFound />} />
