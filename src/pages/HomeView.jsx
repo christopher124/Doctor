@@ -17,13 +17,12 @@ export function HomeView() {
                 año nos preparan para tratar a la persona que más importa: tú.
               </p>
               <div className="mt-12">
-                <button
-                  href="https://www.creative-tim.com/learning-lab/tailwind/react/overview/notus?ref=nr-index"
-                  target="_blank"
+                <Link
+                  to="/citas"
                   className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                 >
                   Agendar cita
-                </button>
+                </Link>
                 <a
                   href="https://play.google.com/store/apps/details?id=com.christopherurielsosagarcia.qrcode"
                   className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
