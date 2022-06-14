@@ -95,7 +95,7 @@ export function HomeView() {
                   <div className="relative flex flex-col min-w-0">
                     <div className="px-4 py-5 flex-auto">
                       <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-                        <i class="fas fa-user-nurse"></i>
+                        <i className="fas fa-user-nurse"></i>
                       </div>
                       <h6 className="text-xl mb-1 font-semibold">
                         Tú eres la prioridad
@@ -112,7 +112,7 @@ export function HomeView() {
                   <div className="relative flex flex-col min-w-0 mt-4">
                     <div className="px-4 py-5 flex-auto">
                       <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-                        <i class="fas fa-notes-medical"></i>{" "}
+                        <i className="fas fa-notes-medical"></i>{" "}
                       </div>
                       <h6 className="text-xl mb-1 font-semibold">
                         Las respuestas correctas
