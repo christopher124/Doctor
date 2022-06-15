@@ -3,15 +3,22 @@ import useAuth from "../../hooks/useAuth";
 import { getMeApi } from "../../api/user";
 import { NavBarDashboard } from "../../components/navbar/NavBarDashboard";
 import SideBar from "../../components/sidebar/SideBar";
+import { useNavigate } from "react-router-dom";
 export function DashboardView() {
+  const navigate = useNavigate();
   const [user, setUser] = useState(undefined);
   const { auth, logout } = useAuth();
   useEffect(() => {
     (async () => {
-      const response = await getMeApi(logout);
-      setUser(response);
+      const response = await getMeApi();
+      setUser(response || null);
     })();
-  }, [auth]);
+  }, [auth, logout]);
+
+  if (user === undefined) return null;
+  if (!auth && !user) {
+    return navigate("/login");
+  }
 
   return (
     <>
@@ -27,7 +34,9 @@ export function DashboardView() {
                 Dashboard
               </h5>
             </div>
-            <div className="flex justify-center items-center h-[80vh] border-2 border-gray-300 rounded-xl"></div>
+            <div className="flex justify-center items-center  border-gray-300 rounded-xl">
+             
+            </div>
           </div>
         </div>
       </div>
