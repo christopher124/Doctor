@@ -7,10 +7,8 @@ import { NotFound } from "../../pages/NotFound";
 import { QuotesView } from "../../pages/QuotesView";
 import { ServicesView } from "../../pages/ServicesView";
 import { UsView } from "../../pages/UsView";
-import useAuth from "../../hooks/useAuth";
-export function AppRouter() {
-  const { logout } = useAuth();
 
+export function AppRouter() {
   return (
     <div>
       <Routes>
