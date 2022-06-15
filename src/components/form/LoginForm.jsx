@@ -21,6 +21,7 @@ export function LoginForm() {
       if (response.jwt && response.user.role.name === "Authenticated") {
         login(response.jwt);
         toast.success("Bienvenido" + " " + response.user.username);
+        navigate("/dashboard");
       } else {
         toast.error("Usuario o contraseña incorrectos");
       }
