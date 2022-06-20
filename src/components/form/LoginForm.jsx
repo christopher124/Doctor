@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import { loginApi, resetPasswordApi } from "../../api/user";
+import { loginApi, resetPasswordApi } from "../../api/admin/user";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useAuth from "../../hooks/useAuth";
@@ -18,10 +18,10 @@ export function LoginForm() {
       const response = await loginApi(formData);
       setLoading(false);
       console.log(response);
-      if (response.jwt && response.user.role.name === "Authenticated") {
+      if (response.jwt && response.user.role.name === "Admin") {
         login(response.jwt);
         toast.success("Bienvenido" + " " + response.user.username);
-        navigate("/dashboard");
+        navigate("/admin/dashboard");
       } else {
         toast.error("Usuario o contraseña incorrectos");
       }
