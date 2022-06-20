@@ -1,5 +1,6 @@
-import { API_URL } from "../utils/constants";
-import { authFetch } from "../utils/fetch";
+import { API_URL } from "../../utils/constants";
+import { authFetch } from "../../utils/fetch";
+
 export async function registerApi(formData) {
   try {
     const url = `${API_URL}/auth/local/register`;
@@ -57,6 +58,15 @@ export async function resetPasswordApi(email) {
 export async function getMeApi(logout) {
   try {
     const url = `${API_URL}/users/me`;
+    const result = await authFetch(url, null, logout);
+    return result ? result : null;
+  } catch (error) {
+    return null;
+  }
+}
+export async function getCountUserApi(logout) {
+  try {
+    const url = `${API_URL}/users/count`;
     const result = await authFetch(url, null, logout);
     return result ? result : null;
   } catch (error) {
