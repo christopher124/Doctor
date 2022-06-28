@@ -1,7 +1,32 @@
+import { useState, useEffect } from "react";
 import { Spinner } from "../spinner/Spinner";
 export function DoctorView({ doctor }) {
-  const { name, last, adress, condition, phone } = doctor;
-  console.log(doctor);
+  const { name, last, adress, condition, phone, specialtie } = doctor;
+
+  const [estadoDoctor, setEstadoDoctor] = useState(condition?.name);
+  const [clase, setClase] = useState("");
+
+  useEffect(() => {
+    if (estadoDoctor) {
+      setEstadoDoctor(estadoDoctor);
+    }
+    claseDoctor();
+  }, [estadoDoctor]);
+  const claseDoctor = () => {
+    if (condition?.name === "Disponible") {
+      setClase(
+        " p-2 uppercase font-bold inline-flex text-center bg-green-700 text-pink-100 rounded-lg text-xs px-2 py-0 "
+      );
+    } else if (condition?.name === "En consulta") {
+      setClase(
+        " p-2 uppercase font-bold inline-flex text-center bg-yellow-700 text-pink-100 rounded-lg text-xs px-2 py-0 "
+      );
+    } else {
+      setClase(
+        " p-2 uppercase font-bold inline-flex text-center bg-red-700 text-pink-100 rounded-lg text-xs px-2 py-0 "
+      );
+    }
+  };
   return (
     <>
       <div className="flex items-center justify-start p-2 space-x-4">
@@ -23,8 +48,11 @@ export function DoctorView({ doctor }) {
             <div className="relative flex flex-row w-full text-center text-xs items-center h-1"></div>
           </div>
           <div className="text-white whitespace-nowrap">
+            <span className={`${clase} `}>{condition?.name}</span>
+          </div>
+          <div className="text-white whitespace-nowrap">
             <span className=" p-2 uppercase font-bold inline-flex text-center bg-green-700 text-pink-100 rounded-lg text-xs px-2 py-0">
-              {condition?.name}
+              Especialidad: {specialtie?.name}
             </span>
           </div>
         </div>
