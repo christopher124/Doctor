@@ -7,9 +7,11 @@ import { NotFound } from "../../pages/NotFound";
 import { QuotesView } from "../../pages/QuotesView";
 import { ServicesView } from "../../pages/ServicesView";
 import { UsView } from "../../pages/UsView";
-import { ClientsView } from "../../pages/admin/client/ClientsView";
 import { SideBar } from "../sidebar/SideBar";
 import { UserView } from "../../pages/admin/dashboard/UserView";
+import ListDocView from "../../pages/admin/dashboard/ListDocView";
+import { DocView } from "../../pages/admin/doctor/DocView";
+import NewDoctorView from "../../pages/admin/doctor/NewDoctorView";
 export function AppRouter() {
   return (
     <div>
@@ -25,8 +27,10 @@ export function AppRouter() {
         {/* Rutas privadas: */}
         <Route path="/admin" element={<SideBar />}>
           <Route path="dashboard" element={<DashboardView />} />
-          <Route path="clientes" element={<ClientsView />} />
-          <Route path="usuario" element={<UserView />} />
+          <Route path="doctores" element={<ListDocView />} />
+          <Route path="doctor/:id" element={<DocView />} />
+          <Route path="nuevo/doctor" element={<NewDoctorView />} />
+          <Route path="editar/:id" element={<UserView />} />
         </Route>
       </Routes>
       {/* Rutas privadas: */}

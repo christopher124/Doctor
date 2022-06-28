@@ -10,9 +10,8 @@ export function NavBarDashboard() {
     (async () => {
       const response = await getMeApi(logout);
       setUser(response);
-      console.log("Desde navnardas" + response);
     })();
-  }, [auth]);
+  }, [auth, logout]);
   return (
     <>
       <div className="ml-auto mb-6 ">

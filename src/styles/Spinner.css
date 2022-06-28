@@ -2,6 +2,7 @@
     width: 40px;
     height: 40px;
     position: relative;
+    left: 50%;
     animation: sk-chase 2.5s infinite linear both;
   }
   
@@ -19,7 +20,7 @@
     display: block;
     width: 25%;
     height: 25%;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(21,132,175);
     border-radius: 100%;
     animation: sk-chase-dot-before 2.0s infinite ease-in-out both; 
   }

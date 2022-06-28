@@ -9,9 +9,7 @@ export function SideBar() {
   const [collapseShow, setCollapseShow] = useState("hidden");
   const { auth, logout } = useAuth();
   useEffect(() => {
-    (async () => {
-      const response = await getMeApi(logout);
-    })();
+    (async () => {})();
   }, [auth, logout]);
   return (
     <>
@@ -83,25 +81,26 @@ export function SideBar() {
               {/* Navigation */}
 
               <ul className="lg:flex-col lg:min-w-full flex flex-col list-none">
+                <li className="items-center"></li>
                 <li className="items-center">
                   <Link
                     className={
                       "text-xs uppercase py-3 font-bold block " +
-                      (window.location.href.indexOf("/admin/clientes") !== -1
+                      (window.location.href.indexOf("/admin/doctores") !== -1
                         ? "text-black-700 hover:text-blue-600"
                         : "text-blue-700 hover:text-blue-500")
                     }
-                    to="/admin/clientes"
+                    to="/admin/doctores"
                   >
                     <i
                       className={
                         "fas fa-tv mr-2 text-sm " +
-                        (window.location.href.indexOf("/admin/clientes") !== -1
+                        (window.location.href.indexOf("/admin/doctores") !== -1
                           ? "opacity-75"
                           : "text-blue-300")
                       }
                     ></i>{" "}
-                    Clientes
+                    Doctores
                   </Link>
                 </li>
               </ul>

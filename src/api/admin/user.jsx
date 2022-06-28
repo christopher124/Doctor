@@ -54,6 +54,15 @@ export async function resetPasswordApi(email) {
     console.log(error);
   }
 }
+export async function getUserApi(logout) {
+  try {
+    const url = `${API_URL}/users`;
+    const result = await authFetch(url, null, logout);
+    return result ? result : null;
+  } catch (error) {
+    return null;
+  }
+}
 
 export async function getMeApi(logout) {
   try {

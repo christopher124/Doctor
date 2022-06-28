@@ -2,13 +2,15 @@ import { useState, useEffect } from "react";
 import { getCountUserApi } from "../../../api/admin/user";
 import { getDoctorApi, getCountDoctorApi } from "../../../api/admin/doctor";
 import { Spinner } from "../../../components/spinner/Spinner";
-import { DoctorView } from "../../../components/form/DoctorView";
+import { DoctorView } from "../../../components/doctor/DoctorView";
 import useAuth from "../../../hooks/useAuth";
 import { Link } from "react-router-dom";
 
 export function DashboardView() {
   const [Usercount, setUserCount] = useState(<Spinner />);
   const [Doctorcount, setDoctorCount] = useState(<Spinner />);
+  const [cargando, setCargando] = useState(true);
+
   const [doctor, setDoctor] = useState([]);
   const { auth, logout } = useAuth();
   useEffect(() => {
@@ -16,10 +18,15 @@ export function DashboardView() {
       const countUser = await getCountUserApi(logout);
       setUserCount(countUser);
       const doctor = await getDoctorApi(logout);
-      setDoctor(doctor);
+      setDoctor(doctor.slice(0, 2));
       const countDoctor = await getCountDoctorApi(logout);
       setDoctorCount(countDoctor);
-    })();
+      console.log(doctor);
+    })(
+      setTimeout(() => {
+        setCargando(!cargando);
+      })
+    );
   }, [auth, logout]);
 
   return (
@@ -107,13 +114,13 @@ export function DashboardView() {
                       <i className="fas fa-chart-bar text-white"></i>
                     </span>
                     <div className="text-ls font-bold text-white">
-                      Estatus Citas Médicas
+                      Lista de Especialistas
                     </div>
                   </div>
                 </div>
                 <div className="relative inline-block text-left z-10">
                   <Link
-                    to="/admin/clientes"
+                    to="/admin/doctores"
                     className="inline-flex items-center justify-center w-8 h-8 text-gray-900 bg-white rounded-full dark:bg-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none"
                   >
                     <i class="fas fa-solid fa-eye"></i>
@@ -122,9 +129,28 @@ export function DashboardView() {
               </div>
               <div className="flex flex-row w-full">
                 <div className="w-full mb-4">
-                  {doctor.map((doctor) => (
-                    <DoctorView key={doctor.id} doctor={doctor} />
-                  ))}
+                  {cargando ? (
+                    <Spinner />
+                  ) : Object.keys(doctor).length === 0 ? (
+                    <div className="flex flex-col items-center justify-center h-full">
+                      <div className="text-center text-white">
+                        No hay doctores registrados
+                      </div>
+                    </div>
+                  ) : (
+                    <div>
+                      {doctor.map((doctor) => (
+                        <DoctorView key={doctor.id} doctor={doctor} />
+                      ))}
+                      <div className="flex flex-col items-center justify-center h-full">
+                        <Link to="/admin/doctores">
+                          <button className="text-center underline  text-white">
+                            Ver mas
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -133,31 +159,20 @@ export function DashboardView() {
             <div className="w-full p-4 rounded-lg bg-white border border-gray-100 dark:bg-gray-900 dark:border-gray-800">
               <div className="flex flex-row items-center justify-between mb-6">
                 <div className="flex flex-col">
-                  <div className="text-sm font-light text-gray-500">Ventas</div>
+                  <div className="text-sm font-light text-white">
+                    Inventario
+                  </div>
                   <div className="text-sm font-bold">
-                    <span className="text-gray-500"> Este mes</span>
+                    <span className="text-white"> Lista de inventario</span>
                   </div>
                 </div>
                 <div className="relative inline-block text-left z-10">
-                  <button className="inline-flex items-center justify-center w-8 h-8 text-gray-900 bg-white rounded-full dark:bg-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none">
-                    <svg
-                      stroke="currentColor"
-                      fill="none"
-                      stroke-width="2"
-                      viewBox="0 0 24 24"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      className="text-lg stroke-current"
-                      aria-hidden="true"
-                      height="1em"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <circle cx="12" cy="12" r="1"></circle>
-                      <circle cx="12" cy="5" r="1"></circle>
-                      <circle cx="12" cy="19" r="1"></circle>
-                    </svg>
-                  </button>
+                  <Link
+                    to="/admin/inventario"
+                    className="inline-flex items-center justify-center w-8 h-8 text-gray-900 bg-white rounded-full dark:bg-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none"
+                  >
+                    <i class="fas fa-solid fa-eye"></i>
+                  </Link>
                 </div>
               </div>
               <div className="flex flex-row w-full">
@@ -169,6 +184,9 @@ export function DashboardView() {
               </div>
             </div>
           </div>
+        </div>
+        <div className="w-full lg:w-2/3">
+          <div className="w-full p-4 rounded-lg bg-white border border-gray-100 dark:bg-gray-900 dark:border-gray-800"></div>
         </div>
       </div>
     </>
