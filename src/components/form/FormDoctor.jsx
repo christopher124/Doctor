@@ -4,32 +4,37 @@ import useAuth from "../../hooks/useAuth";
 import { Form, Dropdown } from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
 import { getUserApi } from "../../api/admin/user";
-import { getDoctorApi } from "../../api/admin/doctor";
+import { createDoctorApi } from "../../api/admin/doctor";
+import { options, contriesOptions } from "../../api/data/data.js";
 import * as Yup from "yup";
-import { Spinner } from "../spinner/Spinner";
-import { ListDoctorView } from "../doctor/ListDoctorView";
+import { toast } from "react-toastify";
 export function FormDoctor() {
   const [user, setUser] = useState([]);
-  const getOptions = () => {
-    const name = getDoctorApi(logout);
-    return { key: name, text: name, value: name };
-  };
+
   const navigate = useNavigate();
   const { auth, logout } = useAuth();
-  useEffect(() => {
-    (async () => {
-      const user = await getDoctorApi(logout);
-      setUser(user);
-    })();
-  }, [auth]);
-
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: Yup.object(validationSchema()),
     onSubmit: async (formData) => {
-      console.log(formData);
+      createDoctor(formData);
     },
   });
+
+  const createDoctor = async (formData) => {
+    const formDataTemp = {
+      ...formData,
+      user: auth.idUser,
+    };
+    const newDoctor = await createDoctorApi(formDataTemp, logout);
+
+    if (!newDoctor) {
+      toast.warning("Error al crear el doctor");
+    } else {
+      toast.success("Doctor creado correctamente");
+      navigate("/admin/doctores");
+    }
+  };
 
   return (
     <div className="bg-white mt-10 px-5 py-10 rounded-md shadow-xl md:w-4/2 mx-auto">
@@ -37,11 +42,11 @@ export function FormDoctor() {
         Nuevo Doctor
       </h1>
       <Form onSubmit={formik.handleSubmit} className="mt-10">
-        <div className="grid xl:grid-cols-3 xl:gap-6">
-          <div className=" w-full mb-6 group">
+        <div className=" grid xl:grid-cols-3 xl:gap-6">
+          <div className="text-lg w-full mb-6 group">
             <text
               htmlFor="name"
-              className="block text-sm font-bold  text-gray-800 "
+              className="block text-xl font-bold  text-gray-800 "
             >
               Nombres
             </text>
@@ -55,10 +60,10 @@ export function FormDoctor() {
               placeholder="Nombres"
             />
           </div>
-          <div className=" w-full mb-6 group">
+          <div className="  w-full mb-6 group">
             <text
               htmlFor="last"
-              className="block text-sm font-medium text-gray-700"
+              className="block font-bold text-xl  text-gray-700"
             >
               Apellidos
             </text>
@@ -75,7 +80,7 @@ export function FormDoctor() {
           <div className=" w-full mb-6 group">
             <text
               htmlFor="gender"
-              className="block text-sm font-medium text-gray-700"
+              className="block font-bold text-xl text-gray-700"
             >
               Genero
             </text>
@@ -95,7 +100,7 @@ export function FormDoctor() {
           <div className="  w-full mb-6 group">
             <text
               htmlFor="address"
-              className="block text-sm font-medium text-gray-700"
+              className="block font-bold text-xl text-gray-700"
             >
               Calle y Numero
             </text>
@@ -103,15 +108,16 @@ export function FormDoctor() {
               type="text"
               name="address"
               id="address"
-              value={formik.values.adress}
-              error={formik.errors.adress}
+              value={formik.values.address}
+              error={formik.errors.address}
+              onChange={formik.handleChange}
               placeholder="AV. San pedro"
             />
           </div>
           <div className="  w-full mb-6 group">
             <text
               htmlFor="number_int_address"
-              className="block text-sm font-medium text-gray-700"
+              className="block font-bold text-xl text-gray-700"
             >
               Numero interior (Opcional)
             </text>
@@ -125,7 +131,7 @@ export function FormDoctor() {
           <div className=" w-full mb-6 group">
             <text
               htmlFor="zip"
-              className="block text-sm font-medium text-gray-700"
+              className="block font-bold text-xl text-gray-700"
             >
               Codigo postal
             </text>
@@ -133,13 +139,16 @@ export function FormDoctor() {
               type="text"
               name="zip"
               id="zip"
+              value={formik.values.zip}
+              error={formik.errors.zip}
+              onChange={formik.handleChange}
               placeholder="Codigo postal "
             />
           </div>
           <div className=" w-full mb-6 group">
             <text
               htmlFor="state"
-              className="block text-sm font-medium text-gray-700"
+              className="block font-bold text-xl text-gray-700"
             >
               Estado
             </text>
@@ -159,7 +168,7 @@ export function FormDoctor() {
           <div className="  w-full mb-6 group">
             <text
               htmlFor="phone"
-              className="block text-sm font-medium text-gray-700"
+              className="block font-bold text-xl text-gray-700"
             >
               Numero de Telefono
             </text>
@@ -167,38 +176,51 @@ export function FormDoctor() {
               type="tel"
               name="phone"
               id="phone"
+              value={formik.values.phone}
+              error={formik.errors.phone}
+              onChange={formik.handleChange}
               placeholder="Telefono"
             />
           </div>
           <div className="  w-full mb-6 group">
             <text
               htmlFor="birthday"
-              className="block text-sm font-medium text-gray-700"
+              className="block font-bold text-xl text-gray-700"
             >
               Fecha de cumpleaños
             </text>
-            <Form.Input type="date" name="birthday" id="birthday" />
+            <Form.Input
+              type="date"
+              value={formik.values.birthday}
+              error={formik.errors.birthday}
+              onChange={formik.handleChange}
+              name="birthday"
+              id="birthday"
+            />
           </div>
           <div className=" w-full mb-6 group">
             <text
               htmlFor="star"
-              className="block text-sm font-medium text-gray-700"
+              className="block font-bold text-xl text-gray-700"
             >
               Puntuacion del doctor
             </text>
             <Form.Input
-              type="number"
+              type="text"
+              value={formik.values.star}
+              error={formik.errors.star}
+              onChange={formik.handleChange}
               name="star"
               id="star"
               placeholder="5.0 "
             />
           </div>
         </div>
-        <div className="grid xl:grid-cols-3 xl:gap-6">
+        {/* <div className="grid xl:grid-cols-3 xl:gap-6">
           <div className="  w-full mb-6 group">
             <text
               htmlFor="phone"
-              className="block text-sm font-medium text-gray-700"
+              className="block font-bold text-xl text-gray-700"
             >
               Usuarios
             </text>
@@ -210,12 +232,12 @@ export function FormDoctor() {
               error={formik.errors.state}
               onChange={(_, data) => formik.setFieldValue("user", data.value)}
               selection
-            />
+            /> 
           </div>
           <div className="  w-full mb-6 group">
             <text
               htmlFor="birthday"
-              className="block text-sm font-medium text-gray-700"
+              className="block font-bold text-xl text-gray-700"
             >
               Especialidad
             </text>
@@ -224,12 +246,12 @@ export function FormDoctor() {
               fluid
               search
               selection
-            />
+            /> 
           </div>
           <div className=" w-full mb-6 group">
             <text
               htmlFor="condition"
-              className="block text-sm font-medium text-gray-700"
+              className="block font-bold text-xl text-gray-700"
             >
               Estatus del doctor
             </text>
@@ -238,9 +260,9 @@ export function FormDoctor() {
               fluid
               search
               selection
-            />
+            /> 
           </div>
-        </div>
+        </div> */}
 
         <button
           type="submit"
@@ -255,72 +277,37 @@ export function FormDoctor() {
 
 function initialValues() {
   return {
-    user: {},
     name: "",
     last: "",
     address: "",
     gender: "",
     phone: "",
-    condition: [],
-    specialite: [],
-    star: 0,
-    birthday: "",
-    state: "",
     number_int_address: "",
+    birthday: "",
+    star: parseFloat("0"),
+    state: "",
     zip: "",
+    // user: {},
+    // // condition: {},
+    // // specialite: {},
   };
 }
 function validationSchema() {
   return {
-    name: Yup.string().required(true),
-    last: Yup.string().required(true),
-    address: Yup.string().required(true),
+    name: Yup.string()
+      .min(3, "El Nombre es muy corto")
+      .max(50, "El Nombre es muy largo")
+      .required("El Nombre del Doctor es Obligatorio"),
+    last: Yup.string()
+      .min(3, "El Nombre es muy corto")
+      .max(50, "El Nombre es muy largo")
+      .required("El Nombre del Doctor es Obligatorio"),
+    address: Yup.string().required("La dirección del doctor es Obligatorio"),
     gender: Yup.string().required(true),
+    phone: Yup.string().min(10).max(10).required("El tefono es requerido"),
+    birthday: Yup.string().required(true),
+    state: Yup.string().required(true),
     zip: Yup.string().required(true),
-    star: Yup.number().required(true),
+    star: Yup.number().positive(true).min(0).max(5.0),
   };
 }
-
-const options = [
-  { key: "hombre", value: "hombre", text: "Masculino" },
-  { key: "mujer", value: "mujer", text: "Femenino" },
-];
-const contriesOptions = [
-  { key: "Baja California", value: "Baja California", text: "Baja California" },
-  {
-    key: "Baja California Sur",
-    value: "Baja California Sur",
-    text: "Baja California Sur",
-  },
-  { key: "Campeche", value: "Campeche", text: "Campeche" },
-  { key: "Coahuila", value: "Coahuila", text: "Coahuila" },
-  { key: "Colima", value: "Colima", text: "Colima" },
-  { key: "Chiapas", value: "Chiapas", text: "Chiapas" },
-  { key: "Chihuahua", value: "Chihuahua", text: "Chihuahua" },
-  { key: "Durango", value: "Durango", text: "Durango" },
-  {
-    key: "Distrito Federal",
-    value: "Distrito Federal",
-    text: "Distrito Federal",
-  },
-  { key: "Guanajuato", value: "Guanajuato", text: "Guanajuato" },
-  { key: "Hidalgo", value: "Hidalgo", text: "Hidalgo" },
-  { key: "Jalisco", value: "Jalisco", text: "Jalisco" },
-  { key: "México", value: "México", text: "México" },
-  { key: "Morelos", value: "Morelos", text: "Morelos" },
-  { key: "Nayarit", value: " Nayarit", text: "Nayarit" },
-  { key: "Nuevo León", value: "Nuevo León", text: "Nuevo León" },
-  { key: "Oaxaca", value: "Oaxaca", text: "Oaxaca" },
-  { key: "Puebla", value: "Puebla", text: "Puebla" },
-  { key: "Querétaro", value: "Querétaro", text: "Querétaro" },
-  { key: "Quintana Roo", value: "Quintana Roo", text: "Quintana Roo" },
-  { key: "San Luis Potosí", value: "San Luis Potosí", text: "San Luis Potosí" },
-  { key: "Sinaloa", value: "Sinaloa", text: "Sinaloa" },
-  { key: "Sonora", value: "Sonora", text: "Sonora" },
-  { key: "Tabasco", value: "Tabasco", text: "Tabasco" },
-  { key: "Tamaulipas", value: "Tamaulipas", text: "Tamaulipas" },
-  { key: "Tlaxcala", value: "Tlaxcala", text: "Tlaxcala" },
-  { key: "Veracruz", value: "Veracruz", text: "Veracruz" },
-  { key: "Yucatán", value: "Yucatán", text: "Yucatán" },
-  { key: "Zacatecas", value: "Zacatecas", text: "Zacatecas" },
-];

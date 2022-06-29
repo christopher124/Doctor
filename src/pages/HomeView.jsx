@@ -5,11 +5,11 @@ export function HomeView() {
   return (
     <>
       <NavBar fixed />
-      <section className="header relative pt-16 items-center flex h-screen max-h-860-px">
+      <section className=" font-noto header relative pt-16 items-center flex h-screen max-h-860-px">
         <div className="container mx-auto items-center flex flex-wrap">
           <div className="w-full md:w-8/12 lg:w-6/12 xl:w-6/12 px-4">
             <div className="pt-32 sm:pt-0">
-              <h2 className="font-semibold text-4xl text-blueGray-600">
+              <h2 className=" font-bold text-4xl text-blueGray-600">
                 Clinica Santa Barbara
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
@@ -25,7 +25,7 @@ export function HomeView() {
                 </Link>
                 <a
                   href="https://play.google.com/store/apps/details?id=com.christopherurielsosagarcia.qrcode"
-                  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                  className=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                   target="_blank"
                 >
                   Descargar App
@@ -42,7 +42,7 @@ export function HomeView() {
         />
       </section>
 
-      <section className="mt-48 md:mt-40 pb-40 relative bg-blue-100">
+      <section className=" font-noto mt-48 md:mt-40 pb-40 relative bg-blue-100">
         <div
           className="-mt-20 top-0 bottom-auto left-0 right-0 w-full absolute h-20"
           style={{ transform: "translateZ(0)" }}

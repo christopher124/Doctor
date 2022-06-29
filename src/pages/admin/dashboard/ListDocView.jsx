@@ -63,6 +63,15 @@ export default function ListDocView() {
               </div>
             </div>
           </div>
+          <div className="shrink-0 space-x-2">
+            <button
+              onClick={() => navigate("/admin/nuevo/doctor")}
+              className="flex flex-row items-center justify-center px-4 py-2 text-xs font-bold text-white uppercase bg-blue-500 rounded-lg hover:bg-blue-600 space-x-1"
+            >
+              <i className="fa fa-solid fa-plus"></i>
+              <span>Nuevo Registro</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -101,7 +110,7 @@ export default function ListDocView() {
                 Correo
               </th>
               <th scope="col" className=" text-white py-3 px-6 text-left">
-                Edad
+                Fecha de cumpleaños
               </th>
               {/* <th scope="col" className="text-white py-3 px-6 text-left">
                 Direccion

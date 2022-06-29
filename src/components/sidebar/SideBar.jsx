@@ -14,7 +14,7 @@ export function SideBar() {
   return (
     <>
       <>
-        <nav className="lg:left-0 lg:block lg:fixed lg:top-0 lg:bottom-0 lg:overflow-y-auto lg:flex-row lg:flex-nowrap lg:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative lg:w-64 z-10 py-4 px-6">
+        <nav className="font-noto lg:left-0 lg:block lg:fixed lg:top-0 lg:bottom-0 lg:overflow-y-auto lg:flex-row lg:flex-nowrap lg:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative lg:w-64 z-10 py-4 px-6">
           <div className="lg:flex-col lg:items-stretch lg:min-h-full lg:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto">
             {/* Toggler */}
             <button
@@ -121,7 +121,7 @@ export function SideBar() {
           </div>
         </nav>
 
-        <div className="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
+        <div className="font-noto ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
           <NavBarDashboard />
           <Outlet />
         </div>

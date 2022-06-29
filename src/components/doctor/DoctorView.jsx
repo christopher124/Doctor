@@ -19,8 +19,10 @@ export function DoctorView({ doctor }) {
       );
     } else if (condition?.name === "En consulta") {
       setClase(
-        " p-2 uppercase font-bold inline-flex text-center bg-yellow-700 text-pink-100 rounded-lg text-xs px-2 py-0 "
+        " p-2 uppercase font-bold inline-flex text-center bg-yellow-400 text-pink-100 rounded-lg text-xs px-2 py-0 "
       );
+    } else if (condition === null) {
+      setClase(" text-white whitespace-nowrap ");
     } else {
       setClase(
         " p-2 uppercase font-bold inline-flex text-center bg-red-700 text-pink-100 rounded-lg text-xs px-2 py-0 "
@@ -48,11 +50,13 @@ export function DoctorView({ doctor }) {
             <div className="relative flex flex-row w-full text-center text-xs items-center h-1"></div>
           </div>
           <div className="text-white whitespace-nowrap">
-            <span className={`${clase} `}>{condition?.name}</span>
+            <span className=" text-white whitespace-nowrap">
+              Especialidad: {specialtie?.name ? specialtie?.name : "N/A"}
+            </span>
           </div>
           <div className="text-white whitespace-nowrap">
-            <span className=" p-2 uppercase font-bold inline-flex text-center bg-green-700 text-pink-100 rounded-lg text-xs px-2 py-0">
-              Especialidad: {specialtie?.name}
+            <span className={`${clase} `}>
+              Estatus: {condition?.name ? condition?.name : "N/A"}
             </span>
           </div>
         </div>

@@ -1,6 +1,25 @@
 import { API_URL } from "../../utils/constants";
 import { authFetch } from "../../utils/fetch";
 
+export async function createDoctorApi(doctor, logout) {
+  try {
+    const url = `${API_URL}/doctors`;
+    const params = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(doctor),
+    };
+    const result = await authFetch(url, params, logout);
+    if (result.statusCode === 500) throw "Error del servidor";
+    return true;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+}
+
 export async function getDoctorApi(logout) {
   try {
     const url = `${API_URL}/doctors`;

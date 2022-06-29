@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { format } from "date-fns";
+
 export function ListDoctorView({ doctor, handleDelited }) {
   const navigate = useNavigate();
 
-  const { name, last, user, age, id, phone, condition, specialtie } = doctor;
+  const { name, last, user, birthday, id, phone, condition, specialtie } =
+    doctor;
   const [estadoDoctor, setEstadoDoctor] = useState(condition?.name);
   const [clase, setClase] = useState("");
 
@@ -12,6 +15,7 @@ export function ListDoctorView({ doctor, handleDelited }) {
       setEstadoDoctor(estadoDoctor);
     }
     claseDoctor();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [estadoDoctor]);
 
   //funcion que modifica el color del pedido de acuerdo a su estado
@@ -22,8 +26,10 @@ export function ListDoctorView({ doctor, handleDelited }) {
       );
     } else if (condition?.name === "En consulta") {
       setClase(
-        " p-2 uppercase font-bold inline-flex text-center bg-yellow-700 text-pink-100 rounded-lg text-xs px-2 py-0 "
+        " p-2 uppercase font-bold inline-flex text-center bg-yellow-400 text-pink-100 rounded-lg text-xs px-2 py-0 "
       );
+    } else if (condition === null) {
+      setClase(" p-2 uppercase font-bold inline-flex text-center ");
     } else {
       setClase(
         " p-2 uppercase font-bold inline-flex text-center bg-red-700 text-pink-100 rounded-lg text-xs px-2 py-0 "
@@ -40,8 +46,12 @@ export function ListDoctorView({ doctor, handleDelited }) {
         >
           {name} {last}
         </th>
-        <td className="text-white px-6 py-4">{user?.email}</td>
-        <td className="text-white px-6 py-4">{age}</td>
+        <td className="text-white px-6 py-4">
+          {user?.email ? user?.email : "N/A"}
+        </td>
+        <td className="text-white px-6 py-4">
+          {format(new Date(birthday), "dd/MM/yyyy")}
+        </td>
         {/* <td className="text-white px-6 py-4">{adress}</td> */}
         <td className="text-white px-6 py-4">{phone}</td>
         <td className="text-white whitespace-nowrap">
@@ -50,7 +60,9 @@ export function ListDoctorView({ doctor, handleDelited }) {
               aria-hidden
               className={`${clase} absolute inset-0  rounded-full`}
             ></span>
-            <span className="relative">{condition?.name}</span>
+            <span className="relative">
+              {condition?.name ? condition?.name : "N/A"}
+            </span>
           </span>
         </td>
         <td className="text-white px-6 py-4">

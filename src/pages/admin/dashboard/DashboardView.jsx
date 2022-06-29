@@ -36,9 +36,9 @@ export function DashboardView() {
           <div className="flex flex-row items-center justify-between mb-4">
             <div className="flex flex-col">
               <div className="text-xs font-bold text-gray-500 uppercase">
-                <span className="text-gray-600">Vista General</span>
+                <span className="font-mont  text-gray-600">Vista General</span>
                 <div className="text-xl font-bold">
-                  <span className="text-gray-600">Dashboard</span>
+                  <span className="font-mont text-gray-600">Dashboard</span>
                 </div>
               </div>
             </div>
@@ -49,9 +49,11 @@ export function DashboardView() {
             <div className="w-full p-4 rounded-lg bg-white border border-gray-100 dark:bg-gray-800 dark:border-gray-800">
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-col">
-                  <div className="text-xs font-bold text-white uppercase">
+                  <div className="font-mont font-semibold  text-xs  text-white uppercase">
                     Usuarios
-                    <div className=" p-1.5 text-xl font-bold">{Usercount}</div>
+                    <div className=" font-mont  p-1.5 text-xl font-bold">
+                      {Usercount}
+                    </div>
                   </div>
                 </div>
                 <i className="fas fa-users text-white"></i>
@@ -62,9 +64,9 @@ export function DashboardView() {
             <div className="w-full p-4 rounded-lg bg-white border border-gray-100 dark:bg-gray-800 dark:border-gray-800">
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-col">
-                  <div className="text-xs font-bold text-white uppercase">
+                  <div className="text-mont text-xs font-bold text-white uppercase">
                     Doctores
-                    <div className="p-1.5 text-xl font-bold">
+                    <div className=" p-1.5 text-xl font-bold">
                       {Doctorcount ? Doctorcount : "0"}
                     </div>
                   </div>

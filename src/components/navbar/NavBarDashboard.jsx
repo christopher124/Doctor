@@ -14,10 +14,10 @@ export function NavBarDashboard() {
   }, [auth, logout]);
   return (
     <>
-      <div className="ml-auto mb-6 ">
-        <div className="sticky top-0 h-16 border-b bg-white lg:py-2.5">
-          <div className="px-6 flex items-center justify-between space-x-4 2xl:container">
-            <h5 hidden className="text-2xl text-gray-600 font-medium lg:block">
+      <div className="font-noto ml-auto mb-6 ">
+        <div className="font-noto sticky top-0 h-16 border-b bg-white lg:py-2.5">
+          <div className="font-noto px-6 flex items-center justify-between space-x-4 2xl:container">
+            <h5 hidden className=" text-2xl text-gray-600 font-medium lg:block">
               Bienvenido {user?.username}
             </h5>
             <button className="w-12 h-16 -mr-2  lg:hidden"></button>

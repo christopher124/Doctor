@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Spinner } from "../../../components/spinner/Spinner";
 import { useParams } from "react-router-dom";
-import { format, parse } from "date-fns";
+import { format } from "date-fns";
 import { Rating } from "@mui/material";
 
 import useAuth from "../../../hooks/useAuth";
@@ -38,7 +38,7 @@ export function DocView() {
     })(
       setTimeout(() => {
         setCargando(!cargando);
-      }, 3000)
+      }, 1500)
     );
   }, [logout]);
 
@@ -125,13 +125,19 @@ export function DocView() {
                 Nombre de usuario:{" "}
                 <span className="text-bold">{user?.username}</span>
               </p>
-              <Rating
-                className="py-1"
-                name="half-rating-read"
-                value={star ? star : 0}
-                precision={0.5}
-                readOnly
-              />
+              <div>
+                {" "}
+                <p className=" text-white font-normal">
+                  Puntuacion del doctor:{" "}
+                  <Rating
+                    className="py-0"
+                    name="half-rating-read"
+                    value={star ? star : 0}
+                    precision={0.5}
+                    readOnly
+                  />
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -182,11 +188,17 @@ export function DocView() {
 
               <p className="py-1 text-white font-normal">
                 Fecha de creacion:{" "}
-                <span className="text-bold"> {created_at}</span>
+                <span className="text-bold">
+                  {" "}
+                  {format(new Date(created_at), "dd/MM/yyyy HH:mm:ss")}
+                </span>
               </p>
               <p className="py-1 text-white font-normal">
                 Ultima Actulizacion:{" "}
-                <span className="text-bold"> {updated_at}</span>
+                <span className="text-bold">
+                  {" "}
+                  {format(new Date(updated_at), "dd/MM/yyyy HH:mm:ss")}{" "}
+                </span>
               </p>
             </div>
           </div>
