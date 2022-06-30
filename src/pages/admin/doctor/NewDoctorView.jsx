@@ -1,7 +1,7 @@
 import React from "react";
 import { FormDoctor } from "../../../components/form/FormDoctor";
 
-export default function NewDoctorView() {
+export function NewDoctorView() {
   return (
     <>
       <div className="w-full min-h-screen p-4">

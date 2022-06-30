@@ -4,8 +4,9 @@ import useAuth from "../../hooks/useAuth";
 import { getMeApi } from "../../api/admin/user";
 
 export function NavBarDashboard() {
-  const [user, setUser] = useState(undefined);
+  const [user, setUser] = useState([]);
   const { auth, logout } = useAuth();
+  console.log(user);
   useEffect(() => {
     (async () => {
       const response = await getMeApi(logout);

@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import { getDoctorApi, deleteDoctorApi } from "../../../api/admin/doctor";
-import { ListDoctorView } from "../../../components/doctor/ListDoctorView";
+import { ListDoctorView } from "../../../components/Admin/doctor/ListDoctorView";
 import { Spinner } from "../../../components/spinner/Spinner";
 import Swal from "sweetalert2";
-export default function ListDocView() {
+export function ListDocView() {
   const navigate = useNavigate();
   const [doctor, setDoctor] = useState([]);
   const [cargando, setCargando] = useState(true);

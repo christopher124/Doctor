@@ -5,7 +5,7 @@ export function UsView() {
   return (
     <>
       <NavBar transparent />
-      <main className="font-mont">
+      <main className="font-noto">
         <div className="relative pt-16 pb-32 flex content-center items-center justify-center">
           <div
             className="absolute top-0 w-full h-full bg-center bg-cover"

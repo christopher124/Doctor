@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { getCountUserApi } from "../../../api/admin/user";
 import { getDoctorApi, getCountDoctorApi } from "../../../api/admin/doctor";
 import { Spinner } from "../../../components/spinner/Spinner";
-import { DoctorView } from "../../../components/doctor/DoctorView";
+import { DoctorView } from "../../../components/Admin/doctor/DoctorView";
 import useAuth from "../../../hooks/useAuth";
 import { Link } from "react-router-dom";
 

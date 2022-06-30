@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Spinner } from "../spinner/Spinner";
 export function DoctorView({ doctor }) {
   const { name, last, adress, condition, phone, specialtie } = doctor;
 

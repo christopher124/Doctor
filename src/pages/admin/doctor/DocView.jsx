@@ -15,7 +15,6 @@ export function DocView() {
     name,
     last,
     user,
-    age,
     birthday,
     adress,
     gender,
@@ -40,7 +39,8 @@ export function DocView() {
         setCargando(!cargando);
       }, 1500)
     );
-  }, [logout]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [logout, auth]);
 
   //funcion que modifica el color del pedido de acuerdo a su estado
 

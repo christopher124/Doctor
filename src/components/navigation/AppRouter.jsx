@@ -9,9 +9,12 @@ import { ServicesView } from "../../pages/ServicesView";
 import { UsView } from "../../pages/UsView";
 import { SideBar } from "../sidebar/SideBar";
 import { UserView } from "../../pages/admin/dashboard/UserView";
-import ListDocView from "../../pages/admin/dashboard/ListDocView";
+import { ListDocView } from "../../pages/admin/doctor/ListDocView";
 import { DocView } from "../../pages/admin/doctor/DocView";
-import NewDoctorView from "../../pages/admin/doctor/NewDoctorView";
+import { NewDoctorView } from "../../pages/admin/doctor/NewDoctorView";
+import { ListUseView } from "../../pages/admin/users/ListUseView";
+import { NewUserView } from "../../pages/admin/users/NewUserView";
+import { EditUserView } from "../../pages/admin/users/EditUserView";
 export function AppRouter() {
   return (
     <div>
@@ -30,7 +33,9 @@ export function AppRouter() {
           <Route path="doctores" element={<ListDocView />} />
           <Route path="doctor/:id" element={<DocView />} />
           <Route path="nuevo/doctor" element={<NewDoctorView />} />
-          <Route path="editar/:id" element={<UserView />} />
+          <Route path="usuarios" element={<ListUseView />} />
+          <Route path="nuevo/usuario" element={<NewUserView />} />
+          <Route path="editar/usuario/:id" element={<EditUserView />} />
         </Route>
       </Routes>
       {/* Rutas privadas: */}
