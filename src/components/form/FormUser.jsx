@@ -44,7 +44,7 @@ export function FormUser({ user, cargando }) {
   };
 
   return (
-    <div className="bg-white mt-10 px-5 py-10 rounded-md shadow-xl md:w-4/2 mx-auto">
+    <div className=" mt-10 px-5 py-10 rounded-md shadow-xl md:w-4/2 mx-auto">
       <h1 className="text-gray-600 font-bold text-xl uppercase text-center">
         {user?.username ? "Editar usuario" : "Agregar Cliente"}
       </h1>
