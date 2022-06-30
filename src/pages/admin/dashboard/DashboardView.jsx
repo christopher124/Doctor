@@ -46,7 +46,7 @@ export function DashboardView() {
         </div>
         <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
           <div className="w-full lg:w-1/4">
-            <div className="w-full p-4 rounded-lg bg-white border border-gray-100 dark:bg-gray-800 dark:border-gray-800">
+            <div className="w-full p-4 rounded-lg  border border-gray-100 bg-gray-800 dark:border-gray-800">
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-col">
                   <div className="font-mont font-semibold  text-xs  text-white uppercase">
@@ -61,7 +61,7 @@ export function DashboardView() {
             </div>
           </div>
           <div className="w-full lg:w-1/4">
-            <div className="w-full p-4 rounded-lg bg-white border border-gray-100 dark:bg-gray-800 dark:border-gray-800">
+            <div className="w-full p-4 rounded-lg  border border-gray-100 dark:bg-gray-800 dark:border-gray-800">
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-col">
                   <div className="text-mont text-xs font-bold text-white uppercase">
@@ -77,7 +77,7 @@ export function DashboardView() {
           </div>
           <div className="w-full lg:w-1/4">
             {" "}
-            <div className="w-full p-4 rounded-lg bg-white border border-gray-100 dark:bg-gray-800 dark:border-gray-800">
+            <div className="w-full p-4 rounded-lg  border border-gray-100 dark:bg-gray-800 dark:border-gray-800">
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-col">
                   <div className="text-xs font-bold text-white uppercase">
@@ -93,7 +93,7 @@ export function DashboardView() {
           </div>
           <div className="w-full lg:w-1/4">
             {" "}
-            <div className="w-full p-4 rounded-lg bg-white border border-gray-100 dark:bg-gray-800 dark:border-gray-800">
+            <div className="w-full p-4 rounded-lg  border border-gray-100 dark:bg-gray-800 dark:border-gray-800">
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-col">
                   <div className="text-xs font-bold text-white uppercase">
@@ -108,7 +108,7 @@ export function DashboardView() {
         </div>
         <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
           <div className="w-full lg:w-1/2">
-            <div className="w-full p-4 rounded-lg bg-white border border-gray-100 dark:bg-gray-900 dark:border-gray-800">
+            <div className="w-full p-4 rounded-lg  border border-gray-100 dark:bg-gray-900 dark:border-gray-800">
               <div className="flex flex-row items-center justify-between mb-6">
                 <div className="flex flex-col">
                   <div className="text-sm font-light text-white">
@@ -123,7 +123,7 @@ export function DashboardView() {
                 <div className="relative inline-block text-left z-10">
                   <Link
                     to="/admin/doctores"
-                    className="inline-flex items-center justify-center w-8 h-8 text-gray-900 bg-white rounded-full dark:bg-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none"
+                    className="inline-flex items-center justify-center w-8 h-8 text-gray-900  rounded-full dark:bg-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none"
                   >
                     <i className="fas fa-solid fa-eye"></i>
                   </Link>
@@ -158,7 +158,7 @@ export function DashboardView() {
             </div>
           </div>
           <div className="w-full lg:w-1/2">
-            <div className="w-full p-4 rounded-lg bg-white border border-gray-100 dark:bg-gray-900 dark:border-gray-800">
+            <div className="w-full p-4 rounded-lg  border border-gray-100 dark:bg-gray-900 dark:border-gray-800">
               <div className="flex flex-row items-center justify-between mb-6">
                 <div className="flex flex-col">
                   <div className="text-sm font-light text-white">
@@ -171,9 +171,9 @@ export function DashboardView() {
                 <div className="relative inline-block text-left z-10">
                   <Link
                     to="/admin/inventario"
-                    className="inline-flex items-center justify-center w-8 h-8 text-gray-900 bg-white rounded-full dark:bg-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none"
+                    className="inline-flex items-center justify-center w-8 h-8 text-gray-900  rounded-full dark:bg-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none"
                   >
-                    <i className="fas fa-solid fa-eye"></i>
+                    <i class="fas fa-solid fa-eye"></i>
                   </Link>
                 </div>
               </div>
@@ -188,7 +188,7 @@ export function DashboardView() {
           </div>
         </div>
         <div className="w-full lg:w-2/3">
-          <div className="w-full p-4 rounded-lg bg-white border border-gray-100 dark:bg-gray-900 dark:border-gray-800"></div>
+          <div className="w-full p-4 rounded-lg  border border-gray-100 dark:bg-gray-900 dark:border-gray-800"></div>
         </div>
       </div>
     </>
