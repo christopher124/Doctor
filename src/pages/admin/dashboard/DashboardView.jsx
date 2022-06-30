@@ -125,7 +125,7 @@ export function DashboardView() {
                     to="/admin/doctores"
                     className="inline-flex items-center justify-center w-8 h-8 text-gray-900 bg-white rounded-full dark:bg-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none"
                   >
-                    <i class="fas fa-solid fa-eye"></i>
+                    <i className="fas fa-solid fa-eye"></i>
                   </Link>
                 </div>
               </div>
@@ -173,7 +173,7 @@ export function DashboardView() {
                     to="/admin/inventario"
                     className="inline-flex items-center justify-center w-8 h-8 text-gray-900 bg-white rounded-full dark:bg-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none"
                   >
-                    <i class="fas fa-solid fa-eye"></i>
+                    <i className="fas fa-solid fa-eye"></i>
                   </Link>
                 </div>
               </div>

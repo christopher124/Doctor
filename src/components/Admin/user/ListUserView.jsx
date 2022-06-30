@@ -7,10 +7,10 @@ export function ListUserView({ user, handleDelited }) {
 
   return (
     <>
-      <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+      <tr className=" border-b bg-gray-800 border-gray-700">
         <th
           scope="row"
-          className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
+          className="px-6 py-4 font-medium text-gray-900  whitespace-nowrap"
         >
           <img
             className="h-20 w-20 rounded-full"
