@@ -95,7 +95,7 @@ export function DocView() {
       </div>
       <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
         <div className="w-full lg:w-1/3">
-          <div className="w-full p-4 rounded-lg bg-white border border-gray-100 dark:bg-gray-900 dark:border-gray-800">
+          <div className="w-full p-4 rounded-lg bg-white border border-gray-100 bg-gray-900 border-gray-800">
             <div className="flex flex-row items-center justify-between mb-6">
               <div className="flex flex-col">
                 <div className="text-sm font-light text-white">Doctor</div>
@@ -142,7 +142,7 @@ export function DocView() {
           </div>
         </div>
         <div className="w-full lg:w-2/3">
-          <div className="w-full p-4 rounded-lg bg-white border border-gray-100 dark:bg-gray-900 dark:border-gray-800">
+          <div className="w-full p-4 rounded-lg bg-white border border-gray-100 bg-gray-900 border-gray-800">
             <div className="flex flex-row items-center justify-between mb-6">
               <div className="flex flex-col">
                 <div className="text-sm font-bold text-white">Doctor</div>
