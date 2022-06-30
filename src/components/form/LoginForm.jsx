@@ -5,6 +5,7 @@ import { loginApi, resetPasswordApi } from "../../api/admin/user";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useAuth from "../../hooks/useAuth";
+import Clinica from "../../assets/img/LogoClinica.jpeg"
 
 export function LoginForm() {
   const navigate = useNavigate();
@@ -42,124 +43,120 @@ export function LoginForm() {
 
   return (
     <>
-      <section className="font-noto relative flex flex-wrap lg:h-screen lg:items-center">
-        <div className="w-full px-4 py-12 lg:w-1/2 sm:px-6 lg:px-8 sm:py-16 lg:py-24">
-          <div className="max-w-lg mx-auto text-center">
-            <h1 className="text-2xl font-bold sm:text-3xl">
-              Get started today!
-            </h1>
-
-            <p className="mt-4 text-gray-500">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero
-              nulla eaque error neque ipsa culpa autem, at itaque nostrum!
+      <div className="flex w-full h-screen bg-[#2ea4e1]">
+        <div className="w-full flex items-center justify-center lg:w-1/2">
+          <div className="bg-white px-10 py-20 rounded-3xl border-2 border-gray-100">
+            <h1 className="text-5xl font-semibold">Bienvenido</h1>
+            <p className="font-medium text-lg text-gray-500 mt-4">
+              ¡Bienvenido! por favor ingresa tus datos.
             </p>
-          </div>
-
-          <form
-            onSubmit={formik.handleSubmit}
-            action=""
-            className="max-w-md mx-auto mt-8 mb-0 space-y-4"
-          >
-            <div>
-              <label htmlFor="email" className="sr-only">
-                Email
-              </label>
-
-              <div className="relative">
-                <input
-                  type="email"
-                  name="identifier"
-                  onChange={formik.handleChange}
-                  error={formik.touched.identifier && formik.errors.identifier}
-                  className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
-                  placeholder="Enter email"
-                />
-
-                <span className="absolute inset-y-0 inline-flex items-center right-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-5 h-5 text-gray-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="password" className="sr-only">
-                Password
-              </label>
-              <div className="relative">
-                <input
-                  type="password"
-                  name="password"
-                  className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
-                  placeholder="Enter password"
-                  onChange={formik.handleChange}
-                  error={formik.touched.password && formik.errors.password}
-                />
-
-                <span className="absolute inset-y-0 inline-flex items-center right-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-5 h-5 text-gray-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between">
-              <button
-                type="button"
-                onClick={resetPassword}
-                class="text-sm text-gray-500"
+            <div className=" mt-8">
+              <form
+                onSubmit={formik.handleSubmit}
+                action=""
+                className="max-w-md mx-auto mt-8 mb-0 space-y-4"
               >
-                ¿Has olvidado tu contraseña?
-              </button>
-              <button
-                loading={loading}
-                type="submit"
-                className="inline-block px-5 py-3 ml-3 text-sm font-medium text-white bg-blue-500 rounded-lg"
-              >
-                Iniciar sesion
-              </button>
-            </div>
-          </form>
-        </div>
+                <div>
+                  <label htmlFor="email" className="text-lg font-medium">
+                    Email
+                  </label>
+                  <div className="relative">
+                    <input
+                      type="email"
+                      name="identifier"
+                      onChange={formik.handleChange}
+                      error={formik.touched.identifier && formik.errors.identifier}
+                      className="w-full border-2 border-gray-100 rounded-xl p-3 mt-1 bg-transparent"
+                      placeholder="Example@gmail.com"
+                    />
 
-        <div className="relative w-full h-64 sm:h-96 lg:w-1/2 lg:h-full">
-          <img
-            className="absolute inset-0 object-cover w-full h-full"
-            src="https://www.hyperui.dev/photos/team-1.jpeg"
-            alt=""
-          />
+                    <span className="absolute inset-y-0 inline-flex items-center right-4">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-5 h-5 text-gray-400"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="password" className="text-lg font-medium">
+                    Password
+                  </label>
+                  <div className="relative">
+                    <input
+                      type="password"
+                      name="password"
+                      className="w-full border-2 border-gray-100 rounded-xl p-3 mt-1 bg-transparent"
+                      placeholder="Enter password"
+                      onChange={formik.handleChange}
+                      error={formik.touched.password && formik.errors.password}
+                    />
+
+                    <span className="absolute inset-y-0 inline-flex items-center right-4">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-5 h-5 text-gray-400"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+
+                <div className=" mt-7 items-center ml-12">
+                  <button
+                    type="button"
+                    onClick={resetPassword}
+                    className="font-medium text-base text-violet-500"
+                  >
+                    ¿Has olvidado tu contraseña?
+                  </button>
+                </div>
+                <div className="mt-12 flex flex-col gap-y-4">
+                  <button
+                    loading={loading}
+                    type="submit"
+                    className="active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all py-3 rounded-xl bg-violet-500 text-white text-lg font-bold"
+                  >
+                    Iniciar sesion
+                  </button>
+                </div>
+              </form>
+
+            </div>
+          </div>{/*section*/}
         </div>
-      </section>
+        <div className="hidden relative lg:flex h-full w-1/2 items-center justify-center bg-gray-200">
+          <div className="w-60 h-60 bg-gradient-to-tr" />
+          <img src={Clinica} alt=""></img>
+          <div className="w-full h-1/2 absolute bottom-0 bg-white/10" />
+        </div>
+      </div> {/*section*/}
     </>
   );
 }
