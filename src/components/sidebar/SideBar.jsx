@@ -82,6 +82,7 @@ export function SideBar() {
 
               <ul className="lg:flex-col lg:min-w-full flex flex-col list-none">
                 <li className="items-center"></li>
+                <h2>Administracion</h2>
                 <li className="items-center">
                   <Link
                     className={
@@ -94,13 +95,32 @@ export function SideBar() {
                   >
                     <i
                       className={
-                        "fas fa-tv mr-2 text-sm " +
+                        "fas fa-stethoscope mr-2 text-base " +
                         (window.location.href.indexOf("/admin/doctores") !== -1
                           ? "opacity-75"
                           : "text-blue-300")
                       }
                     ></i>{" "}
                     Doctores
+                  </Link>
+                  <Link
+                    className={
+                      "text-xs uppercase py-3 font-bold block " +
+                      (window.location.href.indexOf("/admin/usuarios") !== -1
+                        ? "text-black-700 hover:text-blue-600"
+                        : "text-blue-700 hover:text-blue-500")
+                    }
+                    to="/admin/usuarios"
+                  >
+                    <i
+                      className={
+                        "fas fa-user  mr-2 text-base " +
+                        (window.location.href.indexOf("/admin/usuarios") !== -1
+                          ? "opacity-75"
+                          : "text-blue-300")
+                      }
+                    ></i>{" "}
+                    Usuarios
                   </Link>
                 </li>
               </ul>

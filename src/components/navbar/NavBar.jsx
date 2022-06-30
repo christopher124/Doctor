@@ -34,7 +34,12 @@ export function NavBar(props) {
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               <li className="flex items-center">
                 <Link
-                  className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                  className={
+                    "px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold " +
+                    (window.location.href.indexOf("/nosotros") !== -1
+                      ? "text-black-700 hover:text-blue-600"
+                      : "text-blue-700 hover:text-blue-500")
+                  }
                   to="/nosotros"
                 >
                   Nosotros
@@ -43,8 +48,13 @@ export function NavBar(props) {
 
               <li className="flex items-center">
                 <Link
-                  className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                  to="/Servicios"
+                  className={
+                    "px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold " +
+                    (window.location.href.indexOf("/servicios") !== -1
+                      ? "text-black-700 hover:text-blue-600"
+                      : "text-blue-700 hover:text-blue-500")
+                  }
+                  to="/servicios"
                 >
                   Servicios
                 </Link>
@@ -52,7 +62,12 @@ export function NavBar(props) {
 
               <li className="flex items-center">
                 <Link
-                  className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                  className={
+                    "px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold " +
+                    (window.location.href.indexOf("/login") !== -1
+                      ? "text-black-700 hover:text-blue-600"
+                      : "text-blue-700 hover:text-blue-500")
+                  }
                   to="/login"
                 >
                   Iniciar sesión
