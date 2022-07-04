@@ -34,7 +34,7 @@ export function EditUserView() {
           </div>
         </div>
       </div>
-      {user?.email ? (
+      {user?.username ? (
         <FormUser user={user} cargando={cargando} />
       ) : (
         <p>Cliente ID no Valido</p>

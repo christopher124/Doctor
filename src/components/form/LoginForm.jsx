@@ -5,7 +5,7 @@ import { loginApi, resetPasswordApi } from "../../api/admin/user";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useAuth from "../../hooks/useAuth";
-import Clinica from "../../assets/img/LogoClinica.jpeg"
+import Clinica from "../../assets/img/LogoClinica.jpeg";
 
 export function LoginForm() {
   const navigate = useNavigate();
@@ -65,7 +65,9 @@ export function LoginForm() {
                       type="email"
                       name="identifier"
                       onChange={formik.handleChange}
-                      error={formik.touched.identifier && formik.errors.identifier}
+                      error={
+                        formik.touched.identifier && formik.errors.identifier
+                      }
                       className="w-full border-2 border-gray-100 rounded-xl p-3 mt-1 bg-transparent"
                       placeholder="Example@gmail.com"
                     />
@@ -128,7 +130,7 @@ export function LoginForm() {
                   </div>
                 </div>
 
-                <div className=" mt-7 items-center ml-12">
+                {/* <div className=" mt-7 items-center ml-12">
                   <button
                     type="button"
                     onClick={resetPassword}
@@ -136,7 +138,7 @@ export function LoginForm() {
                   >
                     ¿Has olvidado tu contraseña?
                   </button>
-                </div>
+                </div> */}
                 <div className="mt-12 flex flex-col gap-y-4">
                   <button
                     loading={loading}
@@ -147,16 +149,17 @@ export function LoginForm() {
                   </button>
                 </div>
               </form>
-
             </div>
-          </div>{/*section*/}
+          </div>
+          {/*section*/}
         </div>
         <div className="hidden relative lg:flex h-full w-1/2 items-center justify-center bg-gray-200">
           <div className="w-60 h-60 bg-gradient-to-tr" />
           <img src={Clinica} alt=""></img>
           <div className="w-full h-1/2 absolute bottom-0 bg-white/10" />
         </div>
-      </div> {/*section*/}
+      </div>{" "}
+      {/*section*/}
     </>
   );
 }

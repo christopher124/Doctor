@@ -5,11 +5,16 @@ import { Form, Dropdown } from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
 import { getUserApi } from "../../api/admin/user";
 import { createDoctorApi } from "../../api/admin/doctor";
-import { options, contriesOptions } from "../../api/data/data.js";
+import {
+  options,
+  contriesOptions,
+  specialtiesOptions,
+  statusOptions,
+} from "../../api/data/data.js";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
 export function FormDoctor() {
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState({});
 
   const navigate = useNavigate();
   const { auth, logout } = useAuth();
@@ -216,8 +221,8 @@ export function FormDoctor() {
             />
           </div>
         </div>
-        {/* <div className="grid xl:grid-cols-3 xl:gap-6">
-          <div className="  w-full mb-6 group">
+        <div className="grid xl:grid-cols-3 xl:gap-6">
+          {/* <div className="  w-full mb-6 group">
             <text
               htmlFor="phone"
               className="block font-bold text-xl text-gray-700"
@@ -233,7 +238,7 @@ export function FormDoctor() {
               onChange={(_, data) => formik.setFieldValue("user", data.value)}
               selection
             /> 
-          </div>
+          </div> */}
           <div className="  w-full mb-6 group">
             <text
               htmlFor="birthday"
@@ -241,12 +246,18 @@ export function FormDoctor() {
             >
               Especialidad
             </text>
-            <Dropdown
-              placeholder="Seleciona una Especialidad"
-              fluid
+            <Form.Dropdown
+              id="specialties"
+              placeholder="Seleciona una especialidad"
+              options={specialtiesOptions}
+              value={formik.values.specialties}
+              error={formik.errors.specialties}
               search
+              onChange={(_, data) =>
+                formik.setFieldValue("specialties", data.value)
+              }
               selection
-            /> 
+            />
           </div>
           <div className=" w-full mb-6 group">
             <text
@@ -255,14 +266,18 @@ export function FormDoctor() {
             >
               Estatus del doctor
             </text>
-            <Dropdown
-              placeholder="Seleciona un Estatus"
-              fluid
+            <Form.Dropdown
+              id="status"
+              placeholder="Seleciona un Estatus del doctor"
+              options={statusOptions}
+              value={formik.values.status}
+              error={formik.errors.status}
               search
+              onChange={(_, data) => formik.setFieldValue("status", data.value)}
               selection
-            /> 
+            />
           </div>
-        </div> */}
+        </div>
 
         <button
           type="submit"
@@ -279,6 +294,7 @@ function initialValues() {
   return {
     name: "",
     last: "",
+    // user: {},
     address: "",
     gender: "",
     phone: "",
@@ -287,9 +303,8 @@ function initialValues() {
     star: parseFloat("0"),
     state: "",
     zip: "",
-    // user: {},
-    // // condition: {},
-    // // specialite: {},
+    specialties: "",
+    status: "",
   };
 }
 function validationSchema() {
@@ -304,6 +319,8 @@ function validationSchema() {
       .required("El Nombre del Doctor es Obligatorio"),
     address: Yup.string().required("La dirección del doctor es Obligatorio"),
     gender: Yup.string().required(true),
+    specialties: Yup.string().required(true),
+    status: Yup.string().required(true),
     phone: Yup.string().min(10).max(10).required("El tefono es requerido"),
     birthday: Yup.string().required(true),
     state: Yup.string().required(true),

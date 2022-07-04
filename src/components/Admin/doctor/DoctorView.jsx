@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 export function DoctorView({ doctor }) {
-  const { name, last, adress, condition, phone, specialtie } = doctor;
+  const { name, last, adress, status, phone, specialties } = doctor;
 
-  const [estadoDoctor, setEstadoDoctor] = useState(condition?.name);
+  const [estadoDoctor, setEstadoDoctor] = useState(status);
   const [clase, setClase] = useState("");
 
   useEffect(() => {
@@ -12,15 +12,15 @@ export function DoctorView({ doctor }) {
     claseDoctor();
   }, [estadoDoctor]);
   const claseDoctor = () => {
-    if (condition?.name === "Disponible") {
+    if (status === "Disponible") {
       setClase(
         " p-2 uppercase font-bold inline-flex text-center bg-green-700 text-pink-100 rounded-lg text-xs px-2 py-0 "
       );
-    } else if (condition?.name === "En consulta") {
+    } else if (status === "En consulta") {
       setClase(
         " p-2 uppercase font-bold inline-flex text-center bg-yellow-400 text-pink-100 rounded-lg text-xs px-2 py-0 "
       );
-    } else if (condition === null) {
+    } else if (status === null) {
       setClase(" text-white whitespace-nowrap ");
     } else {
       setClase(
@@ -50,12 +50,12 @@ export function DoctorView({ doctor }) {
           </div>
           <div className="text-white whitespace-nowrap">
             <span className=" text-white whitespace-nowrap">
-              Especialidad: {specialtie?.name ? specialtie?.name : "N/A"}
+              Especialidad: {specialties ? specialties : "N/A"}
             </span>
           </div>
           <div className="text-white whitespace-nowrap">
             <span className={`${clase} `}>
-              Estatus: {condition?.name ? condition?.name : "N/A"}
+              Estatus: {status ? status : "N/A"}
             </span>
           </div>
         </div>

@@ -1,6 +1,6 @@
 const options = [
-  { key: "hombre", value: "hombre", text: "Masculino" },
-  { key: "mujer", value: "mujer", text: "Femenino" },
+  { key: "hombre", value: "Masculino", text: "Masculino" },
+  { key: "mujer", value: "Femenino", text: "Femenino" },
 ];
 const contriesOptions = [
   { key: "Baja California", value: "Baja California", text: "Baja California" },
@@ -41,4 +41,39 @@ const contriesOptions = [
   { key: "Yucatán", value: "Yucatán", text: "Yucatán" },
   { key: "Zacatecas", value: "Zacatecas", text: "Zacatecas" },
 ];
-export { options, contriesOptions };
+const statusOptions = [
+  { key: "Disponible", value: "Disponible", text: "Disponible" },
+  { key: "En consulta", value: "En consulta", text: "En consulta" },
+  { key: "No disponible", value: "No disponible", text: "No disponible" },
+];
+
+const specialtiesOptions = [
+  { key: "General", value: "General", text: "General" },
+  { key: "Cardiólogo", value: "Cardiólogo", text: "Cardiólogo" },
+  {
+    key: " Cirujano plástico",
+    value: " Cirujano plástico",
+    text: " Cirujano plástico",
+  },
+  { key: "Dermatólogo", value: "Dermatólogo", text: "Dermatólogo" },
+  {
+    key: "Gastroenterólogo",
+    value: "Gastroenterólogo",
+    text: "Gastroenterólogo",
+  },
+  { key: "Geriatra", value: "Geriatra", text: "Geriatra" },
+  { key: "Ginecólogo", value: "Ginecólogo", text: "Ginecólogo" },
+  { key: "Neurólogo", value: "Neurólogo", text: "Neurólogo" },
+  { key: "Nutriólogo", value: "Nutriólogo", text: "Nutriólogo" },
+  { key: "Oftalmólogo", value: "Oftalmólogo", text: "Oftalmólogo" },
+  { key: "Oncólogo", value: "Oncólogo", text: "Oncólogo" },
+  {
+    key: "Otorrinolaringólogo",
+    value: "Otorrinolaringólogo",
+    text: "Otorrinolaringólogo",
+  },
+  { key: "Traumatólogo", value: "Traumatólogo", text: "Traumatólogo" },
+  { key: "Urólogo", value: "Urólogo", text: "Urólogo" },
+];
+
+export { options, contriesOptions, statusOptions, specialtiesOptions };

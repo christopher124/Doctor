@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getCountUserApi } from "../../../api/admin/user";
+import { getCountCustomerApi } from "../../../api/admin/customer";
 import { getDoctorApi, getCountDoctorApi } from "../../../api/admin/doctor";
 import { Spinner } from "../../../components/spinner/Spinner";
 import { DoctorView } from "../../../components/Admin/doctor/DoctorView";
@@ -9,6 +10,7 @@ import { Link } from "react-router-dom";
 export function DashboardView() {
   const [Usercount, setUserCount] = useState(<Spinner />);
   const [Doctorcount, setDoctorCount] = useState(<Spinner />);
+  const [Customercount, setCustomerCount] = useState(<Spinner />);
   const [cargando, setCargando] = useState(true);
 
   const [doctor, setDoctor] = useState([]);
@@ -21,7 +23,8 @@ export function DashboardView() {
       setDoctor(doctor.slice(0, 2));
       const countDoctor = await getCountDoctorApi(logout);
       setDoctorCount(countDoctor);
-      console.log(doctor);
+      const countCustumer = await getCountCustomerApi(logout);
+      setCustomerCount(countCustumer);
     })(
       setTimeout(() => {
         setCargando(!cargando);
@@ -46,7 +49,7 @@ export function DashboardView() {
         </div>
         <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
           <div className="w-full lg:w-1/4">
-            <div className="w-full p-4 rounded-lg  border border-gray-100 bg-gray-800 border-gray-800">
+            <div className="w-full p-4 rounded-lg  border  bg-gray-800 border-gray-800">
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-col">
                   <div className="font-mont font-semibold  text-xs  text-white uppercase">
@@ -81,9 +84,9 @@ export function DashboardView() {
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-col">
                   <div className="text-xs font-bold text-white uppercase">
-                    Usuarios
+                    Clientes registrados
                     <div className="p-1.5 text-xl font-bold">
-                      {Usercount ? Usercount : "0"}
+                      {Customercount ? Customercount : "0"}
                     </div>
                   </div>
                 </div>

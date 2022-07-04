@@ -5,11 +5,10 @@ import { format } from "date-fns";
 export function ListDoctorView({ doctor, handleDelited }) {
   const navigate = useNavigate();
 
-  const { name, last, user, birthday, id, phone, condition, specialtie } =
-    doctor;
-  const [estadoDoctor, setEstadoDoctor] = useState(condition?.name);
+  const { name, last, user, birthday, id, phone, status, specialties } = doctor;
+  const [estadoDoctor, setEstadoDoctor] = useState(status);
   const [clase, setClase] = useState("");
-
+  console.log(doctor);
   useEffect(() => {
     if (estadoDoctor) {
       setEstadoDoctor(estadoDoctor);
@@ -20,15 +19,15 @@ export function ListDoctorView({ doctor, handleDelited }) {
 
   //funcion que modifica el color del pedido de acuerdo a su estado
   const claseDoctor = () => {
-    if (condition?.name === "Disponible") {
+    if (status === "Disponible") {
       setClase(
         " p-2 uppercase font-bold inline-flex text-center bg-green-700 text-pink-100 rounded-lg text-xs px-2 py-0 "
       );
-    } else if (condition?.name === "En consulta") {
+    } else if (status === "En consulta") {
       setClase(
         " p-2 uppercase font-bold inline-flex text-center bg-yellow-400 text-pink-100 rounded-lg text-xs px-2 py-0 "
       );
-    } else if (condition === null) {
+    } else if (status === null) {
       setClase(" p-2 uppercase font-bold inline-flex text-center ");
     } else {
       setClase(
@@ -60,13 +59,11 @@ export function ListDoctorView({ doctor, handleDelited }) {
               aria-hidden
               className={`${clase} absolute inset-0  rounded-full`}
             ></span>
-            <span className="relative">
-              {condition?.name ? condition?.name : "N/A"}
-            </span>
+            <span className="relative">{status ? status : "N/A"}</span>
           </span>
         </td>
         <td className="text-white px-6 py-4">
-          {specialtie?.name ? specialtie.name : "N/A"}
+          {specialties ? specialties : "N/A"}
         </td>
 
         <td className="py-3 px-6 text-center">
