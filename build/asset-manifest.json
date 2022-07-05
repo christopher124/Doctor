@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f18d6123.css",
+    "main.js": "/static/js/main.d17628fd.js",
+    "static/media/LogoClinica.jpeg": "/static/media/LogoClinica.485c437bba7c99961f35.jpeg",
+    "static/media/Logo.jpeg": "/static/media/Logo.3dde0c3ec957bc4f0f4f.jpeg",
+    "index.html": "/index.html",
+    "main.f18d6123.css.map": "/static/css/main.f18d6123.css.map",
+    "main.d17628fd.js.map": "/static/js/main.d17628fd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f18d6123.css",
+    "static/js/main.d17628fd.js"
+  ]
+}
