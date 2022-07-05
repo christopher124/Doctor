@@ -44,7 +44,7 @@ export function ListUserView({ user, handleDelited }) {
         <td className="py-3 px-6 text-center">
           <div className="flex item-center justify-center">
             <button
-              onClick={() => navigate(`/admin/doctor/${id}`)}
+              onClick={() => navigate(`/admin/usuario/${id}`)}
               className="w-4 mr-2 transform hover:text-blue-500 hover:scale-110"
             >
               <svg

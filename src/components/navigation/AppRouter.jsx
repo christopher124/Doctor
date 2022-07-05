@@ -18,6 +18,7 @@ import { EditUserView } from "../../pages/admin/users/EditUserView";
 import { ListCustomeView } from "../../pages/admin/customers/ListCustomeView";
 import { NewCustomerView } from "../../pages/admin/customers/NewCustomerView";
 import { EditCustomerView } from "../../pages/admin/customers/EditCustomerView";
+import { CustomeView } from "../../pages/admin/customers/CustomeView";
 export function AppRouter() {
   return (
     <div>
@@ -40,6 +41,7 @@ export function AppRouter() {
           <Route path="nuevo/usuario" element={<NewUserView />} />
           <Route path="editar/usuario/:id" element={<EditUserView />} />
           <Route path="clientes" element={<ListCustomeView />} />
+          <Route path="cliente/:id" element={<CustomeView />} />
           <Route path="nuevo/cliente" element={<NewCustomerView />} />
           <Route path="editar/cliente/:id" element={<EditCustomerView />} />
         </Route>
