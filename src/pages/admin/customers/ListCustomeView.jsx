@@ -1,22 +1,20 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import useAuth from "../../../hooks/useAuth";
-import { getUserApi } from "../../../api/admin/user";
+import { deleteCustomerApi, getCustomerApi } from "../../../api/admin/customer";
 import { useNavigate } from "react-router-dom";
 import { Spinner } from "../../../components/spinner/Spinner";
-import { deleteUserApi } from "../../../api/admin/user";
+import { ListCustomersView } from "../../../components/Admin/customers/ListCustomersView.jsx";
 import Swal from "sweetalert2";
-import { ListUserView } from "../../../components/Admin/user/ListUserView";
-export function ListUseView() {
-  const navigate = useNavigate();
-  const [user, setUser] = useState({});
-  const [cargando, setCargando] = useState(true);
 
+export function ListCustomeView() {
+  const navigate = useNavigate();
+  const [customer, setCustumer] = useState([]);
+  const [cargando, setCargando] = useState(true);
   const { auth, logout } = useAuth();
   useEffect(() => {
     (async () => {
-      const user = await getUserApi(logout);
-      setUser(user);
-      console.log(user);
+      const customer = await getCustomerApi(logout);
+      setCustumer(customer);
     })(
       setTimeout(() => {
         setCargando(!cargando);
@@ -36,11 +34,11 @@ export function ListUseView() {
       cancelButtonText: "No, Cancelar!",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const response = await deleteUserApi(id, logout);
+        const response = await deleteCustomerApi(id, logout);
         if (response) {
           Swal.fire("Deleted!", "Your file has been deleted.", "success");
-          const arrayUser = user.filter((user) => user.id !== id);
-          setUser(arrayUser);
+          const arrayCustomer = customer.filter((doctor) => doctor.id !== id);
+          setCustumer(arrayCustomer);
         }
       }
     });
@@ -48,7 +46,7 @@ export function ListUseView() {
 
   return cargando ? (
     <Spinner />
-  ) : Object.keys(user).length === 0 ? (
+  ) : Object.keys(customer).length === 0 ? (
     <div className="w-full min-h-screen p-4">
       <div className="w-full mb-6 pt-3">
         <div className="flex flex-row items-center justify-between mb-4">
@@ -56,18 +54,18 @@ export function ListUseView() {
             <div className="text-xs font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
-                <span className="text-gray-600">Usuarios</span>
+                <span className="text-gray-600">Clientes</span>
               </div>
               <div className="flex flex-col items-center justify-center h-full">
                 <div className="text-center text-gray-600">
-                  No hay Usuarios Registrados
+                  No hay usuarios registrados
                 </div>
               </div>
             </div>
           </div>
           <div className="shrink-0 space-x-2">
             <button
-              onClick={() => navigate("/admin/nuevo/usuario")}
+              onClick={() => navigate("/admin/nuevo/cliente")}
               className="flex flex-row items-center justify-center px-4 py-2 text-xs font-bold text-white uppercase bg-blue-500 rounded-lg hover:bg-blue-600 space-x-1"
             >
               <i className="fa fa-solid fa-plus"></i>
@@ -91,7 +89,7 @@ export function ListUseView() {
           </div>
           <div className="shrink-0 space-x-2">
             <button
-              onClick={() => navigate("/admin/nuevo/usuario")}
+              onClick={() => navigate("/admin/nuevo/cliente")}
               className="flex flex-row items-center justify-center px-4 py-2 text-xs font-bold text-white uppercase bg-blue-500 rounded-lg hover:bg-blue-600 space-x-1"
             >
               <i className="fa fa-solid fa-plus"></i>
@@ -106,23 +104,19 @@ export function ListUseView() {
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 bg-gray-700 text-gray-400">
             <tr>
               <th scope="col" className="text-white py-3 px-6 text-left">
-                Foto de usuario
+                Nombre y apellido
               </th>
               <th scope="col" className="text-white py-3 px-6 text-left">
-                Nombre de usuario{" "}
+                Direccion
               </th>
+              <th scope="col" className=" text-white py-3 px-6 text-left">
+                Genero
+              </th>
+
               <th scope="col" className="text-white py-3 px-6 text-left">
-                Correo
+                Telefono
               </th>
-              <th scope="col" className=" text-white py-3 px-6 text-left">
-                Rol de usuario
-              </th>
-              <th scope="col" className=" text-white py-3 px-6 text-left">
-                Status del usuario
-              </th>
-              <th scope="col" className=" text-white py-3 px-6 text-left">
-                Status del usuario
-              </th>
+
               <th
                 scope="col"
                 className="text-white font-bold py-3 px-6 text-left "
@@ -132,11 +126,11 @@ export function ListUseView() {
             </tr>
           </thead>
           <tbody>
-            {user.map((user) => (
-              <ListUserView
-                key={user.id}
-                user={user}
+            {customer.map((customer) => (
+              <ListCustomersView
                 handleDelited={handleDelited}
+                key={customer.id}
+                customer={customer}
               />
             ))}
           </tbody>

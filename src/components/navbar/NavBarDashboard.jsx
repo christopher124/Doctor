@@ -4,13 +4,14 @@ import useAuth from "../../hooks/useAuth";
 import { getMeApi } from "../../api/admin/user";
 
 export function NavBarDashboard() {
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState({});
   const { auth, logout } = useAuth();
   console.log(user);
   useEffect(() => {
     (async () => {
       const response = await getMeApi(logout);
       setUser(response);
+      console.log(user);
     })();
   }, [auth, logout]);
   return (
@@ -26,9 +27,9 @@ export function NavBarDashboard() {
               <Link to="/admin/usuario">
                 <img
                   src={
-                    user?.url
-                      ? user?.url
-                      : "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200"
+                    user?.photo && user?.photo.formats.small.url
+                      ? "http://localhost:1337" + user?.photo.formats.small.url
+                      : "https://img.freepik.com/free-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-7509.jpg?w=740"
                   }
                   alt="logo"
                   className="h-10 w-10 rounded-full"

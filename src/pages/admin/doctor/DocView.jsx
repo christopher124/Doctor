@@ -9,18 +9,17 @@ import { getOneDoctorApi } from "../../../api/admin/doctor";
 
 export function DocView() {
   const { id } = useParams();
-
-  const [doctor, setDoctor] = useState([]);
+  const [doctor, setDoctor] = useState({});
   const {
     name,
     last,
     user,
     birthday,
-    adress,
+    address,
     gender,
     phone,
-    condition,
-    specialtie,
+    status,
+    specialties,
     star,
     created_at,
     updated_at,
@@ -41,8 +40,6 @@ export function DocView() {
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [logout, auth]);
-
-  //funcion que modifica el color del pedido de acuerdo a su estado
 
   function getEdad(birthday) {
     let hoy = new Date();
@@ -108,7 +105,11 @@ export function DocView() {
             <div className="flex flex-row px-12 w-full">
               <img
                 className="text-center rounded-full"
-                src="https://source.unsplash.com/random/200x200?sig=1"
+                src={
+                  user?.photo && user?.photo.formats.small.url
+                    ? "http://localhost:1337" + user?.photo.formats.small.url
+                    : "https://img.freepik.com/free-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-7509.jpg?w=740"
+                }
                 alt="Random"
               />
             </div>
@@ -161,7 +162,7 @@ export function DocView() {
               </p>
 
               <p className="py-1 text-white font-normal">
-                Direccion: <span className="text-bold"> {adress}</span>
+                Direccion: <span className="text-bold"> {address}</span>
               </p>
               <p className="py-1 text-white font-normal">
                 Fecha de nacimiento:
@@ -174,16 +175,17 @@ export function DocView() {
               <p className="py-1 text-white font-normal">
                 Genero: <span className="text-bold"> {gender}</span>
               </p>
+
               <p className="py-1 text-white font-normal">
                 Telefono: <span className="text-bold"> {phone}</span>
               </p>
+              <p className="py-1 text-white font-normal">
+                Estatus del doctor: <span className="text-bold"> {status}</span>
+              </p>
 
-              <div className="text-white whitespace-nowrap">
-                Estatus del doctor: <span>{condition?.name}</span>
-              </div>
               <p className="py-1 text-white font-normal">
                 Especialidad del doctor:{" "}
-                <span className="text-bold"> {specialtie?.name}</span>
+                <span className="text-bold"> {specialties}</span>
               </p>
 
               <p className="py-1 text-white font-normal">

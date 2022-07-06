@@ -38,7 +38,7 @@ export async function getOneUserApi(id, logout) {
 }
 export async function registerApi(user, logout) {
   try {
-    const url = `${API_URL}/auth/local/register`;
+    const url = `${API_URL}/users`;
     const params = {
       method: "POST",
       headers: {

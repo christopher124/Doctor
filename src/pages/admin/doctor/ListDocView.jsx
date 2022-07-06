@@ -9,7 +9,6 @@ export function ListDocView() {
   const navigate = useNavigate();
   const [doctor, setDoctor] = useState([]);
   const [cargando, setCargando] = useState(true);
-
   const { auth, logout } = useAuth();
   useEffect(() => {
     (async () => {

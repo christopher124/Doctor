@@ -1,25 +1,24 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
-import { getOneUserApi } from "../../../api/admin/user";
-import { FormUser } from "../../../components/form/FormUser";
-export function EditUserView() {
-  const [user, setUser] = useState({});
+import { getOneCustomerApi } from "../../../api/admin/customer";
+import { FormCustumer } from "../../../components/form/FormCustumer";
+export function EditCustomerView() {
+  const [customer, setCustumer] = useState({});
   const [cargando, setCargando] = useState(true);
   const { id } = useParams();
 
   const { auth, logout } = useAuth();
   useEffect(() => {
     (async () => {
-      const user = await getOneUserApi(id, logout);
-      setUser(user);
+      const customer = await getOneCustomerApi(id, logout);
+      setCustumer(customer);
     })(
       setTimeout(() => {
         setCargando(!cargando);
       }, 1000)
     );
   }, [auth]);
-
   return (
     <div className="w-full min-h-screen p-4">
       <div className="w-full mb-6 pt-3">
@@ -34,8 +33,8 @@ export function EditUserView() {
           </div>
         </div>
       </div>
-      {user?.username ? (
-        <FormUser user={user} cargando={cargando} />
+      {customer?.name ? (
+        <FormCustumer customer={customer} cargando={cargando} />
       ) : (
         <p>Cliente ID no Valido</p>
       )}

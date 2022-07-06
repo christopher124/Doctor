@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 export function ListUserView({ user, handleDelited }) {
-  const { username, email, role, confirmed, blocked, id } = user;
+  const { username, email, role, confirmed, blocked, id, photo } = user;
 
   const navigate = useNavigate();
 
@@ -14,7 +14,11 @@ export function ListUserView({ user, handleDelited }) {
         >
           <img
             className="h-20 w-20 rounded-full"
-            src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60"
+            src={
+              photo && photo.formats.small.url
+                ? "http://localhost:1337" + photo.formats.small.url
+                : "https://img.freepik.com/free-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-7509.jpg?w=740"
+            }
             alt="icon"
           />
         </th>
@@ -40,7 +44,7 @@ export function ListUserView({ user, handleDelited }) {
         <td className="py-3 px-6 text-center">
           <div className="flex item-center justify-center">
             <button
-              onClick={() => navigate(`/admin/doctor/${id}`)}
+              onClick={() => navigate(`/admin/usuario/${id}`)}
               className="w-4 mr-2 transform hover:text-blue-500 hover:scale-110"
             >
               <svg
