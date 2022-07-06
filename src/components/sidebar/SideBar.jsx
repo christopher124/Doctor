@@ -9,7 +9,7 @@ export function SideBar() {
   const [collapseShow, setCollapseShow] = useState("hidden");
   const { auth, logout } = useAuth();
   useEffect(() => {
-    (async () => {})();
+    (async () => { })();
   }, [auth, logout]);
   return (
     <>
