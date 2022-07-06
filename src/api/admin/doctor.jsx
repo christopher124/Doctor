@@ -47,6 +47,24 @@ export async function getCountDoctorApi(logout) {
     return null;
   }
 }
+export async function updateDoctorApi(id, doctor, logout) {
+  try {
+    const url = `${API_URL}/doctors/${id}`;
+    const params = {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(doctor),
+    };
+    const result = await authFetch(url, params, logout);
+    if (result.statusCode === 400) throw "Error del servidor";
+    return result;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+}
 
 export async function deleteDoctorApi(id, logout) {
   try {

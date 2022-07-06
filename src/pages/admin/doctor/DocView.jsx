@@ -3,7 +3,6 @@ import { Spinner } from "../../../components/spinner/Spinner";
 import { useParams } from "react-router-dom";
 import { format } from "date-fns";
 import { Rating } from "@mui/material";
-
 import useAuth from "../../../hooks/useAuth";
 import { getOneDoctorApi } from "../../../api/admin/doctor";
 

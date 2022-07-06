@@ -15,6 +15,7 @@ export function FormUser({ user }) {
     validationSchema: Yup.object(validationSchema()),
     onSubmit: async (formData) => {
       handleSutmit(formData);
+      console.log(formData);
     },
   });
   const { auth, logout } = useAuth();
@@ -32,6 +33,8 @@ export function FormUser({ user }) {
         navigate("/admin/usuarios");
       } else {
         respuesta = await registerApi(formData, logout);
+        respuesta.append("photo");
+
         if (!respuesta) {
           toast.warning("El nombre de usuario y el correo ya estan utilizados");
         } else {
@@ -102,7 +105,6 @@ export function FormUser({ user }) {
                 placeholder="Ingrese una contraseña"
               />
             </div>
-
             <div className=" w-full mb-6 group">
               <p
                 htmlFor="password"
@@ -129,6 +131,20 @@ export function FormUser({ user }) {
                 label="Usuario no bloquedo / Usuario bloqueado"
               />
             </div>
+            <div className=" w-full mb-6 group">
+              <p
+                htmlFor="photo"
+                className="block font-bold text-xl text-gray-700"
+              >
+                Foto
+              </p>
+              <Form.Input
+                type="file"
+                onChange={(data) =>
+                  formik.setFieldValue("photo", data.target.ob)
+                }
+              />
+            </div>
           </div>
           <input
             type="submit"
@@ -146,6 +162,7 @@ function initialValues(user) {
     username: user?.username ?? "",
     email: user?.email ?? "",
     password: "",
+    photo: null,
     confirmed: user?.confirmed ?? "",
     blocked: user?.blocked ?? false,
   };

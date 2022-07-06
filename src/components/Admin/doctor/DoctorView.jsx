@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 export function DoctorView({ doctor }) {
-  const { name, last, adress, status, phone, specialties } = doctor;
+  const { name, last, adress, status, phone, specialties, user } = doctor;
 
   const [estadoDoctor, setEstadoDoctor] = useState(status);
   const [clase, setClase] = useState("");
@@ -34,7 +34,11 @@ export function DoctorView({ doctor }) {
         <div className="shrink-0 w-8">
           <img
             className="h-8 w-full shadow-lg rounded-full ring"
-            src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60"
+            src={
+              user?.photo && user?.photo.formats.small.url
+                ? "http://localhost:1337" + user?.photo.formats.small.url
+                : "https://img.freepik.com/free-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-7509.jpg?w=740"
+            }
             alt="icon"
           />
         </div>

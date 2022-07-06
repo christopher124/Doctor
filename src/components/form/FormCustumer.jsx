@@ -188,7 +188,7 @@ export function FormCustumer({ customer, cargando }) {
         <div className=" grid xl:grid-cols-2 xl:gap-6">
           <div className="text-lg w-full mb-6 group">
             <p
-              htmlFor="name"
+              htmlFor="phone"
               className="block text-xl font-bold  text-gray-800 "
             >
               Telefono
@@ -201,6 +201,22 @@ export function FormCustumer({ customer, cargando }) {
               onChange={formik.handleChange}
               error={formik.errors.phone}
               placeholder="3398568457 "
+            />
+          </div>
+          <div className="text-lg w-full mb-6 group">
+            <p
+              htmlFor="birthday"
+              className="block text-xl font-bold  text-gray-800 "
+            >
+              Fecha de cumpleaños
+            </p>
+            <Form.Input
+              type="date"
+              id="birthday"
+              name="birthday"
+              value={formik.values.birthday}
+              onChange={formik.handleChange}
+              error={formik.errors.birthday}
             />
           </div>
           {/* <div className="  w-full mb-6 group">
@@ -251,6 +267,7 @@ function initialValues(customer) {
     state: customer?.state ?? "",
     zip: customer?.zip ?? "",
     number_int_address: customer?.number_int_address ?? "",
+    birthday: customer?.birthday ?? "",
   };
 }
 function validationSchema() {
@@ -262,5 +279,6 @@ function validationSchema() {
     phone: Yup.string().required(true),
     zip: Yup.string().required(true),
     state: Yup.string().required(true),
+    birthday: Yup.string().required(true),
   };
 }

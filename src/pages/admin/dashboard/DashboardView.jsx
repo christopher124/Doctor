@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import { getCountUserApi } from "../../../api/admin/user";
+import { getCountUserApi, getUserApi } from "../../../api/admin/user";
 import { getCountCustomerApi } from "../../../api/admin/customer";
 import { getDoctorApi, getCountDoctorApi } from "../../../api/admin/doctor";
 import { Spinner } from "../../../components/spinner/Spinner";
 import { DoctorView } from "../../../components/Admin/doctor/DoctorView";
 import useAuth from "../../../hooks/useAuth";
 import { Link } from "react-router-dom";
+import { UsersView } from "../../../components/Admin/user/UsersView";
 
 export function DashboardView() {
   const [Usercount, setUserCount] = useState(<Spinner />);
@@ -14,6 +15,7 @@ export function DashboardView() {
   const [cargando, setCargando] = useState(true);
 
   const [doctor, setDoctor] = useState([]);
+  const [users, setUsers] = useState([]);
   const { auth, logout } = useAuth();
   useEffect(() => {
     (async () => {
@@ -21,6 +23,8 @@ export function DashboardView() {
       setUserCount(countUser);
       const doctor = await getDoctorApi(logout);
       setDoctor(doctor.slice(0, 2));
+      const users = await getUserApi(logout);
+      setUsers(users.slice(0, 2));
       const countDoctor = await getCountDoctorApi(logout);
       setDoctorCount(countDoctor);
       const countCustumer = await getCountCustomerApi(logout);
@@ -28,7 +32,7 @@ export function DashboardView() {
     })(
       setTimeout(() => {
         setCargando(!cargando);
-      })
+      }, 1500)
     );
   }, [auth, logout]);
 
@@ -164,16 +168,14 @@ export function DashboardView() {
             <div className="w-full p-4 rounded-lg  border border-gray-100 bg-gray-900 border-gray-800">
               <div className="flex flex-row items-center justify-between mb-6">
                 <div className="flex flex-col">
-                  <div className="text-sm font-light text-white">
-                    Inventario
-                  </div>
+                  <div className="text-sm font-light text-white">Usuarios</div>
                   <div className="text-sm font-bold">
-                    <span className="text-white"> Lista de inventario</span>
+                    <span className="text-white"> Lista de Usuarios</span>
                   </div>
                 </div>
                 <div className="relative inline-block text-left z-10">
                   <Link
-                    to="/admin/inventario"
+                    to="/admin/usuarios"
                     className="inline-flex items-center justify-center w-8 h-8 text-gray-900  rounded-full bg-gray-900 text-white hover:bg-gray-100 hover:bg-gray-800 focus:outline-none"
                   >
                     <i class="fas fa-solid fa-eye"></i>
@@ -181,10 +183,29 @@ export function DashboardView() {
                 </div>
               </div>
               <div className="flex flex-row w-full">
-                <div>
-                  <div className="recharts-responsive-container">
-                    <div className="recharts-wrapper"></div>
-                  </div>
+                <div className="w-full mb-4">
+                  {cargando ? (
+                    <Spinner />
+                  ) : Object.keys(doctor).length === 0 ? (
+                    <div className="flex flex-col items-center justify-center h-full">
+                      <div className="text-center text-white">
+                        No hay doctores registrados
+                      </div>
+                    </div>
+                  ) : (
+                    <div>
+                      {users.map((users) => (
+                        <UsersView key={users.id} users={users} />
+                      ))}
+                      <div className="flex flex-col items-center justify-center h-full">
+                        <Link to="/admin/doctores">
+                          <button className="text-center underline  text-white">
+                            Ver mas
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

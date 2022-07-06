@@ -8,7 +8,6 @@ import { QuotesView } from "../../pages/QuotesView";
 import { ServicesView } from "../../pages/ServicesView";
 import { UsView } from "../../pages/UsView";
 import { SideBar } from "../sidebar/SideBar";
-import { UserView } from "../../pages/admin/dashboard/UserView";
 import { ListDocView } from "../../pages/admin/doctor/ListDocView";
 import { DocView } from "../../pages/admin/doctor/DocView";
 import { NewDoctorView } from "../../pages/admin/doctor/NewDoctorView";
@@ -19,6 +18,8 @@ import { ListCustomeView } from "../../pages/admin/customers/ListCustomeView";
 import { NewCustomerView } from "../../pages/admin/customers/NewCustomerView";
 import { EditCustomerView } from "../../pages/admin/customers/EditCustomerView";
 import { CustomeView } from "../../pages/admin/customers/CustomeView";
+import { EditDoctorView } from "../../pages/admin/doctor/EditDoctorView";
+import { UseView } from "../../pages/admin/users/UseView";
 export function AppRouter() {
   return (
     <div>
@@ -37,7 +38,9 @@ export function AppRouter() {
           <Route path="doctores" element={<ListDocView />} />
           <Route path="doctor/:id" element={<DocView />} />
           <Route path="nuevo/doctor" element={<NewDoctorView />} />
+          <Route path="editar/doctor/:id" element={<EditDoctorView />} />
           <Route path="usuarios" element={<ListUseView />} />
+          <Route path="usuario/:id" element={<UseView />} />
           <Route path="nuevo/usuario" element={<NewUserView />} />
           <Route path="editar/usuario/:id" element={<EditUserView />} />
           <Route path="clientes" element={<ListCustomeView />} />
