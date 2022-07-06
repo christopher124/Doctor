@@ -9,7 +9,7 @@ export function SideBar() {
   const [collapseShow, setCollapseShow] = useState("hidden");
   const { auth, logout } = useAuth();
   useEffect(() => {
-    (async () => {})();
+    (async () => { })();
   }, [auth, logout]);
   return (
     <>
@@ -32,7 +32,7 @@ export function SideBar() {
               <img
                 src={Logo}
                 alt="logo"
-                className=" items-center h-24 w-24 rounded-full"
+                className=" items-center h-24 w-24 rounded-full ml-14"
               />
             </Link>
             {/* User */}
