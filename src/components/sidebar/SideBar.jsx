@@ -31,7 +31,7 @@ export function SideBar() {
             <img
               src={Logo}
               alt="logo"
-              className=" items-center h-24 w-24 rounded-full"
+              className="items-center h-24 w-24 rounded-full ml-16"
             />
           </Link>
           {/* User */}
@@ -101,7 +101,7 @@ export function SideBar() {
                   Dashboard
                 </Link>
               </li>
-              <hr className="my-4 lg:min-w-full " />
+              <hr className="my-4 lg:min-w-full" />
 
               <li className="items-center">
                 <Link
@@ -161,6 +161,7 @@ export function SideBar() {
                   ></i>{" "}
                   Usuarios
                 </Link>
+                {/*Inventario*/}
               </li>
             </ul>
 

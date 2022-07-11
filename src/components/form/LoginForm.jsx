@@ -5,7 +5,7 @@ import { loginApi, resetPasswordApi } from "../../api/admin/user";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useAuth from "../../hooks/useAuth";
-import Clinica from "../../assets/img/LogoClinica.jpeg";
+import Clinica from "../../assets/img/SB2.jpg";
 
 export function LoginForm() {
   const navigate = useNavigate();
@@ -45,10 +45,10 @@ export function LoginForm() {
     <>
       <div className="flex w-full h-screen bg-[#2ea4e1]">
         <div className="w-full flex items-center justify-center lg:w-1/2">
-          <div className="bg-white px-10 py-20 rounded-3xl border-2 border-gray-100">
-            <h1 className="text-5xl font-semibold">Bienvenido</h1>
+          <div className="bg-white px-20 py-32 rounded-3xl border-2 border-gray-100">
+            <h1 className="text-5xl font-semibold">¡Bienvenido!</h1>
             <p className="font-medium text-lg text-gray-500 mt-4">
-              ¡Bienvenido! por favor ingresa tus datos.
+              A continuación, ingresa tus datos.
             </p>
             <div className=" mt-8">
               <form
@@ -57,8 +57,8 @@ export function LoginForm() {
                 className="max-w-md mx-auto mt-8 mb-0 space-y-4"
               >
                 <div>
-                  <label htmlFor="email" className="text-lg font-medium">
-                    Email
+                  <label htmlFor="email" className="text-xl font-semibold">
+                    Correo
                   </label>
                   <div className="relative">
                     <input
@@ -92,8 +92,8 @@ export function LoginForm() {
                 </div>
 
                 <div>
-                  <label htmlFor="password" className="text-lg font-medium">
-                    Password
+                  <label htmlFor="password" className="text-xl font-semibold">
+                    Contraseña
                   </label>
                   <div className="relative">
                     <input
@@ -139,11 +139,11 @@ export function LoginForm() {
                     ¿Has olvidado tu contraseña?
                   </button>
                 </div> */}
-                <div className="mt-12 flex flex-col gap-y-4">
+                <div className="mt-24 flex flex-col gap-y-4">
                   <button
                     loading={loading}
                     type="submit"
-                    className="active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all py-3 rounded-xl bg-violet-500 text-white text-lg font-bold"
+                    className="active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all py-3 rounded-xl bg-violet-500 text-white text-lg font-bold mt-5"
                   >
                     Iniciar sesion
                   </button>

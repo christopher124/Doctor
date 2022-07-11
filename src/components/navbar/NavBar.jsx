@@ -1,6 +1,7 @@
 /*eslint-disable*/
 import React from "react";
 import { Link } from "react-router-dom";
+import Logo from "../../assets/img/Gocare.png"
 // components
 
 export function NavBar(props) {
@@ -14,7 +15,7 @@ export function NavBar(props) {
               to="/"
               className="text-blueGray-700 text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
             >
-              Logo
+              <img src={Logo} className="w-28 h-20 -mt-6 -mb-6" alt=""></img>
             </Link>
             <button
               className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
