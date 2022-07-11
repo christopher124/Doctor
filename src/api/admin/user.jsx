@@ -13,6 +13,7 @@ export async function loginApi(formData) {
     };
     const response = await fetch(url, params);
     const result = await response.json();
+    if (result.statusCode === 500) throw "Error del servidor";
     return result;
   } catch (error) {
     console.log(error);
