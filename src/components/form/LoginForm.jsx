@@ -3,14 +3,10 @@ import { Form, Button } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { loginApi } from "../../api/admin/user";
 import useAuth from "../../hooks/useAuth";
-<<<<<<< HEAD
-import Clinica from "../../assets/img/SB2.jpg";
-=======
 import { toast } from "react-toastify";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
-import Clinica from "../../assets/img/LogoClinica.jpeg";
->>>>>>> fe7fd31511677f802f145d96b1d9ce3355c61de2
+import Clinica from "../../assets/img/SB2.jpg";
 
 export function LoginForm() {
   const navigate = useNavigate();
@@ -68,7 +64,7 @@ export function LoginForm() {
                     </span>
                   </div>
                   <div>
-                    <label htmlFor="password" className="text-lg font-medium">
+                    <label htmlFor="password" className="text-xl font-semibold">
                       Contraseña
                     </label>
                     <div className="relative">
