@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import useAuth from "../../hooks/useAuth";
-import { Form, Dropdown } from "semantic-ui-react";
+import { Form } from "semantic-ui-react";
+import Select from "react-select";
 import { useNavigate } from "react-router-dom";
 import { getUserApi } from "../../api/admin/user";
 import { contriesOptions, options } from "../../api/data/data.js";
 import { createCustomerApi, updateCustomerApi } from "../../api/admin/customer";
 import { toast } from "react-toastify";
+import { DoctorView } from "../Admin/doctor/DoctorView";
 
 export function FormCustumer({ customer, cargando }) {
   const [user, setUser] = useState([]);
@@ -56,6 +58,21 @@ export function FormCustumer({ customer, cargando }) {
       setLoading(false);
     }
   };
+  let today = new Date();
+  let dd = today.getDate();
+  let mm = today.getMonth() + 1; //January is 0 so need to add 1 to make it 1!
+  let yyyy = today.getFullYear();
+
+  if (dd < 10) {
+    dd = "0" + dd;
+  }
+
+  if (mm < 10) {
+    mm = "0" + mm;
+  }
+
+  today = yyyy + "-" + mm + "-" + dd;
+  let minDate = "1922-01-01";
 
   return (
     <div className="bg-white mt-10 px-5 py-10 rounded-md shadow-xl md:w-4/2 mx-auto">
@@ -185,7 +202,7 @@ export function FormCustumer({ customer, cargando }) {
             />
           </div>
         </div>
-        <div className=" grid xl:grid-cols-2 xl:gap-6">
+        <div className=" grid xl:grid-cols-3 xl:gap-6">
           <div className="text-lg w-full mb-6 group">
             <p
               htmlFor="phone"
@@ -213,37 +230,38 @@ export function FormCustumer({ customer, cargando }) {
             <Form.Input
               type="date"
               id="birthday"
+              min={minDate}
+              max={today}
               name="birthday"
               value={formik.values.birthday}
               onChange={formik.handleChange}
               error={formik.errors.birthday}
             />
           </div>
-          {/* <div className="  w-full mb-6 group">
+          <div className="text-lg w-full mb-6 group">
             <p
               htmlFor="name"
               className="block text-xl font-bold  text-gray-800 "
             >
-              Usuarios
+              Usuario
             </p>
-            <Dropdown
-              placeholder="Seleciona un usuario"
+            <select
               value={formik.values.user}
-              error={formik.errors.user}
-              onChange={(_, data) => formik.setFieldValue("user", data.value)}
-              fluid
-              search
-              selection
+              name="user"
+              id="user"
+              onChange={(data) =>
+                formik.setFieldValue("user", data.target.value)
+              }
+              onError={formik.errors.user}
+              onSelect
             >
-              <Dropdown.Menu>
-                {user.map((user) => (
-                  <Dropdown.Item key={user.id} value={user?.username}>
-                    {user?.username}
-                  </Dropdown.Item>
-                ))}
-              </Dropdown.Menu>
-            </Dropdown>
-          </div> */}
+              {user?.map((user) => (
+                <option key={user?.id} value={user?.id}>
+                  {user?.email}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
         <input
           type="submit"
@@ -258,7 +276,7 @@ export function FormCustumer({ customer, cargando }) {
 
 function initialValues(customer) {
   return {
-    // user: {},
+    user: customer?.user?.email ?? "",
     name: customer?.name ?? "",
     last: customer?.last ?? "",
     address: customer?.address ?? "",

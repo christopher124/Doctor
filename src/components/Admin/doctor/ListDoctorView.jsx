@@ -38,7 +38,7 @@ export function ListDoctorView({ doctor, handleDelited }) {
 
   return (
     <>
-      <tr className=" border-b bg-gray-800 :border-gray-700">
+      <tr className=" border-b bg-gray-800 border-gray-700">
         <th
           scope="row"
           className="px-6 py-4 font-medium text-white whitespace-nowrap"

@@ -115,16 +115,17 @@ export function DocView() {
             <div className=" flex flex-col w-full">
               <p className="py-1 text-white font-normal">
                 Nombre de usuario:{" "}
-                <span className="text-bold">{user?.username}</span>
+                <span className="text-bold">
+                  {user?.username ? user?.username : "N/A"}
+                </span>
               </p>
               <p className="py-1 text-white font-normal">
                 Correo de usuario:{" "}
-                <span className="text-bold">{user?.email}</span>
+                <span className="text-bold">
+                  {user?.email ? user?.email : "N/A"}
+                </span>
               </p>
-              <p className="py-1 text-white font-normal">
-                Nombre de usuario:{" "}
-                <span className="text-bold">{user?.username}</span>
-              </p>
+
               <div>
                 {" "}
                 <p className=" text-white font-normal">
@@ -132,7 +133,7 @@ export function DocView() {
                   <Rating
                     className="py-0"
                     name="half-rating-read"
-                    value={star ? star : 0}
+                    value={star ? star : "N/A"}
                     precision={0.5}
                     readOnly
                   />
@@ -161,44 +162,59 @@ export function DocView() {
               </p>
 
               <p className="py-1 text-white font-normal">
-                Direccion: <span className="text-bold"> {address}</span>
+                Direccion:{" "}
+                <span className="text-bold"> {address ? address : "N/A"}</span>
               </p>
               <p className="py-1 text-white font-normal">
                 Fecha de nacimiento:
-                <span className="text-bold">{birthday} </span>
+                <span className="text-bold">
+                  {birthday ? birthday : "N/A"}{" "}
+                </span>
               </p>
               <p className="py-1 text-white font-normal">
                 Edad de Medico:{" "}
                 <span className="text-bold"> {getEdad(birthday)} años</span>
               </p>
               <p className="py-1 text-white font-normal">
-                Genero: <span className="text-bold"> {gender}</span>
+                Genero:{" "}
+                <span className="text-bold"> {gender ? gender : "N/A"}</span>
               </p>
 
               <p className="py-1 text-white font-normal">
-                Telefono: <span className="text-bold"> {phone}</span>
+                Telefono:{" "}
+                <span className="text-bold"> {phone ? phone : "N/A"}</span>
               </p>
               <p className="py-1 text-white font-normal">
-                Estatus del doctor: <span className="text-bold"> {status}</span>
+                Estatus del doctor:{" "}
+                <span className="text-bold"> {status ? status : "N/A"}</span>
               </p>
 
               <p className="py-1 text-white font-normal">
                 Especialidad del doctor:{" "}
-                <span className="text-bold"> {specialties}</span>
+                <span className="text-bold">
+                  {" "}
+                  {specialties ? specialties : "N/A"}
+                </span>
               </p>
 
               <p className="py-1 text-white font-normal">
                 Fecha de creacion:{" "}
                 <span className="text-bold">
                   {" "}
-                  {format(new Date(created_at), "dd/MM/yyyy HH:mm:ss")}
+                  {format(
+                    new Date(created_at ? created_at : "N/A"),
+                    "dd/MM/yyyy HH:mm:ss"
+                  )}
                 </span>
               </p>
               <p className="py-1 text-white font-normal">
                 Ultima Actulizacion:{" "}
                 <span className="text-bold">
                   {" "}
-                  {format(new Date(updated_at), "dd/MM/yyyy HH:mm:ss")}{" "}
+                  {format(
+                    new Date(updated_at ? updated_at : "N/A"),
+                    "dd/MM/yyyy HH:mm:ss"
+                  )}{" "}
                 </span>
               </p>
             </div>

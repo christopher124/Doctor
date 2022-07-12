@@ -25,7 +25,7 @@ export function UsersView({ users }) {
 
   return (
     <>
-      <div className="flex items-center justify-start p-2 space-x-4">
+      <div className="flex items-center justify-start  space-x-4">
         <div className="shrink-0 w-8">
           <img
             className="h-8 w-full shadow-lg rounded-full ring"
@@ -38,22 +38,24 @@ export function UsersView({ users }) {
           />
         </div>
         <div className="flex flex-col w-full">
-          <div className="text-sm font-bold text-white">
+          <div className="p-1 text-sm font-bold text-white">
             Nombre de usuario: {username}
           </div>
 
-          <div className="text-sm text-white"> Correo: {email}</div>
-          <div className="text-sm text-white">Telefono: {role?.name}</div>
-          <div className="flex flex-row items-center justify-around">
-            <div className="relative flex flex-row w-full text-center text-xs items-center h-1"></div>
+          <div className="p-1 font-bold text-sm text-white">
+            {" "}
+            Correo: {email}
           </div>
-          <div className="text-white whitespace-nowrap">
-            <span className=" text-white whitespace-nowrap">
-              Estauts:
-              {confirmed === true ? "Confirmado" : "usuario no confirmado"}
-            </span>
+          <div className="p-1  font-bold text-sm text-white">
+            Rol de usuario: {role?.name}
           </div>
-          <div className="text-white whitespace-nowrap">
+          <div className="p-1  font-bold text-sm text-white">
+            {confirmed === true
+              ? "Usuario Confirmado"
+              : "Usuario no confirmado"}
+          </div>
+
+          <div className="p-1 text-white whitespace-nowrap">
             <span className={`${clase} `}>
               {blocked === true ? "Usuario bloquedado" : "Usuario Activo"}
             </span>

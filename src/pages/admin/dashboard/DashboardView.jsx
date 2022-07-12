@@ -53,7 +53,7 @@ export function DashboardView() {
         </div>
         <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
           <div className="w-full lg:w-1/4">
-            <div className="w-full p-4 rounded-lg  border  bg-gray-800 border-gray-800">
+            <div className="w-full p-4 rounded-lg  border bg-[#3e7794] ">
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-col">
                   <div className="font-mont font-semibold  text-xs  text-white uppercase">
@@ -68,7 +68,7 @@ export function DashboardView() {
             </div>
           </div>
           <div className="w-full lg:w-1/4">
-            <div className="w-full p-4 rounded-lg  border border-gray-100 bg-gray-800 border-gray-800">
+            <div className="w-full p-4 rounded-lg  border   bg-[#3e7794]">
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-col">
                   <div className="text-mont text-xs font-bold text-white uppercase">
@@ -84,7 +84,7 @@ export function DashboardView() {
           </div>
           <div className="w-full lg:w-1/4">
             {" "}
-            <div className="w-full p-4 rounded-lg  border border-gray-100 bg-gray-800 border-gray-800">
+            <div className="w-full p-4 rounded-lg  border  bg-[#3e7794]">
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-col">
                   <div className="text-xs font-bold text-white uppercase">
@@ -100,7 +100,7 @@ export function DashboardView() {
           </div>
           <div className="w-full lg:w-1/4">
             {" "}
-            <div className="w-full p-4 rounded-lg  border border-gray-100 bg-gray-800 border-gray-800">
+            <div className="w-full p-4 rounded-lg  border  bg-[#3e7794]">
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-col">
                   <div className="text-xs font-bold text-white uppercase">
@@ -115,25 +115,17 @@ export function DashboardView() {
         </div>
         <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
           <div className="w-full lg:w-1/2">
-            <div className="w-full p-4 rounded-lg  border border-gray-100 bg-gray-900 border-gray-800">
+            <div className="w-full p-4 rounded-lg  border   bg-[#3e7794]">
               <div className="flex flex-row items-center justify-between mb-6">
                 <div className="flex flex-col">
                   <div className="text-sm font-light text-white">
                     <span className="text-white">
-                      <i className="fas fa-chart-bar text-white"></i>
+                      <i className=" p-1 fas fa-user-md text-white text-xl  "></i>
                     </span>
                     <div className="text-ls font-bold text-white">
                       Lista de Especialistas
                     </div>
                   </div>
-                </div>
-                <div className="relative inline-block text-left z-10">
-                  <Link
-                    to="/admin/doctores"
-                    className="inline-flex items-center justify-center w-8 h-8 text-gray-900  rounded-full bg-gray-900 text-white hover:bg-gray-100 hover:bg-gray-800 focus:outline-none"
-                  >
-                    <i className="fas fa-solid fa-eye"></i>
-                  </Link>
                 </div>
               </div>
               <div className="flex flex-row w-full">
@@ -165,31 +157,23 @@ export function DashboardView() {
             </div>
           </div>
           <div className="w-full lg:w-1/2">
-            <div className="w-full p-4 rounded-lg  border border-gray-100 bg-gray-900 border-gray-800">
+            <div className="w-full p-4 rounded-lg  border   bg-[#3e7794]">
               <div className="flex flex-row items-center justify-between mb-6">
                 <div className="flex flex-col">
-                  <div className="text-sm font-light text-white">Usuarios</div>
+                  <i className="p-1 fas fa-users text-white text-xl"></i>
                   <div className="text-sm font-bold">
                     <span className="text-white"> Lista de Usuarios</span>
                   </div>
-                </div>
-                <div className="relative inline-block text-left z-10">
-                  <Link
-                    to="/admin/usuarios"
-                    className="inline-flex items-center justify-center w-8 h-8 text-gray-900  rounded-full bg-gray-900 text-white hover:bg-gray-100 hover:bg-gray-800 focus:outline-none"
-                  >
-                    <i class="fas fa-solid fa-eye"></i>
-                  </Link>
                 </div>
               </div>
               <div className="flex flex-row w-full">
                 <div className="w-full mb-4">
                   {cargando ? (
                     <Spinner />
-                  ) : Object.keys(doctor).length === 0 ? (
+                  ) : Object.keys(users).length === 0 ? (
                     <div className="flex flex-col items-center justify-center h-full">
                       <div className="text-center text-white">
-                        No hay doctores registrados
+                        No hay Usuarios registrados
                       </div>
                     </div>
                   ) : (
@@ -198,7 +182,7 @@ export function DashboardView() {
                         <UsersView key={users.id} users={users} />
                       ))}
                       <div className="flex flex-col items-center justify-center h-full">
-                        <Link to="/admin/doctores">
+                        <Link to="/admin/usuarios">
                           <button className="text-center underline  text-white">
                             Ver mas
                           </button>
@@ -212,7 +196,7 @@ export function DashboardView() {
           </div>
         </div>
         <div className="w-full lg:w-2/3">
-          <div className="w-full p-4 rounded-lg  border border-gray-100 bg-gray-900 border-gray-800"></div>
+          <div className="w-full p-4 rounded-lg  border   bg-[#3e7794]"></div>
         </div>
       </div>
     </>

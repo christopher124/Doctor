@@ -9,7 +9,7 @@ export function SideBar() {
   const [collapseShow, setCollapseShow] = useState("hidden");
   const { auth, logout } = useAuth();
   useEffect(() => {
-    (async () => { })();
+    (async () => {})();
   }, [auth, logout]);
   return (
     <>
@@ -160,6 +160,25 @@ export function SideBar() {
                     }
                   ></i>{" "}
                   Usuarios
+                </Link>
+                <Link
+                  className={
+                    "text-xs uppercase py-3 font-bold block " +
+                    (window.location.href.indexOf("/admin/citas") !== -1
+                      ? " px-4 py-3 flex  space-x-4 rounded-xl text-white bg-gradient-to-r from-sky-600 to-cyan-400"
+                      : "text-blue-700 hover:text-blue-500")
+                  }
+                  to="/admin/citas"
+                >
+                  <i
+                    className={
+                      "fas fa-users  mr-2 text-base " +
+                      (window.location.href.indexOf("/admin/citas") !== -1
+                        ? "opacity-75"
+                        : "text-blue-300")
+                    }
+                  ></i>{" "}
+                  Citas
                 </Link>
               </li>
             </ul>

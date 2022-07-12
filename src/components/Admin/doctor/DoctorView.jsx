@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 export function DoctorView({ doctor }) {
-  const { name, last, adress, status, phone, specialties, user } = doctor;
+  const { name, last, address, status, phone, specialties, user } = doctor;
 
   const [estadoDoctor, setEstadoDoctor] = useState(status);
   const [clase, setClase] = useState("");
@@ -30,7 +30,7 @@ export function DoctorView({ doctor }) {
   };
   return (
     <>
-      <div className="flex items-center justify-start p-2 space-x-4">
+      <div className="flex items-center justify-start  space-x-4 ">
         <div className="shrink-0 w-8">
           <img
             className="h-8 w-full shadow-lg rounded-full ring"
@@ -43,21 +43,21 @@ export function DoctorView({ doctor }) {
           />
         </div>
         <div className="flex flex-col w-full">
-          <div className="text-sm font-bold text-white">
-            Nombre y Apelido: {name + " " + last}
+          <div className="p-1 text-sm font-bold text-white">
+            Nombre y Apelido: {name + " " + last ? name + " " + last : "N/A"}
           </div>
 
-          <div className="text-sm text-white">Direccion: {adress}</div>
-          <div className="text-sm text-white">Telefono: {phone}</div>
-          <div className="flex flex-row items-center justify-around">
-            <div className="relative flex flex-row w-full text-center text-xs items-center h-1"></div>
+          <div className=" font-bold p-1 text-sm text-white">
+            Direccion: {address ? address : "N/A"}
           </div>
-          <div className="text-white whitespace-nowrap">
-            <span className=" text-white whitespace-nowrap">
-              Especialidad: {specialties ? specialties : "N/A"}
-            </span>
+          <div className=" font-bold p-1 text-sm text-white">
+            Telefono: {phone ? phone : "N/A"}
           </div>
-          <div className="text-white whitespace-nowrap">
+          <div className=" font-bold p-1 text-sm text-white">
+            Especialidad: {specialties ? specialties : "N/A"}
+          </div>
+
+          <div className="p-1 text-white whitespace-nowrap">
             <span className={`${clase} `}>
               Estatus: {status ? status : "N/A"}
             </span>

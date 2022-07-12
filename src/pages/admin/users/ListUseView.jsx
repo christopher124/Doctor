@@ -6,6 +6,8 @@ import { Spinner } from "../../../components/spinner/Spinner";
 import { deleteUserApi } from "../../../api/admin/user";
 import Swal from "sweetalert2";
 import { ListUserView } from "../../../components/Admin/user/ListUserView";
+import Excel from "react-html-table-to-excel";
+
 export function ListUseView() {
   const navigate = useNavigate();
   const [user, setUser] = useState({});
@@ -89,20 +91,35 @@ export function ListUseView() {
               </div>
             </div>
           </div>
-          <div className="shrink-0 space-x-2">
-            <button
-              onClick={() => navigate("/admin/nuevo/usuario")}
-              className="flex flex-row items-center justify-center px-4 py-2 text-xs font-bold text-white uppercase bg-blue-500 rounded-lg hover:bg-blue-600 space-x-1"
-            >
-              <i className="fa fa-solid fa-plus"></i>
-              <span>Nuevo Registro</span>
-            </button>
+          <div className="shrink-0 space-x-2 ">
+            <div className="inline-flex rounded-md shadow-sm">
+              <Excel
+                id="buttonExcel"
+                className="flex flex-row items-center justify-center px-4 py-2 text-xs font-bold text-white uppercase bg-blue-500 rounded-lg hover:bg-blue-600 space-x-1"
+                table="tableUsers"
+                filename="tableUsers"
+                sheet="pagina 1"
+                buttonText="Exportar a excel"
+              />
+            </div>
+            <div className="inline-flex rounded-md shadow-sm">
+              <button
+                onClick={() => navigate("/admin/nuevo/usuario")}
+                type="button"
+                className="flex flex-row items-center justify-center px-4 py-2 text-xs font-bold text-white uppercase bg-blue-500 rounded-lg hover:bg-blue-600 space-x-1"
+              >
+                <span className="p-1">Nuevo Registro</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table className="w-full text-sm text-left text-gray-500 text-gray-400">
+        <table
+          id="tableUsers"
+          className="w-full text-sm text-left text-gray-500 text-gray-400"
+        >
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 bg-gray-700 text-gray-400">
             <tr>
               <th scope="col" className="text-white py-3 px-6 text-left">

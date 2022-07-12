@@ -20,6 +20,8 @@ import { EditCustomerView } from "../../pages/admin/customers/EditCustomerView";
 import { CustomeView } from "../../pages/admin/customers/CustomeView";
 import { EditDoctorView } from "../../pages/admin/doctor/EditDoctorView";
 import { UseView } from "../../pages/admin/users/UseView";
+import { ListQuotView } from "../../pages/admin/quotes/ListQuotView";
+import { NewQuotesView } from "../../pages/admin/quotes/NewQuotesView";
 export function AppRouter() {
   return (
     <div>
@@ -32,7 +34,7 @@ export function AppRouter() {
         <Route path="/citas" element={<QuotesView />} />
         <Route path="/login" element={<LoginView />} />
         <Route path="*" element={<NotFound />} />
-        {/* Rutas privadas: */}
+        {/* Rutas privadas: Administrador*/}
         <Route path="/admin" element={<SideBar />}>
           <Route path="dashboard" element={<DashboardView />} />
           <Route path="doctores" element={<ListDocView />} />
@@ -47,6 +49,10 @@ export function AppRouter() {
           <Route path="cliente/:id" element={<CustomeView />} />
           <Route path="nuevo/cliente" element={<NewCustomerView />} />
           <Route path="editar/cliente/:id" element={<EditCustomerView />} />
+          <Route path="citas" element={<ListQuotView />} />
+          {/* <Route path="cita/:id" element={<CustomeView />} /> */}
+          <Route path="nueva/cita" element={<NewQuotesView />} />
+          {/* <Route path="editar/cita/:id" element={<EditCustomerView />} /> */}
         </Route>
       </Routes>
       {/* Rutas privadas: */}

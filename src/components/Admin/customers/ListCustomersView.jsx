@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom";
 export function ListCustomersView({ customer, handleDelited }) {
-  const { name, last, address, phone, state, gender, zip, id } = customer;
+  const { name, last, address, phone, state, gender, zip, status, id } =
+    customer;
   const navigate = useNavigate();
   console.log(customer);
   return (
-    <tr className=" border-b bg-gray-800 :border-gray-700">
+    <tr className=" border-b bg-gray-800 border-gray-700">
       <th
         scope="row"
         className="px-6 py-4 font-medium text-white whitespace-nowrap"
@@ -16,6 +17,12 @@ export function ListCustomersView({ customer, handleDelited }) {
       </td>
       <td className="text-white px-6 py-4">{gender}</td>
       <td className="text-white px-6 py-4">{phone}</td>
+      <td className="text-white px-6 py-4">
+        {" "}
+        {status === true
+          ? "Usuario En Consulta"
+          : "El usuario no esta en consulta"}
+      </td>
 
       <td className="py-3 px-6 text-center">
         <div className="flex item-center justify-center">

@@ -21,18 +21,16 @@ export function FormDoctor({ doctor, cargando }) {
     initialValues: initialValues(doctor),
     validationSchema: Yup.object(validationSchema()),
     onSubmit: async (formData) => {
-      console.log(formData);
-      // handleSutmit(formData);
+      handleSutmit(formData);
     },
   });
-  const { logout } = useAuth();
+  const { auth, logout } = useAuth();
   useEffect(() => {
     (async () => {
       const user = await getUserApi(logout);
       setUser(user);
-      console.log(user);
     })();
-  }, []);
+  }, [auth]);
 
   const handleSutmit = async (formData) => {
     let respuesta;
@@ -239,25 +237,26 @@ export function FormDoctor({ doctor, cargando }) {
           </div>
         </div>
         <div className="grid xl:grid-cols-3 xl:gap-6">
-          <div className="  w-full mb-6 group">
-            <text
-              htmlFor="phone"
-              className="block font-bold text-xl text-gray-700"
+          <div className="text-lg w-full mb-6 group">
+            <p
+              htmlFor="name"
+              className="block text-xl font-bold  text-gray-800 "
             >
-              Usuarios
-            </text>
+              Usuario
+            </p>
             <select
-              id="user"
               value={formik.values.user}
-              error={formik.errors.user}
+              name="user"
+              id="user"
               onChange={(data) =>
                 formik.setFieldValue("user", data.target.value)
               }
-              name="user"
+              onError={formik.errors.user}
+              onSelect
             >
-              {user.map((user) => (
-                <option key={user?.id} value={user?.username}>
-                  {user?.username}
+              {user?.map((user) => (
+                <option onSelect={user?.email} key={user?.id} value={user?.id}>
+                  {user?.email}
                 </option>
               ))}
             </select>
@@ -316,7 +315,7 @@ function initialValues(doctor) {
   return {
     name: doctor?.name ?? "",
     last: doctor?.last ?? "",
-    user: null,
+    user: doctor?.user?.email ?? "",
     address: doctor?.address ?? "",
     gender: doctor?.gender ?? "",
     phone: doctor?.phone ?? "",

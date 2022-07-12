@@ -1,24 +1,31 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import { Form } from "semantic-ui-react";
 import * as Yup from "yup";
 import { registerApi, updateUserApi } from "../../api/admin/user";
+import { getRolesApi } from "../../api/admin/roles";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import { roleOptions } from "../../api/data/data";
 import { toast } from "react-toastify";
 
 export function FormUser({ user }) {
   const navigate = useNavigate();
+  const [role, setRoles] = useState([]);
+  const { auth, logout } = useAuth();
+  const { roles } = role;
+  useEffect(() => {
+    (async () => {
+      const role = await getRolesApi(logout);
+      setRoles(role);
+    })();
+  }, [auth]);
   const formik = useFormik({
     initialValues: initialValues(user),
     validationSchema: Yup.object(validationSchema()),
     onSubmit: async (formData) => {
       handleSutmit(formData);
-      console.log(formData);
     },
   });
-  const { auth, logout } = useAuth();
 
   const handleSutmit = async (formData) => {
     let respuesta;
@@ -33,7 +40,6 @@ export function FormUser({ user }) {
         navigate("/admin/usuarios");
       } else {
         respuesta = await registerApi(formData, logout);
-        respuesta.append("photo");
 
         if (!respuesta) {
           toast.warning("El nombre de usuario y el correo ya estan utilizados");
@@ -140,10 +146,33 @@ export function FormUser({ user }) {
               </p>
               <Form.Input
                 type="file"
-                onChange={(data) =>
-                  formik.setFieldValue("photo", data.target.ob)
-                }
+                // onChange={(data) =>
+                //   formik.setFieldValue("photo", data.target.value)
+                // }
               />
+            </div>
+            <div className="text-lg w-full mb-6 group">
+              <p
+                htmlFor="name"
+                className="block text-xl font-bold  text-gray-800 "
+              >
+                Rol de usuario
+              </p>
+              <select
+                value={formik.values.role}
+                name="role"
+                id="role"
+                onChange={(data) =>
+                  formik.setFieldValue("role", data.target.value)
+                }
+              >
+                <option>Selecione un Rol</option>
+                {roles?.map((role) => (
+                  <option key={role?.id} value={role?.id}>
+                    {role?.name}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
           <input
@@ -162,6 +191,7 @@ function initialValues(user) {
     username: user?.username ?? "",
     email: user?.email ?? "",
     password: "",
+    role: user?.role ?? null,
     photo: null,
     confirmed: user?.confirmed ?? "",
     blocked: user?.blocked ?? false,
