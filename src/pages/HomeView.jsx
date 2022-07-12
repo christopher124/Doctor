@@ -1,6 +1,7 @@
 import { NavBar } from "../components/navbar/NavBar";
 import { Link } from "react-router-dom";
 import { Footer } from "../components/footer/Footer";
+import Imghome from "../assets/img/imagenhome.jpeg"
 export function HomeView() {
   return (
     <>
@@ -36,8 +37,8 @@ export function HomeView() {
         </div>
 
         <img
-          className="absolute top-0 b-auto right-0 pt-16 sm:w-6/12 -mt-48 sm:mt-0 w-10/12 max-h-860px"
-          src="https://demos.creative-tim.com/notus-react/static/media/pattern_react.01996482.png"
+          className="absolute top-0 right-0 pt-16 sm:w-6/12 -mt-48 sm:mt-0 w-96"
+          src={Imghome}
           alt="..."
         />
       </section>
@@ -68,8 +69,8 @@ export function HomeView() {
               <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-lightBlue-500">
                 <img
                   alt="..."
-                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"
-                  className="w-full align-middle rounded-t-lg"
+                  src="https://t4.ftcdn.net/jpg/02/93/11/31/240_F_293113129_4K3WjrKQY6BEnW7xBINa5NY5vpzFsWxm.jpg"
+                  className="w-full align-middle rounded-t-lg -mb-44"
                 />
               </div>
             </div>

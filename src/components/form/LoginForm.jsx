@@ -3,10 +3,14 @@ import { Form, Button } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { loginApi } from "../../api/admin/user";
 import useAuth from "../../hooks/useAuth";
+<<<<<<< HEAD
+import Clinica from "../../assets/img/SB2.jpg";
+=======
 import { toast } from "react-toastify";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import Clinica from "../../assets/img/LogoClinica.jpeg";
+>>>>>>> fe7fd31511677f802f145d96b1d9ce3355c61de2
 
 export function LoginForm() {
   const navigate = useNavigate();
@@ -37,16 +41,16 @@ export function LoginForm() {
     <>
       <div className="flex w-full h-screen bg-[#3e7794]">
         <div className="w-full flex items-center justify-center lg:w-1/2">
-          <div className="bg-white px-10 py-20 rounded-3xl border-2 border-gray-100">
-            <h1 className="text-5xl font-semibold">Bienvenido</h1>
+          <div className="bg-white px-20 py-32 rounded-3xl border-2 border-gray-100">
+            <h1 className="text-5xl font-semibold">¡Bienvenido!</h1>
             <p className="font-medium text-lg text-gray-500 mt-4">
-              ¡Bienvenido! por favor ingresa tus datos.
+              A continuación, ingresa tus datos.
             </p>
             <div className=" mt-8">
               <Form onSubmit={formik.handleSubmit}>
                 <div>
-                  <label htmlFor="email" className="text-lg font-medium">
-                    Email
+                  <label htmlFor="email" className="text-xl font-semibold">
+                    Correo
                   </label>
                   <div className="relative">
                     <Form.Input
