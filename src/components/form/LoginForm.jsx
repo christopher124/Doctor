@@ -6,7 +6,7 @@ import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
-import Clinica from "../../assets/img/LogoClinica.jpeg";
+import Clinica from "../../assets/img/SB2.jpg";
 
 export function LoginForm() {
   const navigate = useNavigate();
@@ -64,7 +64,7 @@ export function LoginForm() {
                     </span>
                   </div>
                   <div>
-                    <label htmlFor="password" className="text-lg font-medium">
+                    <label htmlFor="password" className="text-xl font-semibold">
                       Contraseña
                     </label>
                     <div className="relative">
