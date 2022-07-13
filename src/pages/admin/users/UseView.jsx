@@ -84,15 +84,15 @@ export function UseView() {
             </div>
             <div className=" flex flex-col w-full">
               <p className="py-1 text-white font-normal">
-                Nombre de usuario:{" "}
+                Nombre de Usuario:{" "}
                 <span className="text-bold">{user?.username}</span>
               </p>
               <p className="py-1 text-white font-normal">
-                Correo de usuario:{" "}
+                Correo de Usuario:{" "}
                 <span className="text-bold">{user?.email}</span>
               </p>
               <p className="py-1 text-white font-normal">
-                Nombre de usuario:{" "}
+                Nombre de Usuario:{" "}
                 <span className="text-bold">{user?.username}</span>
               </p>
             </div>

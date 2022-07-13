@@ -32,12 +32,12 @@ export function ListCustomeView() {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "¡Sí, bórralo!",
-      cancelButtonText: "No, Cancelar!",
+      cancelButtonText: "¡No, Cancelar!",
     }).then(async (result) => {
       if (result.isConfirmed) {
         const response = await deleteCustomerApi(id, logout);
         if (response) {
-          Swal.fire("Deleted!", "Your file has been deleted.", "success");
+          Swal.fire("¡Eliminado!", "El registro ha sido eliminado correctamente.", "success");
           const arrayCustomer = customer.filter((doctor) => doctor.id !== id);
           setCustumer(arrayCustomer);
         }
@@ -120,19 +120,19 @@ export function ListCustomeView() {
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 bg-gray-700 text-gray-400">
             <tr>
               <th scope="col" className="text-white py-3 px-6 text-left">
-                Nombre y apellido
+                Nombre y Apellido
               </th>
               <th scope="col" className="text-white py-3 px-6 text-left">
-                Direccion
+                Dirección
               </th>
               <th scope="col" className=" text-white py-3 px-6 text-left">
-                Genero
+                Género
               </th>
               <th scope="col" className="text-white py-3 px-6 text-left">
-                Telefono
+                Teléfono
               </th>{" "}
               <th scope="col" className="text-white py-3 px-6 text-left">
-                Estatus del cliente
+                Estatus del Cliente
               </th>
               <th
                 scope="col"

@@ -53,7 +53,7 @@ export function FormDoctor({ doctor, cargando }) {
         }
       }
       await respuesta.json();
-    } catch (err) {}
+    } catch (err) { }
   };
 
   return (
@@ -102,12 +102,12 @@ export function FormDoctor({ doctor, cargando }) {
               htmlFor="gender"
               className="block font-bold text-xl text-gray-700"
             >
-              Genero
+              Género
             </text>
 
             <Form.Dropdown
               id="gender"
-              placeholder="Seleciona un Genero"
+              placeholder="Seleciona un Género"
               options={options}
               value={formik.values.gender}
               error={formik.errors.gender}
@@ -122,7 +122,7 @@ export function FormDoctor({ doctor, cargando }) {
               htmlFor="address"
               className="block font-bold text-xl text-gray-700"
             >
-              Calle y Numero
+              Calle y Número
             </text>
             <Form.Input
               type="text"
@@ -131,7 +131,7 @@ export function FormDoctor({ doctor, cargando }) {
               value={formik.values.address}
               error={formik.errors.address}
               onChange={formik.handleChange}
-              placeholder="AV. San pedro"
+              placeholder="Av. Patria #32"
             />
           </div>
           <div className="  w-full mb-6 group">
@@ -139,13 +139,13 @@ export function FormDoctor({ doctor, cargando }) {
               htmlFor="number_int_address"
               className="block font-bold text-xl text-gray-700"
             >
-              Numero interior (Opcional)
+              Número Interior
             </text>
             <Form.Input
               type="text"
               name="number_int_address"
               id="number_int_address"
-              placeholder="Numero interior (Opcional)"
+              placeholder="Numero Interior (Opcional)"
             />
           </div>
           <div className=" w-full mb-6 group">
@@ -153,7 +153,7 @@ export function FormDoctor({ doctor, cargando }) {
               htmlFor="zip"
               className="block font-bold text-xl text-gray-700"
             >
-              Codigo postal
+              Código Postal
             </text>
             <Form.Input
               type="text"
@@ -162,7 +162,7 @@ export function FormDoctor({ doctor, cargando }) {
               value={formik.values.zip}
               error={formik.errors.zip}
               onChange={formik.handleChange}
-              placeholder="Codigo postal "
+              placeholder="45085"
             />
           </div>
           <div className=" w-full mb-6 group">
@@ -190,7 +190,7 @@ export function FormDoctor({ doctor, cargando }) {
               htmlFor="phone"
               className="block font-bold text-xl text-gray-700"
             >
-              Numero de Telefono
+              Número de Télefono
             </text>
             <Form.Input
               type="tel"
@@ -199,7 +199,7 @@ export function FormDoctor({ doctor, cargando }) {
               value={formik.values.phone}
               error={formik.errors.phone}
               onChange={formik.handleChange}
-              placeholder="Telefono"
+              placeholder="3317751433"
             />
           </div>
           <div className="  w-full mb-6 group">
@@ -207,7 +207,7 @@ export function FormDoctor({ doctor, cargando }) {
               htmlFor="birthday"
               className="block font-bold text-xl text-gray-700"
             >
-              Fecha de cumpleaños
+              Fecha de Cumpleaños
             </text>
             <Form.Input
               type="date"
@@ -223,7 +223,7 @@ export function FormDoctor({ doctor, cargando }) {
               htmlFor="star"
               className="block font-bold text-xl text-gray-700"
             >
-              Puntuacion del doctor
+              Puntuación del Doctor
             </text>
             <Form.Input
               type="text"
@@ -286,11 +286,11 @@ export function FormDoctor({ doctor, cargando }) {
               htmlFor="condition"
               className="block font-bold text-xl text-gray-700"
             >
-              Estatus del doctor
+              Estatus del Doctor
             </text>
             <Form.Dropdown
               id="status"
-              placeholder="Seleciona un Estatus del doctor"
+              placeholder="Seleciona un Estatus del Doctor"
               options={statusOptions}
               value={formik.values.status}
               error={formik.errors.status}

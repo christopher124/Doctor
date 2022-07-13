@@ -88,7 +88,7 @@ export function DashboardView() {
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-col">
                   <div className="text-xs font-bold text-white uppercase">
-                    Clientes registrados
+                    Clientes Registrados
                     <div className="p-1.5 text-xl font-bold">
                       {Customercount ? Customercount : "0"}
                     </div>
@@ -146,7 +146,7 @@ export function DashboardView() {
                       <div className="flex flex-col items-center justify-center h-full">
                         <Link to="/admin/doctores">
                           <button className="text-center underline  text-white">
-                            Ver mas
+                            Ver más
                           </button>
                         </Link>
                       </div>
@@ -184,7 +184,7 @@ export function DashboardView() {
                       <div className="flex flex-col items-center justify-center h-full">
                         <Link to="/admin/usuarios">
                           <button className="text-center underline  text-white">
-                            Ver mas
+                            Ver más
                           </button>
                         </Link>
                       </div>

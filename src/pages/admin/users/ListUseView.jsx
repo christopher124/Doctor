@@ -35,12 +35,12 @@ export function ListUseView() {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "¡Sí, bórralo!",
-      cancelButtonText: "No, Cancelar!",
+      cancelButtonText: "¡No, Cancelar!",
     }).then(async (result) => {
       if (result.isConfirmed) {
         const response = await deleteUserApi(id, logout);
         if (response) {
-          Swal.fire("Deleted!", "Your file has been deleted.", "success");
+          Swal.fire("¡Eliminado!", "El registro ha sido eliminado correctamente.", "success");
           const arrayUser = user.filter((user) => user.id !== id);
           setUser(arrayUser);
         }
@@ -123,22 +123,22 @@ export function ListUseView() {
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 bg-gray-700 text-gray-400">
             <tr>
               <th scope="col" className="text-white py-3 px-6 text-left">
-                Foto de usuario
+                Foto de Usuario
               </th>
               <th scope="col" className="text-white py-3 px-6 text-left">
-                Nombre de usuario{" "}
+                Nombre de Usuario{" "}
               </th>
               <th scope="col" className="text-white py-3 px-6 text-left">
                 Correo
               </th>
               <th scope="col" className=" text-white py-3 px-6 text-left">
-                Rol de usuario
+                Rol de Usuario
               </th>
               <th scope="col" className=" text-white py-3 px-6 text-left">
-                Status del usuario
+                Verificación del Usuario
               </th>
               <th scope="col" className=" text-white py-3 px-6 text-left">
-                Status del usuario
+                Estatus del Usuario
               </th>
               <th
                 scope="col"

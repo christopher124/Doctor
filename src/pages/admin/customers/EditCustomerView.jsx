@@ -36,7 +36,7 @@ export function EditCustomerView() {
       {customer?.name ? (
         <FormCustumer customer={customer} cargando={cargando} />
       ) : (
-        <p>Cliente ID no Valido</p>
+        <p>ID Inválido</p>
       )}
     </div>
   );

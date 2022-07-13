@@ -48,10 +48,10 @@ export function DoctorView({ doctor }) {
           </div>
 
           <div className=" font-bold p-1 text-sm text-white">
-            Direccion: {address ? address : "N/A"}
+            Dirección: {address ? address : "N/A"}
           </div>
           <div className=" font-bold p-1 text-sm text-white">
-            Telefono: {phone ? phone : "N/A"}
+            Teléfono: {phone ? phone : "N/A"}
           </div>
           <div className=" font-bold p-1 text-sm text-white">
             Especialidad: {specialties ? specialties : "N/A"}

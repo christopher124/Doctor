@@ -96,7 +96,7 @@ export function DocView() {
               <div className="flex flex-col">
                 <div className="text-sm font-light text-white">Doctor</div>
                 <div className="text-sm text-white font-bold">
-                  <span>Informacion Usuario</span>
+                  <span>Información del Usuario</span>
                 </div>
               </div>
               <div className="relative inline-block text-left z-10"></div>
@@ -114,13 +114,13 @@ export function DocView() {
             </div>
             <div className=" flex flex-col w-full">
               <p className="py-1 text-white font-normal">
-                Nombre de usuario:{" "}
+                Nombre de Usuario:{" "}
                 <span className="text-bold">
                   {user?.username ? user?.username : "N/A"}
                 </span>
               </p>
               <p className="py-1 text-white font-normal">
-                Correo de usuario:{" "}
+                Correo de Usuario:{" "}
                 <span className="text-bold">
                   {user?.email ? user?.email : "N/A"}
                 </span>
@@ -129,7 +129,7 @@ export function DocView() {
               <div>
                 {" "}
                 <p className=" text-white font-normal">
-                  Puntuacion del doctor:{" "}
+                  Puntuación del Doctor:{" "}
                   <Rating
                     className="py-0"
                     name="half-rating-read"
@@ -148,31 +148,31 @@ export function DocView() {
               <div className="flex flex-col">
                 <div className="text-sm font-bold text-white">Doctor</div>
                 <div className="text-sm font-bold text-white">
-                  <span>Informacion del Doctor</span>
+                  <span>Información del Doctor</span>
                 </div>
               </div>
               <div className="relative inline-block text-left z-10"></div>
             </div>
             <div className=" flex flex-col w-full">
               <p className="py-1 text-white font-normal">
-                Nombre del doctor:{" "}
+                Nombre del Doctor:{" "}
                 <span className="text-bold">
                   {name} {last}
                 </span>
               </p>
 
               <p className="py-1 text-white font-normal">
-                Direccion:{" "}
+                Dirección:{" "}
                 <span className="text-bold"> {address ? address : "N/A"}</span>
               </p>
               <p className="py-1 text-white font-normal">
-                Fecha de nacimiento:
+                Fecha de Nacimiento:
                 <span className="text-bold">
                   {birthday ? birthday : "N/A"}{" "}
                 </span>
               </p>
               <p className="py-1 text-white font-normal">
-                Edad de Medico:{" "}
+                Edad de Médico:{" "}
                 <span className="text-bold"> {getEdad(birthday)} años</span>
               </p>
               <p className="py-1 text-white font-normal">
@@ -181,16 +181,16 @@ export function DocView() {
               </p>
 
               <p className="py-1 text-white font-normal">
-                Telefono:{" "}
+                Teléfono:{" "}
                 <span className="text-bold"> {phone ? phone : "N/A"}</span>
               </p>
               <p className="py-1 text-white font-normal">
-                Estatus del doctor:{" "}
+                Estatus del Doctor:{" "}
                 <span className="text-bold"> {status ? status : "N/A"}</span>
               </p>
 
               <p className="py-1 text-white font-normal">
-                Especialidad del doctor:{" "}
+                Especialidad del Doctor:{" "}
                 <span className="text-bold">
                   {" "}
                   {specialties ? specialties : "N/A"}
@@ -198,7 +198,7 @@ export function DocView() {
               </p>
 
               <p className="py-1 text-white font-normal">
-                Fecha de creacion:{" "}
+                Fecha de Creación:{" "}
                 <span className="text-bold">
                   {" "}
                   {format(
@@ -208,7 +208,7 @@ export function DocView() {
                 </span>
               </p>
               <p className="py-1 text-white font-normal">
-                Ultima Actulizacion:{" "}
+                Última Actulización:{" "}
                 <span className="text-bold">
                   {" "}
                   {format(

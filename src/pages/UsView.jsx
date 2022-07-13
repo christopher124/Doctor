@@ -34,6 +34,17 @@ export function UsView() {
                     la excelencia en el servicio asistencial y trato humano.
                     Compromiso total para cumplir y, si es posible, sobrepasar las expectativas del cliente.
                   </p>
+                  <h1 className="text-white font-semibold text-5xl">
+                    Visión
+                  </h1>
+                  <p className="mt-4 text-2xl text-justify text-blue-200">
+                    Mediante un mejor conocimiento del cliente/paciente, conseguir la mejor asistencia médica y ética,
+                    que nos permita crecer, mejorar en eficacia y eficiencia, y ser reconocidos por nuestros
+                    usuarios por la calidad en los servicios.
+                    Ofrecer al cliente/paciente un servicio preciso, sensato e integral consiguiendo
+                    la excelencia en el servicio asistencial y trato humano.
+                    Compromiso total para cumplir y, si es posible, sobrepasar las expectativas del cliente.
+                  </p>
                 </div>
               </div>
             </div>

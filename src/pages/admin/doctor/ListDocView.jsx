@@ -30,12 +30,12 @@ export function ListDocView() {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "¡Sí, bórralo!",
-      cancelButtonText: "No, Cancelar!",
+      cancelButtonText: "¡No, cancelar!",
     }).then(async (result) => {
       if (result.isConfirmed) {
         const response = await deleteDoctorApi(id, logout);
         if (response) {
-          Swal.fire("Deleted!", "Your file has been deleted.", "success");
+          Swal.fire("¡Eliminado!", "El registro ha sido eliminado correctamente.", "success");
           const arrayDoctor = doctor.filter((doctor) => doctor.id !== id);
           setDoctor(arrayDoctor);
         }
@@ -103,25 +103,25 @@ export function ListDocView() {
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 bg-gray-700 text-gray-400">
             <tr>
               <th scope="col" className="text-white py-3 px-6 text-left">
-                Nombre y apellido
+                Nombre y Apellido
               </th>
               <th scope="col" className="text-white py-3 px-6 text-left">
                 Correo
               </th>
               <th scope="col" className=" text-white py-3 px-6 text-left">
-                Fecha de cumpleaños
+                Fecha de Cumpleaños
               </th>
               {/* <th scope="col" className="text-white py-3 px-6 text-left">
                 Direccion
               </th> */}
               <th scope="col" className="text-white py-3 px-6 text-left">
-                Telefono
+                Teléfono
               </th>
               <th scope="col" className="text-white py-3 px-6 text-left">
-                Status
+                Estatus
               </th>
               <th scope="col" className="text-white py-3 px-6 text-left">
-                Especalidad
+                Especialidad
               </th>
 
               <th
