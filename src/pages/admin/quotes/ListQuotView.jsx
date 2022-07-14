@@ -23,7 +23,7 @@ export function ListQuotView() {
       }, 1000)
     );
   }, [auth]);
-  const handleDelited = async (id) => {};
+  const handleDelited = async (id) => { };
 
   return cargando ? (
     <Spinner />
@@ -39,7 +39,7 @@ export function ListQuotView() {
               </div>
               <div className="flex flex-col items-center justify-center h-full">
                 <div className="text-center text-gray-600">
-                  No hay Citas registrados
+                  No hay Citas registradas
                 </div>
               </div>
             </div>
@@ -85,10 +85,10 @@ export function ListQuotView() {
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 bg-gray-700 text-gray-400">
             <tr>
               <th scope="col" className="text-white py-3 px-6 text-left">
-                Nombre y apellido del cliente
+                Nombre y Apellido del cliente
               </th>
               <th scope="col" className="text-white py-3 px-6 text-left">
-                Nombre y apellido del Doctor
+                Nombre y Apellido del Doctor
               </th>
               <th scope="col" className="text-white py-3 px-6 text-left">
                 Dia de la cita

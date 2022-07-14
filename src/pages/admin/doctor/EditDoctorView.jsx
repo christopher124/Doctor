@@ -36,7 +36,7 @@ export function EditDoctorView() {
       {doctor?.id ? (
         <FormDoctor doctor={doctor} cargando={cargando} />
       ) : (
-        <p>Cliente ID no Valido</p>
+        <p>ID Inválido</p>
       )}
     </div>
   );

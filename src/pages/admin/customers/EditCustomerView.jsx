@@ -57,7 +57,11 @@ export function EditCustomerView() {
           </div>
         </div>
       </div>
-      <FormCustumer customer={customer} cargando={cargando} />
+      {customer?.name ? (
+        <FormCustumer customer={customer} cargando={cargando} />
+      ) : (
+        <p>ID Inválido</p>
+      )}
     </div>
   );
 }

@@ -69,7 +69,7 @@ export function FormUser({ user }) {
                 htmlFor="username"
                 className="block text-xl font-bold  text-gray-800 "
               >
-                Nombre de usuario
+                Nombre del Usuario
               </p>
               <Form.Input
                 type="text"
@@ -78,7 +78,7 @@ export function FormUser({ user }) {
                 value={formik.values.username}
                 onChange={formik.handleChange}
                 error={formik.errors.username}
-                placeholder="Nombre de usuario"
+                placeholder="Nombre del Usuario"
               />
             </div>
             <div className="  w-full mb-6 group">
@@ -95,7 +95,7 @@ export function FormUser({ user }) {
                 value={formik.values.email}
                 onChange={formik.handleChange}
                 error={formik.errors.email}
-                placeholder="Apellidos"
+                placeholder="Example@gmail.com"
               />
             </div>
             <div className=" w-full mb-6 group">
@@ -103,7 +103,7 @@ export function FormUser({ user }) {
                 htmlFor="password"
                 className="block font-bold text-xl text-gray-700"
               >
-                password
+                Contraseña
               </p>
               <Form.Input
                 type="password"
@@ -112,7 +112,7 @@ export function FormUser({ user }) {
                 value={formik.values.password}
                 onChange={formik.handleChange}
                 error={formik.errors.password}
-                placeholder="Ingrese una contraseña"
+                placeholder="Ingresa una contraseña"
               />
             </div>
             <div className=" w-full mb-6 group">
@@ -120,7 +120,7 @@ export function FormUser({ user }) {
                 htmlFor="password"
                 className="block font-bold text-xl text-gray-700"
               >
-                Estatus del usuario
+                Estatus del Usuario
               </p>
               <Form.Checkbox
                 checked={formik.values.confirmed}
@@ -146,7 +146,7 @@ export function FormUser({ user }) {
                 htmlFor="name"
                 className="block text-xl font-bold  text-gray-800 "
               >
-                Rol de usuario
+                Rol de Usuario
               </p>
               <select
                 value={formik.values.role}
@@ -192,7 +192,7 @@ function validationSchema() {
     username: Yup.string().required(true).min(5).max(15),
     email: Yup.string().email().required(true),
     password: Yup.string()
-      .min(9, "La contraseña debe de tener minimo 9 caracteres")
+      .min(9, "La contraseña debe de tener mínimo 9 caracteres")
       .required(true),
   };
 }

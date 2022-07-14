@@ -89,7 +89,7 @@ export function CustomeView() {
               <div className="flex flex-col">
                 <div className="text-sm font-light text-white">Cliente</div>
                 <div className="text-sm text-white font-bold">
-                  <span>Informacion Usuario(Cliente)</span>
+                  <span>Información Usuario(Cliente)</span>
                 </div>
               </div>
               <div className="relative inline-block text-left z-10"></div>
@@ -107,15 +107,15 @@ export function CustomeView() {
             </div>
             <div className=" flex flex-col w-full">
               <p className="py-1 text-white font-normal">
-                Nombre de usuario:{" "}
+                Nombre de Usuario:{" "}
                 <span className="text-bold">{user?.username}</span>
               </p>
               <p className="py-1 text-white font-normal">
-                Correo de usuario:{" "}
+                Correo de Usuario:{" "}
                 <span className="text-bold">{user?.email}</span>
               </p>
               <p className="py-1 text-white font-normal">
-                Nombre de usuario:{" "}
+                Nombre de Usuario:{" "}
                 <span className="text-bold">{user?.username}</span>
               </p>
             </div>
@@ -127,49 +127,49 @@ export function CustomeView() {
               <div className="flex flex-col">
                 <div className="text-sm font-bold text-white">Doctor</div>
                 <div className="text-sm font-bold text-white">
-                  <span>Informacion del Doctor</span>
+                  <span>Información del Doctor</span>
                 </div>
               </div>
               <div className="relative inline-block text-left z-10"></div>
             </div>
             <div className=" flex flex-col w-full">
               <p className="py-1 text-white font-normal">
-                Nombre del doctor:{" "}
+                Nombre del Doctor:{" "}
                 <span className="text-bold">
                   {name} {last}
                 </span>
               </p>
 
               <p className="py-1 text-white font-normal">
-                Direccion: <span className="text-bold"> {address}</span>
+                Dirección: <span className="text-bold"> {address}</span>
               </p>
               <p className="py-1 text-white font-normal">
-                Fecha de nacimiento:{" "}
+                Fecha de Nacimiento:{" "}
                 <span className="text-bold">
                   {format(new Date(created_at), "dd/MM/yyyy")}{" "}
                 </span>
               </p>
               <p className="py-1 text-white font-normal">
-                Edad del CLiente:{" "}
+                Edad del Cliente:{" "}
                 <span className="text-bold"> {getEdad(birthday)} años</span>
               </p>
               <p className="py-1 text-white font-normal">
-                Genero: <span className="text-bold"> {gender}</span>
+                Género: <span className="text-bold"> {gender}</span>
               </p>
 
               <p className="py-1 text-white font-normal">
-                Telefono: <span className="text-bold"> {phone}</span>
+                Teléfono: <span className="text-bold"> {phone}</span>
               </p>
 
               <p className="py-1 text-white font-normal">
-                Fecha de creacion:{" "}
+                Fecha de Creación:{" "}
                 <span className="text-bold">
                   {" "}
                   {format(new Date(created_at), "dd/MM/yyyy HH:mm:ss")}
                 </span>
               </p>
               <p className="py-1 text-white font-normal">
-                Ultima Actulizacion:{" "}
+                Última Actulización:{" "}
                 <span className="text-bold">
                   {" "}
                   {format(new Date(updated_at), "dd/MM/yyyy HH:mm:ss")}{" "}

@@ -99,7 +99,7 @@ export function FormCustumer({ customer, cargando }) {
               value={formik.values.name}
               onChange={formik.handleChange}
               error={formik.errors.name}
-              placeholder="Nombres "
+              placeholder="Nombres... "
             />
           </div>
           <div className="text-lg w-full mb-6 group">
@@ -124,10 +124,10 @@ export function FormCustumer({ customer, cargando }) {
               htmlFor="state"
               className="block font-bold text-xl text-gray-700"
             >
-              Genero
+              Género
             </p>
             <Form.Dropdown
-              placeholder="Seleciona un Genero"
+              placeholder="Seleciona un Género"
               options={options}
               value={formik.values.gender}
               error={formik.errors.gender}
@@ -144,7 +144,7 @@ export function FormCustumer({ customer, cargando }) {
               htmlFor="address"
               className="block font-bold text-xl text-gray-700"
             >
-              Calle y Numero
+              Calle y Número
             </p>
             <Form.Input
               type="text"
@@ -153,7 +153,7 @@ export function FormCustumer({ customer, cargando }) {
               value={formik.values.address}
               error={formik.errors.address}
               onChange={formik.handleChange}
-              placeholder="AV. San pedro"
+              placeholder="Av. Patria #32"
             />
           </div>
           <div className="  w-full mb-6 group">
@@ -161,13 +161,13 @@ export function FormCustumer({ customer, cargando }) {
               htmlFor="number_int_address"
               className="block font-bold text-xl text-gray-700"
             >
-              Numero interior (Opcional)
+              Número Interior
             </p>
             <Form.Input
               type="text"
               name="number_int_address"
               id="number_int_address"
-              placeholder="Numero interior (Opcional)"
+              placeholder="Numero Interior (Opcional)"
             />
           </div>
           <div className="text-lg w-full mb-6 group">
@@ -175,7 +175,7 @@ export function FormCustumer({ customer, cargando }) {
               htmlFor="zip"
               className="block text-xl font-bold  text-gray-800 "
             >
-              Codigo postal
+              Código Postal
             </p>
             <Form.Input
               type="text"
@@ -184,7 +184,7 @@ export function FormCustumer({ customer, cargando }) {
               value={formik.values.zip}
               onChange={formik.handleChange}
               error={formik.errors.zip}
-              placeholder="Codigo postal"
+              placeholder="45085"
             />
           </div>
           <div className=" w-full mb-6 group">
@@ -212,7 +212,7 @@ export function FormCustumer({ customer, cargando }) {
               htmlFor="phone"
               className="block text-xl font-bold  text-gray-800 "
             >
-              Telefono
+              Teléfono
             </p>
             <Form.Input
               type="text"
@@ -229,7 +229,7 @@ export function FormCustumer({ customer, cargando }) {
               htmlFor="birthday"
               className="block text-xl font-bold  text-gray-800 "
             >
-              Fecha de cumpleaños
+              Fecha de Cumpleaños
             </p>
             <Form.Input
               type="date"

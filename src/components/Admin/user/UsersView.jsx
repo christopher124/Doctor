@@ -32,7 +32,7 @@ export function UsersView({ users }) {
         </div>
         <div className="flex flex-col w-full">
           <div className="p-1 text-sm font-bold text-white">
-            Nombre de usuario: {username}
+            Nombre de Usuario: {username}
           </div>
 
           <div className="p-1 font-bold text-sm text-white">
@@ -40,7 +40,7 @@ export function UsersView({ users }) {
             Correo: {email}
           </div>
           <div className="p-1  font-bold text-sm text-white">
-            Rol de usuario: {role?.name}
+            Rol de Usuario: {role?.name}
           </div>
           <div className="p-1  font-bold text-sm text-white">
             {confirmed === true
