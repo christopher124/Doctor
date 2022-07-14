@@ -10,7 +10,8 @@ import "react-toastify/dist/ReactToastify.css";
 export default function App() {
   const navigate = useNavigate();
   const [auth, setAuth] = useState(undefined);
-  const [realoadUser, setReloadUser] = useState(false);
+  const [reloadUser, setReloadUser] = useState(false);
+
   useEffect(() => {
     const token = getToken();
     if (token) {
@@ -22,7 +23,7 @@ export default function App() {
       setAuth(null);
     }
     setReloadUser(false);
-  }, [setReloadUser]);
+  }, [reloadUser]);
 
   const login = (token) => {
     setToken(token);
@@ -47,6 +48,7 @@ export default function App() {
       logout,
       setReloadUser,
     }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [auth]
   );
 
