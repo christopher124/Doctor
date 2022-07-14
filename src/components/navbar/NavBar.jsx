@@ -1,11 +1,14 @@
 /*eslint-disable*/
 import React from "react";
-import { Link } from "react-router-dom";
-import Logo from "../../assets/img/Gocare.png"
+import { useNavigate, Link } from "react-router-dom";
+import Logo from "../../assets/img/Gocare.png";
+import useAuth from "../../hooks/useAuth";
 // components
 
 export function NavBar(props) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
+  const { auth } = useAuth();
+
   return (
     <>
       <nav className="font-noto top-0 fixed z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-white shadow">
@@ -61,19 +64,35 @@ export function NavBar(props) {
                 </Link>
               </li>
 
-              <li className="flex items-center">
-                <Link
-                  className={
-                    "px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold " +
-                    (window.location.href.indexOf("/login") !== -1
-                      ? "text-black-700 hover:text-blue-600"
-                      : "text-blue-700 hover:text-blue-500")
-                  }
-                  to="/login"
-                >
-                  Iniciar sesión
-                </Link>
-              </li>
+              {auth ? (
+                <li className="flex items-center">
+                  <Link
+                    className={
+                      "px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold " +
+                      (window.location.href.indexOf("/dashboard") !== -1
+                        ? "text-black-700 hover:text-blue-600"
+                        : "text-blue-700 hover:text-blue-500")
+                    }
+                    to="/admin/dashboard"
+                  >
+                    Mi cuenta
+                  </Link>
+                </li>
+              ) : (
+                <li className="flex items-center">
+                  <Link
+                    className={
+                      "px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold " +
+                      (window.location.href.indexOf("/login") !== -1
+                        ? "text-black-700 hover:text-blue-600"
+                        : "text-blue-700 hover:text-blue-500")
+                    }
+                    to="/login"
+                  >
+                    Iniciar sesión
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
         </div>

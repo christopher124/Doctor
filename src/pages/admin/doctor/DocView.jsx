@@ -5,6 +5,7 @@ import { format } from "date-fns";
 import { Rating } from "@mui/material";
 import useAuth from "../../../hooks/useAuth";
 import { getOneDoctorApi } from "../../../api/admin/doctor";
+import Avvvatars from "avvvatars-react";
 
 export function DocView() {
   const { id } = useParams();
@@ -90,7 +91,7 @@ export function DocView() {
         </div>
       </div>
       <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
-        <div className="w-full lg:w-1/3">
+        <div className="w-full lg:w-1/3 lg:h-1/3">
           <div className="w-full p-4 rounded-lg bg-white border border-gray-100 bg-gray-900 border-gray-800">
             <div className="flex flex-row items-center justify-between mb-6">
               <div className="flex flex-col">
@@ -101,48 +102,45 @@ export function DocView() {
               </div>
               <div className="relative inline-block text-left z-10"></div>
             </div>
-            <div className="flex flex-row px-12 w-full">
-              <img
-                className="text-center rounded-full"
-                src={
-                  user?.photo && user?.photo.formats.small.url
-                    ? "http://localhost:1337" + user?.photo.formats.small.url
-                    : "https://img.freepik.com/free-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-7509.jpg?w=740"
-                }
-                alt="Random"
+            <div className="items-center h-24 w-24 rounded-full ml-16">
+              <Avvvatars
+                value={user?.username ? user?.username : "NU"}
+                size={100}
               />
             </div>
-            <div className=" flex flex-col w-full">
-              <p className="py-1 text-white font-normal">
-                Nombre de usuario:{" "}
-                <span className="text-bold">
-                  {user?.username ? user?.username : "N/A"}
-                </span>
-              </p>
-              <p className="py-1 text-white font-normal">
-                Correo de usuario:{" "}
-                <span className="text-bold">
-                  {user?.email ? user?.email : "N/A"}
-                </span>
-              </p>
-
-              <div>
-                {" "}
-                <p className=" text-white font-normal">
-                  Puntuacion del doctor:{" "}
-                  <Rating
-                    className="py-0"
-                    name="half-rating-read"
-                    value={star ? star : "N/A"}
-                    precision={0.5}
-                    readOnly
-                  />
+            <div className="text-center flex flex-row px-12 w-full">
+              <div className=" flex flex-col w-full">
+                <p className="py-1 text-white font-normal">
+                  Nombre de usuario:{" "}
+                  <span className="text-bold">
+                    {user?.username ? user?.username : "N/A"}
+                  </span>
                 </p>
+                <p className="py-1 text-white font-normal">
+                  Correo de usuario:{" "}
+                  <span className="text-bold">
+                    {user?.email ? user?.email : "N/A"}
+                  </span>
+                </p>
+
+                <div>
+                  {" "}
+                  <p className=" text-white font-normal">
+                    Puntuacion del doctor:{" "}
+                    <Rating
+                      className="py-0"
+                      name="half-rating-read"
+                      value={star ? star : "N/A"}
+                      precision={0.5}
+                      readOnly
+                    />
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="w-full lg:w-2/3">
+        <div className="w-full lg:w-2/3 lg:h-1/3">
           <div className="w-full p-4 rounded-lg bg-white border border-gray-100 bg-gray-900 border-gray-800">
             <div className="flex flex-row items-center justify-between mb-6">
               <div className="flex flex-col">

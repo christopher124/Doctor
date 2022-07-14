@@ -19,12 +19,11 @@ export function LoginForm() {
       setLoading(true);
       try {
         const response = await loginApi(formData);
-        console.log(response);
-        if (response.jwt && response.user.role.name === "Admin") {
+        if (response?.jwt && response?.user?.role?.name === "Admin") {
           login(response.jwt);
           toast.success("Bienvenido" + " " + response.user.username);
           navigate("/admin/dashboard");
-        } else if (response.status === 400) {
+        } else {
           setLoading(false);
           toast.error("Usuario o contraseña incorrectos");
         }
@@ -35,7 +34,7 @@ export function LoginForm() {
   });
   return (
     <>
-      <div className="flex w-full h-screen bg-[#3e7794]">
+      <div className="flex w-full h-screen bg-gradient-to-r from-cyan-800 to-slate-900 ">
         <div className="w-full flex items-center justify-center lg:w-1/2">
           <div className="bg-white px-20 py-32 rounded-3xl border-2 border-gray-100">
             <h1 className="text-5xl font-semibold">¡Bienvenido!</h1>
@@ -81,7 +80,12 @@ export function LoginForm() {
                   </div>
                 </div>
                 <div className="mt-12 flex flex-col gap-y-4">
-                  <Button type="submit" primary loading={loading}>
+                  <Button
+                    disabled={!formik.dirty}
+                    type="submit"
+                    primary
+                    loading={loading}
+                  >
                     Iniciar sesión
                   </Button>
                 </div>

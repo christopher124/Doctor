@@ -64,12 +64,12 @@ export function FormDoctor({ doctor, cargando }) {
       <Form onSubmit={formik.handleSubmit} className="mt-10">
         <div className=" grid xl:grid-cols-3 xl:gap-6">
           <div className="text-lg w-full mb-6 group">
-            <text
+            <p
               htmlFor="name"
               className="block text-xl font-bold  text-gray-800 "
             >
               Nombres
-            </text>
+            </p>
             <Form.Input
               type="text"
               id="name"
@@ -81,12 +81,12 @@ export function FormDoctor({ doctor, cargando }) {
             />
           </div>
           <div className="  w-full mb-6 group">
-            <text
+            <p
               htmlFor="last"
               className="block font-bold text-xl  text-gray-700"
             >
               Apellidos
-            </text>
+            </p>
             <Form.Input
               type="text"
               name="last"
@@ -98,12 +98,12 @@ export function FormDoctor({ doctor, cargando }) {
             />
           </div>
           <div className=" w-full mb-6 group">
-            <text
+            <p
               htmlFor="gender"
               className="block font-bold text-xl text-gray-700"
             >
               Genero
-            </text>
+            </p>
 
             <Form.Dropdown
               id="gender"
@@ -116,14 +116,14 @@ export function FormDoctor({ doctor, cargando }) {
             />
           </div>
         </div>
-        <div className="grid xl:grid-cols-4 xl:gap-6">
+        <div className="grid xl:grid-cols-6 xl:gap-6">
           <div className="  w-full mb-6 group">
-            <text
+            <p
               htmlFor="address"
               className="block font-bold text-xl text-gray-700"
             >
               Calle y Numero
-            </text>
+            </p>
             <Form.Input
               type="text"
               name="address"
@@ -135,12 +135,43 @@ export function FormDoctor({ doctor, cargando }) {
             />
           </div>
           <div className="  w-full mb-6 group">
-            <text
+            <p
+              htmlFor="suburb"
+              className="block font-bold text-xl text-gray-700"
+            >
+              Colonia
+            </p>
+            <Form.Input
+              type="text"
+              name="suburb"
+              id="suburb"
+              value={formik.values.suburb}
+              error={formik.errors.suburb}
+              onChange={formik.handleChange}
+              placeholder="loma bonita"
+            />
+          </div>
+          <div className="  w-full mb-6 group">
+            <p htmlFor="town" className="block font-bold text-xl text-gray-700">
+              Municipio
+            </p>
+            <Form.Input
+              type="text"
+              name="town"
+              id="town"
+              value={formik.values.town}
+              error={formik.errors.town}
+              onChange={formik.handleChange}
+              placeholder="Tonala"
+            />
+          </div>
+          <div className="  w-full mb-6 group">
+            <p
               htmlFor="number_int_address"
               className="block font-bold text-xl text-gray-700"
             >
-              Numero interior (Opcional)
-            </text>
+              Numero interior
+            </p>
             <Form.Input
               type="text"
               name="number_int_address"
@@ -149,12 +180,9 @@ export function FormDoctor({ doctor, cargando }) {
             />
           </div>
           <div className=" w-full mb-6 group">
-            <text
-              htmlFor="zip"
-              className="block font-bold text-xl text-gray-700"
-            >
+            <p htmlFor="zip" className="block font-bold text-xl text-gray-700">
               Codigo postal
-            </text>
+            </p>
             <Form.Input
               type="text"
               name="zip"
@@ -166,12 +194,12 @@ export function FormDoctor({ doctor, cargando }) {
             />
           </div>
           <div className=" w-full mb-6 group">
-            <text
+            <p
               htmlFor="state"
               className="block font-bold text-xl text-gray-700"
             >
               Estado
-            </text>
+            </p>
             <Dropdown
               placeholder="Seleciona un Estado"
               options={contriesOptions}
@@ -186,12 +214,12 @@ export function FormDoctor({ doctor, cargando }) {
         </div>
         <div className="grid xl:grid-cols-3 xl:gap-6">
           <div className="  w-full mb-6 group">
-            <text
+            <p
               htmlFor="phone"
               className="block font-bold text-xl text-gray-700"
             >
               Numero de Telefono
-            </text>
+            </p>
             <Form.Input
               type="tel"
               name="phone"
@@ -203,12 +231,12 @@ export function FormDoctor({ doctor, cargando }) {
             />
           </div>
           <div className="  w-full mb-6 group">
-            <text
+            <p
               htmlFor="birthday"
               className="block font-bold text-xl text-gray-700"
             >
               Fecha de cumpleaños
-            </text>
+            </p>
             <Form.Input
               type="date"
               value={formik.values.birthday}
@@ -219,12 +247,9 @@ export function FormDoctor({ doctor, cargando }) {
             />
           </div>
           <div className=" w-full mb-6 group">
-            <text
-              htmlFor="star"
-              className="block font-bold text-xl text-gray-700"
-            >
+            <p htmlFor="star" className="block font-bold text-xl text-gray-700">
               Puntuacion del doctor
-            </text>
+            </p>
             <Form.Input
               type="text"
               value={formik.values.star}
@@ -262,12 +287,12 @@ export function FormDoctor({ doctor, cargando }) {
             </select>
           </div>
           <div className="  w-full mb-6 group">
-            <text
+            <p
               htmlFor="birthday"
               className="block font-bold text-xl text-gray-700"
             >
               Especialidad
-            </text>
+            </p>
             <Form.Dropdown
               id="specialties"
               placeholder="Seleciona una especialidad"
@@ -282,12 +307,12 @@ export function FormDoctor({ doctor, cargando }) {
             />
           </div>
           <div className=" w-full mb-6 group">
-            <text
+            <p
               htmlFor="condition"
               className="block font-bold text-xl text-gray-700"
             >
               Estatus del doctor
-            </text>
+            </p>
             <Form.Dropdown
               id="status"
               placeholder="Seleciona un Estatus del doctor"
@@ -315,10 +340,12 @@ function initialValues(doctor) {
   return {
     name: doctor?.name ?? "",
     last: doctor?.last ?? "",
-    user: doctor?.user?.email ?? "",
+    user: doctor?.user?.email ?? null,
     address: doctor?.address ?? "",
     gender: doctor?.gender ?? "",
     phone: doctor?.phone ?? "",
+    suburb: doctor?.suburb ?? "",
+    town: doctor?.town ?? "",
     number_int_address: doctor?.number_int_address ?? "",
     birthday: doctor?.birthday ?? "",
     star: doctor?.star ?? 0,

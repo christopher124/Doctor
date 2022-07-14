@@ -33,11 +33,15 @@ export function FormCustumer({ customer, cargando }) {
     },
   });
   const handleSubmit = async (formData) => {
+    const formDataTemp = {
+      ...formData,
+      user: auth.idUser,
+    };
     let respuesta;
     try {
       setLoading(true);
       if (customer?.id) {
-        respuesta = await updateCustomerApi(customer?.id, formData, logout);
+        respuesta = await updateCustomerApi(customer?.id, formDataTemp, logout);
         if (!respuesta) {
           toast.warning(
             "Problemas con actulizar al usaurio, intentelo mas tarde"
@@ -45,7 +49,7 @@ export function FormCustumer({ customer, cargando }) {
         } else toast.success("Usuario actulizado correctamente");
         navigate("/admin/clientes");
       } else {
-        respuesta = await createCustomerApi(formData, logout);
+        respuesta = await createCustomerApi(formDataTemp, logout);
         if (!respuesta) {
           toast.warning("El nombre de usuario y el correo ya estan utilizados");
         } else {
@@ -253,7 +257,6 @@ export function FormCustumer({ customer, cargando }) {
                 formik.setFieldValue("user", data.target.value)
               }
               onError={formik.errors.user}
-              onSelect
             >
               {user?.map((user) => (
                 <option key={user?.id} value={user?.id}>

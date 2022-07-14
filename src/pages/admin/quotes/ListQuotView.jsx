@@ -15,8 +15,8 @@ export function ListQuotView() {
   const navigate = useNavigate();
   useEffect(() => {
     (async () => {
-      const quotes = await getQuotesApi(logout);
-      setQuotes(quotes);
+      const quote = await getQuotesApi(logout);
+      setQuotes(quote);
     })(
       setTimeout(() => {
         setCargando(!cargando);
@@ -104,11 +104,7 @@ export function ListQuotView() {
           </thead>
           <tbody>
             {quotes.map((quotes) => (
-              <ListQuotesView
-                handleDelited={handleDelited}
-                key={quotes.id}
-                quotes={quotes}
-              />
+              <ListQuotesView key={quotes.id} quotes={quotes} />
             ))}
           </tbody>
         </table>

@@ -62,7 +62,7 @@ export function FormQuotes() {
             >
               <option>Selecione un usuario</option>
 
-              {customer.map((customer) => (
+              {customer?.map((customer) => (
                 <option key={customer?.id} value={customer?.id}>
                   {customer?.name} {customer?.last}
                 </option>
@@ -85,7 +85,7 @@ export function FormQuotes() {
               id="doctor"
             >
               <option>Selecione un doctor</option>
-              {doctor.map((doctor) => (
+              {doctor?.map((doctor) => (
                 <option key={doctor?.id} value={doctor?.id}>
                   {doctor?.name}
                 </option>

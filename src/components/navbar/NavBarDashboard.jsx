@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import Avvvatars from "avvvatars-react";
 import { getMeApi } from "../../api/admin/user";
 
 export function NavBarDashboard() {
+  const navigate = useNavigate();
   const [user, setUser] = useState({});
   const { auth, logout } = useAuth();
   console.log(user);
@@ -11,9 +14,17 @@ export function NavBarDashboard() {
     (async () => {
       const response = await getMeApi(logout);
       setUser(response);
-      console.log(user);
     })();
   }, [auth, logout]);
+
+  if (user === undefined) {
+    return null;
+  }
+  if (!auth && !user) {
+    navigate("/");
+    return null;
+  }
+
   return (
     <>
       <div className="font-noto ml-auto mb-6 ">
@@ -22,18 +33,10 @@ export function NavBarDashboard() {
             <h5 hidden className=" text-2xl text-gray-600 font-medium lg:block">
               Bienvenido {user?.username}
             </h5>
-            <button className="w-12 h-16 -mr-2  lg:hidden"></button>
             <div className="flex space-x-4">
               <Link to="/admin/usuario">
-                <img
-                  src={
-                    user?.photo && user?.photo.formats.small.url
-                      ? "http://localhost:1337" + user?.photo.formats.small.url
-                      : "https://img.freepik.com/free-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-7509.jpg?w=740"
-                  }
-                  alt="logo"
-                  className="h-10 w-10 rounded-full"
-                />
+                {/* style="shape" */}
+                <Avvvatars value={user?.username} size={40} />
               </Link>
             </div>
           </div>

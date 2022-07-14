@@ -1,7 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Avvvatars from "avvvatars-react";
+
 export function ListUserView({ user, handleDelited }) {
-  const { username, email, role, confirmed, blocked, id, photo } = user;
+  const { username, email, role, confirmed, blocked, id, media } = user;
 
   const navigate = useNavigate();
 
@@ -12,15 +14,7 @@ export function ListUserView({ user, handleDelited }) {
           scope="row"
           className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
         >
-          <img
-            className="h-20 w-20 rounded-full"
-            src={
-              photo && photo.formats.small.url
-                ? "http://localhost:1337" + photo.formats.small.url
-                : "https://img.freepik.com/free-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-7509.jpg?w=740"
-            }
-            alt="icon"
-          />
+          <Avvvatars value={user?.username} size={40} />
         </th>
         <td className="text-white px-6 py-4">{username}</td>
         <td className="text-white px-6 py-4">{email}</td>

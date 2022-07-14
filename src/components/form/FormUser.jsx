@@ -28,10 +28,14 @@ export function FormUser({ user }) {
   });
 
   const handleSutmit = async (formData) => {
+    const formDataTemp = {
+      ...formData,
+      user: auth.idUser,
+    };
     let respuesta;
     try {
       if (user?.id) {
-        respuesta = await updateUserApi(user?.id, formData, logout);
+        respuesta = await updateUserApi(user?.id, formDataTemp, logout);
         if (!respuesta) {
           toast.warning(
             "Problemas con actulizar al usaurio, intentelo mas tarde"
@@ -39,7 +43,7 @@ export function FormUser({ user }) {
         } else toast.success("Usuario actulizado correctamente");
         navigate("/admin/usuarios");
       } else {
-        respuesta = await registerApi(formData, logout);
+        respuesta = await registerApi(formDataTemp, logout);
 
         if (!respuesta) {
           toast.warning("El nombre de usuario y el correo ya estan utilizados");
@@ -137,20 +141,6 @@ export function FormUser({ user }) {
                 label="Usuario no bloquedo / Usuario bloqueado"
               />
             </div>
-            <div className=" w-full mb-6 group">
-              <p
-                htmlFor="photo"
-                className="block font-bold text-xl text-gray-700"
-              >
-                Foto
-              </p>
-              <Form.Input
-                type="file"
-                // onChange={(data) =>
-                //   formik.setFieldValue("photo", data.target.value)
-                // }
-              />
-            </div>
             <div className="text-lg w-full mb-6 group">
               <p
                 htmlFor="name"
@@ -176,6 +166,7 @@ export function FormUser({ user }) {
             </div>
           </div>
           <input
+            disabled={!formik.dirty}
             type="submit"
             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             value={user?.username ? "Editar Usuario" : "Agregar Usuario"}
@@ -188,11 +179,10 @@ export function FormUser({ user }) {
 
 function initialValues(user) {
   return {
-    username: user?.username ?? "",
+    username: user?.username ?? user?.username,
     email: user?.email ?? "",
     password: "",
     role: user?.role ?? null,
-    photo: null,
     confirmed: user?.confirmed ?? "",
     blocked: user?.blocked ?? false,
   };

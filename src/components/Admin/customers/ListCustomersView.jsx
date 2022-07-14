@@ -5,7 +5,7 @@ export function ListCustomersView({ customer, handleDelited }) {
   const navigate = useNavigate();
   console.log(customer);
   return (
-    <tr className=" border-b bg-gray-800 border-gray-700">
+    <tr className=" border-b bg-gradient-to-r from-cyan-800 to-slate-900">
       <th
         scope="row"
         className="px-6 py-4 font-medium text-white whitespace-nowrap"

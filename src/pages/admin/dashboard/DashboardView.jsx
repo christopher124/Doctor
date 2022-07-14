@@ -53,7 +53,7 @@ export function DashboardView() {
         </div>
         <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
           <div className="w-full lg:w-1/4">
-            <div className="w-full p-4 rounded-lg  border bg-[#3e7794] ">
+            <div className="w-full p-4 rounded-lg  border bg-gradient-to-r from-cyan-800 to-slate-900 ">
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-col">
                   <div className="font-mont font-semibold  text-xs  text-white uppercase">
@@ -68,7 +68,7 @@ export function DashboardView() {
             </div>
           </div>
           <div className="w-full lg:w-1/4">
-            <div className="w-full p-4 rounded-lg  border   bg-[#3e7794]">
+            <div className="w-full p-4 rounded-lg  border   bg-gradient-to-r from-cyan-800 to-slate-900">
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-col">
                   <div className="text-mont text-xs font-bold text-white uppercase">
@@ -84,7 +84,7 @@ export function DashboardView() {
           </div>
           <div className="w-full lg:w-1/4">
             {" "}
-            <div className="w-full p-4 rounded-lg  border  bg-[#3e7794]">
+            <div className="w-full p-4 rounded-lg  border  bg-gradient-to-r from-cyan-800 to-slate-900">
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-col">
                   <div className="text-xs font-bold text-white uppercase">
@@ -100,7 +100,7 @@ export function DashboardView() {
           </div>
           <div className="w-full lg:w-1/4">
             {" "}
-            <div className="w-full p-4 rounded-lg  border  bg-[#3e7794]">
+            <div className="w-full p-4 rounded-lg  border  bg-gradient-to-r from-cyan-800 to-slate-900">
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-col">
                   <div className="text-xs font-bold text-white uppercase">
@@ -115,7 +115,7 @@ export function DashboardView() {
         </div>
         <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
           <div className="w-full lg:w-1/2">
-            <div className="w-full p-4 rounded-lg  border   bg-[#3e7794]">
+            <div className="w-full p-4 rounded-lg  border   bg-gradient-to-r from-cyan-800 to-slate-900">
               <div className="flex flex-row items-center justify-between mb-6">
                 <div className="flex flex-col">
                   <div className="text-sm font-light text-white">
@@ -157,7 +157,7 @@ export function DashboardView() {
             </div>
           </div>
           <div className="w-full lg:w-1/2">
-            <div className="w-full p-4 rounded-lg  border   bg-[#3e7794]">
+            <div className="w-full p-4 rounded-lg  border bg-gradient-to-r from-cyan-800 to-slate-900">
               <div className="flex flex-row items-center justify-between mb-6">
                 <div className="flex flex-col">
                   <i className="p-1 fas fa-users text-white text-xl"></i>
@@ -196,7 +196,7 @@ export function DashboardView() {
           </div>
         </div>
         <div className="w-full lg:w-2/3">
-          <div className="w-full p-4 rounded-lg  border   bg-[#3e7794]"></div>
+          <div className="w-full p-4 rounded-lg  border bg-gradient-to-r from-cyan-800 to-slate-900"></div>
         </div>
       </div>
     </>

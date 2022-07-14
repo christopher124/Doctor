@@ -85,8 +85,8 @@ export function SideBar() {
                   className={
                     "text-xs uppercase py-3 font-bold block " +
                     (window.location.href.indexOf("/admin/dashboard") !== -1
-                      ? " px-4 py-3 flex  space-x-4 rounded-xl text-white bg-gradient-to-r from-sky-600 to-cyan-400"
-                      : "text-blue-700 hover:text-blue-500")
+                      ? " px-4 py-3 flex  space-x-4 rounded-xl  text-white bg-gradient-to-r from-cyan-800 to-slate-900"
+                      : "text-black hover:text-gray-600")
                   }
                   to="/admin/dashboard"
                 >
@@ -95,7 +95,7 @@ export function SideBar() {
                       "fab fa-slideshare mr-2 text-base " +
                       (window.location.href.indexOf("/admin/dashboard") !== -1
                         ? "opacity-75"
-                        : "text-blue-300")
+                        : "text-black hover:text-gray-600")
                     }
                   ></i>{" "}
                   Dashboard
@@ -108,8 +108,8 @@ export function SideBar() {
                   className={
                     "text-xs uppercase py-3 font-bold block " +
                     (window.location.href.indexOf("/admin/clientes") !== -1
-                      ? "relative px-4 py-3 flex space-x-4 rounded-xl text-white bg-gradient-to-r from-slate-500 to-cyan-400"
-                      : "text-blue-700 hover:text-blue-500")
+                      ? "relative px-4 py-3 flex space-x-4 rounded-xl text-white bg-gradient-to-r from-cyan-800 to-slate-900"
+                      : "text-black hover:text-gray-600")
                   }
                   to="/admin/clientes"
                 >
@@ -118,17 +118,17 @@ export function SideBar() {
                       "fas fa-user mr-2 text-base " +
                       (window.location.href.indexOf("/admin/clientes") !== -1
                         ? "opacity-75 "
-                        : "text-blue-300")
+                        : "text-black hover:text-gray-600")
                     }
                   ></i>{" "}
-                  CLientes
+                  Pacientes
                 </Link>
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
                     (window.location.href.indexOf("/admin/doctores") !== -1
-                      ? "relative px-4 py-3 flex space-x-4 rounded-xl text-white bg-gradient-to-r from-slate-500 to-cyan-400"
-                      : "text-blue-700 hover:text-blue-500")
+                      ? "relative px-4 py-3 flex space-x-4 rounded-xl  text-white bg-gradient-to-r from-cyan-800 to-slate-900"
+                      : "text-black hover:text-gray-600")
                   }
                   to="/admin/doctores"
                 >
@@ -137,7 +137,7 @@ export function SideBar() {
                       "fas fa-stethoscope mr-2 text-base " +
                       (window.location.href.indexOf("/admin/doctores") !== -1
                         ? "opacity-75 "
-                        : "text-blue-300")
+                        : "text-black hover:text-gray-600")
                     }
                   ></i>{" "}
                   Doctores
@@ -146,8 +146,8 @@ export function SideBar() {
                   className={
                     "text-xs uppercase py-3 font-bold block " +
                     (window.location.href.indexOf("/admin/usuarios") !== -1
-                      ? " px-4 py-3 flex  space-x-4 rounded-xl text-white bg-gradient-to-r from-sky-600 to-cyan-400"
-                      : "text-blue-700 hover:text-blue-500")
+                      ? " px-4 py-3 flex  space-x-4 rounded-xl  text-white bg-gradient-to-r from-cyan-800 to-slate-900"
+                      : "text-black hover:text-gray-600")
                   }
                   to="/admin/usuarios"
                 >
@@ -156,7 +156,7 @@ export function SideBar() {
                       "fas fa-users  mr-2 text-base " +
                       (window.location.href.indexOf("/admin/usuarios") !== -1
                         ? "opacity-75"
-                        : "text-blue-300")
+                        : "text-black hover:text-gray-600")
                     }
                   ></i>{" "}
                   Usuarios
@@ -165,8 +165,8 @@ export function SideBar() {
                   className={
                     "text-xs uppercase py-3 font-bold block " +
                     (window.location.href.indexOf("/admin/citas") !== -1
-                      ? " px-4 py-3 flex  space-x-4 rounded-xl text-white bg-gradient-to-r from-sky-600 to-cyan-400"
-                      : "text-blue-700 hover:text-blue-500")
+                      ? " px-4 py-3 flex  space-x-4 rounded-xl  text-white bg-gradient-to-r from-cyan-800 to-slate-900"
+                      : "text-black hover:text-gray-600")
                   }
                   to="/admin/citas"
                 >
@@ -175,7 +175,7 @@ export function SideBar() {
                       "fas fa-users  mr-2 text-base " +
                       (window.location.href.indexOf("/admin/citas") !== -1
                         ? "opacity-75"
-                        : "text-blue-300")
+                        : "text-black hover:text-gray-600")
                     }
                   ></i>{" "}
                   Citas
@@ -189,10 +189,10 @@ export function SideBar() {
 
             {/* Navigation */}
             <button
-              className="text-blue-700 hover:text-blue-500 text-xs uppercase py-3 font-bold block"
+              className="text-white bg-gradient-to-r from-cyan-800 to-slate-900 font-bold py-2 px-4 rounded"
               onClick={() => logout()}
             >
-              <i className="fas fa-fingerprint text-blue-400 mr-2 text-sm"></i>{" "}
+              <i className="fas fa-fingerprint text-black mr-2 text-sm"></i>{" "}
               Cerra sesión
             </button>
           </div>

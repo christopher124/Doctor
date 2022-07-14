@@ -1,10 +1,8 @@
-import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { format } from "date-fns";
 
 export function ListQuotesView({ quotes, handleDelited }) {
   const { customer, doctor, date, id } = quotes;
-  console.log(quotes);
   const navigate = useNavigate();
 
   return (

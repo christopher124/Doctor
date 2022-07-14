@@ -1,7 +1,7 @@
 import { NavBar } from "../components/navbar/NavBar";
 import { Link } from "react-router-dom";
 import { Footer } from "../components/footer/Footer";
-import Imghome from "../assets/img/imagenhome.jpeg"
+import Imghome from "../assets/img/imagenhome.jpeg";
 export function HomeView() {
   return (
     <>
@@ -37,7 +37,7 @@ export function HomeView() {
         </div>
 
         <img
-          className="absolute top-0 right-0 pt-16 sm:w-6/12 -mt-48 sm:mt-0 w-96"
+          className=" absolute bg-auto   top-0 right-0 pt-16 sm:w-6/12 mt-48 sm:mt-0 w-966"
           src={Imghome}
           alt="..."
         />

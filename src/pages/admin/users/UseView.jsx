@@ -8,7 +8,7 @@ import { getOneUserApi } from "../../../api/admin/user";
 export function UseView() {
   const { id } = useParams();
   const [user, setuser] = useState({});
-  const { email, role, username, blocked, confirmed, photo } = user;
+  const { email, role, username, blocked, confirmed, media } = user;
   const [cargando, setCargando] = useState(true);
   const { auth, logout } = useAuth();
   useEffect(() => {
@@ -75,8 +75,8 @@ export function UseView() {
               <img
                 className="text-center rounded-full"
                 src={
-                  user?.photo && user?.photo.formats.small.url
-                    ? "http://localhost:1337" + user?.photo.formats.small.url
+                  media
+                    ? media
                     : "https://img.freepik.com/free-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-7509.jpg?w=740"
                 }
                 alt="Random"

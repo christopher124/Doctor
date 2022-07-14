@@ -25,6 +25,13 @@ export function ListUseView() {
       }, 1000)
     );
   }, [auth]);
+  if (user === undefined) {
+    return null;
+  }
+  if (!auth && !user) {
+    navigate("/");
+    return null;
+  }
 
   const handleDelited = async (id) => {
     Swal.fire({
