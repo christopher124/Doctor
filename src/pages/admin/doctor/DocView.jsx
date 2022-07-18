@@ -5,7 +5,7 @@ import { format } from "date-fns";
 import { Rating } from "@mui/material";
 import useAuth from "../../../hooks/useAuth";
 import { getOneDoctorApi } from "../../../api/admin/doctor";
-import Avvvatars from "avvvatars-react";
+import Avatar from "avvvatars-react";
 
 export function DocView() {
   const { id } = useParams();
@@ -54,6 +54,7 @@ export function DocView() {
     }
     return edad;
   }
+
   return cargando ? (
     <Spinner />
   ) : Object.keys(doctor).length === 0 ? (
@@ -100,22 +101,21 @@ export function DocView() {
                   <span>Información del Usuario</span>
                 </div>
               </div>
-              <div className="relative inline-block text-left z-10"></div>
             </div>
-            <div className="items-center h-24 w-24 rounded-full ml-16">
-              <Avvvatars
+            <div className="justify-center flex p-9">
+              <Avatar
                 value={user?.username ? user?.username : "NU"}
                 size={100}
               />
             </div>
-            <div className=" flex flex-col w-full">
-              <p className="py-1 text-white font-normal">
+            <div className=" text-center flex flex-col w-full">
+              <p className="py-1 text-white font-noto">
                 Nombre de Usuario:{" "}
                 <span className="text-bold">
                   {user?.username ? user?.username : "N/A"}
                 </span>
               </p>
-              <p className="py-1 text-white font-normal">
+              <p className="py-1 text-white font-noto">
                 Correo de Usuario:{" "}
                 <span className="text-bold">
                   {user?.email ? user?.email : "N/A"}
@@ -124,7 +124,7 @@ export function DocView() {
 
               <div>
                 {" "}
-                <p className=" text-white font-normal">
+                <p className=" text-white font-noto">
                   Puntuación del Doctor:{" "}
                   <Rating
                     className="py-0"
@@ -134,31 +134,12 @@ export function DocView() {
                     readOnly
                   />
                 </p>
-                <p className="py-1 text-white font-normal">
-                  Correo de usuario:{" "}
-                  <span className="text-bold">
-                    {user?.email ? user?.email : "N/A"}
-                  </span>
-                </p>
-                <div>
-                  {" "}
-                  <p className=" text-white font-normal">
-                    Puntuacion del doctor:{" "}
-                    <Rating
-                      className="py-0"
-                      name="half-rating-read"
-                      value={star ? star : "N/A"}
-                      precision={0.5}
-                      readOnly
-                    />
-                  </p>
-                </div>
               </div>
             </div>
           </div>
         </div>
         <div className="w-full lg:w-2/3 lg:h-1/3">
-          <div className="w-full p-4 rounded-lg bg-white border border-gray-100 bg-gray-900 border-gray-800">
+          <div className="w-full p-4 rounded-lg bg-[#14566D]">
             <div className="flex flex-row items-center justify-between mb-6">
               <div className="flex flex-col">
                 <div className="text-sm font-bold text-white">Doctor</div>
@@ -169,42 +150,42 @@ export function DocView() {
               <div className="relative inline-block text-left z-10"></div>
             </div>
             <div className=" flex flex-col w-full">
-              <p className="py-1 text-white font-normal">
+              <p className="py-1 text-white font-noto">
                 Nombre del Doctor:{" "}
                 <span className="text-bold">
                   {name} {last}
                 </span>
               </p>
 
-              <p className="py-1 text-white font-normal">
+              <p className="py-1 text-white font-noto">
                 Dirección:{" "}
                 <span className="text-bold"> {address ? address : "N/A"}</span>
               </p>
-              <p className="py-1 text-white font-normal">
+              <p className="py-1 text-white font-noto">
                 Fecha de Nacimiento:
                 <span className="text-bold">
                   {birthday ? birthday : "N/A"}{" "}
                 </span>
               </p>
-              <p className="py-1 text-white font-normal">
+              <p className="py-1 text-white font-noto">
                 Edad de Médico:{" "}
                 <span className="text-bold"> {getEdad(birthday)} años</span>
               </p>
-              <p className="py-1 text-white font-normal">
+              <p className="py-1 text-white font-noto">
                 Genero:{" "}
                 <span className="text-bold"> {gender ? gender : "N/A"}</span>
               </p>
 
-              <p className="py-1 text-white font-normal">
+              <p className="py-1 text-white font-noto">
                 Teléfono:{" "}
                 <span className="text-bold"> {phone ? phone : "N/A"}</span>
               </p>
-              <p className="py-1 text-white font-normal">
+              <p className="py-1 text-white font-noto">
                 Estatus del Doctor:{" "}
                 <span className="text-bold"> {status ? status : "N/A"}</span>
               </p>
 
-              <p className="py-1 text-white font-normal">
+              <p className="py-1 text-white font-noto">
                 Especialidad del Doctor:{" "}
                 <span className="text-bold">
                   {" "}
@@ -212,7 +193,7 @@ export function DocView() {
                 </span>
               </p>
 
-              <p className="py-1 text-white font-normal">
+              <p className="py-1 text-white font-noto">
                 Fecha de Creación:{" "}
                 <span className="text-bold">
                   {" "}
@@ -222,7 +203,7 @@ export function DocView() {
                   )}
                 </span>
               </p>
-              <p className="py-1 text-white font-normal">
+              <p className="py-1 text-white font-noto">
                 Última Actulización:{" "}
                 <span className="text-bold">
                   {" "}

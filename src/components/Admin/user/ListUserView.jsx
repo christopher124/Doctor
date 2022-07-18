@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Avvvatars from "avvvatars-react";
 
 export function ListUserView({ user, handleDelited }) {
-  const { username, email, role, confirmed, blocked, id, media } = user;
+  const { username, email, role, confirmed, blocked, id } = user;
 
   const navigate = useNavigate();
 

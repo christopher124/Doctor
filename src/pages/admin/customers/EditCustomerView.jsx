@@ -21,6 +21,7 @@ export function EditCustomerView() {
         setCargando(!cargando);
       }, 1000)
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth]);
   if (!auth) {
     navigate("/");
@@ -58,7 +59,11 @@ export function EditCustomerView() {
         </div>
       </div>
       {customer?.name ? (
-        <FormCustumer customer={customer} cargando={cargando} />
+        <FormCustumer
+          customer={customer}
+          cargando={cargando}
+          setCargando={setCargando}
+        />
       ) : (
         <p>ID Inválido</p>
       )}

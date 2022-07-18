@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import Avvvatars from "avvvatars-react";
+import Avatar from "avvvatars-react";
 import { getMeApi } from "../../api/admin/user";
 
 export function NavBarDashboard() {
@@ -36,7 +36,13 @@ export function NavBarDashboard() {
             <div className="flex space-x-4">
               <Link to="/admin/usuario">
                 {/* style="shape" */}
-                <Avvvatars value={user?.username} size={40} />
+                <Avatar
+                  value={user?.username}
+                  border={true}
+                  shadow={true}
+                  size={40}
+                  borderColor="#12374B"
+                />
               </Link>
             </div>
           </div>

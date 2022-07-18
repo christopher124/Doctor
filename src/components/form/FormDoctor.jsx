@@ -11,9 +11,10 @@ import {
   specialtiesOptions,
   statusOptions,
 } from "../../api/data/data.js";
+import { Spinner } from "../spinner/Spinner";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
-export function FormDoctor({ doctor, cargando }) {
+export function FormDoctor({ doctor, cargando, setCargando }) {
   const [user, setUser] = useState([]);
 
   const navigate = useNavigate();
@@ -30,33 +31,42 @@ export function FormDoctor({ doctor, cargando }) {
       const user = await getUserApi(logout);
       setUser(user);
     })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth]);
 
   const handleSutmit = async (formData) => {
+    const formDataTemp = {
+      ...formData,
+      user: auth.idUser,
+    };
     let respuesta;
     try {
       if (doctor?.id) {
-        respuesta = await updateDoctorApi(doctor?.id, formData, logout);
+        respuesta = await updateDoctorApi(doctor?.id, formDataTemp, logout);
         if (!respuesta) {
           toast.warning(
-            "Problemas con actulizar al doctor, intentelo mas tarde"
+            "Problemas con actualizar el doctor, inténtelo mas tarde"
           );
         } else toast.success("Doctor actulizado correctamente");
         navigate("/admin/doctores");
       } else {
-        respuesta = await createDoctorApi(formData, logout);
+        respuesta = await createDoctorApi(formDataTemp, logout);
         if (!respuesta) {
-          toast.warning("Problemas co crear el doctor");
+          toast.warning("Problemas con crear el doctor, inténtelo mas tarde");
         } else {
           toast.success("Doctor creado correctamente");
           navigate("/admin/doctores");
         }
       }
       await respuesta.json();
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  return (
+  return cargando ? (
+    <Spinner />
+  ) : (
     <div className="bg-white mt-10 px-5 py-10 rounded-md shadow-xl md:w-4/2 mx-auto">
       <h1 className="text-gray-600 font-bold text-xl uppercase text-center">
         {doctor?.id ? "Editar Doctor" : " Nuevo Doctor"}
@@ -80,7 +90,7 @@ export function FormDoctor({ doctor, cargando }) {
               placeholder="Nombres"
             />
           </div>
-          <div className="  w-full mb-6 group">
+          <div className="w-full mb-6 group">
             <p
               htmlFor="last"
               className="block font-bold text-xl  text-gray-700"
@@ -117,7 +127,7 @@ export function FormDoctor({ doctor, cargando }) {
           </div>
         </div>
         <div className="grid xl:grid-cols-6 xl:gap-6">
-          <div className="  w-full mb-6 group">
+          <div className="w-full mb-6 group">
             <p
               htmlFor="address"
               className="block font-bold text-xl text-gray-700"
@@ -134,7 +144,7 @@ export function FormDoctor({ doctor, cargando }) {
               placeholder="Av. Patria #32"
             />
           </div>
-          <div className="  w-full mb-6 group">
+          <div className="w-full mb-6 group">
             <p
               htmlFor="suburb"
               className="block font-bold text-xl text-gray-700"
@@ -148,7 +158,7 @@ export function FormDoctor({ doctor, cargando }) {
               value={formik.values.suburb}
               error={formik.errors.suburb}
               onChange={formik.handleChange}
-              placeholder="loma bonita"
+              placeholder="La Floresta II Seccion"
             />
           </div>
           <div className="  w-full mb-6 group">
@@ -162,7 +172,7 @@ export function FormDoctor({ doctor, cargando }) {
               value={formik.values.town}
               error={formik.errors.town}
               onChange={formik.handleChange}
-              placeholder="Tonala"
+              placeholder="Tonalá"
             />
           </div>
           <div className="  w-full mb-6 group">
@@ -170,7 +180,7 @@ export function FormDoctor({ doctor, cargando }) {
               htmlFor="number_int_address"
               className="block font-bold text-xl text-gray-700"
             >
-              Número Interior
+              Número interior
             </p>
             <Form.Input
               type="text"
@@ -181,7 +191,7 @@ export function FormDoctor({ doctor, cargando }) {
           </div>
           <div className=" w-full mb-6 group">
             <p htmlFor="zip" className="block font-bold text-xl text-gray-700">
-              Código Postal
+              Código postal
             </p>
             <Form.Input
               type="text"
@@ -218,7 +228,7 @@ export function FormDoctor({ doctor, cargando }) {
               htmlFor="phone"
               className="block font-bold text-xl text-gray-700"
             >
-              Número de Télefono
+              Número de télefono
             </p>
             <Form.Input
               type="tel"
@@ -235,7 +245,7 @@ export function FormDoctor({ doctor, cargando }) {
               htmlFor="birthday"
               className="block font-bold text-xl text-gray-700"
             >
-              Fecha de Cumpleaños
+              Fecha de cumpleaños
             </p>
             <Form.Input
               type="date"
@@ -246,9 +256,9 @@ export function FormDoctor({ doctor, cargando }) {
               id="birthday"
             />
           </div>
-          <div className=" w-full mb-6 group">
+          <div className="w-full mb-6 group">
             <p htmlFor="star" className="block font-bold text-xl text-gray-700">
-              Puntuación del Doctor
+              Puntuación del doctor
             </p>
             <Form.Input
               type="text"
@@ -264,8 +274,8 @@ export function FormDoctor({ doctor, cargando }) {
         <div className="grid xl:grid-cols-3 xl:gap-6">
           <div className="text-lg w-full mb-6 group">
             <p
-              htmlFor="name"
-              className="block text-xl font-bold  text-gray-800 "
+              htmlFor="user"
+              className="block text-xl font-bold text-gray-800 "
             >
               Usuario
             </p>
@@ -279,6 +289,11 @@ export function FormDoctor({ doctor, cargando }) {
               onError={formik.errors.user}
               onSelect
             >
+              {doctor?.id ? (
+                <option value="">Selecione un nuevo rol para el doctor</option>
+              ) : (
+                <option value="">Selecione un rol para el doctor</option>
+              )}
               {user?.map((user) => (
                 <option onSelect={user?.email} key={user?.id} value={user?.id}>
                   {user?.email}
@@ -286,7 +301,7 @@ export function FormDoctor({ doctor, cargando }) {
               ))}
             </select>
           </div>
-          <div className="  w-full mb-6 group">
+          <div className="w-full mb-6 group">
             <p
               htmlFor="birthday"
               className="block font-bold text-xl text-gray-700"
@@ -308,7 +323,7 @@ export function FormDoctor({ doctor, cargando }) {
           </div>
           <div className=" w-full mb-6 group">
             <p
-              htmlFor="condition"
+              htmlFor="status"
               className="block font-bold text-xl text-gray-700"
             >
               Estatus del doctor
@@ -358,21 +373,29 @@ function initialValues(doctor) {
 function validationSchema() {
   return {
     name: Yup.string()
-      .min(3, "El Nombre es muy corto")
+      .min(5, "El Nombre es muy corto")
       .max(50, "El Nombre es muy largo")
       .required("El Nombre del Doctor es Obligatorio"),
     last: Yup.string()
-      .min(3, "El Nombre es muy corto")
+      .min(5, "El Nombre es muy corto")
       .max(50, "El Nombre es muy largo")
-      .required("El Nombre del Doctor es Obligatorio"),
-    address: Yup.string().required("La dirección del doctor es Obligatorio"),
-    gender: Yup.string().required(true),
-    specialties: Yup.string().required(true),
-    status: Yup.string().required(true),
-    phone: Yup.string().min(10).max(10).required("El tefono es requerido"),
-    birthday: Yup.string().required(true),
-    state: Yup.string().required(true),
-    zip: Yup.string().required(true),
+      .required("El Nombre del doctor es obligatorio"),
+    address: Yup.string().required("La dirección del doctor es obligatorio"),
+    gender: Yup.string().required("El género del doctor es obligatorio"),
+    specialties: Yup.string().required(
+      "La especialidad del doctor es obligatorio"
+    ),
+    status: Yup.string().required("El estatus del doctor es obligatorio"),
+    phone: Yup.string()
+      .required("El numero de teléfono del doctor es obligatorio")
+      .matches(/^[0-9]+$/, "Deben ser solo dígitos")
+      .min(10, "Debe tener exactamente 10 dígitos")
+      .max(10, "Debe tener exactamente 10 dígitos"),
+    birthday: Yup.string().required("La fecha de cumpleaños es obligatorio"),
+    state: Yup.string().required("El estado es obligatorio"),
+    zip: Yup.string().required("El código postal es obligatorio"),
     star: Yup.number().positive(true).min(0).max(5.0),
+    suburb: Yup.string().required("La colonia del doctor es obligatorio"),
+    town: Yup.string().required("El municipio del doctor es obligatorio"),
   };
 }

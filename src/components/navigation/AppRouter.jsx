@@ -52,7 +52,8 @@ export function AppRouter() {
           <Route path="citas" element={<ListQuotView />} />
           {/* <Route path="cita/:id" element={<CustomeView />} /> */}
           <Route path="nueva/cita" element={<NewQuotesView />} />
-          {/* <Route path="editar/cita/:id" element={<EditCustomerView />} /> */}
+          {/* <Route path="editar/cita/:id" element={<EditCustomerView />} />
+           */}
         </Route>
       </Routes>
       {/* Rutas privadas: */}

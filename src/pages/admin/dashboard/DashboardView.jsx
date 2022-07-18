@@ -7,6 +7,7 @@ import { DoctorView } from "../../../components/Admin/doctor/DoctorView";
 import useAuth from "../../../hooks/useAuth";
 import { Link } from "react-router-dom";
 import { UsersView } from "../../../components/Admin/user/UsersView";
+import { BarChartUser } from "../../../components/Charts/BarChartUser";
 
 export function DashboardView() {
   const [Usercount, setUserCount] = useState(<Spinner />);
@@ -34,6 +35,7 @@ export function DashboardView() {
         setCargando(!cargando);
       }, 1500)
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth, logout]);
 
   return (
@@ -53,22 +55,22 @@ export function DashboardView() {
         </div>
         <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
           <div className="w-full lg:w-1/4">
-            <div className="w-full p-4 rounded-lg  border bg-gradient-to-r from-cyan-800 to-slate-900 ">
+            <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-800 to-teal-600">
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-col">
-                  <div className="font-mont font-semibold  text-xs  text-white uppercase">
+                  <div className="font-mont font-semibold text-xs text-white uppercase">
                     Usuarios
                     <div className=" font-mont  p-1.5 text-xl font-bold">
-                      {Usercount}
+                      {Usercount ? Usercount : "0"}
                     </div>
                   </div>
                 </div>
-                <i className="fas fa-users text-white"></i>
+                <i className="fas fa-users text-white text-2xl"></i>
               </div>
             </div>
           </div>
           <div className="w-full lg:w-1/4">
-            <div className="w-full p-4 rounded-lg  border   bg-gradient-to-r from-cyan-800 to-slate-900">
+            <div className="w-full p-4 rounded-lg  border bg-gradient-to-r from-cyan-800 to-teal-600">
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-col">
                   <div className="text-mont text-xs font-bold text-white uppercase">
@@ -78,13 +80,13 @@ export function DashboardView() {
                     </div>
                   </div>
                 </div>
-                <i className="fas fa-users text-white"></i>
+                <i className="fas fa-user-md text-white text-2xl"></i>
               </div>
             </div>
           </div>
           <div className="w-full lg:w-1/4">
             {" "}
-            <div className="w-full p-4 rounded-lg  border  bg-gradient-to-r from-cyan-800 to-slate-900">
+            <div className="w-full p-4 rounded-lg  border bg-gradient-to-r from-cyan-800 to-teal-600">
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-col">
                   <div className="text-xs font-bold text-white uppercase">
@@ -94,13 +96,13 @@ export function DashboardView() {
                     </div>
                   </div>
                 </div>
-                <i className="fas fa-users text-white"></i>
+                <i className="fas fa-users text-white text-2xl"></i>
               </div>
             </div>
           </div>
           <div className="w-full lg:w-1/4">
             {" "}
-            <div className="w-full p-4 rounded-lg  border  bg-gradient-to-r from-cyan-800 to-slate-900">
+            <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-800 to-slate-900">
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-col">
                   <div className="text-xs font-bold text-white uppercase">
@@ -114,13 +116,23 @@ export function DashboardView() {
           </div>
         </div>
         <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
+          <div className="w-full lg:w-2/3">
+            <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-800 to-slate-900"></div>
+          </div>
+          <div className="w-full lg:w-1/3">
+            <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-800 to-slate-900">
+              <BarChartUser />
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
           <div className="w-full lg:w-1/2">
-            <div className="w-full p-4 rounded-lg  border   bg-gradient-to-r from-cyan-800 to-slate-900">
+            <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-800 to-slate-900">
               <div className="flex flex-row items-center justify-between mb-6">
                 <div className="flex flex-col">
                   <div className="text-sm font-light text-white">
                     <span className="text-white">
-                      <i className=" p-1 fas fa-user-md text-white text-xl  "></i>
+                      <i className=" p-1 fas fa-user-md text-white text-xl"></i>
                     </span>
                     <div className="text-ls font-bold text-white">
                       Lista de Especialistas
@@ -145,7 +157,7 @@ export function DashboardView() {
                       ))}
                       <div className="flex flex-col items-center justify-center h-full">
                         <Link to="/admin/doctores">
-                          <button className="text-center underline  text-white">
+                          <button className="text-center underline text-white">
                             Ver más
                           </button>
                         </Link>
@@ -157,12 +169,12 @@ export function DashboardView() {
             </div>
           </div>
           <div className="w-full lg:w-1/2">
-            <div className="w-full p-4 rounded-lg  border bg-gradient-to-r from-cyan-800 to-slate-900">
+            <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-800 to-slate-900">
               <div className="flex flex-row items-center justify-between mb-6">
                 <div className="flex flex-col">
                   <i className="p-1 fas fa-users text-white text-xl"></i>
                   <div className="text-sm font-bold">
-                    <span className="text-white"> Lista de Usuarios</span>
+                    <span className="text-white">Lista de Usuarios</span>
                   </div>
                 </div>
               </div>
@@ -183,7 +195,7 @@ export function DashboardView() {
                       ))}
                       <div className="flex flex-col items-center justify-center h-full">
                         <Link to="/admin/usuarios">
-                          <button className="text-center underline  text-white">
+                          <button className="text-center underline text-white">
                             Ver más
                           </button>
                         </Link>
@@ -194,9 +206,6 @@ export function DashboardView() {
               </div>
             </div>
           </div>
-        </div>
-        <div className="w-full lg:w-2/3">
-          <div className="w-full p-4 rounded-lg  border bg-gradient-to-r from-cyan-800 to-slate-900"></div>
         </div>
       </div>
     </>
