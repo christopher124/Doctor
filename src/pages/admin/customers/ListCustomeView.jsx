@@ -55,7 +55,7 @@ export function ListCustomeView() {
             <div className="text-xs font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
-                <span className="text-gray-600">Clientes</span>
+                <span className="text-gray-600">Pacientes</span>
               </div>
               <div className="flex flex-col items-center justify-center h-full">
                 <div className="text-center text-gray-600">
