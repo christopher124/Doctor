@@ -38,12 +38,18 @@ export function ListDoctorView({ doctor, handleDelited }) {
 
   return (
     <>
-      <tr className=" border-b bg-gray-800 border-gray-700">
+      <tr className=" border-b bg-sky-700">
         <th
           scope="row"
           className="px-6 py-4 font-medium text-white whitespace-nowrap"
         >
-          {name} {last}
+          {name ? name : "N/A"}
+        </th>
+        <th
+          scope="row"
+          className="px-6 py-4 font-medium text-white whitespace-nowrap"
+        >
+          {last ? last : "N/A"}
         </th>
         <td className="text-white px-6 py-4">
           {user?.email ? user?.email : "N/A"}
@@ -53,6 +59,9 @@ export function ListDoctorView({ doctor, handleDelited }) {
         </td>
         {/* <td className="text-white px-6 py-4">{adress}</td> */}
         <td className="text-white px-6 py-4">{phone}</td>
+        <td className="text-white px-6 py-4">
+          {specialties ? specialties : "N/A"}
+        </td>
         <td className="text-white whitespace-nowrap">
           <span className="relative inline-block px-3 py-1 text-white font-semibold  leading-tight">
             <span
@@ -61,9 +70,6 @@ export function ListDoctorView({ doctor, handleDelited }) {
             ></span>
             <span className="relative">{status ? status : "N/A"}</span>
           </span>
-        </td>
-        <td className="text-white px-6 py-4">
-          {specialties ? specialties : "N/A"}
         </td>
 
         <td className="py-3 px-6 text-center">

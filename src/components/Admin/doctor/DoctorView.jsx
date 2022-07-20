@@ -16,23 +16,23 @@ export function DoctorView({ doctor }) {
   const claseDoctor = () => {
     if (status === "Disponible") {
       setClase(
-        " p-2 uppercase font-bold inline-flex text-center bg-green-700 text-pink-100 rounded-lg text-xs px-2 py-0 "
+        " p-2 uppercase font-bold inline-flex text-center bg-green-700 text-white rounded-lg text-xs px-2 py-0 "
       );
     } else if (status === "En consulta") {
       setClase(
-        " p-2 uppercase font-bold inline-flex text-center bg-yellow-400 text-pink-100 rounded-lg text-xs px-2 py-0 "
+        " p-2 uppercase font-bold inline-flex text-center   bg-orange-400 text-white rounded-lg text-xs px-2 py-0 "
       );
     } else if (status === null) {
       setClase(" text-white whitespace-nowrap ");
     } else {
       setClase(
-        " p-2 uppercase font-bold inline-flex text-center bg-red-700 text-pink-100 rounded-lg text-xs px-2 py-0 "
+        " p-2 uppercase font-bold inline-flex text-center bg-red-700 text-white rounded-lg text-xs px-2 py-0 "
       );
     }
   };
   return (
     <>
-      <div className="flex items-center justify-start  space-x-4 ">
+      <div className="flex items-center justify-start space-x-4 ">
         <div className="shrink-0 w-8">
           <Avvvatars value={user?.username ? user?.username : "NU"} size={40} />
         </div>

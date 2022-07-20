@@ -27,29 +27,13 @@ export function FormUser({ user }) {
       handleSutmit(formData);
     },
   });
-
-  const RolesOptions = [
-    {
-      key: roles?.map((role) => role?.id),
-      value: roles[0]?.id ? roles[0]?.id : undefined,
-      text: roles[0]?.name,
-    },
-    {
-      key: roles?.map((role) => role?.id),
-      value: roles[1]?.id ? roles[1]?.id : undefined,
-      text: roles[1]?.name,
-    },
-    {
-      key: roles?.map((role) => role?.id),
-      value: roles[2]?.id ? roles[2]?.id : undefined,
-      text: roles[2]?.name,
-    },
-    {
-      key: roles?.map((role) => role?.id),
-      value: roles[3]?.id ? roles[3]?.id : undefined,
-      text: roles[3]?.name,
-    },
-  ];
+  if (user === undefined) {
+    return null;
+  }
+  if (!auth && !user) {
+    navigate("/login");
+    return null;
+  }
 
   const handleSutmit = async (formData) => {
     const formDataTemp = {
@@ -165,7 +149,7 @@ export function FormUser({ user }) {
                 label="Usuario no bloquedo / Usuario bloqueado"
               />
             </div>
-            {/* <div className="text-lg w-full mb-6 group">
+            <div className="text-lg w-full mb-6 group">
               <p
                 htmlFor="name"
                 className="block text-xl font-bold  text-gray-800 "
@@ -187,26 +171,6 @@ export function FormUser({ user }) {
                   </option>
                 ))}
               </select>
-            </div> */}
-            <div className="w-full mb-6 group">
-              <p
-                htmlFor="birthday"
-                className="block font-bold text-xl text-gray-700"
-              >
-                Especialidad
-              </p>
-              <Form.Dropdown
-                id="specialties"
-                placeholder="Seleciona una especialidad"
-                options={RolesOptions}
-                value={formik.values.specialties}
-                error={formik.errors.specialties}
-                search
-                onChange={(_, data) =>
-                  formik.setFieldValue("specialties", data.value)
-                }
-                selection
-              />
             </div>
           </div>
           <input

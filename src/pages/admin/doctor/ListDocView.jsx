@@ -8,12 +8,15 @@ import Swal from "sweetalert2";
 export function ListDocView() {
   const navigate = useNavigate();
   const [doctor, setDoctor] = useState([]);
+  const [tableDoctor, SetTableDoctor] = useState([]);
+
   const [cargando, setCargando] = useState(true);
   const { auth, logout } = useAuth();
   useEffect(() => {
     (async () => {
       const doctor = await getDoctorApi(logout);
       setDoctor(doctor);
+      SetTableDoctor(doctor);
     })(
       setTimeout(() => {
         setCargando(!cargando);
@@ -35,7 +38,11 @@ export function ListDocView() {
       if (result.isConfirmed) {
         const response = await deleteDoctorApi(id, logout);
         if (response) {
-          Swal.fire("¡Eliminado!", "El registro ha sido eliminado correctamente.", "success");
+          Swal.fire(
+            "¡Eliminado!",
+            "El registro ha sido eliminado correctamente.",
+            "success"
+          );
           const arrayDoctor = doctor.filter((doctor) => doctor.id !== id);
           setDoctor(arrayDoctor);
         }
@@ -103,7 +110,10 @@ export function ListDocView() {
           <thead className="text-xs text-gray-700 uppercase bg-gray-500">
             <tr>
               <th scope="col" className="text-white py-3 px-6 text-left">
-                Nombre y Apellido
+                Nombre
+              </th>
+              <th scope="col" className="text-white py-3 px-6 text-left">
+                Apellido
               </th>
               <th scope="col" className="text-white py-3 px-6 text-left">
                 Correo
@@ -111,19 +121,15 @@ export function ListDocView() {
               <th scope="col" className=" text-white py-3 px-6 text-left">
                 Fecha de Cumpleaños
               </th>
-              {/* <th scope="col" className="text-white py-3 px-6 text-left">
-                Direccion
-              </th> */}
               <th scope="col" className="text-white py-3 px-6 text-left">
                 Teléfono
               </th>
               <th scope="col" className="text-white py-3 px-6 text-left">
-                Estatus
-              </th>
-              <th scope="col" className="text-white py-3 px-6 text-left">
                 Especialidad
               </th>
-
+              <th scope="col" className="text-white py-3 px-6 text-left">
+                Estatus
+              </th>
               <th
                 scope="col"
                 className="text-white font-bold py-3 px-6 text-left "

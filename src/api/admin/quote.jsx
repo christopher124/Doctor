@@ -1,9 +1,9 @@
-import { API_URL } from "../../utils/constants";
+import { API_URL_DEV } from "../../utils/constants";
 import { authFetch } from "../../utils/fetch";
 
 export async function createQuotesApi(quote, logout) {
   try {
-    const url = `${API_URL}/quotes`;
+    const url = `${API_URL_DEV}/quotes`;
     const params = {
       method: "POST",
       headers: {
@@ -23,7 +23,7 @@ export async function createQuotesApi(quote, logout) {
 
 export async function getQuotesApi(logout) {
   try {
-    const url = `${API_URL}/quotes`;
+    const url = `${API_URL_DEV}/quotes`;
     const result = await authFetch(url, null, logout);
     return result ? result : null;
   } catch (error) {

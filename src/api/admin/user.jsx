@@ -1,9 +1,9 @@
-import { API_URL } from "../../utils/constants";
+import { API_URL_DEV } from "../../utils/constants";
 import { authFetch } from "../../utils/fetch";
 
 export async function loginApi(formData) {
   try {
-    const url = `${API_URL}/auth/local`;
+    const url = `${API_URL_DEV}/auth/local`;
     const params = {
       method: "POST",
       headers: {
@@ -21,7 +21,7 @@ export async function loginApi(formData) {
 }
 export async function getUserApi(logout) {
   try {
-    const url = `${API_URL}/users`;
+    const url = `${API_URL_DEV}/users`;
     const result = await authFetch(url, null, logout);
     return result ? result : null;
   } catch (error) {
@@ -30,7 +30,7 @@ export async function getUserApi(logout) {
 }
 export async function getOneUserApi(id, logout) {
   try {
-    const url = `${API_URL}/users/${id}`;
+    const url = `${API_URL_DEV}/users/${id}`;
     const result = await authFetch(url, null, logout);
     return result ? result : null;
   } catch (error) {
@@ -39,7 +39,7 @@ export async function getOneUserApi(id, logout) {
 }
 export async function registerApi(user, logout) {
   try {
-    const url = `${API_URL}/users`;
+    const url = `${API_URL_DEV}/users`;
     const params = {
       method: "POST",
       headers: {
@@ -59,7 +59,7 @@ export async function registerApi(user, logout) {
 }
 export async function deleteUserApi(id, logout) {
   try {
-    const url = `${API_URL}/users/${id}`;
+    const url = `${API_URL_DEV}/users/${id}`;
     const params = {
       method: "DELETE",
       headers: {
@@ -76,7 +76,7 @@ export async function deleteUserApi(id, logout) {
 }
 export async function updateUserApi(id, users, logout) {
   try {
-    const url = `${API_URL}/users/${id}`;
+    const url = `${API_URL_DEV}/users/${id}`;
     const params = {
       method: "PUT",
       headers: {
@@ -94,7 +94,7 @@ export async function updateUserApi(id, users, logout) {
 }
 export async function getMeApi(logout) {
   try {
-    const url = `${API_URL}/users/me`;
+    const url = `${API_URL_DEV}/users/me`;
     const result = await authFetch(url, null, logout);
     return result ? result : null;
   } catch (error) {
@@ -103,7 +103,7 @@ export async function getMeApi(logout) {
 }
 export async function getCountUserApi(logout) {
   try {
-    const url = `${API_URL}/users/count`;
+    const url = `${API_URL_DEV}/users/count`;
     const result = await authFetch(url, null, logout);
     return result ? result : null;
   } catch (error) {
@@ -112,7 +112,7 @@ export async function getCountUserApi(logout) {
 }
 export async function resetPasswordApi(email) {
   try {
-    const url = `${API_URL}/auth/forgot-password`;
+    const url = `${API_URL_DEV}/auth/forgot-password`;
     const params = {
       method: "POST",
       headers: {

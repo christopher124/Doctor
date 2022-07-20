@@ -1,7 +1,18 @@
 import { useNavigate } from "react-router-dom";
 export function ListCustomersView({ customer, handleDelited }) {
-  const { name, last, address, phone, state, gender, zip, status, id } =
-    customer;
+  const {
+    name,
+    last,
+    address,
+    gender,
+    phone,
+    state,
+    zip,
+    suburb,
+    town,
+    status,
+    id,
+  } = customer;
   const navigate = useNavigate();
   console.log(customer);
   return (
@@ -10,19 +21,28 @@ export function ListCustomersView({ customer, handleDelited }) {
         scope="row"
         className="px-6 py-4 font-medium text-white whitespace-nowrap"
       >
-        {name}
+        {name ? name : "No hay datos"}
       </th>
       <th
         scope="row"
         className="px-6 py-4 font-medium text-white whitespace-nowrap"
       >
-        {last}
+        {last ? last : "No hay datos"}
       </th>
       <td className="text-white px-6 py-4">
-        {address}, {state}, {zip}
+        {address ? address : "No hay datos"}
       </td>
-      <td className="text-white px-6 py-4">{gender}</td>
-      <td className="text-white px-6 py-4">{phone}</td>
+      <td className="text-white px-6 py-4">{zip ? zip : "No hay datos"}</td>
+      <td className="text-white px-6 py-4">{state ? state : "No hay datos"}</td>
+      <td className="text-white px-6 py-4">
+        {suburb ? suburb : "No hay datos"}
+      </td>
+
+      <td className="text-white px-6 py-4">{town ? town : "No hay datos"}</td>
+      <td className="text-white px-6 py-4">
+        {gender ? gender : "No hay datos"}
+      </td>
+      <td className="text-white px-6 py-4">{phone ? phone : "No hay datos"}</td>
       <td className="text-white px-6 py-4">
         {" "}
         {status === true

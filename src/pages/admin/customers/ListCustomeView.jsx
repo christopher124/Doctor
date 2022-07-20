@@ -12,7 +12,8 @@ export function ListCustomeView() {
   const [customer, setCustumer] = useState([]);
   const [tableCustomer, SetTableCustomer] = useState([]);
   const [cargando, setCargando] = useState(true);
-  const [search, setSearch] = useState("");
+  const [searchUser, setSearchUser] = useState("");
+  const [searchState, setSearchState] = useState("");
 
   const { auth, logout } = useAuth();
   useEffect(() => {
@@ -53,21 +54,46 @@ export function ListCustomeView() {
     });
   };
 
-  const handleChange = (e) => {
-    setSearch(e.target.value);
-    filtrar(e.target.value);
+  const handleChangeUsers = (e) => {
+    setSearchUser(e.target.value);
+    filtrarUser(e.target.value);
   };
 
-  const filtrar = (terminoBusqueda) => {
-    let resuldosBusqueda = tableCustomer.filter((elements) => {
+  const handleChangeState = (e) => {
+    setSearchState(e.target.value);
+    filterState(e.target.value);
+  };
+
+  const filtrarUser = (searchUsers) => {
+    let searchResult = tableCustomer.filter((elements) => {
       if (
-        elements?.name.toLowerCase().includes(terminoBusqueda?.toLowerCase()) ||
-        elements?.last.toLowerCase().includes(terminoBusqueda?.toLowerCase())
+        elements?.name
+          .toString()
+          .toLowerCase()
+          .includes(searchUsers.toLowerCase()) ||
+        elements?.last
+          .toString()
+          .toLowerCase()
+          .includes(searchUsers.toLowerCase())
       ) {
         return elements;
       }
     });
-    setCustumer(resuldosBusqueda);
+    setCustumer(searchResult);
+  };
+
+  const filterState = (searchState) => {
+    let searchResult = tableCustomer.filter((elements) => {
+      if (
+        elements?.town
+          .toString()
+          .toLowerCase()
+          .includes(searchState.toLowerCase())
+      ) {
+        return elements;
+      }
+    });
+    setCustumer(searchResult);
   };
 
   return cargando ? (
@@ -138,18 +164,35 @@ export function ListCustomeView() {
             </div>
           </div>
         </div>
-        <div className="flex justify-start">
-          <div className="mb-3 xl:w-96">
-            <div className="input-group relative flex flex-wrap items-stretch w-full mb-4">
-              <input
-                type="search"
-                value={search}
-                className="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                placeholder="Busqueda por nombres y apellidos"
-                aria-label="Search"
-                onChange={handleChange}
-                aria-describedby="button-addon2"
-              />
+        <div className="shrink-0 space-x-2">
+          <div className="inline-flex justify-start">
+            <div className="mb-3 xl:w-96">
+              <div className="input-group relative flex flex-wrap items-stretch  w-full mb-4">
+                <input
+                  type="search"
+                  value={searchState}
+                  className="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                  placeholder="Busqueda por Estado"
+                  aria-label="Search"
+                  onChange={handleChangeState}
+                  aria-describedby="button-addon2"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="inline-flex justify-start">
+            <div className="mb-3 xl:w-96">
+              <div className="input-group relative flex flex-wrap items-stretch w-full mb-4">
+                <input
+                  type="search"
+                  value={searchUser}
+                  className="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                  placeholder="Busqueda por nombres y apellidos"
+                  aria-label="Search"
+                  onChange={handleChangeUsers}
+                  aria-describedby="button-addon2"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -170,6 +213,18 @@ export function ListCustomeView() {
               </th>
               <th scope="col" className="text-white py-3 px-6 text-left">
                 Dirección
+              </th>
+              <th scope="col" className="text-white py-3 px-6 text-left">
+                Codigo postal
+              </th>
+              <th scope="col" className="text-white py-3 px-6 text-left">
+                Estado
+              </th>
+              <th scope="col" className="text-white py-3 px-6 text-left">
+                Colonia
+              </th>
+              <th scope="col" className="text-white py-3 px-6 text-left">
+                Municipio
               </th>
               <th scope="col" className=" text-white py-3 px-6 text-left">
                 Género

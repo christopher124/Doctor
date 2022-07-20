@@ -85,7 +85,7 @@ export function SideBar() {
                   className={
                     "text-xs uppercase py-3 font-bold block " +
                     (window.location.href.indexOf("/admin/dashboard") !== -1
-                      ? " px-4 py-3 flex  space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-slate-900"
+                      ? " px-4 py-3 flex  space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
                       : "text-black hover:text-gray-600")
                   }
                   to="/admin/dashboard"
@@ -108,7 +108,7 @@ export function SideBar() {
                   className={
                     "text-xs uppercase py-3 font-bold block " +
                     (window.location.href.indexOf("/admin/clientes") !== -1
-                      ? "relative px-4 py-3 flex space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-slate-900"
+                      ? "relative px-4 py-3 flex space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
                       : "text-black hover:text-gray-600")
                   }
                   to="/admin/clientes"
@@ -127,7 +127,7 @@ export function SideBar() {
                   className={
                     "text-xs uppercase py-3 font-bold block " +
                     (window.location.href.indexOf("/admin/doctores") !== -1
-                      ? "relative px-4 py-3 flex space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-slate-900"
+                      ? "relative px-4 py-3 flex space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
                       : "text-black hover:text-gray-600")
                   }
                   to="/admin/doctores"
@@ -146,7 +146,7 @@ export function SideBar() {
                   className={
                     "text-xs uppercase py-3 font-bold block " +
                     (window.location.href.indexOf("/admin/usuarios") !== -1
-                      ? " px-4 py-3 flex  space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-slate-900"
+                      ? " px-4 py-3 flex  space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
                       : "text-black hover:text-gray-600")
                   }
                   to="/admin/usuarios"
@@ -165,7 +165,7 @@ export function SideBar() {
                   className={
                     "text-xs uppercase py-3 font-bold block " +
                     (window.location.href.indexOf("/admin/citas") !== -1
-                      ? " px-4 py-3 flex  space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-slate-900"
+                      ? " px-4 py-3 flex  space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
                       : "text-black hover:text-gray-600")
                   }
                   to="/admin/citas"
@@ -189,7 +189,7 @@ export function SideBar() {
 
             {/* Navigation */}
             <button
-              className="text-white bg-gradient-to-r from-cyan-800 to-slate-900 font-bold py-2 px-4 rounded-xl"
+              className="text-white bg-gradient-to-r from-cyan-800 to-sky-700 font-bold py-2 px-4 rounded-xl"
               onClick={() => logout()}
             >
               <i className="fas fa-door-open text-white mr-2 text-sm"></i> Cerra
