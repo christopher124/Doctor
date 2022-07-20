@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { format } from "date-fns";
 import useAuth from "../../../hooks/useAuth";
 import { getOneCustomerApi } from "../../../api/admin/customer";
+import Avatar from "avvvatars-react";
 
 export function CustomeView() {
   const { id } = useParams();
@@ -56,7 +57,7 @@ export function CustomeView() {
             <div className="text-xs font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
-                <span className="text-gray-600">Cliente</span>
+                <span className="text-gray-600">Pacientes</span>
               </div>
               <div className="flex flex-col items-center justify-center h-full">
                 <div className="text-center text-gray-600">
@@ -76,53 +77,46 @@ export function CustomeView() {
             <div className="text-xs font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
-                <span className="text-gray-600 ">Cliente</span>
+                <span className="text-gray-600 ">Pacientes</span>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
-        <div className="w-full lg:w-1/3">
-          <div className="w-full p-4 rounded-lg bg-white border border-gray-100 bg-gray-900 border-gray-800">
+        <div className="w-full lg:w-1/3 lg:h-1/3">
+          <div className="w-full p-4 rounded-lg bg-gradient-to-r from-cyan-800 to-teal-600">
             <div className="flex flex-row items-center justify-between mb-6">
               <div className="flex flex-col">
-                <div className="text-sm font-light text-white">Cliente</div>
+                <div className="text-sm font-light text-white">Paciente</div>
                 <div className="text-sm text-white font-bold">
-                  <span>Información Usuario(Cliente)</span>
+                  <span>Información del Usuario(Paciente)</span>
                 </div>
               </div>
               <div className="relative inline-block text-left z-10"></div>
             </div>
-            <div className="flex flex-row px-12 w-full">
-              <img
-                className="text-center rounded-full"
-                src={
-                  user?.photo && user?.photo.formats.small.url
-                    ? "http://localhost:1337" + user?.photo.formats.small.url
-                    : "https://img.freepik.com/free-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-7509.jpg?w=740"
-                }
-                alt="Random"
+            <div className="justify-center flex p-9">
+              <Avatar
+                value={user?.username ? user?.username : "NU"}
+                size={100}
               />
             </div>
-            <div className=" flex flex-col w-full">
-              <p className="py-1 text-white font-normal">
+            <div className=" text-center flex flex-col w-full">
+              <p className="py-1 font-bold text-white font-noto">
                 Nombre de Usuario:{" "}
-                <span className="text-bold">{user?.username}</span>
+                <span className="">
+                  {user?.username ? user?.username : "N/A"}
+                </span>
               </p>
-              <p className="py-1 text-white font-normal">
+              <p className="py-1 font-bold text-white font-noto">
                 Correo de Usuario:{" "}
-                <span className="text-bold">{user?.email}</span>
-              </p>
-              <p className="py-1 text-white font-normal">
-                Nombre de Usuario:{" "}
-                <span className="text-bold">{user?.username}</span>
+                <span className="">{user?.email ? user?.email : "N/A"}</span>
               </p>
             </div>
           </div>
         </div>
         <div className="w-full lg:w-2/3">
-          <div className="w-full p-4 rounded-lg bg-white border border-gray-100 bg-gray-900 border-gray-800">
+          <div className="w-full p-4 rounded-lg bg-gradient-to-r from-cyan-800 to-teal-600">
             <div className="flex flex-row items-center justify-between mb-6">
               <div className="flex flex-col">
                 <div className="text-sm font-bold text-white">Doctor</div>
@@ -132,45 +126,45 @@ export function CustomeView() {
               </div>
               <div className="relative inline-block text-left z-10"></div>
             </div>
-            <div className=" flex flex-col w-full">
-              <p className="py-1 text-white font-normal">
+            <div className=" flex flex-col w-full text-center">
+              <p className="py-1 font-bold text-white font-noto">
                 Nombre del Doctor:{" "}
-                <span className="text-bold">
+                <span className="">
                   {name} {last}
                 </span>
               </p>
 
-              <p className="py-1 text-white font-normal">
-                Dirección: <span className="text-bold"> {address}</span>
+              <p className="py-1 font-bold text-white font-noto">
+                Dirección: <span className=""> {address}</span>
               </p>
-              <p className="py-1 text-white font-normal">
+              <p className="py-1 font-bold text-white font-noto">
                 Fecha de Nacimiento:{" "}
-                <span className="text-bold">
+                <span className="">
                   {format(new Date(created_at), "dd/MM/yyyy")}{" "}
                 </span>
               </p>
-              <p className="py-1 text-white font-normal">
+              <p className="py-1 font-bold text-white font-noto">
                 Edad del Cliente:{" "}
-                <span className="text-bold"> {getEdad(birthday)} años</span>
+                <span className=""> {getEdad(birthday)} años</span>
               </p>
-              <p className="py-1 text-white font-normal">
-                Género: <span className="text-bold"> {gender}</span>
-              </p>
-
-              <p className="py-1 text-white font-normal">
-                Teléfono: <span className="text-bold"> {phone}</span>
+              <p className="py-1 font-bold text-white font-noto">
+                Género: <span className=""> {gender}</span>
               </p>
 
-              <p className="py-1 text-white font-normal">
+              <p className="py-1 font-bold text-white font-noto">
+                Teléfono: <span className=""> {phone}</span>
+              </p>
+
+              <p className="py-1 font-bold text-white font-noto">
                 Fecha de Creación:{" "}
-                <span className="text-bold">
+                <span className="">
                   {" "}
                   {format(new Date(created_at), "dd/MM/yyyy HH:mm:ss")}
                 </span>
               </p>
-              <p className="py-1 text-white font-normal">
+              <p className="py-1 font-bold text-white font-noto">
                 Última Actulización:{" "}
-                <span className="text-bold">
+                <span className="">
                   {" "}
                   {format(new Date(updated_at), "dd/MM/yyyy HH:mm:ss")}{" "}
                 </span>

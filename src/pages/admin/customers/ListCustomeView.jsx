@@ -10,12 +10,16 @@ import Swal from "sweetalert2";
 export function ListCustomeView() {
   const navigate = useNavigate();
   const [customer, setCustumer] = useState([]);
+  const [tableCustomer, SetTableCustomer] = useState([]);
   const [cargando, setCargando] = useState(true);
+  const [search, setSearch] = useState("");
+
   const { auth, logout } = useAuth();
   useEffect(() => {
     (async () => {
       const customer = await getCustomerApi(logout);
       setCustumer(customer);
+      SetTableCustomer(customer);
     })(
       setTimeout(() => {
         setCargando(!cargando);
@@ -37,12 +41,33 @@ export function ListCustomeView() {
       if (result.isConfirmed) {
         const response = await deleteCustomerApi(id, logout);
         if (response) {
-          Swal.fire("¡Eliminado!", "El registro ha sido eliminado correctamente.", "success");
+          Swal.fire(
+            "¡Eliminado!",
+            "El registro ha sido eliminado correctamente.",
+            "success"
+          );
           const arrayCustomer = customer.filter((doctor) => doctor.id !== id);
           setCustumer(arrayCustomer);
         }
       }
     });
+  };
+
+  const handleChange = (e) => {
+    setSearch(e.target.value);
+    filtrar(e.target.value);
+  };
+
+  const filtrar = (terminoBusqueda) => {
+    let resuldosBusqueda = tableCustomer.filter((elements) => {
+      if (
+        elements?.name.toLowerCase().includes(terminoBusqueda?.toLowerCase()) ||
+        elements?.last.toLowerCase().includes(terminoBusqueda?.toLowerCase())
+      ) {
+        return elements;
+      }
+    });
+    setCustumer(resuldosBusqueda);
   };
 
   return cargando ? (
@@ -59,7 +84,9 @@ export function ListCustomeView() {
               </div>
               <div className="flex flex-col items-center justify-center h-full">
                 <div className="text-center text-gray-600">
-                  No hay usuarios registrados
+                  {customer.id
+                    ? "No hay usuarios registrados"
+                    : "Usuario no encontrado"}
                 </div>
               </div>
             </div>
@@ -84,10 +111,11 @@ export function ListCustomeView() {
             <div className="text-xs font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
-                <span className="text-gray-600">Usuarios</span>
+                <span className="text-gray-600">Pacientes</span>
               </div>
             </div>
           </div>
+
           <div className="shrink-0 space-x-2 ">
             <div className="inline-flex rounded-md shadow-sm">
               <Excel
@@ -110,6 +138,21 @@ export function ListCustomeView() {
             </div>
           </div>
         </div>
+        <div className="flex justify-start">
+          <div className="mb-3 xl:w-96">
+            <div className="input-group relative flex flex-wrap items-stretch w-full mb-4">
+              <input
+                type="search"
+                value={search}
+                className="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                placeholder="Busqueda por nombres y apellidos"
+                aria-label="Search"
+                onChange={handleChange}
+                aria-describedby="button-addon2"
+              />
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -120,7 +163,10 @@ export function ListCustomeView() {
           <thead className="text-xs text-gray-700 uppercase  bg-gray-500 ">
             <tr>
               <th scope="col" className="text-white py-3 px-6 text-left">
-                Nombre y Apellido
+                Nombre
+              </th>
+              <th scope="col" className="text-white py-3 px-6 text-left">
+                Apellido
               </th>
               <th scope="col" className="text-white py-3 px-6 text-left">
                 Dirección

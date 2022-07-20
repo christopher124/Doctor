@@ -10,7 +10,13 @@ export function ListCustomersView({ customer, handleDelited }) {
         scope="row"
         className="px-6 py-4 font-medium text-white whitespace-nowrap"
       >
-        {name} {last}
+        {name}
+      </th>
+      <th
+        scope="row"
+        className="px-6 py-4 font-medium text-white whitespace-nowrap"
+      >
+        {last}
       </th>
       <td className="text-white px-6 py-4">
         {address}, {state}, {zip}

@@ -18,13 +18,13 @@ export function ListUseView() {
     (async () => {
       const user = await getUserApi(logout);
       setUser(user);
-      console.log(user);
     })(
       setTimeout(() => {
         setCargando(!cargando);
       }, 1000)
     );
   }, [auth]);
+
   if (user === undefined) {
     return null;
   }
@@ -47,7 +47,11 @@ export function ListUseView() {
       if (result.isConfirmed) {
         const response = await deleteUserApi(id, logout);
         if (response) {
-          Swal.fire("¡Eliminado!", "El registro ha sido eliminado correctamente.", "success");
+          Swal.fire(
+            "¡Eliminado!",
+            "El registro ha sido eliminado correctamente.",
+            "success"
+          );
           const arrayUser = user.filter((user) => user.id !== id);
           setUser(arrayUser);
         }
