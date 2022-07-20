@@ -1,7 +1,8 @@
 import { NavBar } from "../components/navbar/NavBar";
 import { Link } from "react-router-dom";
 import { Footer } from "../components/footer/Footer";
-import Imghome from "../assets/img/home.png";
+import Imghome from "../assets/img/Prueba1.png";
+
 export function HomeView() {
   return (
     <>
@@ -10,14 +11,15 @@ export function HomeView() {
         <div className="container mx-auto items-center flex flex-wrap">
           <div className="w-full md:w-8/12 lg:w-6/12 xl:w-6/12 px-4">
             <div className="pt-32 sm:pt-0">
-              <h2 className=" font-bold text-4xl text-blueGray-600">
-                Clinica Santa Barbara
-              </h2>
-              <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
-                Los millones de pacientes a quienes brindamos tratamiento cada
-                año nos preparan para tratar a la persona que más importa: tú.
+              <h1 className=" font-bold text-6xl text-blueGray-600">
+                Clínica Santa Bárbara
+              </h1>
+              <p className="mt-4 text-xl leading-relaxed text-blueGray-500 text-justify mr-28">
+                Instalaciones cómodas y equipo médico de la más alta calidad,
+                convergen para ofrecer una experiencia que sobrepasa las expectativas
+                de un hospital convencional.
               </p>
-              <div className="mt-12">
+              <div className="mt-8">
                 <Link
                   to="/citas"
                   className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
@@ -35,18 +37,18 @@ export function HomeView() {
             </div>
           </div>
         </div>
-
-        <img
-          className=" absolute bg-auto   top-0 right-0 pt-16 sm:w-6/12 mt-48 sm:mt-0 w-966"
-          src={Imghome}
-          alt="..."
-        />
-        <video src=""></video>
+        <div className="">
+          <img
+            className=" absolute bg-auto -top-52 left-96 pt-0 sm:w-12/12 mt-0 sm:mt-0 ml-36"
+            src={Imghome}
+            alt="..."
+          />
+        </div>
       </section>
 
       <section className=" font-noto mt-48 md:mt-40 pb-40 relative bg-blue-100">
         {/* SVG white */}
-        {/* <div
+        <div
           className="-mt-20 top-0 bottom-auto left-0 right-0 w-full absolute h-20"
           style={{ transform: "translateZ(0)" }}
         >
@@ -64,7 +66,7 @@ export function HomeView() {
               points="2560 0 2560 100 0 100"
             ></polygon>
           </svg>
-        </div> */}
+        </div>
 
         <div className="container mx-auto">
           <div className="flex flex-wrap items-center">

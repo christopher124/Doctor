@@ -1,6 +1,6 @@
 import { NavBar } from "../components/navbar/NavBar";
 import { Footer } from "../components/footer/Footer";
-
+import Imgn from "../assets/img/home.png"
 export function UsView() {
   return (
     <>
@@ -8,52 +8,102 @@ export function UsView() {
       <main className="font-noto">
         <div className="relative pt-16 pb-32 flex content-center items-center justify-center">
           <div
-            className="absolute top-0 w-full h-full bg-center bg-cover"
-            style={{
-              backgroundImage:
-                "url('https://img.freepik.com/foto-gratis/covid-coronavirus-enfermedad-trabajadores-sanitarios-concepto-seguro-feliz-medico-mujer-asiatica-medico-i_1258-84338.jpg?t=st=1658094285~exp=1658094885~hmac=a1794f394ec968636691c267f73d09920ca6db9845478105ce4242a7d07e2519&w=1380')",
-            }}
-          >
+            className="absolute top-20 w-[100%] h-[90%] bg-center bg-cover">
+            <img src={Imgn} alt="" />
             <span
               id="blackOverlay"
-              className="w-full h-full absolute opacity-75 bg-black"
+              className="w-[20%] h-[20%] absolute opacity-75 "
             ></span>
           </div>
-          <div className="container relative pt-16 flex h-screen left-48">
+          {/* bug */}
+          <div className="container relative  flex h-screen left-48">
             <div className="items-center flex flex-wrap">
               <div className="w-full md:w-8/12 lg:w-6/12 xl:w-6/12">
-                <h1 className="text-white font-semibold text-5xl text-center">
+              </div>
+            </div>
+          </div>
+        </div>
+        <section className="pb-40 bg-blue-200 -mt-60">
+          <div className="container mx-auto px-4">
+            {/* <div className="flex flex-wrap">
+              <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
+                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                  <div className="px-4 py-5 flex-auto">
+                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
+                      <i className="fas fa-award"></i>
+                    </div>
+
+                    <h6 className="text-xl font-semibold">Awarded Agency</h6>
+                    <p className="mt-2 mb-4 text-blue-500">
+                      Divide details about your product or agency work into
+                      parts. A paragraph describing a feature will be enough.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="w-full md:w-4/12 pt-3 px-4 text-center">
+                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                  <div className="px-4 py-5 flex-auto">
+                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-400">
+                      <i className="fas fa-retweet"></i>
+                    </div>
+                    <h6 className="text-xl font-semibold">Free Revisions</h6>
+                    <p className="mt-2 mb-4 text-blue-500">
+                      Keep you user engaged by providing meaningful information.
+                      Remember that by this time, the user is curious.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-12 w-full md:w-4/12 px-4 text-center">
+                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                  <div className="px-4 py-5 flex-auto">
+                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-emerald-400">
+                      <i className="fas fa-fingerprint"></i>
+                    </div>
+                    <h6 className="text-xl font-semibold">Verified Company</h6>
+                    <p className="mt-2 mb-4 text-blue-500">
+                      Write a few lines about each one. A paragraph describing a
+                      feature will be enough. Keep you user engaged!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div> */}
+
+            <div className="flex flex-wrap items-center mt-18">
+              <div className="w-full md:w-5/12 px-4 mr-auto ml-auto mt-40">
+                <div className="text-blue-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
+                  <i className="fas fa-check text-xl"></i>
+                </div>
+                <h3 className="text-3xl mb-2 font-semibold leading-normal">
                   Misión
-                </h1>
-                <p className="mt-4 text-3xl text-justify text-blue-200">
+                </h3>
+                <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-blue-600">
                   Mejorar la salud y la calidad de vida de los ciudadanos,
                   ofertando servicios sanitarios de calidad, con el paciente como
                   centro de nuestra atención, y profesionales altamente cualificados,
                   en un hospital privado con vocación docente e investigadora.
                 </p>
               </div>
-            </div>
-          </div>
-          <div className="container relative pt-16 flex h-screen -right-80">
-            <div className="items-center flex flex-wrap">
-              <div className="w-full md:w-8/12 lg:w-6/12 xl:w-6/12">
-                <div className="pr-0">
-                  <h1 className="text-white font-semibold text-5xl text-center">
-                    Visión
-                  </h1>
-                  <p className="mt-4 text-3xl text-justify text-blue-200">
-                    Conseguir la mejor asistencia médica y ética, que nos permita crecer,
-                    mejorar en eficacia y eficiencia, ser reconocidos por nuestros
-                    usuarios por la calidad en los servicios. Ofrecer
-                    un servicio preciso, sensato e integral consiguiendo
-                    la excelencia en el servicio asistencial y trato humano.
-                  </p>
+
+              <div className="w-full md:w-4/12 px-4 mr-auto ml-auto">
+                <div className="relative flex flex-col min-w-0 break-words w-full mb-6 rounded-lg pt-40">
+                  <img
+                    alt="..."
+                    src="https://img.freepik.com/foto-gratis/joven-doctora-pulgares-arriba-gesto-pie-pasillo-hospital_1303-21220.jpg?t=st=1658298917~exp=1658299517~hmac=fd6abd477f30e7c616df4b49ec5965c94fdd61ca19e9ab08cfdf5f1bd5ff9300&w=1380"
+                    className="w-full align-middle rounded-t-lg"
+                  />
                 </div>
               </div>
             </div>
           </div>
+        </section>
+        <section className="relative py-20">
           <div
-            className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px"
+            className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20"
             style={{ transform: "translateZ(0)" }}
           >
             <svg
@@ -64,87 +114,41 @@ export function UsView() {
               viewBox="0 0 2560 100"
               x="0"
               y="0"
-            ></svg>
+            >
+              <polygon
+                className="text-white fill-current"
+                points="2560 0 2560 100 0 100"
+              ></polygon>
+            </svg>
           </div>
-        </div>
-        <section className="pt-20 pb-48">
+          {/* mision */}
           <div className="container mx-auto px-4">
-            <div className="flex flex-wrap justify-center text-center mb-24">
-              <div className="w-full lg:w-6/12 px-4">
-                <h2 className="text-4xl font-semibold">Nuestros Especialistas</h2>
-                <p className="text-lg leading-relaxed m-4 text-blue-500">
-                  Contamos con un grupo de especialistas y médicos generales
-                  de gran categoría, preparados para brindarte el mejor servicio y la atención que mereces.
-                </p>
+            <div className="items-center flex flex-wrap">
+              <div className="w-full md:w-4/12 ml-auto mr-auto px-4">
+                <img
+                  alt="..."
+                  className="max-w-full rounded-lg shadow-lg mb-20"
+                  src="https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGRvY3RvcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                />
               </div>
-            </div>
-            <div className="flex flex-wrap">
-              <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
-                <div className="px-6">
-                  <img
-                    alt="..."
-                    // src falta poner fotos
-                    src="https://img.freepik.com/foto-gratis/cerrar-sobre-trabajador-salud_23-2149112505.jpg?t=st=1658001251~exp=1658001851~hmac=634fd8010a50c914df922d249038e2c0f33ed7634ac0f0b8e3519031827cd424&w=740"
-                    className="shadow-lg rounded-full mx-auto max-w-120-px"
-                  />
-                  <div className="pt-6 text-center">
-                    <h5 className="text-xl font-bold">Iván Zepeda</h5>
-                    <p className="mt-1 text-sm text-blue-400 uppercase font-semibold">
-                      Cardiólogo
-                    </p>
+              <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
+                <div className="md:pr-12 -mt-20">
+                  <div className="text-blue-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
+                    <i className="fas fa-eye text-xl"></i>
                   </div>
-                </div>
-              </div>
-              <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
-                <div className="px-6">
-                  <img
-                    alt="..."
-                    // src falta poner fotos
-                    src="https://images.unsplash.com/photo-1642050923713-c48db6ea4bec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-                    className="shadow-lg rounded-full mx-auto max-w-120-px"
-                  />
-                  <div className="pt-6 text-center">
-                    <h5 className="text-xl font-bold">Denisse Rosas</h5>
-                    <p className="mt-1 text-sm text-blue-400 uppercase font-semibold">
-                      Oftalmóloga
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
-                <div className="px-6">
-                  <img
-                    alt="..."
-                    src="https://img.freepik.com/foto-gratis/cerrar-sobre-trabajador-salud_23-2149112577.jpg?t=st=1658001465~exp=1658002065~hmac=04d6933953a2464608327be6613bad1786bebf643dfb8d76c4a5ab1dda029841&w=740"
-                    // src falta poner fotos
-                    className="shadow-lg rounded-full mx-auto max-w-120-px"
-                  />
-                  <div className="pt-6 text-center">
-                    <h5 className="text-xl font-bold">Benjamín Cuevas</h5>
-                    <p className="mt-1 text-sm text-blue-400 uppercase font-semibold">
-                      Ginecólogo
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
-                <div className="px-6">
-                  <img
-                    alt="..."
-                    // src falta poner fotos
-                    src="https://images.unsplash.com/photo-1623887669121-5d4081c7bec1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-                    className="shadow-lg rounded-full mx-auto max-w-120-px"
-                  />
-                  <div className="pt-6 text-center">
-                    <h5 className="text-xl font-bold">Judith Espinoza</h5>
-                    <p className="mt-1 text-sm text-blue-400 uppercase font-semibold">
-                      Dermatóloga
-                    </p>
-                  </div>
+                  <h3 className="text-3xl font-semibold">Visión</h3>
+                  <p className="mt-4 text-lg leading-relaxed text-blue-500">
+                    Conseguir la mejor asistencia médica y ética, que nos permita crecer,
+                    mejorar en eficacia y eficiencia, ser reconocidos por nuestros
+                    usuarios por la calidad en los servicios. Ofrecer
+                    un servicio preciso, sensato e integral consiguiendo
+                    la excelencia en el servicio asistencial y trato humano.
+                  </p>
+                  <ul className="list-none mt-6">
+                  </ul>
                 </div>
               </div>
             </div>
-            {/* aqui */}
           </div>
         </section>
       </main>

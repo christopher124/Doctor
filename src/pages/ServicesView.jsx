@@ -18,28 +18,36 @@ export function ServicesView() {
           >
             <span
               id="blackOverlay"
-              className="w-full h-full absolute opacity-75 bg-black"
+              className="w-full h-full absolute opacity-75  bg-zinc-800"
             ></span>
           </div>
           <div className="container header relative pt-16 items-center flex h-screen max-h-860-px">
             <div className="items-center flex flex-wrap">
               <div className="w-full md:w-8/12 lg:w-6/12 xl:w-6/12 px-4">
                 <div className="pr-12">
-                  <h1 className="text-white font-semibold text-5xl">
-                    Los servicios que ofrecemos son:
+                  <h1 className="text-white font-semibold text-6xl">
+                    Clínica Santa Bárbara
                   </h1>
                   <p className="mt-4 text-lg text-blue-200">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book. It has survived not only five centuries,
-                    but also the leap into electronic typesetting, remaining
-                    essentially unchanged. It was popularised in the 1960s with
-                    the release of Letraset sheets containing Lorem Ipsum
-                    passages, and more recently with desktop publishing software
-                    like Aldus PageMaker including versions of Lorem Ipsum.
+                    Instalaciones cómodas y equipo médico de la más alta calidad,
+                    convergen para ofrecer una experiencia que sobrepasa las expectativas
+                    de un hospital convencional.
                   </p>
+                  <div className="mt-8">
+                    <Link
+                      to="/citas"
+                      className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                    >
+                      Agendar cita
+                    </Link>
+                    <a
+                      href="https://play.google.com/store/apps/details?id=com.christopherurielsosagarcia.qrcode"
+                      className=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                      target="_blank"
+                    >
+                      Descargar App
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -115,22 +123,14 @@ export function ServicesView() {
                   <i className="fas fa-user-friends text-xl"></i>
                 </div>
                 <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                  Working with us is a pleasure
+                  Misión
                 </h3>
-                <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blue-600">
-                  Don't let your uses guess by attaching tooltips and popoves to
-                  any element. Just make sure you enable them first via
-                  JavaScript.
-                </p>
                 <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-blue-600">
-                  The kit comes with three pre-built pages to help you get
-                  started faster. You can change the text and images and you're
-                  good to go. Just make sure you enable them first via
-                  JavaScript.
+                  Mejorar la salud y la calidad de vida de los ciudadanos,
+                  ofertando servicios sanitarios de calidad, con el paciente como
+                  centro de nuestra atención, y profesionales altamente cualificados,
+                  en un hospital privado con vocación docente e investigadora.
                 </p>
-                <Link to="/" className="font-bold text-blue-700 mt-8">
-                  Check Notus React!
-                </Link>
               </div>
 
               <div className="w-full md:w-4/12 px-4 mr-auto ml-auto">
@@ -140,22 +140,6 @@ export function ServicesView() {
                     src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"
                     className="w-full align-middle rounded-t-lg"
                   />
-                  <blockquote className="relative p-8 mb-4">
-                    <svg
-                      preserveAspectRatio="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 583 95"
-                      className="absolute left-0 w-full block h-95-px -top-94-px"
-                    ></svg>
-                    <h4 className="text-xl font-bold text-white">
-                      Top Notch Services
-                    </h4>
-                    <p className="text-md font-light mt-2 text-white">
-                      The Arctic Ocean freezes every winter and much of the
-                      sea-ice then thaws every summer, and that process will
-                      continue whatever happens.
-                    </p>
-                  </blockquote>
                 </div>
               </div>
             </div>
@@ -181,68 +165,27 @@ export function ServicesView() {
               ></polygon>
             </svg>
           </div>
-
+          {/* mision */}
           <div className="container mx-auto px-4">
             <div className="items-center flex flex-wrap">
               <div className="w-full md:w-4/12 ml-auto mr-auto px-4">
                 <img
                   alt="..."
                   className="max-w-full rounded-lg shadow-lg mb-20"
-                  src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+                  src="https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGRvY3RvcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
                 />
               </div>
               <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
                 <div className="md:pr-12">
-                  <div className="text-blue-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-blue-300">
-                    <i className="fas fa-rocket text-xl"></i>
-                  </div>
-                  <h3 className="text-3xl font-semibold">A growing company</h3>
+                  <h3 className="text-3xl font-semibold">Visión</h3>
                   <p className="mt-4 text-lg leading-relaxed text-blue-500">
-                    The extension comes with three pre-built pages to help you
-                    get started faster. You can change the text and images and
-                    you're good to go.
+                    Conseguir la mejor asistencia médica y ética, que nos permita crecer,
+                    mejorar en eficacia y eficiencia, ser reconocidos por nuestros
+                    usuarios por la calidad en los servicios. Ofrecer
+                    un servicio preciso, sensato e integral consiguiendo
+                    la excelencia en el servicio asistencial y trato humano.
                   </p>
                   <ul className="list-none mt-6">
-                    <li className="py-2">
-                      <div className="flex items-center">
-                        <div>
-                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200 mr-3">
-                            <i className="fas fa-fingerprint"></i>
-                          </span>
-                        </div>
-                        <div>
-                          <h4 className="text-blue-500">
-                            Carefully crafted components
-                          </h4>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="py-2">
-                      <div className="flex items-center">
-                        <div>
-                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200 mr-3">
-                            <i className="fab fa-html5"></i>
-                          </span>
-                        </div>
-                        <div>
-                          <h4 className="text-blue-500">
-                            Amazing page examples
-                          </h4>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="py-2">
-                      <div className="flex items-center">
-                        <div>
-                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200 mr-3">
-                            <i className="far fa-paper-plane"></i>
-                          </span>
-                        </div>
-                        <div>
-                          <h4 className="text-blue-500">Dynamic components</h4>
-                        </div>
-                      </div>
-                    </li>
                   </ul>
                 </div>
               </div>
