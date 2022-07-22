@@ -22,7 +22,7 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
     initialValues: initialValues(doctor),
     validationSchema: Yup.object(validationSchema()),
     onSubmit: async (formData) => {
-      handleSutmit(formData);
+      handleSubmit(formData);
     },
   });
   const { auth, logout } = useAuth();
@@ -34,7 +34,7 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth]);
 
-  const handleSutmit = async (formData) => {
+  const handleSubmit = async (formData) => {
     const formDataTemp = {
       ...formData,
       user: auth.idUser,
@@ -256,22 +256,6 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
               id="birthday"
             />
           </div>
-          <div className="w-full mb-6 group">
-            <p htmlFor="star" className="block font-bold text-xl text-gray-700">
-              Puntuación del doctor
-            </p>
-            <Form.Input
-              type="text"
-              value={formik.values.star}
-              error={formik.errors.star}
-              onChange={formik.handleChange}
-              name="star"
-              id="star"
-              placeholder="5.0 "
-            />
-          </div>
-        </div>
-        <div className="grid xl:grid-cols-3 xl:gap-6">
           <div className="text-lg w-full mb-6 group">
             <p
               htmlFor="user"
@@ -284,23 +268,45 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
               name="user"
               id="user"
               onChange={(data) =>
-                formik.setFieldValue("user", data.target.value)
+                formik.setFieldValue("user", data.target.value, {
+                  shouldValidate: true,
+                })
               }
               onError={formik.errors.user}
               onSelect
             >
               {doctor?.id ? (
-                <option value="">Selecione un nuevo rol para el doctor</option>
+                <option value="">
+                  Selecione un nuevo usuario para el doctor
+                </option>
               ) : (
-                <option value="">Selecione un rol para el doctor</option>
+                <option value="">Selecione un usuario para el doctor</option>
               )}
               {user?.map((user) => (
-                <option onSelect={user?.email} key={user?.id} value={user?.id}>
+                <option key={user?.id} value={user?.id}>
                   {user?.email}
                 </option>
               ))}
             </select>
+            {formik.errors.user && (
+              <p
+                style={{
+                  whitespace: "normal",
+                  background: "#fff",
+                  border: "1px solid #e0b4b4",
+                  color: "#9f3a38",
+                }}
+                className="ui pointing above prompt label "
+                id="birthday-error-message"
+                role="alert"
+                aria-atomic="true"
+              >
+                El Usuario es Obligatorio
+              </p>
+            )}
           </div>
+        </div>
+        <div className="grid xl:grid-cols-2 xl:gap-6">
           <div className="w-full mb-6 group">
             <p
               htmlFor="birthday"
@@ -355,7 +361,7 @@ function initialValues(doctor) {
   return {
     name: doctor?.name ?? "",
     last: doctor?.last ?? "",
-    user: doctor?.user?.email ?? null,
+    user: null,
     address: doctor?.address ?? "",
     gender: doctor?.gender ?? "",
     phone: doctor?.phone ?? "",
@@ -363,7 +369,6 @@ function initialValues(doctor) {
     town: doctor?.town ?? "",
     number_int_address: doctor?.number_int_address ?? "",
     birthday: doctor?.birthday ?? "",
-    star: doctor?.star ?? 0,
     state: doctor?.state ?? "",
     zip: doctor?.zip ?? "",
     specialties: doctor?.specialties ?? "",
@@ -372,6 +377,7 @@ function initialValues(doctor) {
 }
 function validationSchema() {
   return {
+    user: Yup.string().required(true),
     name: Yup.string()
       .min(5, "El Nombre es muy corto")
       .max(50, "El Nombre es muy largo")
@@ -394,7 +400,6 @@ function validationSchema() {
     birthday: Yup.string().required("La fecha de cumpleaños es obligatorio"),
     state: Yup.string().required("El estado es obligatorio"),
     zip: Yup.string().required("El código postal es obligatorio"),
-    star: Yup.number().positive(true).min(0).max(5.0),
     suburb: Yup.string().required("La colonia del doctor es obligatorio"),
     town: Yup.string().required("El municipio del doctor es obligatorio"),
   };

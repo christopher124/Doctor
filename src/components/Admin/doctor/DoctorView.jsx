@@ -20,7 +20,7 @@ export function DoctorView({ doctor }) {
       );
     } else if (status === "En consulta") {
       setClase(
-        " p-2 uppercase font-bold inline-flex text-center   bg-orange-400 text-white rounded-lg text-xs px-2 py-0 "
+        " p-2 uppercase font-bold inline-flex text-center bg-orange-400 text-white rounded-lg text-xs px-2 py-0 "
       );
     } else if (status === null) {
       setClase(" text-white whitespace-nowrap ");
@@ -52,9 +52,8 @@ export function DoctorView({ doctor }) {
           </div>
 
           <div className="p-1 text-white whitespace-nowrap">
-            <span className={`${clase} `}>
-              Estatus: {status ? status : "N/A"}
-            </span>
+            Estatus:{" "}
+            <span className={`${clase} `}>{status ? status : "N/A"}</span>
           </div>
         </div>
       </div>

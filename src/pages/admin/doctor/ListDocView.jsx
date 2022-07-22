@@ -5,6 +5,8 @@ import { getDoctorApi, deleteDoctorApi } from "../../../api/admin/doctor";
 import { ListDoctorView } from "../../../components/Admin/doctor/ListDoctorView";
 import { Spinner } from "../../../components/spinner/Spinner";
 import Swal from "sweetalert2";
+import Excel from "react-html-table-to-excel";
+
 export function ListDocView() {
   const navigate = useNavigate();
   const [doctor, setDoctor] = useState([]);
@@ -23,6 +25,13 @@ export function ListDocView() {
       }, 1000)
     );
   }, [auth]);
+  if (logout === undefined) {
+    return null;
+  }
+  if (!auth && !logout) {
+    navigate("/");
+    return null;
+  }
 
   const handleDelited = async (id) => {
     Swal.fire({
@@ -93,46 +102,61 @@ export function ListDocView() {
               </div>
             </div>
           </div>
-          <div className="shrink-0 space-x-2">
-            <button
-              onClick={() => navigate("/admin/nuevo/doctor")}
-              className="flex flex-row items-center justify-center px-4 py-2 text-xs font-bold text-white uppercase bg-blue-500 rounded-lg hover:bg-blue-600 space-x-1"
-            >
-              <i className="fa fa-solid fa-plus"></i>
-              <span>Nuevo Registro</span>
-            </button>
+          <div className="shrink-0 space-x-2 ">
+            <div className="inline-flex rounded-md shadow-sm">
+              <Excel
+                id="buttonExcel"
+                className="flex flex-row items-center justify-center px-4 py-2 text-xs font-bold text-white uppercase bg-green-700 rounded-lg hover:bg-green-800 space-x-2"
+                table="tableDoctors"
+                filename="tableDoctors"
+                sheet="pagina 1"
+                buttonText="Exportar a excel"
+              />
+            </div>
+            <div className="inline-flex rounded-md shadow-sm">
+              <button
+                onClick={() => navigate("/admin/nuevo/usuario")}
+                type="button"
+                className="flex flex-row items-center justify-center px-4 py-2 text-xs font-bold text-white uppercase bg-blue-500 rounded-lg hover:bg-blue-600 space-x-1"
+              >
+                <span className="p-1">Nuevo Registro</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table className="w-full text-sm text-left text-gray-500 text-gray-400">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-500">
+      <div className="relative overflow-x-auto shadow-2xl sm:rounded-lg">
+        <table
+          id="tableDoctors"
+          className="w-full text-sm text-center text-white"
+        >
+          <thead className="text-xs uppercase bg-[#94a7bc] text-white">
             <tr>
-              <th scope="col" className="text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6 text-center">
                 Nombre
               </th>
-              <th scope="col" className="text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6 text-center">
                 Apellido
               </th>
-              <th scope="col" className="text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6 text-center">
                 Correo
               </th>
-              <th scope="col" className=" text-white py-3 px-6 text-left">
+              <th scope="col" className=" text-white py-3 px-6 text-center">
                 Fecha de Cumpleaños
               </th>
-              <th scope="col" className="text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6 text-center">
                 Teléfono
               </th>
-              <th scope="col" className="text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6 text-center">
                 Especialidad
               </th>
-              <th scope="col" className="text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6 text-center">
                 Estatus
               </th>
               <th
                 scope="col"
-                className="text-white font-bold py-3 px-6 text-left "
+                className="text-white font-bold py-3 px-6 text-center "
               >
                 Acciones
               </th>

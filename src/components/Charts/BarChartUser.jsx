@@ -56,7 +56,8 @@ export function BarChartUser() {
     maintainAspectRatio: false,
     legend: {
       labels: {
-        fontSize: 1,
+        fontSize: 50,
+        color: ["#102034"],
       },
     },
   };

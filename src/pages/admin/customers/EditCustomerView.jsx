@@ -21,8 +21,7 @@ export function EditCustomerView() {
         setCargando(!cargando);
       }, 1000)
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [auth]);
+  }, [auth, id, logout]);
   if (!auth) {
     navigate("/");
     return null;
@@ -52,13 +51,13 @@ export function EditCustomerView() {
             <div className="text-xs font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
-                <span className="text-gray-600 ">Editar Usuario</span>
+                <span className="text-gray-600 ">Editar Paciente</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-      {customer?.name ? (
+      {customer?.id ? (
         <FormCustumer
           customer={customer}
           cargando={cargando}

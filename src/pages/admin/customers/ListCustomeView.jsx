@@ -110,7 +110,7 @@ export function ListCustomeView() {
               </div>
               <div className="flex flex-col items-center justify-center h-full">
                 <div className="text-center text-gray-600">
-                  {customer.id
+                  {Object.keys(customer).length === 0
                     ? "No hay usuarios registrados"
                     : "Usuario no encontrado"}
                 </div>
@@ -125,6 +125,38 @@ export function ListCustomeView() {
               <i className="fa fa-solid fa-plus"></i>
               <span>Nuevo Registro</span>
             </button>
+          </div>
+        </div>
+        <div className="shrink-0 space-x-2">
+          <div className="inline-flex justify-start">
+            <div className="mb-3 xl:w-96">
+              <div className="input-group relative flex flex-wrap items-stretch  w-full mb-4">
+                <input
+                  type="search"
+                  value={searchState}
+                  className="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                  placeholder="Busqueda por Municipio"
+                  aria-label="Search"
+                  onChange={handleChangeState}
+                  aria-describedby="button-addon2"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="inline-flex justify-start">
+            <div className="mb-3 xl:w-96">
+              <div className="input-group relative flex flex-wrap items-stretch w-full mb-4">
+                <input
+                  type="search"
+                  value={searchUser}
+                  className="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                  placeholder="Busqueda por nombres y apellidos"
+                  aria-label="Search"
+                  onChange={handleChangeUsers}
+                  aria-describedby="button-addon2"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -172,7 +204,7 @@ export function ListCustomeView() {
                   type="search"
                   value={searchState}
                   className="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                  placeholder="Busqueda por Estado"
+                  placeholder="Busqueda por Municipio"
                   aria-label="Search"
                   onChange={handleChangeState}
                   aria-describedby="button-addon2"
@@ -198,46 +230,46 @@ export function ListCustomeView() {
         </div>
       </div>
 
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+      <div className="relative overflow-x-auto shadow-2xl sm:rounded-lg">
         <table
           id="tableCustomers"
-          className="w-full text-sm text-left text-gray-500 text-gray-400"
+          className="w-full text-sm text-center text-white"
         >
-          <thead className="text-xs text-gray-700 uppercase  bg-gray-500 ">
+          <thead className="text-xs uppercase bg-[#94a7bc] text-white">
             <tr>
-              <th scope="col" className="text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6  text-center">
                 Nombre
               </th>
-              <th scope="col" className="text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6  text-center">
                 Apellido
               </th>
-              <th scope="col" className="text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6  text-center">
                 Dirección
               </th>
-              <th scope="col" className="text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6  text-center">
                 Codigo postal
               </th>
-              <th scope="col" className="text-white py-3 px-6 text-left">
-                Estado
-              </th>
-              <th scope="col" className="text-white py-3 px-6 text-left">
-                Colonia
-              </th>
-              <th scope="col" className="text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6  text-center">
                 Municipio
               </th>
-              <th scope="col" className=" text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6  text-center">
+                Colonia
+              </th>
+              <th scope="col" className="text-white py-3 px-6  text-center">
+                Estado
+              </th>
+              <th scope="col" className=" text-white py-3 px-6  text-center">
                 Género
               </th>
-              <th scope="col" className="text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6  text-center">
                 Teléfono
               </th>{" "}
-              <th scope="col" className="text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6  text-center">
                 Estatus del Cliente
               </th>
               <th
                 scope="col"
-                className="text-white font-bold py-3 px-6 text-left "
+                className="text-white font-bold py-3 px-6  text-center "
               >
                 Acciones
               </th>

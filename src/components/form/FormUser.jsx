@@ -4,8 +4,9 @@ import { Form } from "semantic-ui-react";
 import * as Yup from "yup";
 import { registerApi, updateUserApi } from "../../api/admin/user";
 import { getRolesApi } from "../../api/admin/roles";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import { roleOptions } from "../../api/data/data";
 import { toast } from "react-toastify";
 
 export function FormUser({ user }) {
@@ -24,18 +25,10 @@ export function FormUser({ user }) {
     initialValues: initialValues(user),
     validationSchema: Yup.object(validationSchema()),
     onSubmit: async (formData) => {
-      handleSutmit(formData);
+      handleSubmit(formData);
     },
   });
-  if (user === undefined) {
-    return null;
-  }
-  if (!auth && !user) {
-    navigate("/login");
-    return null;
-  }
-
-  const handleSutmit = async (formData) => {
+  const handleSubmit = async (formData) => {
     const formDataTemp = {
       ...formData,
       user: auth.idUser,
@@ -46,26 +39,35 @@ export function FormUser({ user }) {
         respuesta = await updateUserApi(user?.id, formDataTemp, logout);
         if (!respuesta) {
           toast.warning(
-            "Problemas con actulizar al usaurio, intentelo mas tarde"
+            "Problemas con actualizar el doctor, inténtelo mas tarde"
           );
-        } else toast.success("Usuario actulizado correctamente");
+        } else toast.success("Doctor actulizado correctamente");
         navigate("/admin/usuarios");
       } else {
         respuesta = await registerApi(formDataTemp, logout);
-
         if (!respuesta) {
-          toast.warning("El nombre de usuario y el correo ya estan utilizados");
+          toast.warning("Problemas con crear el doctor, inténtelo mas tarde");
         } else {
-          toast.success("Usuario creado correctamente");
+          toast.success("Doctor creado correctamente");
           navigate("/admin/usuarios");
         }
       }
       await respuesta.json();
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
     <>
+      <button
+        className="text-white bg-blue-700 font-bold py-2 px-4 rounded-xl"
+        onClick={() => navigate(`/admin/usuarios`)}
+      >
+        <i className="fas fa-arrow-alt-circle-left text-white mr-2 text-lg"></i>{" "}
+        Regresar
+      </button>
+
       <div className=" mt-10 px-5 py-10 rounded-md shadow-xl md:w-4/2 mx-auto">
         <h1 className="text-gray-600 font-bold text-xl uppercase text-center">
           {user?.username ? "Editar usuario" : "Agregar usuario"}
@@ -77,7 +79,7 @@ export function FormUser({ user }) {
                 htmlFor="username"
                 className="block text-xl font-bold  text-gray-800 "
               >
-                Nombre del Usuario
+                Nombre de usuario
               </p>
               <Form.Input
                 type="text"
@@ -86,7 +88,7 @@ export function FormUser({ user }) {
                 value={formik.values.username}
                 onChange={formik.handleChange}
                 error={formik.errors.username}
-                placeholder="Nombre del Usuario"
+                placeholder="Nombre de usuario"
               />
             </div>
             <div className="  w-full mb-6 group">
@@ -103,7 +105,7 @@ export function FormUser({ user }) {
                 value={formik.values.email}
                 onChange={formik.handleChange}
                 error={formik.errors.email}
-                placeholder="Example@gmail.com"
+                placeholder="Apellidos"
               />
             </div>
             <div className=" w-full mb-6 group">
@@ -111,7 +113,7 @@ export function FormUser({ user }) {
                 htmlFor="password"
                 className="block font-bold text-xl text-gray-700"
               >
-                Contraseña
+                password
               </p>
               <Form.Input
                 type="password"
@@ -120,7 +122,7 @@ export function FormUser({ user }) {
                 value={formik.values.password}
                 onChange={formik.handleChange}
                 error={formik.errors.password}
-                placeholder="Ingresa una contraseña"
+                placeholder="Ingrese una contraseña"
               />
             </div>
             <div className=" w-full mb-6 group">
@@ -128,7 +130,7 @@ export function FormUser({ user }) {
                 htmlFor="password"
                 className="block font-bold text-xl text-gray-700"
               >
-                Estatus del Usuario
+                Estatus del usuario
               </p>
               <Form.Checkbox
                 checked={formik.values.confirmed}
@@ -174,7 +176,6 @@ export function FormUser({ user }) {
             </div>
           </div>
           <input
-            disabled={!formik.dirty}
             type="submit"
             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             value={user?.username ? "Editar Usuario" : "Agregar Usuario"}
@@ -187,10 +188,10 @@ export function FormUser({ user }) {
 
 function initialValues(user) {
   return {
-    username: user?.username ?? user?.username,
+    username: user?.username ?? "",
     email: user?.email ?? "",
     password: "",
-    role: user?.role ?? null,
+    photo: null,
     confirmed: user?.confirmed ?? "",
     blocked: user?.blocked ?? false,
   };
@@ -200,7 +201,7 @@ function validationSchema() {
     username: Yup.string().required(true).min(5).max(15),
     email: Yup.string().email().required(true),
     password: Yup.string()
-      .min(9, "La contraseña debe de tener mínimo 9 caracteres")
+      .min(9, "La contraseña debe de tener minimo 9 caracteres")
       .required(true),
   };
 }

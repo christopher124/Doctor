@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import { getUserApi } from "../../../api/admin/user";
@@ -23,7 +24,7 @@ export function ListUseView() {
         setCargando(!cargando);
       }, 1000)
     );
-  }, [auth]);
+  }, [auth, logout]);
 
   if (user === undefined) {
     return null;
@@ -106,7 +107,7 @@ export function ListUseView() {
             <div className="inline-flex rounded-md shadow-sm">
               <Excel
                 id="buttonExcel"
-                className="flex flex-row items-center justify-center px-4 py-2 text-xs font-bold text-white uppercase bg-blue-500 rounded-lg hover:bg-blue-600 space-x-1"
+                className="flex flex-row items-center justify-center px-4 py-2 text-xs font-bold text-white uppercase bg-green-700 rounded-lg hover:bg-green-800 space-x-2"
                 table="tableUsers"
                 filename="tableUsers"
                 sheet="pagina 1"
@@ -126,34 +127,34 @@ export function ListUseView() {
         </div>
       </div>
 
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+      <div className="relative overflow-x-auto shadow-2xl sm:rounded-lg">
         <table
           id="tableUsers"
-          className="w-full text-sm text-left text-gray-500 text-gray-400"
+          className="w-full text-sm text-center text-white"
         >
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50 bg-gray-700 text-gray-400">
+          <thead className="text-xs uppercase bg-[#94a7bc] text-white">
             <tr>
-              <th scope="col" className="text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6 text-center">
                 Foto de Usuario
               </th>
-              <th scope="col" className="text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6 text-center">
                 Nombre de Usuario{" "}
               </th>
-              <th scope="col" className="text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6 text-center">
                 Correo
               </th>
-              <th scope="col" className=" text-white py-3 px-6 text-left">
+              <th scope="col" className=" text-white py-3 px-6 text-center">
                 Rol de Usuario
               </th>
-              <th scope="col" className=" text-white py-3 px-6 text-left">
+              <th scope="col" className=" text-white py-3 px-6 text-center">
                 Verificación del Usuario
               </th>
-              <th scope="col" className=" text-white py-3 px-6 text-left">
+              <th scope="col" className=" text-white py-3 px-6 text-center">
                 Estatus del Usuario
               </th>
               <th
                 scope="col"
-                className="text-white font-bold py-3 px-6 text-left "
+                className="text-white font-bold py-3 px-6 text-center "
               >
                 Acciones
               </th>
