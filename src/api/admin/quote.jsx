@@ -30,3 +30,12 @@ export async function getQuotesApi(logout) {
     return null;
   }
 }
+export async function getCountQuoteApi(logout) {
+  try {
+    const url = `${API_URL_DEV}/quotes/count`;
+    const result = await authFetch(url, null, logout);
+    return result ? result : null;
+  } catch (error) {
+    return null;
+  }
+}
