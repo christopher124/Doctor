@@ -81,7 +81,7 @@ export function UsView() {
                 <h3 className="text-3xl mb-2 font-semibold leading-normal">
                   Misión
                 </h3>
-                <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-blue-600">
+                <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-black text-justify">
                   Mejorar la salud y la calidad de vida de los ciudadanos,
                   ofertando servicios sanitarios de calidad, con el paciente como
                   centro de nuestra atención, y profesionales altamente cualificados,
@@ -137,7 +137,8 @@ export function UsView() {
                     <i className="fas fa-eye text-xl"></i>
                   </div>
                   <h3 className="text-3xl font-semibold">Visión</h3>
-                  <p className="mt-4 text-lg leading-relaxed text-blue-500">
+                  {/* text-blue-500 */}
+                  <p className="mt-4 text-lg leading-relaxed text-black text-justify">
                     Conseguir la mejor asistencia médica y ética, que nos permita crecer,
                     mejorar en eficacia y eficiencia, ser reconocidos por nuestros
                     usuarios por la calidad en los servicios. Ofrecer
