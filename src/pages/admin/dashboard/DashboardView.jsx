@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getCountUserApi, getUserApi } from "../../../api/admin/user";
 import { getCountCustomerApi } from "../../../api/admin/customer";
 import { getDoctorApi, getCountDoctorApi } from "../../../api/admin/doctor";
+import { getCountQuoteApi } from "../../../api/admin/quote";
 import { Spinner } from "../../../components/spinner/Spinner";
 import { DoctorView } from "../../../components/Admin/doctor/DoctorView";
 import useAuth from "../../../hooks/useAuth";
@@ -13,6 +14,8 @@ export function DashboardView() {
   const [Usercount, setUserCount] = useState(<Spinner />);
   const [Doctorcount, setDoctorCount] = useState(<Spinner />);
   const [Customercount, setCustomerCount] = useState(<Spinner />);
+  const [Quotecount, setQuoteCount] = useState(<Spinner />);
+
   const [cargando, setCargando] = useState(true);
 
   const [doctor, setDoctor] = useState([]);
@@ -30,6 +33,8 @@ export function DashboardView() {
       setDoctorCount(countDoctor);
       const countCustumer = await getCountCustomerApi(logout);
       setCustomerCount(countCustumer);
+      const countQuote = await getCountQuoteApi(logout);
+      setQuoteCount(countQuote);
     })(
       setTimeout(() => {
         setCargando(!cargando);
@@ -106,8 +111,10 @@ export function DashboardView() {
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-col">
                   <div className="text-xs font-bold text-white uppercase">
-                    Usuarios
-                    <div className="p-1.5 text-xl font-bold">{Usercount}</div>
+                    Citas
+                    <div className="p-1.5 text-xl font-bold">
+                      {Quotecount ? Quotecount : "0"}
+                    </div>
                   </div>
                 </div>
                 <i className="fas fa-users text-white"></i>
