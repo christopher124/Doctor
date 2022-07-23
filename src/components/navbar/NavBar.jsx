@@ -18,7 +18,7 @@ export function NavBar(props) {
               to="/"
               className="text-blueGray-700 text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
             >
-              <img src={Logo} className="w-28 h-20 -mt-6 -mb-6" alt=""></img>
+              <img src={Logo} className="w-32 h-24 -mt-7 -mb-7" alt=""></img>
             </Link>
             <button
               className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
@@ -39,7 +39,7 @@ export function NavBar(props) {
               <li className="flex items-center">
                 <Link
                   className={
-                    "px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold " +
+                    "px-3 py-4 lg:py-2 flex items-center text-sm uppercase font-bold" +
                     (window.location.href.indexOf("/nosotros") !== -1
                       ? "text-black-700 hover:text-blue-600"
                       : "text-blue-700 hover:text-blue-500")
@@ -53,7 +53,7 @@ export function NavBar(props) {
               <li className="flex items-center">
                 <Link
                   className={
-                    "px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold " +
+                    "px-3 py-4 lg:py-2 flex items-center text-sm uppercase font-bold" +
                     (window.location.href.indexOf("/servicios") !== -1
                       ? "text-black-700 hover:text-blue-600"
                       : "text-blue-700 hover:text-blue-500")
@@ -68,7 +68,7 @@ export function NavBar(props) {
                 <li className="flex items-center">
                   <Link
                     className={
-                      "px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold " +
+                      "px-3 py-4 lg:py-2 flex items-center text-sm uppercase font-bold " +
                       (window.location.href.indexOf("/dashboard") !== -1
                         ? "text-black-700 hover:text-blue-600"
                         : "text-blue-700 hover:text-blue-500")
@@ -82,7 +82,7 @@ export function NavBar(props) {
                 <li className="flex items-center">
                   <Link
                     className={
-                      "px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold " +
+                      "px-3 py-4 lg:py-2 flex items-center text-sm uppercase font-bold " +
                       (window.location.href.indexOf("/login") !== -1
                         ? "text-black-700 hover:text-blue-600"
                         : "text-blue-700 hover:text-blue-500")

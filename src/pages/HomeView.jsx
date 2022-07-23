@@ -1,51 +1,71 @@
 import { NavBar } from "../components/navbar/NavBar";
 import { Link } from "react-router-dom";
 import { Footer } from "../components/footer/Footer";
-import Imghome from "../assets/img/Prueba1.png";
+import Imghome from "../assets/img/prueba3.jpg";
 
 export function HomeView() {
   return (
     <>
       <NavBar fixed />
-      <section className=" font-noto header relative pt-16 items-center flex h-screen max-h-860-px">
-        <div className="container mx-auto items-center flex flex-wrap">
-          <div className="w-full md:w-8/12 lg:w-6/12 xl:w-6/12 px-4">
-            <div className="pt-32 sm:pt-0">
-              <h1 className=" font-bold text-6xl text-blueGray-600">
-                Clínica Santa Bárbara
-              </h1>
-              <p className="mt-4 text-xl leading-relaxed text-blueGray-500 text-justify mr-28">
-                Instalaciones cómodas y equipo médico de la más alta calidad,
-                convergen para ofrecer una experiencia que sobrepasa las expectativas
-                de un hospital convencional.
-              </p>
-              <div className="mt-8">
-                <Link
-                  to="/citas"
-                  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-                >
-                  Agendar cita
-                </Link>
-                <a
-                  href="https://play.google.com/store/apps/details?id=com.christopherurielsosagarcia.qrcode"
-                  className=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-                  target="_blank"
-                >
-                  Descargar App
-                </a>
+      <div className="relative pt-16 pb-32 flex content-center items-center justify-center">
+        <div
+          className="absolute w-[100%] h-[100%] bg-center bg-cover right-0 mt-56"
+          style=
+          {{
+            backgroundImage: `url(${Imghome})`
+          }}
+        >
+          <span
+            id="blackOverlay"
+            className="w-full h-full absolute opacity-75 "
+          ></span>
+        </div>
+        <div className="container header relative pt-16 items-center flex h-screen max-h-860-px">
+          <div className="items-center flex flex-wrap">
+            <div className="w-full md:w-8/12 lg:w-6/12 xl:w-6/12 px-4">
+              <div className="pr-12">
+                <h1 className=" font-semibold text-7xl text-black">
+                  Clínica Santa Bárbara
+                </h1>
+                <p className="mt-4 text-black mr-[78px] text-2xl text-justify">
+                  Instalaciones cómodas y equipo médico de la más alta calidad,
+                  convergen para ofrecer una experiencia que sobrepasa las expectativas
+                  de un hospital convencional.
+                </p>
+                <div className="mt-8">
+                  <Link
+                    to="/citas"
+                    className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                  >
+                    Agendar cita
+                  </Link>
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.christopherurielsosagarcia.qrcode"
+                    className=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                    target="_blank"
+                  >
+                    Descargar App
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="">
-          <img
-            className=" absolute bg-auto -top-52 left-96 pt-0 sm:w-12/12 mt-0 sm:mt-0 ml-36"
-            src={Imghome}
-            alt="..."
-          />
+        <div
+          className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px"
+          style={{ transform: "translateZ(0)" }}
+        >
+          <svg
+            className="absolute bottom-0 overflow-hidden"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+            version="1.1"
+            viewBox="0 0 2560 100"
+            x="0"
+            y="0"
+          ></svg>
         </div>
-      </section>
-
+      </div>
       <section className=" font-noto mt-48 md:mt-40 pb-40 relative bg-blue-100">
         {/* SVG white */}
         <div
@@ -63,7 +83,7 @@ export function HomeView() {
           >
             <polygon
               className="text-blue-100 fill-current"
-              points="2560 0 2560 100 0 100"
+              points="0 0 39000 100 0 100"
             ></polygon>
           </svg>
         </div>
@@ -88,10 +108,10 @@ export function HomeView() {
                       <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
                         <i className="fas fa-stethoscope"></i>
                       </div>
-                      <h6 className="text-xl mb-1 font-semibold">
+                      <h6 className="text-2xl mb-1 font-semibold">
                         Más experiencia
                       </h6>
-                      <p className="mb-4 text-blueGray-500">
+                      <p className="mb-4 text-blueGray-500 text-lg text-justify">
                         Los millones de pacientes a quienes brindamos
                         tratamiento cada año nos preparan para tratar a la
                         persona que más importa: tú.
@@ -103,10 +123,10 @@ export function HomeView() {
                       <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
                         <i className="fas fa-user-nurse"></i>
                       </div>
-                      <h6 className="text-xl mb-1 font-semibold">
+                      <h6 className="text-2xl mb-1 font-semibold">
                         Tú eres la prioridad
                       </h6>
-                      <p className="mb-4 text-blueGray-500">
+                      <p className="mb-4 text-blueGray-500 text-lg text-justify">
                         El tratamiento en Santa Barbara es verdaderamente una
                         experiencia humana. Recibes atención médica como una
                         persona, antes que nada.
@@ -120,10 +140,10 @@ export function HomeView() {
                       <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
                         <i className="fas fa-notes-medical"></i>{" "}
                       </div>
-                      <h6 className="text-xl mb-1 font-semibold">
+                      <h6 className="text-2xl mb-1 font-semibold">
                         Las respuestas correctas
                       </h6>
-                      <p className="mb-4 text-blueGray-500">
+                      <p className="mb-4 text-blueGray-500 text-lg text-justify">
                         Confía en nuestros expertos para obtener un diagnóstico
                         preciso y el mejor plan para ti la primera vez.
                       </p>
@@ -134,10 +154,10 @@ export function HomeView() {
                       <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
                         <i className="fas fa-file-alt"></i>
                       </div>
-                      <h6 className="text-xl mb-1 font-semibold">
+                      <h6 className="text-2xl mb-1 font-semibold">
                         Innovación con repercusión
                       </h6>
-                      <p className="mb-4 text-blueGray-500">
+                      <p className="mb-4 text-blueGray-500 text-lg text-justify">
                         Toda la atención médica a nuestros pacientes, la
                         educación y la investigación están orientadas a realizar
                         descubrimientos que puedan ayudar a que te recuperes.

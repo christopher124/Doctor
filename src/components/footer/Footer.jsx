@@ -52,7 +52,7 @@ export function Footer() {
             <div className="w-full lg:w-6/12 px-4">
               <div className="flex flex-wrap items-top mb-6">
                 <div className="w-full lg:w-4/12 px-4 ml-auto">
-                  <span className="block uppercase text-blue-500 text-sm font-semibold mb-2">
+                  <span className="block uppercase text-blue-500 text-base font-semibold mb-2">
                     Enlaces de Interés
                   </span>
                   <ul className="list-unstyled">
@@ -83,7 +83,7 @@ export function Footer() {
                   </ul>
                 </div>
                 <div className="w-full lg:w-4/12 px-4">
-                  <span className="block uppercase text-blue-500 text-sm font-semibold mb-2">
+                  <span className="block uppercase text-blue-500 text-base font-semibold mb-2">
                     Información Adicional
                   </span>
                   <div className="list-unstyled">
