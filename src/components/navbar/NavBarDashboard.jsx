@@ -34,7 +34,7 @@ export function NavBarDashboard() {
               Bienvenido {user?.username}
             </h5>
             <div className="flex space-x-4">
-              <Link to="/admin/usuario">
+              <Link to="/admin/micuenta">
                 {/* style="shape" */}
                 <Avatar
                   value={user?.username}

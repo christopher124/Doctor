@@ -47,7 +47,7 @@ export function ListUserView({ user, handleDelited }) {
               onClick={() => navigate(`/admin/usuario/${id}`)}
               className="w-4 mr-2 transform hover:text-blue-500 hover:scale-110"
             >
-              <i class="pr-4 text-lg fa fas fa-eye"></i>
+              <i className="pr-4 text-lg fa fas fa-eye"></i>
             </button>
             <button
               onClick={() => navigate(`/admin/editar/usuario/${id}`)}

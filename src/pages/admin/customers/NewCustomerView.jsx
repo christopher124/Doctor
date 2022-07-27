@@ -9,7 +9,7 @@ export function NewCustomerView() {
             <div className="text-xs font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
-                <span className="text-gray-600">Nuevo Cliente</span>
+                <span className="text-gray-600">Nuevo Paciente</span>
               </div>
             </div>
           </div>

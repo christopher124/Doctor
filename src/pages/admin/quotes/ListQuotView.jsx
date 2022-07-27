@@ -23,7 +23,7 @@ export function ListQuotView() {
       }, 1000)
     );
   }, [auth]);
-  const handleDelited = async (id) => { };
+  const handleDelited = async (id) => {};
 
   return cargando ? (
     <Spinner />
@@ -80,23 +80,23 @@ export function ListQuotView() {
         </div>
       </div>
 
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table className="w-full text-sm text-left text-gray-500 text-gray-400">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50 bg-gray-700 text-gray-400">
+      <div className="relative overflow-x-auto shadow-2xl sm:rounded-lg">
+        <table className="w-full text-sm text-center text-white">
+          <thead className="text-xs uppercase bg-[#687584] text-white">
             <tr>
-              <th scope="col" className="text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6 text-center">
                 Nombre y Apellido del cliente
               </th>
-              <th scope="col" className="text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6 text-center">
                 Nombre y Apellido del Doctor
               </th>
-              <th scope="col" className="text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6 text-center">
                 Dia de la cita
               </th>
 
               <th
                 scope="col"
-                className="text-white font-bold py-3 px-6 text-left "
+                className="text-white font-bold py-3 px-6 text-center "
               >
                 Acciones
               </th>

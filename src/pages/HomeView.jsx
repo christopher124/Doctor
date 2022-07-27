@@ -10,9 +10,8 @@ export function HomeView() {
       <div className="relative pt-16 pb-32 flex content-center items-center justify-center">
         <div
           className="absolute w-[100%] h-[100%] bg-center bg-cover right-0 mt-56"
-          style=
-          {{
-            backgroundImage: `url(${Imghome})`
+          style={{
+            backgroundImage: `url(${Imghome})`,
           }}
         >
           <span
@@ -25,27 +24,22 @@ export function HomeView() {
             <div className="w-full md:w-8/12 lg:w-6/12 xl:w-6/12 px-4">
               <div className="pr-12">
                 <h1 className=" font-semibold text-7xl text-black">
-                  Clínica Santa Bárbara
+                  <span className="text-[#46B0CF]">Clínica Santa</span>{" "}
+                  <span className="text-[#235B7C]">Bárbara</span>
                 </h1>
                 <p className="mt-4 text-black mr-[78px] text-2xl text-justify">
                   Instalaciones cómodas y equipo médico de la más alta calidad,
-                  convergen para ofrecer una experiencia que sobrepasa las expectativas
-                  de un hospital convencional.
+                  convergen para ofrecer una experiencia que sobrepasa las
+                  expectativas de un hospital convencional.
                 </p>
                 <div className="mt-8">
-                  <Link
-                    to="/citas"
-                    className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-                  >
-                    Agendar cita
-                  </Link>
-                  <a
+                  <button
                     href="https://play.google.com/store/apps/details?id=com.christopherurielsosagarcia.qrcode"
                     className=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                     target="_blank"
                   >
                     Descargar App
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>

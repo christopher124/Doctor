@@ -6,13 +6,12 @@ import { registerApi, updateUserApi } from "../../api/admin/user";
 import { getRolesApi } from "../../api/admin/roles";
 import { useNavigate, Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import { roleOptions } from "../../api/data/data";
 import { toast } from "react-toastify";
 
 export function FormUser({ user }) {
   const navigate = useNavigate();
   const [role, setRoles] = useState([]);
-  const { auth, logout } = useAuth();
+  const { auth, logout, setReloadUser } = useAuth();
   const { roles } = role;
   console.log(roles);
   useEffect(() => {
@@ -41,7 +40,8 @@ export function FormUser({ user }) {
           toast.warning(
             "Problemas con actualizar el doctor, inténtelo mas tarde"
           );
-        } else toast.success("Doctor actulizado correctamente");
+        } else setReloadUser(true);
+        toast.success("Doctor actulizado correctamente");
         navigate("/admin/usuarios");
       } else {
         respuesta = await registerApi(formDataTemp, logout);
@@ -61,10 +61,10 @@ export function FormUser({ user }) {
   return (
     <>
       <button
-        className="text-white bg-blue-700 font-bold py-2 px-4 rounded-xl"
+        className="text-white bg-blue-600 font-bold py-2 px-4 rounded-xl"
         onClick={() => navigate(`/admin/usuarios`)}
       >
-        <i className="fas fa-arrow-alt-circle-left text-white mr-2 text-lg"></i>{" "}
+        <i className="fas fa-arrow-left text-white mr-2 text-lg"></i>
         Regresar
       </button>
 
@@ -113,7 +113,7 @@ export function FormUser({ user }) {
                 htmlFor="password"
                 className="block font-bold text-xl text-gray-700"
               >
-                password
+                Contraseña
               </p>
               <Form.Input
                 type="password"
@@ -166,18 +166,41 @@ export function FormUser({ user }) {
                   formik.setFieldValue("role", data.target.value)
                 }
               >
-                <option>Selecione un Rol</option>
+                {user?.id ? (
+                  <option value="">
+                    Selecione un nuevo Rol para el usuario
+                  </option>
+                ) : (
+                  <option value="">Selecione un Rol para el usuario</option>
+                )}
+
                 {roles?.map((role) => (
                   <option key={role?.id} value={role?.id}>
                     {role?.name}
                   </option>
                 ))}
               </select>
+              {formik.errors.role && (
+                <p
+                  style={{
+                    whitespace: "normal",
+                    background: "#fff",
+                    border: "1px solid #e0b4b4",
+                    color: "#9f3a38",
+                  }}
+                  className="ui pointing above prompt label "
+                  id="birthday-error-message"
+                  role="alert"
+                  aria-atomic="true"
+                >
+                  El Rol del usuario es obligatorio
+                </p>
+              )}
             </div>
           </div>
           <input
             type="submit"
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             value={user?.username ? "Editar Usuario" : "Agregar Usuario"}
           />
         </Form>
@@ -191,17 +214,24 @@ function initialValues(user) {
     username: user?.username ?? "",
     email: user?.email ?? "",
     password: "",
-    photo: null,
+    role: null,
     confirmed: user?.confirmed ?? "",
     blocked: user?.blocked ?? false,
   };
 }
 function validationSchema() {
   return {
-    username: Yup.string().required(true).min(5).max(15),
-    email: Yup.string().email().required(true),
+    username: Yup.string()
+      .required("El Nombre del usuario es obligatorio")
+      .min(5)
+      .max(15),
+    email: Yup.string()
+      .email("Formato de correo inválido")
+      .required("El mail correo es obligatorio"),
+
     password: Yup.string()
       .min(9, "La contraseña debe de tener minimo 9 caracteres")
-      .required(true),
+      .required("La contraseña es obligatorio"),
+    role: Yup.string().required(true),
   };
 }

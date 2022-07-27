@@ -17,18 +17,12 @@ export function ListCustomersView({ customer, handleDelited }) {
   console.log(customer);
   return (
     <tr className=" border-b bg-cyan-800 border-white">
-      <th
-        scope="row"
-        className=" justify-center font-medium flex p-9 px-6 py-4 text-center"
-      >
-        {name ? name : "No hay datos"}
-      </th>
-      <th
-        scope="row"
-        className="px-6 py-4 font-medium text-white whitespace-nowrap"
-      >
+      <td className="text-white px-6 py-4 text-center">
+        {name ? name : "N/A"}
+      </td>
+      <td className="px-6 py-4 font-medium text-white ">
         {last ? last : "No hay datos"}
-      </th>
+      </td>
       <td className="text-white font-medium px-6 py-4 text-center">
         {address ? address : "No hay datos"}
       </td>
@@ -60,14 +54,14 @@ export function ListCustomersView({ customer, handleDelited }) {
       <td className="py-3 px-6 text-center">
         <div className="flex item-center justify-center">
           <button
-            onClick={() => navigate(`/admin/cliente/${id}`)}
+            onClick={() => navigate(`/admin/paciente/${id}`)}
             className="w-4 mr-2 transform hover:text-blue-500 hover:scale-110"
           >
             <i class="pr-4 text-lg fa fas fa-eye"></i>
           </button>
           <button
-            onClick={() => navigate(`/admin/editar/cliente/${id}`)}
-            className="w-4 mr-2 transform  hover:text-purple-500 hover:scale-110"
+            onClick={() => navigate(`/admin/editar/paciente/${id}`)}
+            className="w-4 mr-2 transform  hover:text-yellow-500 hover:scale-110"
           >
             <i className="px-2 text-lg fa fas fa-pencil-alt"></i>
           </button>

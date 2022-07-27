@@ -1,4 +1,3 @@
-import React from "react";
 import { FormDoctor } from "../../../components/form/FormDoctor";
 
 export function NewDoctorView() {
