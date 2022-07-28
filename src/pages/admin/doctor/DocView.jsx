@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 import { Spinner } from "../../../components/spinner/Spinner";
 import { useParams } from "react-router-dom";
 import { format } from "date-fns";
-import { Rating } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import { getOneDoctorApi } from "../../../api/admin/doctor";
+import { getQuotesDoctorApi } from "../../../api/admin/quote";
+
 import Avatar from "avvvatars-react";
+import { ListQuotesUserView } from "../../../components/Admin/quotes/ListQuotesUserView";
 
 export function DocView() {
   const { id } = useParams();
@@ -20,19 +23,20 @@ export function DocView() {
     phone,
     status,
     specialties,
-    star,
     created_at,
     updated_at,
   } = doctor;
-
+  const [quotes, serQuotes] = useState([]);
   const [cargando, setCargando] = useState(true);
-
+  const navigate = useNavigate();
   const { auth, logout } = useAuth();
 
   useEffect(() => {
     (async () => {
       const doctor = await getOneDoctorApi(id, logout);
       setDoctor(doctor);
+      const Quotes = await getQuotesDoctorApi(id, logout);
+      serQuotes(Quotes.slice(0, 5));
     })(
       setTimeout(() => {
         setCargando(!cargando);
@@ -90,51 +94,43 @@ export function DocView() {
             </div>
           </div>
         </div>
+        <button
+          className="text-white bg-blue-600 font-bold py-2 px-4 rounded-xl"
+          onClick={() => navigate(`/admin/doctores`)}
+        >
+          <i className="fas fa-arrow-left text-white mr-2 text-lg"></i>
+          Regresar
+        </button>
       </div>
       <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
         <div className="w-full lg:w-1/3 lg:h-1/3">
-          <div className="w-full p-4 rounded-lg bg-white border border-gray-100 bg-gray-900 border-gray-800">
-            <div className="flex flex-row items-center justify-between mb-6">
+          <div className="font-noto w-full p-11 rounded-lg bg-cyan-800 border-white">
+            <div className="w-full flex flex-row items-center justify-between mb-6">
               <div className="flex flex-col">
                 <div className="text-sm font-light text-white">Doctor</div>
                 <div className="text-sm text-white font-bold">
-                  <span>Información del Usuario</span>
+                  <span>Información del Usuario (Doctor)</span>
                 </div>
               </div>
+              <div className="relative inline-block text-left z-10"></div>
             </div>
             <div className="justify-center flex p-9">
               <Avatar
                 value={user?.username ? user?.username : "NU"}
-                size={100}
+                size={99}
               />
             </div>
             <div className=" text-center flex flex-col w-full">
-              <p className="py-1 text-white font-noto">
+              <p className="py-1 font-bold text-white ">
                 Nombre de Usuario:{" "}
-                <span className="text-bold">
+                <span className="">
                   {user?.username ? user?.username : "N/A"}
                 </span>
               </p>
-              <p className="py-1 text-white font-noto">
-                Correo de Usuario:{" "}
-                <span className="text-bold">
-                  {user?.email ? user?.email : "N/A"}
-                </span>
+              <p className="py-0.5 font-bold text-white ">
+                Correo :{" "}
+                <span className="">{user?.email ? user?.email : "N/A"}</span>
               </p>
-
-              <div>
-                {" "}
-                <p className=" text-white font-noto">
-                  Puntuación del Doctor:{" "}
-                  <Rating
-                    className="py-0"
-                    name="half-rating-read"
-                    value={star ? star : "N/A"}
-                    precision={0.5}
-                    readOnly
-                  />
-                </p>
-              </div>
             </div>
           </div>
         </div>
@@ -199,22 +195,96 @@ export function DocView() {
                   {" "}
                   {format(
                     new Date(created_at ? created_at : "N/A"),
-                    "dd/MM/yyyy HH:mm:ss"
+                    "dd/MM/yyyy hh:mm:ss a"
                   )}
                 </span>
               </p>
-              <p className="py-1 text-white font-noto">
+              <p className="py-0 text-white font-noto">
                 Última Actulización:{" "}
                 <span className="text-bold">
                   {" "}
                   {format(
                     new Date(updated_at ? updated_at : "N/A"),
-                    "dd/MM/yyyy HH:mm:ss"
+                    "dd/MM/yyyy hh:mm:ss a"
                   )}{" "}
                 </span>
               </p>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="w-full mb-2 lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
+        <div className="font-noto w-full p-4 rounded-lg  bg-cyan-800 border-white">
+          <div className="flex flex-row items-center justify-between mb-6">
+            <div className="flex flex-col">
+              <div className="text-sm font-bold text-white">Doctor</div>
+              <div className="text-sm font-bold text-white">
+                <span>Citas con paciente</span>
+              </div>
+            </div>
+          </div>
+          {cargando ? (
+            <Spinner />
+          ) : Object.keys(quotes).length === 0 ? (
+            <p className="py-1 font-bold text-center text-white ">
+              El paciente no tiene citas agendadas
+            </p>
+          ) : (
+            <div className="flex flex-col w-full">
+              <div className="overflow-x-scroll lg:overflow-hidden">
+                <table
+                  id="tableCustomers"
+                  className="w-full text-sm text-center text-white"
+                >
+                  <thead className="text-xs uppercase bg-cyan-800 text-white">
+                    <tr>
+                      <th
+                        scope="col"
+                        className="text-white py-3 px-6  text-center"
+                      >
+                        Nombre del paciente
+                      </th>
+                      <th
+                        scope="col"
+                        className="text-white py-3 px-6  text-center"
+                      >
+                        Nombre del doctor
+                      </th>
+                      <th
+                        scope="col"
+                        className="text-white py-3 px-6  text-center"
+                      >
+                        Fecha de la cita
+                      </th>
+                      <th
+                        scope="col"
+                        className="text-white py-3 px-6  text-center"
+                      >
+                        Tipo de servicio
+                      </th>
+                      <th
+                        scope="col"
+                        className="text-white py-3 px-6 text-center"
+                      >
+                        Consultorio asignado
+                      </th>
+                      <th
+                        scope="col"
+                        className="text-white font-bold py-3 px-6  text-center "
+                      >
+                        Acciones
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {quotes.map((quotes) => (
+                      <ListQuotesUserView key={quotes.id} quotes={quotes} />
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

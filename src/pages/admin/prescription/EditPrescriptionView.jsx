@@ -1,43 +1,43 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
-import { getOneCustomerApi } from "../../../api/admin/customer";
-import { FormCustumer } from "../../../components/form/FormCustumer";
+import { getOnePrescripApi } from "../../../api/admin/prescription";
+import { FormPrescription } from "../../../components/form/FormPrescription";
 import { Spinner } from "../../../components/spinner/Spinner";
-export function EditCustomerView() {
-  const [customer, setCustumer] = useState({});
-  const navigate = useNavigate();
+
+export function EditPrescriptionView() {
+  const [prescription, setPrescription] = useState({});
   const [cargando, setCargando] = useState(true);
   const { id } = useParams();
-
   const { auth, logout } = useAuth();
-  console.log(auth);
   useEffect(() => {
     (async () => {
-      const customer = await getOneCustomerApi(id, logout);
-      setCustumer(customer);
+      const prescription = await getOnePrescripApi(id, logout);
+      setPrescription(prescription);
     })(
       setTimeout(() => {
         setCargando(!cargando);
       }, 1000)
     );
-  }, [auth, id, logout]);
-  if (!auth) {
-    navigate("/");
-    return null;
-  }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [auth]);
+
   return cargando ? (
     <Spinner />
-  ) : Object.keys(customer).length === 0 ? (
+  ) : Object.keys(prescription).length === 0 ? (
     <div className="w-full min-h-screen p-4">
       <div className="w-full mb-6 pt-3">
         <div className="flex flex-row items-center justify-between mb-4">
           <div className="flex flex-col">
             <div className="text-xs font-bold text-gray-500 uppercase">
-              <span className="text-gray-600">Vista General</span>
-              <div className="text-xl font-bold">
-                <span className="text-gray-600 ">ID mal</span>
+              <span className="text-gray-600">Vista general</span>
+              <div className="justify-center flex p-9">
+                <img
+                  className=""
+                  src="https://www.wattpad.com/img/errors/story-404.svg"
+                />
               </div>
+              <p className="text-center">No se encontraron resultados</p>
             </div>
           </div>
         </div>
@@ -51,21 +51,17 @@ export function EditCustomerView() {
             <div className="text-xs font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
-                <span className="text-gray-600 ">Editar Paciente</span>
+                <span className="text-gray-600 ">Editar Usuario</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-      {customer?.id ? (
-        <FormCustumer
-          customer={customer}
-          cargando={cargando}
-          setCargando={setCargando}
-        />
-      ) : (
-        <p>ID Inválido</p>
-      )}
+      <FormPrescription
+        prescription={prescription}
+        cargando={cargando}
+        setCargando={setCargando}
+      />
     </div>
   );
 }

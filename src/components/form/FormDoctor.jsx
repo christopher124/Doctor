@@ -14,6 +14,7 @@ import {
 import { Spinner } from "../spinner/Spinner";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
+
 export function FormDoctor({ doctor, cargando, setCargando }) {
   const [user, setUser] = useState([]);
 
@@ -22,19 +23,19 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
     initialValues: initialValues(doctor),
     validationSchema: Yup.object(validationSchema()),
     onSubmit: async (formData) => {
-      handleSutmit(formData);
+      handleSubmit(formData);
     },
   });
   const { auth, logout } = useAuth();
   useEffect(() => {
     (async () => {
       const user = await getUserApi(logout);
-      setUser(user);
+      setUser(user.filter((user) => user?.role?.name === "Doctor"));
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth]);
 
-  const handleSutmit = async (formData) => {
+  const handleSubmit = async (formData) => {
     const formDataTemp = {
       ...formData,
       user: auth.idUser,
@@ -63,291 +64,336 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
       console.log(err);
     }
   };
+  let today = new Date();
+  let dd = today.getDate();
+  let mm = today.getMonth() + 1; //January is 0 so need to add 1 to make it 1!
+  let yyyy = today.getFullYear();
+
+  if (dd < 10) {
+    dd = "0" + dd;
+  }
+
+  if (mm < 10) {
+    mm = "0" + mm;
+  }
+
+  today = yyyy + "-" + mm + "-" + dd;
+  let minDate = "1902-01-01";
 
   return cargando ? (
     <Spinner />
   ) : (
-    <div className="bg-white mt-10 px-5 py-10 rounded-md shadow-xl md:w-4/2 mx-auto">
-      <h1 className="text-gray-600 font-bold text-xl uppercase text-center">
-        {doctor?.id ? "Editar Doctor" : " Nuevo Doctor"}
-      </h1>
-      <Form onSubmit={formik.handleSubmit} className="mt-10">
-        <div className=" grid xl:grid-cols-3 xl:gap-6">
-          <div className="text-lg w-full mb-6 group">
-            <p
-              htmlFor="name"
-              className="block text-xl font-bold  text-gray-800 "
-            >
-              Nombres
-            </p>
-            <Form.Input
-              type="text"
-              id="name"
-              name="name"
-              value={formik.values.name}
-              onChange={formik.handleChange}
-              error={formik.errors.name}
-              placeholder="Nombres"
-            />
-          </div>
-          <div className="w-full mb-6 group">
-            <p
-              htmlFor="last"
-              className="block font-bold text-xl  text-gray-700"
-            >
-              Apellidos
-            </p>
-            <Form.Input
-              type="text"
-              name="last"
-              id="last"
-              value={formik.values.last}
-              onChange={formik.handleChange}
-              error={formik.errors.last}
-              placeholder="Apellidos"
-            />
-          </div>
-          <div className=" w-full mb-6 group">
-            <p
-              htmlFor="gender"
-              className="block font-bold text-xl text-gray-700"
-            >
-              Género
-            </p>
+    <>
+      <button
+        className="text-white bg-blue-600 font-bold py-2 px-4 rounded-xl"
+        onClick={() => navigate(`/admin/doctores`)}
+      >
+        <i className="fas fa-arrow-left text-white mr-2 text-lg"></i>
+        Regresar
+      </button>
+      <div className="bg-white mt-10 px-5 py-10 rounded-md shadow-xl md:w-4/2 mx-auto">
+        <h1 className="text-gray-600 font-bold text-xl uppercase text-center">
+          {doctor?.id ? "Editar Doctor" : " Nuevo Doctor"}
+        </h1>
+        <Form onSubmit={formik.handleSubmit} className="mt-10">
+          <div className=" grid xl:grid-cols-3 xl:gap-6">
+            <div className="text-lg w-full mb-6 group">
+              <label
+                htmlFor="name"
+                className="block text-xl font-bold  text-gray-800 "
+              >
+                Nombres
+              </label>
+              <Form.Input
+                type="text"
+                id="name"
+                name="name"
+                value={formik.values.name}
+                onChange={formik.handleChange}
+                error={formik.errors.name}
+                placeholder="Nombres"
+              />
+            </div>
+            <div className="text-lg w-full mb-6 group">
+              <label
+                htmlFor="last"
+                className="block font-bold text-xl  text-gray-700"
+              >
+                Apellidos
+              </label>
+              <Form.Input
+                type="text"
+                name="last"
+                id="last"
+                value={formik.values.last}
+                onChange={formik.handleChange}
+                error={formik.errors.last}
+                placeholder="Apellidos"
+              />
+            </div>
+            <div className="text-lg w-full mb-6 group">
+              <label
+                htmlFor="gender"
+                className="block font-bold text-xl text-gray-700"
+              >
+                Género
+              </label>
 
-            <Form.Dropdown
-              id="gender"
-              placeholder="Seleciona un Género"
-              options={options}
-              value={formik.values.gender}
-              error={formik.errors.gender}
-              onChange={(_, data) => formik.setFieldValue("gender", data.value)}
-              selection
-            />
+              <Form.Dropdown
+                id="gender"
+                placeholder="Seleciona un Género"
+                options={options}
+                value={formik.values.gender}
+                error={formik.errors.gender}
+                onChange={(_, data) =>
+                  formik.setFieldValue("gender", data.value)
+                }
+                selection
+              />
+            </div>
           </div>
-        </div>
-        <div className="grid xl:grid-cols-6 xl:gap-6">
-          <div className="w-full mb-6 group">
-            <p
-              htmlFor="address"
-              className="block font-bold text-xl text-gray-700"
-            >
-              Calle y Número
-            </p>
-            <Form.Input
-              type="text"
-              name="address"
-              id="address"
-              value={formik.values.address}
-              error={formik.errors.address}
-              onChange={formik.handleChange}
-              placeholder="Av. Patria #32"
-            />
+          <div className="grid xl:grid-cols-6 xl:gap-6">
+            <div className="text-lg w-full mb-6 group">
+              <label
+                htmlFor="address"
+                className="block font-bold text-xl text-gray-700"
+              >
+                Calle y Número
+              </label>
+              <Form.Input
+                type="text"
+                name="address"
+                id="address"
+                value={formik.values.address}
+                error={formik.errors.address}
+                onChange={formik.handleChange}
+                placeholder="Av. Patria #32"
+              />
+            </div>
+            <div className="text-lg w-full mb-6 group">
+              <label
+                htmlFor="suburb"
+                className="block font-bold text-xl text-gray-700"
+              >
+                Colonia
+              </label>
+              <Form.Input
+                type="text"
+                name="suburb"
+                id="suburb"
+                value={formik.values.suburb}
+                error={formik.errors.suburb}
+                onChange={formik.handleChange}
+                placeholder="La Floresta II Seccion"
+              />
+            </div>
+            <div className="text-lg w-full mb-6 group">
+              <label
+                htmlFor="town"
+                className="block font-bold text-xl text-gray-700"
+              >
+                Municipio
+              </label>
+              <Form.Input
+                type="text"
+                name="town"
+                id="town"
+                value={formik.values.town}
+                error={formik.errors.town}
+                onChange={formik.handleChange}
+                placeholder="Tonalá"
+              />
+            </div>
+            <div className="text-lg w-full mb-6 group">
+              <label
+                htmlFor="number_int_address"
+                className="block font-bold text-xl text-gray-700"
+              >
+                Número interior
+              </label>
+              <Form.Input
+                type="text"
+                name="number_int_address"
+                id="number_int_address"
+                placeholder="Numero Interior (Opcional)"
+              />
+            </div>
+            <div className="text-lg w-full mb-6 group">
+              <label
+                htmlFor="zip"
+                className="block font-bold text-xl text-gray-700"
+              >
+                Código postal
+              </label>
+              <Form.Input
+                type="text"
+                name="zip"
+                id="zip"
+                value={formik.values.zip}
+                error={formik.errors.zip}
+                onChange={formik.handleChange}
+                placeholder="45085"
+              />
+            </div>
+            <div className="text-lg w-full mb-6 group">
+              <label
+                htmlFor="state"
+                className="block font-bold text-xl text-gray-700"
+              >
+                Estado
+              </label>
+              <Dropdown
+                placeholder="Seleciona un Estado"
+                options={contriesOptions}
+                value={formik.values.state}
+                error={formik.errors.state}
+                onChange={(_, data) =>
+                  formik.setFieldValue("state", data.value)
+                }
+                fluid
+                search
+                selection
+              />
+            </div>
           </div>
-          <div className="w-full mb-6 group">
-            <p
-              htmlFor="suburb"
-              className="block font-bold text-xl text-gray-700"
-            >
-              Colonia
-            </p>
-            <Form.Input
-              type="text"
-              name="suburb"
-              id="suburb"
-              value={formik.values.suburb}
-              error={formik.errors.suburb}
-              onChange={formik.handleChange}
-              placeholder="La Floresta II Seccion"
-            />
-          </div>
-          <div className="  w-full mb-6 group">
-            <p htmlFor="town" className="block font-bold text-xl text-gray-700">
-              Municipio
-            </p>
-            <Form.Input
-              type="text"
-              name="town"
-              id="town"
-              value={formik.values.town}
-              error={formik.errors.town}
-              onChange={formik.handleChange}
-              placeholder="Tonalá"
-            />
-          </div>
-          <div className="  w-full mb-6 group">
-            <p
-              htmlFor="number_int_address"
-              className="block font-bold text-xl text-gray-700"
-            >
-              Número interior
-            </p>
-            <Form.Input
-              type="text"
-              name="number_int_address"
-              id="number_int_address"
-              placeholder="Numero Interior (Opcional)"
-            />
-          </div>
-          <div className=" w-full mb-6 group">
-            <p htmlFor="zip" className="block font-bold text-xl text-gray-700">
-              Código postal
-            </p>
-            <Form.Input
-              type="text"
-              name="zip"
-              id="zip"
-              value={formik.values.zip}
-              error={formik.errors.zip}
-              onChange={formik.handleChange}
-              placeholder="45085"
-            />
-          </div>
-          <div className=" w-full mb-6 group">
-            <p
-              htmlFor="state"
-              className="block font-bold text-xl text-gray-700"
-            >
-              Estado
-            </p>
-            <Dropdown
-              placeholder="Seleciona un Estado"
-              options={contriesOptions}
-              value={formik.values.state}
-              error={formik.errors.state}
-              onChange={(_, data) => formik.setFieldValue("state", data.value)}
-              fluid
-              search
-              selection
-            />
-          </div>
-        </div>
-        <div className="grid xl:grid-cols-3 xl:gap-6">
-          <div className="  w-full mb-6 group">
-            <p
-              htmlFor="phone"
-              className="block font-bold text-xl text-gray-700"
-            >
-              Número de télefono
-            </p>
-            <Form.Input
-              type="tel"
-              name="phone"
-              id="phone"
-              value={formik.values.phone}
-              error={formik.errors.phone}
-              onChange={formik.handleChange}
-              placeholder="3317751433"
-            />
-          </div>
-          <div className="  w-full mb-6 group">
-            <p
-              htmlFor="birthday"
-              className="block font-bold text-xl text-gray-700"
-            >
-              Fecha de cumpleaños
-            </p>
-            <Form.Input
-              type="date"
-              value={formik.values.birthday}
-              error={formik.errors.birthday}
-              onChange={formik.handleChange}
-              name="birthday"
-              id="birthday"
-            />
-          </div>
-          <div className="w-full mb-6 group">
-            <p htmlFor="star" className="block font-bold text-xl text-gray-700">
-              Puntuación del doctor
-            </p>
-            <Form.Input
-              type="text"
-              value={formik.values.star}
-              error={formik.errors.star}
-              onChange={formik.handleChange}
-              name="star"
-              id="star"
-              placeholder="5.0 "
-            />
-          </div>
-        </div>
-        <div className="grid xl:grid-cols-3 xl:gap-6">
-          <div className="text-lg w-full mb-6 group">
-            <p
-              htmlFor="user"
-              className="block text-xl font-bold text-gray-800 "
-            >
-              Usuario
-            </p>
-            <select
-              value={formik.values.user}
-              name="user"
-              id="user"
-              onChange={(data) =>
-                formik.setFieldValue("user", data.target.value)
-              }
-              onError={formik.errors.user}
-              onSelect
-            >
-              {doctor?.id ? (
-                <option value="">Selecione un nuevo rol para el doctor</option>
-              ) : (
-                <option value="">Selecione un rol para el doctor</option>
+          <div className="grid xl:grid-cols-3 xl:gap-6">
+            <div className="text-lg w-full mb-6 group">
+              <label
+                htmlFor="phone"
+                className="block font-bold text-xl text-gray-700"
+              >
+                Número de télefono
+              </label>
+              <Form.Input
+                type="tel"
+                name="phone"
+                id="phone"
+                value={formik.values.phone}
+                error={formik.errors.phone}
+                onChange={formik.handleChange}
+                placeholder="3317751433"
+              />
+            </div>
+            <div className="text-lg w-full mb-6 group">
+              <label
+                htmlFor="birthday"
+                className="block font-bold text-xl text-gray-700"
+              >
+                Fecha de Nacimiento
+              </label>
+              <Form.Input
+                type="date"
+                min={minDate}
+                max={today}
+                start
+                value={formik.values.birthday}
+                error={formik.errors.birthday}
+                onChange={formik.handleChange}
+                name="birthday"
+                id="birthday"
+              />
+            </div>
+            <div className="text-lg w-full mb-6 group">
+              <label
+                htmlFor="user"
+                className="block text-xl font-bold text-gray-800 "
+              >
+                Usuario
+              </label>
+              <select
+                value={formik.values.user}
+                name="user"
+                id="user"
+                onChange={(data) =>
+                  formik.setFieldValue("user", data.target.value, {
+                    shouldValidate: true,
+                  })
+                }
+                onError={formik.errors.user}
+                onSelect
+              >
+                {doctor?.id ? (
+                  <option value="">
+                    Selecione un nuevo usuario para el doctor
+                  </option>
+                ) : (
+                  <option value="">Selecione un usuario para el doctor</option>
+                )}
+                {user?.map((user) => (
+                  <option key={user?.id} value={user?.id}>
+                    {user?.email}
+                  </option>
+                ))}
+              </select>
+              {formik.errors.user && (
+                <p
+                  style={{
+                    whitespace: "normal",
+                    background: "#fff",
+                    border: "1px solid #e0b4b4",
+                    color: "#9f3a38",
+                  }}
+                  className="ui pointing above prompt label "
+                  id="birthday-error-message"
+                  role="alert"
+                  aria-atomic="true"
+                >
+                  El Usuario es Obligatorio
+                </p>
               )}
-              {user?.map((user) => (
-                <option onSelect={user?.email} key={user?.id} value={user?.id}>
-                  {user?.email}
-                </option>
-              ))}
-            </select>
+            </div>
           </div>
-          <div className="w-full mb-6 group">
-            <p
-              htmlFor="birthday"
-              className="block font-bold text-xl text-gray-700"
-            >
-              Especialidad
-            </p>
-            <Form.Dropdown
-              id="specialties"
-              placeholder="Seleciona una especialidad"
-              options={specialtiesOptions}
-              value={formik.values.specialties}
-              error={formik.errors.specialties}
-              search
-              onChange={(_, data) =>
-                formik.setFieldValue("specialties", data.value)
-              }
-              selection
-            />
+          <div className="grid xl:grid-cols-2 xl:gap-6">
+            <div className="text-lg w-full mb-6 group">
+              <label
+                htmlFor="birthday"
+                className="block font-bold text-xl text-gray-700"
+              >
+                Especialidad
+              </label>
+              <Form.Dropdown
+                id="specialties"
+                placeholder="Seleciona una especialidad"
+                options={specialtiesOptions}
+                value={formik.values.specialties}
+                error={formik.errors.specialties}
+                search
+                onChange={(_, data) =>
+                  formik.setFieldValue("specialties", data.value)
+                }
+                selection
+              />
+            </div>
+            <div className="text-lg w-full mb-6 group">
+              <label
+                htmlFor="status"
+                className="block font-bold text-xl text-gray-700"
+              >
+                Estatus del doctor
+              </label>
+              <Form.Dropdown
+                id="status"
+                placeholder="Seleciona un Estatus del Doctor"
+                options={statusOptions}
+                value={formik.values.status}
+                error={formik.errors.status}
+                search
+                onChange={(_, data) =>
+                  formik.setFieldValue("status", data.value)
+                }
+                selection
+              />
+            </div>
           </div>
-          <div className=" w-full mb-6 group">
-            <p
-              htmlFor="status"
-              className="block font-bold text-xl text-gray-700"
-            >
-              Estatus del doctor
-            </p>
-            <Form.Dropdown
-              id="status"
-              placeholder="Seleciona un Estatus del Doctor"
-              options={statusOptions}
-              value={formik.values.status}
-              error={formik.errors.status}
-              search
-              onChange={(_, data) => formik.setFieldValue("status", data.value)}
-              selection
-            />
-          </div>
-        </div>
 
-        <input
-          type="submit"
-          value={doctor?.id ? "Editar Doctor" : "Crear Doctor"}
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        />
-      </Form>
-    </div>
+          <input
+            type="submit"
+            value={doctor?.id ? "Editar Doctor" : "Crear Doctor"}
+            className="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          />
+        </Form>
+      </div>
+    </>
   );
 }
 
@@ -355,7 +401,7 @@ function initialValues(doctor) {
   return {
     name: doctor?.name ?? "",
     last: doctor?.last ?? "",
-    user: doctor?.user?.email ?? null,
+    user: null,
     address: doctor?.address ?? "",
     gender: doctor?.gender ?? "",
     phone: doctor?.phone ?? "",
@@ -363,7 +409,6 @@ function initialValues(doctor) {
     town: doctor?.town ?? "",
     number_int_address: doctor?.number_int_address ?? "",
     birthday: doctor?.birthday ?? "",
-    star: doctor?.star ?? 0,
     state: doctor?.state ?? "",
     zip: doctor?.zip ?? "",
     specialties: doctor?.specialties ?? "",
@@ -372,12 +417,21 @@ function initialValues(doctor) {
 }
 function validationSchema() {
   return {
+    user: Yup.string().required(true),
     name: Yup.string()
       .min(5, "El Nombre es muy corto")
+      .matches(
+        /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g,
+        "Ingrese solo letras y sin espacios al final"
+      )
       .max(50, "El Nombre es muy largo")
       .required("El Nombre del Doctor es Obligatorio"),
     last: Yup.string()
       .min(5, "El Nombre es muy corto")
+      .matches(
+        /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g,
+        "Ingrese solo letras y sin espacios al final"
+      )
       .max(50, "El Nombre es muy largo")
       .required("El Nombre del doctor es obligatorio"),
     address: Yup.string().required("La dirección del doctor es obligatorio"),
@@ -394,7 +448,6 @@ function validationSchema() {
     birthday: Yup.string().required("La fecha de cumpleaños es obligatorio"),
     state: Yup.string().required("El estado es obligatorio"),
     zip: Yup.string().required("El código postal es obligatorio"),
-    star: Yup.number().positive(true).min(0).max(5.0),
     suburb: Yup.string().required("La colonia del doctor es obligatorio"),
     town: Yup.string().required("El municipio del doctor es obligatorio"),
   };

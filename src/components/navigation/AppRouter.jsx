@@ -1,3 +1,6 @@
+import { useState, useEffect } from "react";
+import useAuth from "../../hooks/useAuth";
+import { getMeApi } from "../../api/admin/user";
 import { Route, Routes } from "react-router-dom";
 import { ContactView } from "../../pages/ContactView";
 import { DashboardView } from "../../pages/admin/dashboard/DashboardView";
@@ -22,7 +25,30 @@ import { EditDoctorView } from "../../pages/admin/doctor/EditDoctorView";
 import { UseView } from "../../pages/admin/users/UseView";
 import { ListQuotView } from "../../pages/admin/quotes/ListQuotView";
 import { NewQuotesView } from "../../pages/admin/quotes/NewQuotesView";
+import { AccountView } from "../Account/AccountView";
+import { ListPrescripView } from "../../pages/admin/prescription/ListPrescripView";
+import { NewPrescriptionView } from "../../pages/admin/prescription/NewPrescriptionView";
+import { PrescripView } from "../../pages/admin/prescription/PrescripView";
+import { EditPrescriptionView } from "../../pages/admin/prescription/EditPrescriptionView";
+import { PrivacityView } from "../../pages/admin/PrivacityView";
+import { MapsView } from "../../pages/admin/MapsView";
+
 export function AppRouter() {
+  const [user, setUser] = useState({});
+  const { auth, logout } = useAuth();
+  const [cargando, setCargando] = useState(true);
+
+  useEffect(() => {
+    (async () => {
+      const user = await getMeApi(logout);
+      setUser(user);
+    })(
+      setTimeout(() => {
+        setCargando(!cargando);
+      }, 50000)
+    );
+  }, [auth]);
+
   return (
     <div>
       <Routes>
@@ -33,28 +59,86 @@ export function AppRouter() {
         <Route path="/contacto" element={<ContactView />} />
         <Route path="/citas" element={<QuotesView />} />
         <Route path="/login" element={<LoginView />} />
+        <Route path="/privacidad" element={<PrivacityView />} />
+        <Route path="/ubicacion" element={<MapsView />} />
         <Route path="*" element={<NotFound />} />
         {/* Rutas privadas: Administrador*/}
-        <Route path="/admin" element={<SideBar />}>
-          <Route path="dashboard" element={<DashboardView />} />
-          <Route path="doctores" element={<ListDocView />} />
-          <Route path="doctor/:id" element={<DocView />} />
-          <Route path="nuevo/doctor" element={<NewDoctorView />} />
-          <Route path="editar/doctor/:id" element={<EditDoctorView />} />
-          <Route path="usuarios" element={<ListUseView />} />
-          <Route path="usuario/:id" element={<UseView />} />
-          <Route path="nuevo/usuario" element={<NewUserView />} />
-          <Route path="editar/usuario/:id" element={<EditUserView />} />
-          <Route path="clientes" element={<ListCustomeView />} />
-          <Route path="cliente/:id" element={<CustomeView />} />
-          <Route path="nuevo/cliente" element={<NewCustomerView />} />
-          <Route path="editar/cliente/:id" element={<EditCustomerView />} />
-          <Route path="citas" element={<ListQuotView />} />
-          {/* <Route path="cita/:id" element={<CustomeView />} /> */}
-          <Route path="nueva/cita" element={<NewQuotesView />} />
-          {/* <Route path="editar/cita/:id" element={<EditCustomerView />} />
-           */}
-        </Route>
+        {user?.role?.name === "Admin" ? (
+          <Route path="/admin" element={<SideBar />}>
+            <Route path="dashboard" element={<DashboardView />} />
+            <Route path="micuenta" element={<AccountView />} />
+            <Route path="doctores" element={<ListDocView />} />
+            <Route path="doctor/:id" element={<DocView />} />
+            <Route path="nuevo/doctor" element={<NewDoctorView />} />
+            <Route path="editar/doctor/:id" element={<EditDoctorView />} />
+            <Route path="usuarios" element={<ListUseView />} />
+            <Route path="usuario/:id" element={<UseView />} />
+            <Route path="nuevo/usuario" element={<NewUserView />} />
+            <Route path="editar/usuario/:id" element={<EditUserView />} />
+            <Route path="pacientes" element={<ListCustomeView />} />
+            <Route path="paciente/:id" element={<CustomeView />} />
+            <Route path="nuevo/paciente" element={<NewCustomerView />} />
+            <Route path="editar/paciente/:id" element={<EditCustomerView />} />
+            <Route path="citas" element={<ListQuotView />} />
+            {/* <Route path="cita/:id" element={<CustomeView />} /> */}
+            <Route path="nueva/cita" element={<NewQuotesView />} />
+            {/* <Route path="editar/cita/:id" element={<EditCustomerView />} />
+             */}
+            <Route path="recetas" element={<ListPrescripView />} />
+            <Route path="nueva/receta" element={<NewPrescriptionView />} />
+            <Route path="receta/:id" element={<PrescripView />} />
+            <Route
+              path="editar/receta/:id"
+              element={<EditPrescriptionView />}
+            />
+          </Route>
+        ) : user?.role?.name === "Doctor" ? (
+          <Route path="/admin" element={<SideBar />}>
+            <Route path="dashboard" element={<DashboardView />} />
+            <Route path="micuenta" element={<AccountView />} />
+            <Route path="citas" element={<ListQuotView />} />
+            {/* <Route path="cita/:id" element={<CustomeView />} /> */}
+            <Route path="nueva/cita" element={<NewQuotesView />} />
+            {/* <Route path="editar/cita/:id" element={<EditCustomerView />} />
+             */}
+            <Route path="recetas" element={<ListPrescripView />} />
+            <Route path="receta/:id" element={<PrescripView />} />
+            <Route path="nueva/receta" element={<NewPrescriptionView />} />
+            <Route
+              path="editar/receta/:id"
+              element={<EditPrescriptionView />}
+            />
+          </Route>
+        ) : user?.role?.name === "Recepción" ? (
+          <Route path="/admin" element={<SideBar />}>
+            <Route path="dashboard" element={<DashboardView />} />
+            <Route path="micuenta" element={<AccountView />} />
+            <Route path="doctores" element={<ListDocView />} />
+            <Route path="doctor/:id" element={<DocView />} />
+            <Route path="nuevo/doctor" element={<NewDoctorView />} />
+            <Route path="editar/doctor/:id" element={<EditDoctorView />} />
+            <Route path="usuarios" element={<ListUseView />} />
+            <Route path="usuario/:id" element={<UseView />} />
+            <Route path="nuevo/usuario" element={<NewUserView />} />
+            <Route path="editar/usuario/:id" element={<EditUserView />} />
+            <Route path="pacientes" element={<ListCustomeView />} />
+            <Route path="paciente/:id" element={<CustomeView />} />
+            <Route path="nuevo/paciente" element={<NewCustomerView />} />
+            <Route path="editar/paciente/:id" element={<EditCustomerView />} />
+            <Route path="citas" element={<ListQuotView />} />
+            {/* <Route path="cita/:id" element={<CustomeView />} /> */}
+            <Route path="nueva/cita" element={<NewQuotesView />} />
+            {/* <Route path="editar/cita/:id" element={<EditCustomerView />} />
+             */}
+            <Route path="recetas" element={<ListPrescripView />} />
+            <Route path="receta/:id" element={<PrescripView />} />
+            <Route path="nueva/receta" element={<NewPrescriptionView />} />
+            <Route
+              path="editar/receta/:id"
+              element={<EditPrescriptionView />}
+            />
+          </Route>
+        ) : null}
       </Routes>
       {/* Rutas privadas: */}
     </div>

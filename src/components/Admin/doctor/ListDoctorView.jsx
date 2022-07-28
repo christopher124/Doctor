@@ -21,29 +21,31 @@ export function ListDoctorView({ doctor, handleDelited }) {
   const claseDoctor = () => {
     if (status === "Disponible") {
       setClase(
-        " p-2 uppercase font-bold inline-flex text-center bg-green-700 text-pink-100 rounded-lg text-xs px-2 py-0 "
+        " p-2 uppercase font-bold inline-flex text-center bg-green-700 text-white rounded-lg text-xs px-2 py-0 "
       );
     } else if (status === "En consulta") {
       setClase(
-        " p-2 uppercase font-bold inline-flex text-center bg-yellow-400 text-pink-100 rounded-lg text-xs px-2 py-0 "
+        " p-2 uppercase font-bold inline-flex text-center bg-orange-400 text-white rounded-lg text-xs px-2 py-0 "
       );
     } else if (status === null) {
       setClase(" p-2 uppercase font-bold inline-flex text-center ");
     } else {
       setClase(
-        " p-2 uppercase font-bold inline-flex text-center bg-red-700 text-pink-100 rounded-lg text-xs px-2 py-0 "
+        " p-2 uppercase font-bold inline-flex text-center bg-red-700 text-white rounded-lg text-xs px-2 py-0 "
       );
     }
   };
 
   return (
     <>
-      <tr className=" border-b bg-sky-700">
+      <tr className="border-b bg-cyan-800 border-white">
         <th
           scope="row"
-          className="px-6 py-4 font-medium text-white whitespace-nowrap"
+          className=" justify-center flex p-9 px-6 py-4 text-center"
         >
-          {name ? name : "N/A"}
+          <td className="text-white px-6 py-4 font-medium text-center">
+            {name ? name : "N/A"}
+          </td>
         </th>
         <th
           scope="row"
@@ -51,15 +53,17 @@ export function ListDoctorView({ doctor, handleDelited }) {
         >
           {last ? last : "N/A"}
         </th>
-        <td className="text-white px-6 py-4">
+        <td className="text-white font-medium px-6 py-4 text-center">
           {user?.email ? user?.email : "N/A"}
         </td>
-        <td className="text-white px-6 py-4">
+        <td className="text-white font-medium px-6 py-4 text-center">
           {format(new Date(birthday), "dd/MM/yyyy")}
         </td>
-        {/* <td className="text-white px-6 py-4">{adress}</td> */}
-        <td className="text-white px-6 py-4">{phone}</td>
-        <td className="text-white px-6 py-4">
+        {/* <td className="text-white px-6 py-4 text-center">{adress}</td> */}
+        <td className="text-white font-medium px-6 py-4 text-center">
+          {phone}
+        </td>
+        <td className="text-white font-medium px-6 py-4 text-center">
           {specialties ? specialties : "N/A"}
         </td>
         <td className="text-white whitespace-nowrap">
@@ -68,7 +72,9 @@ export function ListDoctorView({ doctor, handleDelited }) {
               aria-hidden
               className={`${clase} absolute inset-0  rounded-full`}
             ></span>
-            <span className="relative">{status ? status : "N/A"}</span>
+            <span className="relative font-medium">
+              {status ? status : "N/A"}
+            </span>
           </span>
         </td>
 
@@ -78,61 +84,19 @@ export function ListDoctorView({ doctor, handleDelited }) {
               onClick={() => navigate(`/admin/doctor/${id}`)}
               className="w-4 mr-2 transform hover:text-blue-500 hover:scale-110"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                />
-              </svg>
+              <i class="pr-4 text-lg fa fas fa-eye"></i>
             </button>
             <button
               onClick={() => navigate(`/admin/editar/doctor/${id}`)}
               className="w-4 mr-2 transform  hover:text-purple-500 hover:scale-110"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                />
-              </svg>
+              <i className="px-2 text-lg fa fas fa-pencil-alt"></i>
             </button>
             <button
               onClick={() => handleDelited(id)}
               className="w-4 mr-2 transform hover:text-red-500 hover:scale-110"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                />
-              </svg>
+              <i className="px-4 text-lg fa fas fa-trash-alt"></i>
             </button>
           </div>
         </td>

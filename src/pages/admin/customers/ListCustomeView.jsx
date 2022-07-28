@@ -32,7 +32,7 @@ export function ListCustomeView() {
     Swal.fire({
       title: " ¿Estas seguro de eliminar?",
       text: "¡No podrás revertir esto!",
-      icon: "warning",
+      icon: "question",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
@@ -110,7 +110,7 @@ export function ListCustomeView() {
               </div>
               <div className="flex flex-col items-center justify-center h-full">
                 <div className="text-center text-gray-600">
-                  {customer.id
+                  {Object.keys(customer).length === 0
                     ? "No hay usuarios registrados"
                     : "Usuario no encontrado"}
                 </div>
@@ -119,12 +119,71 @@ export function ListCustomeView() {
           </div>
           <div className="shrink-0 space-x-2">
             <button
-              onClick={() => navigate("/admin/nuevo/cliente")}
-              className="flex flex-row items-center justify-center px-4 py-2 text-xs font-bold text-white uppercase bg-blue-500 rounded-lg hover:bg-blue-600 space-x-1"
+              onClick={() => navigate("/admin/nuevo/paciente")}
+              type="button"
+              className="flex flex-row items-center justify-center px-4 py-3 text-xs font-bold text-white uppercase bg-blue-500 rounded-lg hover:bg-blue-600 space-x-1"
             >
-              <i className="fa fa-solid fa-plus"></i>
-              <span>Nuevo Registro</span>
+              <span className="p-1">Nuevo Registro</span>
             </button>
+          </div>
+        </div>
+        <div className="shrink-0 space-x-2">
+          <div className="inline-flex justify-start">
+            <div className="relative">
+              <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                <svg
+                  aria-hidden="true"
+                  className="w-5 h-5 text-gray-500 dark:text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  ></path>
+                </svg>
+              </div>
+              <input
+                type="search"
+                className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
+                placeholder="Busqueda por nombres y apellidos"
+                value={searchUser}
+                onChange={handleChangeUsers}
+              />
+            </div>
+          </div>
+
+          <div className="inline-flex justify-start">
+            <div className="relative">
+              <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                <svg
+                  aria-hidden="true"
+                  className="w-5 h-5 text-gray-500 dark:text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  ></path>
+                </svg>
+              </div>
+              <input
+                type="search"
+                className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
+                placeholder="Busqueda por Municipio"
+                value={searchState}
+                onChange={handleChangeState}
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -146,7 +205,7 @@ export function ListCustomeView() {
             <div className="inline-flex rounded-md shadow-sm">
               <Excel
                 id="buttonExcel"
-                className="flex flex-row items-center justify-center px-4 py-2 text-xs font-bold text-white uppercase bg-blue-500 rounded-lg hover:bg-blue-600 space-x-1"
+                className="flex flex-row items-center justify-center px-4 py-4 text-xs font-bold text-white uppercase bg-green-700 rounded-lg hover:bg-green-800 space-x-2"
                 table="tableCustomers"
                 filename="tableCustomers"
                 sheet="pagina 1"
@@ -155,9 +214,9 @@ export function ListCustomeView() {
             </div>
             <div className="inline-flex rounded-md shadow-sm">
               <button
-                onClick={() => navigate("/admin/nuevo/cliente")}
+                onClick={() => navigate("/admin/nuevo/paciente")}
                 type="button"
-                className="flex flex-row items-center justify-center px-4 py-2 text-xs font-bold text-white uppercase bg-blue-500 rounded-lg hover:bg-blue-600 space-x-1"
+                className="flex flex-row items-center justify-center px-4 py-3 text-xs font-bold text-white uppercase bg-blue-500 rounded-lg hover:bg-blue-600 space-x-1"
               >
                 <span className="p-1">Nuevo Registro</span>
               </button>
@@ -166,78 +225,105 @@ export function ListCustomeView() {
         </div>
         <div className="shrink-0 space-x-2">
           <div className="inline-flex justify-start">
-            <div className="mb-3 xl:w-96">
-              <div className="input-group relative flex flex-wrap items-stretch  w-full mb-4">
-                <input
-                  type="search"
-                  value={searchState}
-                  className="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                  placeholder="Busqueda por Estado"
-                  aria-label="Search"
-                  onChange={handleChangeState}
-                  aria-describedby="button-addon2"
-                />
+            <div className="relative">
+              <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                <svg
+                  aria-hidden="true"
+                  className="w-5 h-5 text-gray-500 dark:text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  ></path>
+                </svg>
               </div>
+              <input
+                type="search"
+                className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
+                placeholder="Busqueda por nombres y apellidos"
+                value={searchUser}
+                onChange={handleChangeUsers}
+              />
             </div>
           </div>
+
           <div className="inline-flex justify-start">
-            <div className="mb-3 xl:w-96">
-              <div className="input-group relative flex flex-wrap items-stretch w-full mb-4">
-                <input
-                  type="search"
-                  value={searchUser}
-                  className="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                  placeholder="Busqueda por nombres y apellidos"
-                  aria-label="Search"
-                  onChange={handleChangeUsers}
-                  aria-describedby="button-addon2"
-                />
+            <div className="relative">
+              <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                <svg
+                  aria-hidden="true"
+                  className="w-5 h-5 text-gray-500 dark:text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  ></path>
+                </svg>
               </div>
+              <input
+                type="search"
+                className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
+                placeholder="Busqueda por Municipio"
+                value={searchState}
+                onChange={handleChangeState}
+              />
             </div>
           </div>
         </div>
       </div>
 
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+      <div className="relative overflow-x-auto shadow-2xl sm:rounded-lg">
         <table
           id="tableCustomers"
-          className="w-full text-sm text-left text-gray-500 text-gray-400"
+          className="w-full text-sm text-center text-white"
         >
-          <thead className="text-xs text-gray-700 uppercase  bg-gray-500 ">
+          <thead className="text-xs uppercase bg-[#505964] text-white">
             <tr>
-              <th scope="col" className="text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6  text-center">
                 Nombre
               </th>
-              <th scope="col" className="text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6  text-center">
                 Apellido
               </th>
-              <th scope="col" className="text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6  text-center">
                 Dirección
               </th>
-              <th scope="col" className="text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6  text-center">
                 Codigo postal
               </th>
-              <th scope="col" className="text-white py-3 px-6 text-left">
-                Estado
-              </th>
-              <th scope="col" className="text-white py-3 px-6 text-left">
-                Colonia
-              </th>
-              <th scope="col" className="text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6  text-center">
                 Municipio
               </th>
-              <th scope="col" className=" text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6  text-center">
+                Colonia
+              </th>
+              <th scope="col" className="text-white py-3 px-6  text-center">
+                Estado
+              </th>
+              <th scope="col" className=" text-white py-3 px-6  text-center">
                 Género
               </th>
-              <th scope="col" className="text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6  text-center">
                 Teléfono
               </th>{" "}
-              <th scope="col" className="text-white py-3 px-6 text-left">
+              <th scope="col" className="text-white py-3 px-6  text-center">
                 Estatus del Cliente
               </th>
               <th
                 scope="col"
-                className="text-white font-bold py-3 px-6 text-left "
+                className="text-white font-bold py-3 px-6  text-center "
               >
                 Acciones
               </th>

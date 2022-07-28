@@ -39,84 +39,94 @@ export function FormQuotes() {
   };
 
   return (
-    <div className="bg-white mt-10 px-5 py-10 rounded-md shadow-xl md:w-4/2 mx-auto">
-      <h1 className="text-gray-600 font-bold text-xl uppercase text-center">
-        Nueva Cita
-      </h1>
-      <Form onSubmit={formik.handleSubmit} className="mt-10">
-        <div className=" grid xl:grid-cols-3 xl:gap-6">
-          <div className="text-lg w-full mb-6 group">
-            <p
-              htmlFor="name"
-              className="block text-xl font-bold  text-gray-800 "
-            >
-              Nombre del Cliente
-            </p>
-            <select
-              value={formik.values.customer}
-              name="customer"
-              id="customer"
-              onChange={(data) =>
-                formik.setFieldValue("customer", data.target.value)
-              }
-            >
-              <option>Selecione un usuario</option>
+    <>
+      {" "}
+      <button
+        className="text-white bg-blue-600 font-bold py-2 px-4 rounded-xl"
+        onClick={() => navigate(`/admin/citas`)}
+      >
+        <i className="fas fa-arrow-left text-white mr-2 text-lg"></i>
+        Regresar
+      </button>{" "}
+      <div className="bg-white mt-10 px-5 py-10 rounded-md shadow-xl md:w-4/2 mx-auto">
+        <h1 className="text-gray-600 font-bold text-xl uppercase text-center">
+          Nueva Cita
+        </h1>
+        <Form onSubmit={formik.handleSubmit} className="mt-10">
+          <div className=" grid xl:grid-cols-3 xl:gap-6">
+            <div className="text-lg w-full mb-6 group">
+              <label
+                htmlFor="name"
+                className="block text-xl font-bold  text-gray-800 "
+              >
+                Nombre del Cliente
+              </label>
+              <select
+                value={formik.values.customer}
+                name="customer"
+                id="customer"
+                onChange={(data) =>
+                  formik.setFieldValue("customer", data.target.value)
+                }
+              >
+                <option>Selecione un usuario</option>
 
-              {customer?.map((customer) => (
-                <option key={customer?.id} value={customer?.id}>
-                  {customer?.name} {customer?.last}
-                </option>
-              ))}
-            </select>
+                {customer?.map((customer) => (
+                  <option key={customer?.id} value={customer?.id}>
+                    {customer?.name} {customer?.last}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="text-lg w-full mb-6 group">
+              <label
+                htmlFor="name"
+                className="block text-xl font-bold  text-gray-800 "
+              >
+                Nombre del doctor
+              </label>
+              <select
+                value={formik.values.doctor}
+                onChange={(data) =>
+                  formik.setFieldValue("doctor", data.target.value)
+                }
+                name="doctor"
+                id="doctor"
+              >
+                <option>Selecione un doctor</option>
+                {doctor?.map((doctor) => (
+                  <option key={doctor?.id} value={doctor?.id}>
+                    {doctor?.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="text-lg w-full mb-6 group">
+              <label
+                htmlFor="date"
+                className="block text-xl font-bold  text-gray-800 "
+              >
+                Fecha y hora de la cita
+              </label>
+              <Form.Input
+                type="datetime-local"
+                id="date"
+                name="date"
+                value={formik.values.date}
+                onChange={formik.handleChange}
+                error={formik.errors.date}
+              />
+            </div>
           </div>
-          <div className="text-lg w-full mb-6 group">
-            <p
-              htmlFor="name"
-              className="block text-xl font-bold  text-gray-800 "
-            >
-              Nombre del doctor
-            </p>
-            <select
-              value={formik.values.doctor}
-              onChange={(data) =>
-                formik.setFieldValue("doctor", data.target.value)
-              }
-              name="doctor"
-              id="doctor"
-            >
-              <option>Selecione un doctor</option>
-              {doctor?.map((doctor) => (
-                <option key={doctor?.id} value={doctor?.id}>
-                  {doctor?.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="text-lg w-full mb-6 group">
-            <p
-              htmlFor="date"
-              className="block text-xl font-bold  text-gray-800 "
-            >
-              Fecha y hora de la cita
-            </p>
-            <Form.Input
-              type="datetime-local"
-              id="date"
-              name="date"
-              value={formik.values.date}
-              onChange={formik.handleChange}
-              error={formik.errors.date}
-            />
-          </div>
-        </div>
 
-        <input
-          type="submit"
-          value={doctor?.id ? "Editar Doctor" : "Crear Doctor"}
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        />
-      </Form>
-    </div>
+          <input
+            type="submit"
+            value={doctor?.id ? "Editar Doctor" : "Crear Doctor"}
+            className="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          />
+        </Form>
+      </div>
+    </>
   );
 }
 function initialValues() {
