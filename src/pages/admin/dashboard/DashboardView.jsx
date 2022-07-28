@@ -10,6 +10,7 @@ import useAuth from "../../../hooks/useAuth";
 import { Link } from "react-router-dom";
 import { UsersView } from "../../../components/Admin/user/UsersView";
 import { DoughnutChartUser } from "../../../components/Charts/DoughnutChartUser";
+import { BarChartDoctor } from "../../../components/Charts/BarChartDoctor";
 
 export function DashboardView() {
   const [user, setUser] = useState({});
@@ -63,7 +64,7 @@ export function DashboardView() {
       </div>
       {cargando ? (
         <Spinner />
-      ) : user?.role?.name === "Admin" ? (
+      ) : user?.role?.name === "Administrador" ? (
         <>
           <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
             <div className="w-full lg:w-1/4">
@@ -131,12 +132,10 @@ export function DashboardView() {
           </div>
           <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
             <div className="w-full lg:w-2/3">
-              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-700 to-slate-700"></div>
+              <BarChartDoctor />
             </div>
             <div className="w-full lg:w-1/3">
-              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-700 to-slate-700">
-                <DoughnutChartUser />
-              </div>
+              <DoughnutChartUser className="m-4" />
             </div>
           </div>
           <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">

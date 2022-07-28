@@ -103,7 +103,7 @@ export function SideBar() {
 
             {/* Navigation */}
 
-            {user?.role?.name === "Admin" ? (
+            {user?.role?.name === "Administrador" ? (
               <ul className="lg:flex-col lg:min-w-full flex flex-col list-none">
                 <li className="items-center">
                   <Link

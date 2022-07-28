@@ -51,9 +51,9 @@ const specialtiesOptions = [
   { key: "General", value: "General", text: "General" },
   { key: "Cardiólogo", value: "Cardiólogo", text: "Cardiólogo" },
   {
-    key: " Cirujano plástico",
-    value: " Cirujano plástico",
-    text: " Cirujano plástico",
+    key: "Cirujano plástico",
+    value: "Cirujano plástico",
+    text: "Cirujano plástico",
   },
   { key: "Dermatólogo", value: "Dermatólogo", text: "Dermatólogo" },
   {
