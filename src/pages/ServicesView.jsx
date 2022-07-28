@@ -1,6 +1,19 @@
 import { NavBar } from "../components/navbar/NavBar";
 import { Link } from "react-router-dom";
 import { Footer } from "../components/footer/Footer";
+import Servicios from "../assets/img/Servicios.jpg"
+import Paq1 from "../assets/img/Paq-parto.jpg"
+import Paq2 from "../assets/img/Paq-cesarea.jpg"
+import Paq3 from "../assets/img/paq-lips.jpg"
+import Paq4 from "../assets/img/Paq-botox.jpg"
+import cardiologo from "../assets/img/cardiologo.jpeg"
+import oftalmologo from "../assets/img/oftalmologo.jpg"
+import urologo from "../assets/img/urologo.jpeg"
+import dermatologo from "../assets/img/dermatologo.jpeg"
+import neurologo from "../assets/img/neurologa.jpeg"
+import ginecologo from "../assets/img/ginecologo.jpeg"
+import Pediatra from "../assets/img/pediatra.jpeg"
+import nutri from "../assets/img/nutri.jpeg"
 
 export function ServicesView() {
   return (
@@ -10,44 +23,29 @@ export function ServicesView() {
       <main className="font-noto">
         <div className="relative pt-16 pb-32 flex content-center items-center justify-center">
           <div
-            className="absolute top-0 w-full h-full bg-center bg-cover"
+            className="absolute top-20 w-full h-full bg-center bg-cover "
             style={{
               backgroundImage:
-                "url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80')",
+                `url(${Servicios})`,
             }}
           >
             <span
               id="blackOverlay"
-              className="w-full h-full absolute opacity-75  bg-zinc-800"
+              className="w-full h-full absolute opacity-75"
             ></span>
           </div>
           <div className="container header relative pt-16 items-center flex h-screen max-h-860-px">
             <div className="items-center flex flex-wrap">
-              <div className="w-full md:w-8/12 lg:w-6/12 xl:w-6/12 px-4">
-                <div className="pr-12">
-                  <h1 className="text-white font-semibold text-6xl">
-                    Clínica Santa Bárbara
+              <div className="w-full md:w-8/12 lg:w-6/12 xl:w-6/12 px-2">
+                <div className="pr-20">
+                  <h1 className="text-[#46B0CF] font-semibold text-7xl">
+                    Servicios
                   </h1>
-                  <p className="mt-4 text-lg text-blue-200">
+                  <p className="mt-4 text-2xl text-black mr-60 px-3 py-4 text-justify bg-blue-200 rounded-2xl">
                     Instalaciones cómodas y equipo médico de la más alta calidad,
                     convergen para ofrecer una experiencia que sobrepasa las expectativas
                     de un hospital convencional.
                   </p>
-                  <div className="mt-8">
-                    <Link
-                      to="/citas"
-                      className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-                    >
-                      Agendar cita
-                    </Link>
-                    <a
-                      href="https://play.google.com/store/apps/details?id=com.christopherurielsosagarcia.qrcode"
-                      className=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-                      target="_blank"
-                    >
-                      Descargar App
-                    </a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -74,14 +72,14 @@ export function ServicesView() {
               <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                   <div className="px-4 py-5 flex-auto">
-                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
-                      <i className="fas fa-award"></i>
+                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-400">
+                      <i className="fas fa-calendar text-xl"></i>
                     </div>
 
-                    <h6 className="text-xl font-semibold">Awarded Agency</h6>
-                    <p className="mt-2 mb-4 text-blue-500">
-                      Divide details about your product or agency work into
-                      parts. A paragraph describing a feature will be enough.
+                    <h6 className="text-xl font-semibold">Antiguedad</h6>
+                    <p className="mt-2 mb-4 text-blue-500 text-center text-lg">
+                      Tenemos más de cinco años de experiencia
+                      cuidando la salud de las personas y brindando el mejor servicio.
                     </p>
                   </div>
                 </div>
@@ -90,13 +88,13 @@ export function ServicesView() {
               <div className="w-full md:w-4/12 pt-3 px-4 text-center">
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                   <div className="px-4 py-5 flex-auto">
-                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-400">
-                      <i className="fas fa-retweet"></i>
+                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
+                      <i className="fas fa-award text-xl"></i>
                     </div>
-                    <h6 className="text-xl font-semibold">Free Revisions</h6>
-                    <p className="mt-2 mb-4 text-blue-500">
-                      Keep you user engaged by providing meaningful information.
-                      Remember that by this time, the user is curious.
+                    <h6 className="text-xl font-semibold">Especialistas</h6>
+                    <p className="mt-2 mb-4 text-blue-500 text-center text-lg">
+                      Tenemos los mejores especialistas, listos para
+                      brindarte la atención y el servicio que mereces.
                     </p>
                   </div>
                 </div>
@@ -106,47 +104,107 @@ export function ServicesView() {
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                   <div className="px-4 py-5 flex-auto">
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-emerald-400">
-                      <i className="fas fa-fingerprint"></i>
+                      <i className="fas fa-syringe text-xl"></i>
                     </div>
-                    <h6 className="text-xl font-semibold">Verified Company</h6>
-                    <p className="mt-2 mb-4 text-blue-500">
-                      Write a few lines about each one. A paragraph describing a
-                      feature will be enough. Keep you user engaged!
+                    <h6 className="text-xl font-semibold">Equipos Especializados</h6>
+                    <p className="mt-2 mb-4 text-blue-500 text-center text-lg">
+                      Nuestros quirófanos cuentan con equipos de la mas alta
+                      tecnología de vanguardia  facilitándoles a nuestros médicos
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-wrap items-center mt-32">
-              <div className="w-full md:w-5/12 px-4 mr-auto ml-auto">
-                <div className="text-blue-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
-                  <i className="fas fa-user-friends text-xl"></i>
-                </div>
-                <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                  Misión
+            <div className="flex flex-wrap items-center mt-20 mb-10 ">
+              <div className="w-full md:w-6/12 px-20 mr-auto ml-auto mb-20 bg-white rounded-3xl">
+                <h3 className="text-3xl pt-3 pb-10 font-semibold leading-normal text-center">
+                  Paquete Maternidad
                 </h3>
-                <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-blue-600">
-                  Mejorar la salud y la calidad de vida de los ciudadanos,
-                  ofertando servicios sanitarios de calidad, con el paciente como
-                  centro de nuestra atención, y profesionales altamente cualificados,
-                  en un hospital privado con vocación docente e investigadora.
+                <h4 className="text-2xl font-semibold ">Instalaciones</h4>
+                <p className="text-xl font-light leading-relaxed mt-1 mb-1 text-black ">
+                  -1 Dia de hospitalización. <br />
+                  -1 Dia de cunero. <br />
+                  -1 Habitación estándar. <br />
+                  -Televisión wifi. <br />
+                  -Cama eléctrica. <br />
+                  -Derecho de sala 2 horas. <br />
+                  -Equipo de cirugia de parto <br />
+                  -Monitor de presión.
+                </p>
+                <h4 className="text-2xl mt-3 font-semibold ">Materiales (Mamá)</h4>
+                <p className="text-xl font-light leading-relaxed mt-1 mb-1 text-black ">
+                  -1 Aguja desechable. <br />
+                  -1 Paquete de gasas. <br />
+                  -1 Rastrillo desechable. <br />
+                  -Pañales para adulto. <br />
+                  -Toalla obstetricia. <br />
+                  -1 Sultura. <br />
+                  -1 Yelco <br />
+                  -1 Sonda nélaton. <br />
+                  -1 Cinta umbilical. <br />
+                  -1 Equipo de venoclisis. <br />
+                  -2 Guantes tacto. <br />
+                  -2 Jeringas. <br />
+                  <br />
+                </p>
+              </div>
+              {/* Seccion 2 */}
+              <div className=" -ml-96 mr-60 mb-44 ">
+                <h4 className="text-2xl font-semibold ">Medicamento (Mamá)</h4>
+                <p className="text-xl font-light leading-relaxed mt-1 mb-3 text-black  float-left">
+                  -3 Sueros 1000ml. <br />
+                  -4 Oxitocinas AMP. <br />
+                  -20 CODE Xylocaina. <br />
+                  -Tabletas para prodolina<br />
+                  u otro analgésico.
+                </p>
+                <h4 className="text-2xl font-semibold ">Medicamento (Bebé)</h4>
+                <p className="text-xl font-light leading-relaxed mt-1 mb-1 text-black float-left">
+                  -1 Senda k-31. <br />
+                  -4hrs Incubadora en cunero. <br />
+                  -4hrs Oxigeno max. <br />
+                  -Pañales.<br />
+                  -Cloranfenicol en gotas. <br />
+                  -1 Solución glucosada 500ml. <br />
+                  -1 Biberón. <br />
+                  -1 jeringa #20. <br />
+                  -1 Jeringa insulina. <br />
+                  -Formula durante la estancia.
                 </p>
               </div>
 
               <div className="w-full md:w-4/12 px-4 mr-auto ml-auto">
-                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-blue-500">
+                <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-[#46B0CF] text-center">
                   <img
                     alt="..."
-                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"
+                    src={Paq1}
                     className="w-full align-middle rounded-t-lg"
                   />
+                  <blockquote className="relative p-8 mb-4">
+                    <svg
+                      preserveAspectRatio="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 583 95"
+                      className="absolute left-0 w-full block h-95-px -top-94-px"
+                    ></svg>
+                    <h4 className="text-2xl font-bold text-white">
+                      EL MEJOR CUIDADO PARA TI Y TU BEBÉ
+                    </h4>
+                    <p className="text-xl font-light mt-2 text-white">
+                      Paquete básico desde 9,999 MXN y 14,999 MXN el paquete plus que incluye
+                      consultas y esconogramas.
+                    </p>
+                  </blockquote>
                 </div>
               </div>
             </div>
           </div>
         </section>
-        <section className="relative py-20">
+
+        {/* Segunda espècialidad */}
+
+        <section className="relative py-20 mb-48">
           <div
             className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20"
             style={{ transform: "translateZ(0)" }}
@@ -166,113 +224,148 @@ export function ServicesView() {
               ></polygon>
             </svg>
           </div>
-          {/* mision */}
+
+          {/* Segunda */}
+
           <div className="container mx-auto px-4">
             <div className="items-center flex flex-wrap">
-              <div className="w-full md:w-4/12 ml-auto mr-auto px-4">
+              <div className="w-full md:w-4/12 ml-auto mr-auto rounded-lg bg-[#46B0CF] text-center">
                 <img
                   alt="..."
-                  className="max-w-full rounded-lg shadow-lg mb-20"
-                  src="https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGRvY3RvcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                  className="w-full align-middle rounded-t-lg"
+                  src={Paq2}
                 />
-              </div>
-              <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
-                <div className="md:pr-12">
-                  <h3 className="text-3xl font-semibold">Visión</h3>
-                  <p className="mt-4 text-lg leading-relaxed text-blue-500">
-                    Conseguir la mejor asistencia médica y ética, que nos permita crecer,
-                    mejorar en eficacia y eficiencia, ser reconocidos por nuestros
-                    usuarios por la calidad en los servicios. Ofrecer
-                    un servicio preciso, sensato e integral consiguiendo
-                    la excelencia en el servicio asistencial y trato humano.
+                <blockquote className="relative p-8 mb-4">
+                  <svg
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 583 95"
+                    className="absolute left-0 w-full block h-95-px -top-94-px"
+                  ></svg>
+                  <h4 className="text-2xl font-bold text-white">
+                    LOS MEJORES CUIDADOS PARA TI Y TU BEBÉ
+                  </h4>
+                  <p className="text-xl font-light mt-2 text-white text-justify">
+                    Paquete básico desde 14,999 MXN y 16,999 MXN el paquete plus que incluye
+                    consultas y esconogramas.
                   </p>
-                  <ul className="list-none mt-6">
-                  </ul>
+                </blockquote>
+              </div>
+
+              {/* Texto */}
+
+              <div className="w-full md:w-6/12 px-16 mr-auto ml-auto mb-0 bg-blue-200 rounded-3xl">
+                <div className="md:pr-12">
+                  <h3 className="text-3xl pt-3 pb-10 font-semibold leading-normal text-center">
+                    Cesarea
+                  </h3>
+                  <h4 className="text-2xl font-semibold ">Instalaciones</h4>
+                  <p className="text-xl font-light leading-relaxed mt-1 mb-1 text-black ">
+                    -24hrs de hospitalización. <br />
+                    -1 Dia cunero. <br />
+                    -Habitación estándar. <br />
+                    -Televisión wifi. <br />
+                    -Cama eléctrica. <br />
+                    -Derecho de sala 2 horas. <br />
+                    -Equipo de cirugia cesarea <br />
+                    -Monitor de presión.
+                  </p>
+                  <h4 className="text-2xl font-semibold mt-3">Materiales (Mamá)</h4>
+                  <p className="text-xl font-light leading-relaxed mt-1 mb-1 text-black float-left">
+                    -1 Aguja desechable. <br />
+                    -1 Paquete de gasas. <br />
+                    -1 Rastrillo desechable. <br />
+                    -Pañales para adulto. <br />
+                    -Toalla obstetricia. <br />
+                    -1 Sultura. <br />
+                    -1 Yelco <br />
+                    -1 Sonda nélaton. <br />
+                    -1 Cinta umbilical. <br />
+                    -1 Brazalete <br />
+                    -1 Equipo de venoclisis. <br />
+                    -2 Guantes tacto. <br />
+                    -2 Jeringas. <br />
+                    <br />
+                  </p>
+
                 </div>
+              </div>
+              <div className="-ml-96 -mr-72 mb-40 mt-0 pr-72">
+                <h4 className="text-2xl font-semibold">Medicamento (Mamá)</h4>
+                <p className="text-xl font-light leading-relaxed mt-1 mb-3 text-black">
+                  -2 Sueros 1000ml. <br />
+                  -4 Oxitocinas AMP. <br />
+                  -20 CODE Xylocaina. <br />
+                  -Tabletas para prodolina<br />
+                  u otro analgésico.
+                </p>
+                <h4 className="text-2xl font-semibold ">Medicamento (Bebé)</h4>
+                <p className="text-xl font-light leading-relaxed mt-1 mb-1 text-black">
+                  -1 Senda k-31. <br />
+                  -4hrs Incubadora en cunero. <br />
+                  -4hrs Oxigeno max. <br />
+                  -Pañales.<br />
+                  -Cloranfenicol en gotas. <br />
+                  -1 Solución glucosada 500ml. <br />
+                  -1 Biberón. <br />
+                  -1 jeringa #20. <br />
+                  -1 Jeringa insulina. <br />
+                </p>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="pb-20 bg-blue-200 -mt-24">
+
+        {/* 3 paquete */}
+        <div className="font-mont relative bg-blue-200 pt-0 pb-0" >
+          <div
+            className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20"
+            style={{ transform: "translateZ(0)" }}
+          >
+            <svg
+              className="absolute bottom-0 overflow-hidden"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+              version="1.1"
+              viewBox="0 0 2560 100"
+              x="0"
+              y="0"
+            >
+              <polygon
+                className="text-blue-200 fill-current"
+                points="2560 0 2560 100 0 100"
+              ></polygon>
+            </svg>
+          </div>
+        </div>
+        <section className="pb-28 bg-blue-200 pt-1">
           <div className="container mx-auto px-4">
-            <div className="flex flex-wrap">
-              <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
-                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                  <div className="px-4 py-5 flex-auto">
-                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
-                      <i className="fas fa-award"></i>
-                    </div>
-
-                    <h6 className="text-xl font-semibold">Awarded Agency</h6>
-                    <p className="mt-2 mb-4 text-blue-500">
-                      Divide details about your product or agency work into
-                      parts. A paragraph describing a feature will be enough.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="w-full md:w-4/12 pt-3 px-4 text-center">
-                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                  <div className="px-4 py-5 flex-auto">
-                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-400">
-                      <i className="fas fa-retweet"></i>
-                    </div>
-                    <h6 className="text-xl font-semibold">Free Revisions</h6>
-                    <p className="mt-2 mb-4 text-blue-500">
-                      Keep you user engaged by providing meaningful information.
-                      Remember that by this time, the user is curious.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-12 w-full md:w-4/12 px-4 text-center">
-                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                  <div className="px-4 py-5 flex-auto">
-                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-emerald-400">
-                      <i className="fas fa-fingerprint"></i>
-                    </div>
-                    <h6 className="text-xl font-semibold">Verified Company</h6>
-                    <p className="mt-2 mb-4 text-blue-500">
-                      Write a few lines about each one. A paragraph describing a
-                      feature will be enough. Keep you user engaged!
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap items-center mt-32">
-              <div className="w-full md:w-5/12 px-4 mr-auto ml-auto">
-                <div className="text-blue-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
-                  <i className="fas fa-user-friends text-xl"></i>
-                </div>
-                <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                  Working with us is a pleasure
+            <div className="flex flex-wrap items-center mt-20 mb-10 ">
+              <div className="w-full md:w-4/12 px-20 mr-auto ml-auto mb-20 bg-white rounded-3xl">
+                <h3 className="text-3xl pt-5 pb-5 font-semibold leading-normal text-center">
+                  Paquete Labios con volumen
                 </h3>
-                <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blue-600">
-                  Don't let your uses guess by attaching tooltips and popoves to
-                  any element. Just make sure you enable them first via
-                  JavaScript.
+                <h4 className="text-2xl font-semibold text-center">¿Qué es?</h4>
+                <p className="text-xl font-light leading-relaxed mt-5 text-black text-justify px-5">
+                  -Cirugía estética. <br />
+                  -Aumentar volumen en los labios. <br />
+                  -Brindar mejor hidratación. <br />
+                  -Apariencia de un labio natural. <br />
+                  -Correción de asimetrías en los labios. <br />
+                  -Mejora la apariencia de tu sonrisa. <br />
+                  -Duración de hasta a 18 meses.  <br />
+                  -Monitor de presión. <br />
+                  <br />
                 </p>
-                <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-blue-600">
-                  The kit comes with three pre-built pages to help you get
-                  started faster. You can change the text and images and you're
-                  good to go. Just make sure you enable them first via
-                  JavaScript.
-                </p>
-                <Link to="/" className="font-bold text-blue-700 mt-8">
-                  Check Notus React!
-                </Link>
               </div>
 
+              {/* Seccion 3*/}
               <div className="w-full md:w-4/12 px-4 mr-auto ml-auto">
-                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-blue-500">
+                <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-[#46B0CF] text-center">
                   <img
                     alt="..."
-                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"
+                    src={Paq3}
                     className="w-full align-middle rounded-t-lg"
                   />
                   <blockquote className="relative p-8 mb-4">
@@ -282,13 +375,12 @@ export function ServicesView() {
                       viewBox="0 0 583 95"
                       className="absolute left-0 w-full block h-95-px -top-94-px"
                     ></svg>
-                    <h4 className="text-xl font-bold text-white">
-                      Top Notch Services
+                    <h4 className="text-2xl font-bold text-white">
+                      AUMENTO DE LABIOS CON ÁCIDO HIALURÓNICO
                     </h4>
-                    <p className="text-md font-light mt-2 text-white">
-                      The Arctic Ocean freezes every winter and much of the
-                      sea-ice then thaws every summer, and that process will
-                      continue whatever happens.
+                    <p className="text-xl font-light mt-2 text-white text-justify">
+                      Reponer el volumen perdido con los años en el tercio medio de la cara y rellenar arrugas estáticas en el tercio inferior.
+                      (Precio establecido de 4,500 MXN).
                     </p>
                   </blockquote>
                 </div>
@@ -296,86 +388,872 @@ export function ServicesView() {
             </div>
           </div>
         </section>
-        <section className="pt-28 pb-36">
+
+        {/* 4 especialidad */}
+        <section className="relative py-20 mb-20">
+          <div
+            className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20"
+            style={{ transform: "translateZ(0)" }}
+          >
+            <svg
+              className="absolute bottom-0 overflow-hidden"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+              version="1.1"
+              viewBox="0 0 2560 100"
+              x="0"
+              y="0"
+            >
+              <polygon
+                className="text-white fill-current"
+                points="2560 0 2560 100 0 100"
+              ></polygon>
+            </svg>
+          </div>
+
+          {/* Cuarta */}
+
           <div className="container mx-auto px-4">
-            <div className="flex flex-wrap justify-center text-center mb-24">
-              <div className="w-full lg:w-6/12 px-4">
-                <h2 className="text-4xl font-semibold">Nuestros Especialistas</h2>
-                <p className="text-lg leading-relaxed m-4 text-blue-500">
-                  Contamos con un grupo de especialistas y médicos generales
-                  de gran categoría, preparados para brindarte el mejor servicio y la atención que mereces.
-                </p>
+            <div className="items-center flex flex-wrap">
+              <div className="w-full md:w-4/12 ml-auto mr-auto rounded-lg bg-[#46B0CF]">
+                <img
+                  alt="..."
+                  className="w-full align-middle rounded-t-lg"
+                  src={Paq4}
+                />
+                <blockquote className="relative p-8 mb-4">
+                  <svg
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 583 95"
+                    className="absolute left-0 w-full block h-95-px -top-94-px"
+                  ></svg>
+                  <h4 className="text-2xl font-bold text-white text-center">
+                    TRATAMIENTO ESPECIALIZADO CON BOTOX
+                  </h4>
+                  <p className="text-xl font-light mt-2 text-white text-justify">
+                    Procedimiento especializado no quirúrgico con precio de 4,000 MXN
+                  </p>
+                </blockquote>
               </div>
-            </div>
-            <div className="flex flex-wrap">
-              <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
-                <div className="px-6">
-                  <img
-                    alt="..."
-                    // src falta poner fotos
-                    src="https://img.freepik.com/foto-gratis/cerrar-sobre-trabajador-salud_23-2149112505.jpg?t=st=1658001251~exp=1658001851~hmac=634fd8010a50c914df922d249038e2c0f33ed7634ac0f0b8e3519031827cd424&w=740"
-                    className="shadow-lg rounded-full mx-auto max-w-120-px"
-                  />
-                  <div className="pt-6 text-center">
-                    <h5 className="text-xl font-bold">Iván Zepeda</h5>
-                    <p className="mt-1 text-sm text-blue-400 uppercase font-semibold">
-                      Cardiólogo
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
-                <div className="px-6">
-                  <img
-                    alt="..."
-                    // src falta poner fotos
-                    src="https://images.unsplash.com/photo-1642050923713-c48db6ea4bec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-                    className="shadow-lg rounded-full mx-auto max-w-120-px"
-                  />
-                  <div className="pt-6 text-center">
-                    <h5 className="text-xl font-bold">Denisse Rosas</h5>
-                    <p className="mt-1 text-sm text-blue-400 uppercase font-semibold">
-                      Oftalmóloga
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
-                <div className="px-6">
-                  <img
-                    alt="..."
-                    src="https://img.freepik.com/foto-gratis/cerrar-sobre-trabajador-salud_23-2149112577.jpg?t=st=1658001465~exp=1658002065~hmac=04d6933953a2464608327be6613bad1786bebf643dfb8d76c4a5ab1dda029841&w=740"
-                    // src falta poner fotos
-                    className="shadow-lg rounded-full mx-auto max-w-120-px"
-                  />
-                  <div className="pt-6 text-center">
-                    <h5 className="text-xl font-bold">Benjamín Cuevas</h5>
-                    <p className="mt-1 text-sm text-blue-400 uppercase font-semibold">
-                      Ginecólogo
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
-                <div className="px-6">
-                  <img
-                    alt="..."
-                    // src falta poner fotos
-                    src="https://images.unsplash.com/photo-1623887669121-5d4081c7bec1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-                    className="shadow-lg rounded-full mx-auto max-w-120-px"
-                  />
-                  <div className="pt-6 text-center">
-                    <h5 className="text-xl font-bold">Judith Espinoza</h5>
-                    <p className="mt-1 text-sm text-blue-400 uppercase font-semibold">
-                      Dermatóloga
-                    </p>
-                  </div>
+
+              {/* Texto */}
+
+              <div className="w-full md:w-4/12 px-20 mr-auto ml-auto mb-5 bg-blue-200 rounded-3xl">
+                <div className="md:pr-12">
+                  <h3 className="text-3xl pt-5 pb-5 font-semibold leading-normal text-center ml-10">
+                    Paquete Botox Especial
+                  </h3>
+                  <h4 className="text-2xl font-semibold text-center ml-10">¿Qué es?</h4>
+                  <p className="text-xl font-light leading-relaxed mt-5 text-black px-8">
+                    -Eliminar lineas de expresión. <br />
+                    -Eliminar patas de gallo. <br />
+                    -Tratamiento de arrugas. <br />
+                    -Relajación de musculos. <br />
+                    -Duración de 4 a 8 meses. <br />
+                    -Tratamiento del ojo vago. <br />
+                    -Seguimiento regular. <br />
+                    <br />
+                  </p>
                 </div>
               </div>
             </div>
-            {/* aqui */}
           </div>
         </section>
+
+        {/* Especialistas */}
+
+
+        {/* Seccion 2 */}
+        <section className="relative py-0 mb-0">
+          <div
+            className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20"
+            style={{ transform: "translateZ(0)" }}
+          >
+            <svg
+              className="absolute bottom-0 overflow-hidden"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+              version="1.1"
+              viewBox="0 0 2560 100"
+              x="0"
+              y="0"
+            >
+              <polygon
+                className="text-gray-100 fill-current"
+                points="2560 0 2560 100 0 100"
+              ></polygon>
+            </svg>
+          </div>
+        </section>
+
+        <>
+          {/* component */}
+          <div className="mb-[70px] bg-gray-100">
+            {/* Code block starts */}
+            <dh-component>
+              <div className="container flex justify-center mx-auto pt-14">
+                <div>
+                  <p className="text-gray-500 text-3xl text-center font-normal pb-3">
+                    EQUIPO DE ESPECIALISTAS
+                  </p>
+                  <h1 className="xl:text-2xl text-xl text-center text-gray-800 font-extrabold pb-6 sm:w-4/6 w-5/6 mx-auto">
+                    Contamos con un grupo de especialistas y médicos generales
+                    de gran categoría, preparados para brindarte el cuidado que mereces.
+                  </h1>
+                </div>
+              </div>
+              <div className="w-full bg-gray-100 px-10 pt-10">
+                <div className="container mx-auto">
+                  <div
+                    aria-label="Behind the scenes People "
+                    className="lg:flex md:flex sm:flex items-center xl:justify-between flex-wrap md:justify-around sm:justify-around lg:justify-around"
+                  >
+                    <div
+                      className="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5"
+                    >
+                      <div className="rounded overflow-hidden shadow-md bg-white">
+                        <div className="absolute -mt-20 w-full flex justify-center">
+                          <div className="h-32 w-32">
+                            <img
+                              src={oftalmologo}
+                              alt=""
+                              className="rounded-full object-cover h-full w-full shadow-md"
+                            />
+                          </div>
+                        </div>
+                        <div className="px-6 mt-16">
+                          <h1 className="font-bold text-3xl text-center mb-1">
+                            Dr. Sergio Espino
+                          </h1>
+                          <p className="text-gray-800 text-lg text-center">
+                            Oftalmólogo
+                          </p>
+                          <p className="text-center text-gray-600 text-base pt-3 font-normal">
+                            Especialista con más de 5 años de experiencia, listo para
+                            brindarte el trato que mereces.
+                          </p>
+                          <div className="w-full flex justify-center pt-5 pb-5">
+                            <a href="https://twitter.com/?lang=es" className="mx-5">
+                              <div aria-label="Twitter">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width={24}
+                                  height={24}
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="#718096"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="feather feather-twitter"
+                                >
+                                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+                                </svg>
+                              </div>
+                            </a>
+                            <a href="https://www.facebook.com/" className="mx-5">
+                              <div aria-label="Twitter">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width={24}
+                                  height={24}
+                                  viewBox="0 0 17 18"
+                                  fill="none"
+                                  stroke="#718096"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="feather feather-facebook"
+                                >
+                                  <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                                </svg>
+                              </div>
+                            </a>
+                            <a href="https://www.instagram.com/" className="mx-5">
+                              <div aria-label="Instagram">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width={24}
+                                  height={24}
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="#718096"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="feather feather-instagram"
+                                >
+                                  <rect
+                                    x={2}
+                                    y={2}
+                                    width={20}
+                                    height={20}
+                                    rx={5}
+                                    ry={5}
+                                  />
+                                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                                </svg>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="xl:w-1/3 lg:mx-3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5"
+                    >
+                      <div className="rounded overflow-hidden shadow-md bg-white">
+                        <div className="absolute -mt-20 w-full flex justify-center">
+                          <div className="h-32 w-32">
+                            <img
+                              src={cardiologo}
+                              alt=""
+                              className="rounded-full object-cover h-full w-full shadow-md"
+                            />
+                          </div>
+                        </div>
+                        <div className="px-6 mt-16">
+                          <h1 className="font-bold text-3xl text-center mb-1">
+                            Dr. Iván Zepeda
+                          </h1>
+                          <p className="text-gray-800 text-lg text-center">
+                            Cardiólogo
+                          </p>
+                          <p className="text-center text-gray-600 text-base pt-3 font-normal">
+                            Médico Cardiólogo, debidamente certificado por el Consejo
+                            Mexicano de Cardiología (No. Certificación 3139).
+                          </p>
+                          <div className="w-full flex justify-center pt-5 pb-5">
+                            <a href="https://twitter.com/?lang=es" className="mx-5">
+                              <div aria-label="Twitter">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width={24}
+                                  height={24}
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="#718096"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="feather feather-twitter"
+                                >
+                                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+                                </svg>
+                              </div>
+                            </a>
+                            <a href="https://www.facebook.com/" className="mx-5">
+                              <div aria-label="Twitter">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width={24}
+                                  height={24}
+                                  viewBox="0 0 17 18"
+                                  fill="none"
+                                  stroke="#718096"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="feather feather-facebook"
+                                >
+                                  <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                                </svg>
+                              </div>
+                            </a>
+                            <a href="https://www.instagram.com/" className="mx-5">
+                              <div aria-label="Instagram">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width={24}
+                                  height={24}
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="#718096"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="feather feather-instagram"
+                                >
+                                  <rect
+                                    x={2}
+                                    y={2}
+                                    width={20}
+                                    height={20}
+                                    rx={5}
+                                    ry={5}
+                                  />
+                                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                                </svg>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5"
+                    >
+                      <div className="rounded overflow-hidden shadow-md bg-white">
+                        <div className="absolute -mt-20 w-full flex justify-center">
+                          <div className="h-32 w-32">
+                            <img
+                              src={urologo}
+                              alt=""
+                              className="rounded-full object-cover h-full w-full shadow-md"
+                            />
+                          </div>
+                        </div>
+                        <div className="px-6 mt-16">
+                          <h1 className="font-bold text-3xl text-center mb-1">
+                            Dr. Uriel García
+                          </h1>
+                          <p className="text-gray-800 text-lg text-center">
+                            Úrologo
+                          </p>
+                          <p className="text-center text-gray-600 text-base pt-3 font-normal">
+                            Alta Especialidad en Endourología, caracterizado por un trato humano donde resolver
+                            las dudas de los pacientes.
+                          </p>
+                          <div className="w-full flex justify-center pt-5 pb-5">
+                            <a href="https://twitter.com/?lang=es" className="mx-5">
+                              <div aria-label="Twitter">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width={24}
+                                  height={24}
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="#718096"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="feather feather-twitter"
+                                >
+                                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+                                </svg>
+                              </div>
+                            </a>
+                            <a href="https://www.facebook.com/" className="mx-5">
+                              <div aria-label="Twitter">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width={24}
+                                  height={24}
+                                  viewBox="0 0 17 18"
+                                  fill="none"
+                                  stroke="#718096"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="feather feather-facebook"
+                                >
+                                  <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                                </svg>
+                              </div>
+                            </a>
+                            <a href="https://www.instagram.com/" className="mx-5">
+                              <div aria-label="Instagram" >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width={24}
+                                  height={24}
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="#718096"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="feather feather-instagram"
+                                >
+                                  <rect
+                                    x={2}
+                                    y={2}
+                                    width={20}
+                                    height={20}
+                                    rx={5}
+                                    ry={5}
+                                  />
+                                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                                </svg>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5"
+                    >
+                      <div className="rounded overflow-hidden shadow-md bg-white">
+                        <div className="absolute -mt-20 w-full flex justify-center">
+                          <div className="h-32 w-32">
+                            <img
+                              src={dermatologo}
+                              alt="Dermatologo"
+                              className="rounded-full object-cover h-full w-full shadow-md"
+                            />
+                          </div>
+                        </div>
+                        <div className="px-6 mt-16">
+                          <h1 className="font-bold text-3xl text-center mb-1">
+                            Dra. Sofía Vargas
+                          </h1>
+                          <p className="text-gray-800 text-lg text-center">
+                            Dermatóloga
+                          </p>
+                          <p className="text-center text-gray-600 text-base pt-3 font-normal">
+                            Dermatóloga certificada que cuenta con una amplia formación
+                            en el campo de la Dermatología cosmética.
+                          </p>
+                          <div className="w-full flex justify-center pt-5 pb-5">
+                            <a href="https://twitter.com/?lang=es" className="mx-5">
+                              <div aria-label="Twitter">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width={24}
+                                  height={24}
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="#718096"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="feather feather-twitter"
+                                >
+                                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+                                </svg>
+                              </div>
+                            </a>
+                            <a href="https://www.facebook.com/" className="mx-5">
+                              <div aria-label="Twitter">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width={24}
+                                  height={24}
+                                  viewBox="0 0 17 18"
+                                  fill="none"
+                                  stroke="#718096"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="feather feather-facebook"
+                                >
+                                  <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                                </svg>
+                              </div>
+                            </a>
+                            <a href="https://www.instagram.com/" className="mx-5">
+                              <div aria-label="Instagram">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width={24}
+                                  height={24}
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="#718096"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="feather feather-instagram"
+                                >
+                                  <rect
+                                    x={2}
+                                    y={2}
+                                    width={20}
+                                    height={20}
+                                    rx={5}
+                                    ry={5}
+                                  />
+                                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                                </svg>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5"
+                    >
+                      <div className="rounded overflow-hidden shadow-md bg-white">
+                        <div className="absolute -mt-20 w-full flex justify-center">
+                          <div className="h-32 w-32">
+                            <img
+                              src={neurologo}
+                              alt="Neurologo"
+                              className="rounded-full object-cover h-full w-full shadow-md"
+                            />
+                          </div>
+                        </div>
+                        <div className="px-6 mt-16">
+                          <h1 className="font-bold text-3xl text-center mb-1">
+                            Dra. Judith Rosas
+                          </h1>
+                          <p className="text-gray-800 text-lg text-center">
+                            Neuróloga
+                          </p>
+                          <p className="text-center text-gray-600 text-base pt-3 font-normal">
+                            Neuróloga con Alta Especialidad en Enfermedades Neuromusculares,
+                            siendo la Única en el Occidente del País con esta formación.
+                          </p>
+                          <div className="w-full flex justify-center pt-5 pb-5">
+                            <a href="https://twitter.com/?lang=es" className="mx-5">
+                              <div aria-label="Twitter">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width={24}
+                                  height={24}
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="#718096"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="feather feather-twitter"
+                                >
+                                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+                                </svg>
+                              </div>
+                            </a>
+                            <a href="https://www.facebook.com/" className="mx-5">
+                              <div aria-label="Twitter">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width={24}
+                                  height={24}
+                                  viewBox="0 0 17 18"
+                                  fill="none"
+                                  stroke="#718096"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="feather feather-facebook"
+                                >
+                                  <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                                </svg>
+                              </div>
+                            </a>
+                            <a href="https://www.instagram.com/" className="mx-5">
+                              <div aria-label="Instagram" >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width={24}
+                                  height={24}
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="#718096"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="feather feather-instagram"
+                                >
+                                  <rect
+                                    x={2}
+                                    y={2}
+                                    width={20}
+                                    height={20}
+                                    rx={5}
+                                    ry={5}
+                                  />
+                                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                                </svg>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5"
+                    >
+                      <div className="rounded overflow-hidden shadow-md bg-white">
+                        <div className="absolute -mt-20 w-full flex justify-center">
+                          <div className="h-32 w-32">
+                            <img
+                              src={ginecologo}
+                              alt="Ginecologo"
+                              className="rounded-full object-cover h-full w-full shadow-md"
+                            />
+                          </div>
+                        </div>
+                        <div className="px-6 mt-16">
+                          <h1 className="font-bold text-3xl text-center mb-1">
+                            Dr. Brandon Rubio
+                          </h1>
+                          <p className="text-gray-800 text-lg text-center">
+                            Ginecólogo
+                          </p>
+                          <p className="text-center text-gray-600 text-base pt-3 font-normal">
+                            Más de 5 años de experiencia, médico egresado de la Universidad de Guadalajara,
+                            con la especialidad de Ginecología y obstetricia.
+                          </p>
+                          <div className="w-full flex justify-center pt-5 pb-5">
+                            <a href="https://twitter.com/?lang=es" className="mx-5">
+                              <div aria-label="Twitter" >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width={24}
+                                  height={24}
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="#718096"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="feather feather-twitter"
+                                >
+                                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+                                </svg>
+                              </div>
+                            </a>
+                            <a href="https://www.facebook.com/" className="mx-5">
+                              <div aria-label="Twitter">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width={24}
+                                  height={24}
+                                  viewBox="0 0 17 18"
+                                  fill="none"
+                                  stroke="#718096"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="feather feather-facebook"
+                                >
+                                  <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                                </svg>
+                              </div>
+                            </a>
+                            <a href="https://www.instagram.com/" className="mx-5">
+                              <div aria-label="Instagram" >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width={24}
+                                  height={24}
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="#718096"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="feather feather-instagram"
+                                >
+                                  <rect
+                                    x={2}
+                                    y={2}
+                                    width={20}
+                                    height={20}
+                                    rx={5}
+                                    ry={5}
+                                  />
+                                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                                </svg>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5"
+                    >
+                      <div className="rounded overflow-hidden shadow-md bg-white">
+                        <div className="absolute -mt-20 w-full flex justify-center">
+                          <div className="h-32 w-32">
+                            <img
+                              src={Pediatra}
+                              alt="Pediatra"
+                              className="rounded-full object-cover h-full w-full shadow-md"
+                            />
+                          </div>
+                        </div>
+                        <div className="px-6 mt-16">
+                          <h1 className="font-bold text-3xl text-center mb-1">
+                            Dra. Denisse Sandoval
+                          </h1>
+                          <p className="text-gray-800 text-lg text-center">
+                            Pediatra
+                          </p>
+                          <p className="text-center text-gray-600 text-base pt-3 font-normal">
+                            Certificada ante el Consejo Mexicano de Certificación en Pediatría,
+                            en constante actualización y altamente comprometida en brindar atención de calidad.
+                          </p>
+                          <div className="w-full flex justify-center pt-5 pb-5">
+                            <a href="https://twitter.com/?lang=es" className="mx-5">
+                              <div aria-label="Twitter">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width={24}
+                                  height={24}
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="#718096"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="feather feather-twitter"
+                                >
+                                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+                                </svg>
+                              </div>
+                            </a>
+                            <a href="https://www.facebook.com/" className="mx-5">
+                              <div aria-label="Twitter">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width={24}
+                                  height={24}
+                                  viewBox="0 0 17 18"
+                                  fill="none"
+                                  stroke="#718096"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="feather feather-facebook"
+                                >
+                                  <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                                </svg>
+                              </div>
+                            </a>
+                            <a href="https://www.instagram.com/" className="mx-5">
+                              <div aria-label="Instagram">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width={24}
+                                  height={24}
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="#718096"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="feather feather-instagram"
+                                >
+                                  <rect
+                                    x={2}
+                                    y={2}
+                                    width={20}
+                                    height={20}
+                                    rx={5}
+                                    ry={5}
+                                  />
+                                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                                </svg>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5"
+                    >
+                      <div className="rounded overflow-hidden shadow-md bg-white">
+                        <div className="absolute -mt-20 w-full flex justify-center">
+                          <div className="h-32 w-32">
+                            <img
+                              src={nutri}
+                              alt="Nutriologo"
+                              className="rounded-full object-cover h-full w-full shadow-md"
+                            />
+                          </div>
+                        </div>
+                        <div className="px-6 mt-16">
+                          <h1 className="font-bold text-3xl text-center mb-1">
+                            Lic. Carolina Ávila
+                          </h1>
+                          <p className="text-gray-800 text-lg text-center">
+                            Nutríologo
+                          </p>
+                          <p className="text-center text-gray-600 text-base pt-3 font-normal">
+                            Especialista en Nutrición Clínica y Deportiva,
+                            realicé mis practicas Clínicas en el servició de bariatria, obesidad, gastroenterología, prevención,
+                            geriatria y control de peso.
+                          </p>
+                          <div className="w-full flex justify-center pt-5 pb-5">
+                            <a href="https://twitter.com/?lang=es" className="mx-5">
+                              <div aria-label="Github">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width={24}
+                                  height={24}
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="#718096"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="feather feather-github"
+                                >
+                                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                                </svg>
+                              </div>
+                            </a>
+                            {/* Facebook */}
+                            <a href="https://www.facebook.com/" className="mx-5">
+                              <div aria-label="Twitter">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width={24}
+                                  height={24}
+                                  viewBox="0 0 17 18"
+                                  fill="none"
+                                  stroke="#718096"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="feather feather-facebook"
+                                >
+                                  <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                                </svg>
+                              </div>
+                            </a>
+                            <a href="https://www.instagram.com/" className="mx-5">
+                              <div aria-label="Instagram">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width={24}
+                                  height={24}
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="#718096"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="feather feather-instagram"
+                                >
+                                  <rect
+                                    x={2}
+                                    y={2}
+                                    width={20}
+                                    height={20}
+                                    rx={5}
+                                    ry={5}
+                                  />
+                                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                                </svg>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </dh-component>
+          </div>
+        </>
+
         {/* <section className="pb-20 relative block bg-blue-800">
           <div
             className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20"
