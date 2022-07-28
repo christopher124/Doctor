@@ -30,6 +30,8 @@ import { ListPrescripView } from "../../pages/admin/prescription/ListPrescripVie
 import { NewPrescriptionView } from "../../pages/admin/prescription/NewPrescriptionView";
 import { PrescripView } from "../../pages/admin/prescription/PrescripView";
 import { EditPrescriptionView } from "../../pages/admin/prescription/EditPrescriptionView";
+import { PrivacityView } from "../../pages/admin/PrivacityView";
+import { MapsView } from "../../pages/admin/MapsView";
 
 export function AppRouter() {
   const [user, setUser] = useState({});
@@ -57,6 +59,8 @@ export function AppRouter() {
         <Route path="/contacto" element={<ContactView />} />
         <Route path="/citas" element={<QuotesView />} />
         <Route path="/login" element={<LoginView />} />
+        <Route path="/privacidad" element={<PrivacityView />} />
+        <Route path="/ubicacion" element={<MapsView />} />
         <Route path="*" element={<NotFound />} />
         {/* Rutas privadas: Administrador*/}
         {user?.role?.name === "Admin" ? (

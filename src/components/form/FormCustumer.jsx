@@ -18,7 +18,7 @@ export function FormCustumer({ customer }) {
   useEffect(() => {
     (async () => {
       const user = await getUserApi(logout);
-      setUser(user);
+      setUser(user.filter((user) => user?.role?.name === "Paciente"));
     })();
   }, [auth]);
 
@@ -92,12 +92,12 @@ export function FormCustumer({ customer }) {
         <Form onSubmit={formik.handleSubmit} className="mt-10">
           <div className=" grid xl:grid-cols-3 xl:gap-6">
             <div className="text-lg w-full mb-6 group">
-              <p
+              <label
                 htmlFor="name"
                 className="block text-xl font-bold  text-gray-800 "
               >
                 Nombres
-              </p>
+              </label>
               <Form.Input
                 type="text"
                 id="name"
@@ -109,12 +109,12 @@ export function FormCustumer({ customer }) {
               />
             </div>
             <div className="text-lg w-full mb-6 group">
-              <p
+              <label
                 htmlFor="last"
                 className="block text-xl font-bold  text-gray-800 "
               >
                 Apellidos
-              </p>
+              </label>
               <Form.Input
                 type="text"
                 id="last"
@@ -126,12 +126,12 @@ export function FormCustumer({ customer }) {
               />
             </div>
             <div className=" w-full mb-6 group">
-              <p
+              <label
                 htmlFor="state"
                 className="block font-bold text-xl text-gray-700"
               >
                 Género
-              </p>
+              </label>
               <Form.Dropdown
                 placeholder="Seleciona un Género"
                 options={options}
@@ -148,12 +148,12 @@ export function FormCustumer({ customer }) {
           </div>
           <div className="grid xl:grid-cols-6 xl:gap-6">
             <div className="  w-full mb-6 group">
-              <p
+              <label
                 htmlFor="address"
                 className="block font-bold text-xl text-gray-700"
               >
                 Calle y Número
-              </p>
+              </label>
               <Form.Input
                 type="text"
                 name="address"
@@ -165,12 +165,12 @@ export function FormCustumer({ customer }) {
               />
             </div>
             <div className="w-full mb-6 group">
-              <p
+              <label
                 htmlFor="suburb"
                 className="block font-bold text-xl text-gray-700"
               >
                 Colonia
-              </p>
+              </label>
               <Form.Input
                 type="text"
                 name="suburb"
@@ -182,12 +182,12 @@ export function FormCustumer({ customer }) {
               />
             </div>
             <div className="  w-full mb-6 group">
-              <p
+              <label
                 htmlFor="town"
                 className="block font-bold text-xl text-gray-700"
               >
                 Municipio
-              </p>
+              </label>
               <Form.Input
                 type="text"
                 name="town"
@@ -199,12 +199,12 @@ export function FormCustumer({ customer }) {
               />
             </div>
             <div className="  w-full mb-6 group">
-              <p
+              <label
                 htmlFor="number_int_address"
                 className="block font-bold text-xl text-gray-700"
               >
                 Número Interior
-              </p>
+              </label>
               <Form.Input
                 type="text"
                 name="number_int_address"
@@ -213,12 +213,12 @@ export function FormCustumer({ customer }) {
               />
             </div>
             <div className="text-lg w-full mb-6 group">
-              <p
+              <label
                 htmlFor="zip"
                 className="block text-xl font-bold  text-gray-800 "
               >
                 Código Postal
-              </p>
+              </label>
               <Form.Input
                 type="text"
                 id="zip"
@@ -230,12 +230,12 @@ export function FormCustumer({ customer }) {
               />
             </div>
             <div className=" w-full mb-6 group">
-              <p
+              <label
                 htmlFor="state"
                 className="block font-bold text-xl text-gray-700"
               >
                 Estado
-              </p>
+              </label>
               <Form.Dropdown
                 id="state"
                 placeholder="Seleciona un Estado"
@@ -253,12 +253,12 @@ export function FormCustumer({ customer }) {
           </div>
           <div className=" grid xl:grid-cols-3 xl:gap-6">
             <div className="text-lg w-full mb-6 group">
-              <p
+              <label
                 htmlFor="phone"
                 className="block text-xl font-bold  text-gray-800 "
               >
                 Número de télefono
-              </p>
+              </label>
               <Form.Input
                 type="text"
                 id="phone"
@@ -270,12 +270,12 @@ export function FormCustumer({ customer }) {
               />
             </div>
             <div className="text-lg w-full mb-6 group">
-              <p
+              <label
                 htmlFor="birthday"
                 className="block text-xl font-bold  text-gray-800 "
               >
                 Fecha de Nacimiento
-              </p>
+              </label>
               <Form.Input
                 type="date"
                 id="birthday"
@@ -288,12 +288,12 @@ export function FormCustumer({ customer }) {
               />
             </div>
             <div className="text-lg w-full mb-6 group">
-              <p
+              <label
                 htmlFor="user"
                 className="block text-xl font-bold  text-gray-800 "
               >
                 Usuario
-              </p>
+              </label>
               <select
                 value={formik.values.user}
                 name="user"

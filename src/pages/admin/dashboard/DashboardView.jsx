@@ -9,7 +9,7 @@ import { DoctorView } from "../../../components/Admin/doctor/DoctorView";
 import useAuth from "../../../hooks/useAuth";
 import { Link } from "react-router-dom";
 import { UsersView } from "../../../components/Admin/user/UsersView";
-import { BarChartUser } from "../../../components/Charts/BarChartUser";
+import { DoughnutChartUser } from "../../../components/Charts/DoughnutChartUser";
 
 export function DashboardView() {
   const [user, setUser] = useState({});
@@ -67,7 +67,7 @@ export function DashboardView() {
         <>
           <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
             <div className="w-full lg:w-1/4">
-              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-800 to-slate-800">
+              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-700 to-slate-700">
                 <div className="flex flex-row items-center justify-between">
                   <div className="flex flex-col">
                     <div className="font-mont font-semibold text-xs text-white uppercase">
@@ -82,7 +82,7 @@ export function DashboardView() {
               </div>
             </div>
             <div className="w-full lg:w-1/4">
-              <div className="w-full p-4 rounded-lg  border bg-gradient-to-r from-cyan-800 to-slate-800">
+              <div className="w-full p-4 rounded-lg  border bg-gradient-to-r from-cyan-700 to-slate-700">
                 <div className="flex flex-row items-center justify-between">
                   <div className="flex flex-col">
                     <div className="text-mont text-xs font-bold text-white uppercase">
@@ -98,7 +98,7 @@ export function DashboardView() {
             </div>
             <div className="w-full lg:w-1/4">
               {" "}
-              <div className="w-full p-4 rounded-lg  border bg-gradient-to-r from-cyan-800 to-slate-800">
+              <div className="w-full p-4 rounded-lg  border bg-gradient-to-r from-cyan-700 to-slate-700">
                 <div className="flex flex-row items-center justify-between">
                   <div className="flex flex-col">
                     <div className="text-xs font-bold text-white uppercase">
@@ -114,7 +114,7 @@ export function DashboardView() {
             </div>
             <div className="w-full lg:w-1/4">
               {" "}
-              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-800 to-slate-800">
+              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-700 to-slate-700">
                 <div className="flex flex-row items-center justify-between">
                   <div className="flex flex-col">
                     <div className="text-xs font-bold text-white uppercase">
@@ -131,17 +131,17 @@ export function DashboardView() {
           </div>
           <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
             <div className="w-full lg:w-2/3">
-              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-800 to-slate-800"></div>
+              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-700 to-slate-700"></div>
             </div>
             <div className="w-full lg:w-1/3">
-              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-800 to-slate-800">
-                <BarChartUser />
+              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-700 to-slate-700">
+                <DoughnutChartUser />
               </div>
             </div>
           </div>
           <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
             <div className="w-full lg:w-1/2">
-              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-800 to-slate-800">
+              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-700 to-slate-700">
                 <div className="flex flex-row items-center justify-between mb-6">
                   <div className="flex flex-col">
                     <div className="text-sm font-light text-white">
@@ -183,7 +183,7 @@ export function DashboardView() {
               </div>
             </div>
             <div className="w-full lg:w-1/2">
-              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-800 to-slate-800">
+              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-700 to-slate-700">
                 <div className="flex flex-row items-center justify-between mb-6">
                   <div className="flex flex-col">
                     <i className="p-1 fas fa-users text-white text-xl"></i>
@@ -228,7 +228,7 @@ export function DashboardView() {
           <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
             <div className="w-full ">
               {" "}
-              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-800 to-slate-800">
+              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-700 to-slate-700">
                 <div className="flex flex-row items-center justify-between">
                   <div className="flex flex-col">
                     <div className="text-xs font-bold text-white uppercase">
@@ -248,7 +248,7 @@ export function DashboardView() {
         <>
           <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
             <div className="w-full lg:w-1/4">
-              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-800 to-slate-800">
+              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-700 to-slate-700">
                 <div className="flex flex-row items-center justify-between">
                   <div className="flex flex-col">
                     <div className="font-mont font-semibold text-xs text-white uppercase">
@@ -263,7 +263,7 @@ export function DashboardView() {
               </div>
             </div>
             <div className="w-full lg:w-1/4">
-              <div className="w-full p-4 rounded-lg  border bg-gradient-to-r from-cyan-800 to-slate-800">
+              <div className="w-full p-4 rounded-lg  border bg-gradient-to-r from-cyan-700 to-slate-700">
                 <div className="flex flex-row items-center justify-between">
                   <div className="flex flex-col">
                     <div className="text-mont text-xs font-bold text-white uppercase">
@@ -279,7 +279,7 @@ export function DashboardView() {
             </div>
             <div className="w-full lg:w-1/4">
               {" "}
-              <div className="w-full p-4 rounded-lg  border bg-gradient-to-r from-cyan-800 to-slate-800">
+              <div className="w-full p-4 rounded-lg  border bg-gradient-to-r from-cyan-700 to-slate-700">
                 <div className="flex flex-row items-center justify-between">
                   <div className="flex flex-col">
                     <div className="text-xs font-bold text-white uppercase">
@@ -295,7 +295,7 @@ export function DashboardView() {
             </div>
             <div className="w-full lg:w-1/4">
               {" "}
-              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-800 to-slate-800">
+              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-700 to-slate-700">
                 <div className="flex flex-row items-center justify-between">
                   <div className="flex flex-col">
                     <div className="text-xs font-bold text-white uppercase">
@@ -312,17 +312,17 @@ export function DashboardView() {
           </div>
           <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
             <div className="w-full lg:w-2/3">
-              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-800 to-slate-800"></div>
+              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-700 to-slate-700"></div>
             </div>
             <div className="w-full lg:w-1/3">
-              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-800 to-slate-800">
-                <BarChartUser />
+              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-700 to-slate-700">
+                <DoughnutChartUser />
               </div>
             </div>
           </div>
           <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
             <div className="w-full lg:w-1/2">
-              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-800 to-slate-800">
+              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-700 to-slate-700">
                 <div className="flex flex-row items-center justify-between mb-6">
                   <div className="flex flex-col">
                     <div className="text-sm font-light text-white">
@@ -364,7 +364,7 @@ export function DashboardView() {
               </div>
             </div>
             <div className="w-full lg:w-1/2">
-              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-800 to-slate-800">
+              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-700 to-slate-700">
                 <div className="flex flex-row items-center justify-between mb-6">
                   <div className="flex flex-col">
                     <i className="p-1 fas fa-users text-white text-xl"></i>

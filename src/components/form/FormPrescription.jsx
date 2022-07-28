@@ -88,12 +88,12 @@ export function FormPrescription({ prescription }) {
         <Form onSubmit={formik.handleSubmit} className="mt-10">
           <div className=" grid xl:grid-cols-5 xl:gap-6">
             <div className="text-lg w-full mb-6 group">
-              <p
+              <label
                 htmlFor="customer"
                 className="block text-xl font-bold  text-gray-800 "
               >
                 Nombre del paciente
-              </p>
+              </label>
               <select
                 value={formik.values.customer}
                 name="customer"
@@ -137,12 +137,12 @@ export function FormPrescription({ prescription }) {
               )}
             </div>
             <div className="text-lg w-full mb-6 group">
-              <p
+              <label
                 htmlFor="doctor"
                 className="block text-xl font-bold  text-gray-800 "
               >
                 Nombre del doctor
-              </p>
+              </label>
               <select
                 value={formik.values.doctor}
                 name="doctor"
@@ -186,12 +186,12 @@ export function FormPrescription({ prescription }) {
               )}
             </div>
             <div className="w-full mb-6 group">
-              <p
+              <label
                 htmlFor="weight"
                 className="block font-bold text-xl text-gray-700"
               >
                 Peso del paciente
-              </p>
+              </label>
               <Form.Input
                 type="text"
                 name="weight"
@@ -203,12 +203,12 @@ export function FormPrescription({ prescription }) {
               />
             </div>
             <div className="w-full mb-6 group">
-              <p
+              <label
                 htmlFor="size"
                 className="block font-bold text-xl text-gray-700"
               >
                 Altura del paciente
-              </p>
+              </label>
               <Form.Input
                 type="text"
                 name="size"
@@ -220,12 +220,12 @@ export function FormPrescription({ prescription }) {
               />
             </div>
             <div className="w-full mb-6 group">
-              <p
+              <label
                 htmlFor="allergies"
                 className="block font-bold text-xl text-gray-700"
               >
                 Alergias del paciente
-              </p>
+              </label>
               <Form.Input
                 type="text"
                 name="allergies"
@@ -239,12 +239,12 @@ export function FormPrescription({ prescription }) {
           </div>
           <div className=" grid xl:grid-cols-2 xl:gap-6">
             <div className="w-full mb-6 group">
-              <p
+              <label
                 htmlFor="observations"
                 className="block font-bold text-xl text-gray-700"
               >
                 Observaciones
-              </p>
+              </label>
               <Form.TextArea
                 type="text"
                 name="observations"
@@ -256,12 +256,12 @@ export function FormPrescription({ prescription }) {
               />
             </div>
             <div className="w-full mb-6 group">
-              <p
+              <label
                 htmlFor="treatment"
                 className="block font-bold text-xl text-gray-700"
               >
                 Tratamiento del paciente
-              </p>
+              </label>
               <Form.TextArea
                 type="text"
                 name="treatment"
@@ -290,7 +290,7 @@ function initialValues(prescription) {
     customer: null,
     doctor: null,
     size: prescription?.size ?? "",
-    allergies: prescription?.prescription ?? "",
+    allergies: prescription?.allergies ?? "",
     observations: prescription?.observations ?? "",
     treatment: prescription?.treatment ?? "",
     file_number:

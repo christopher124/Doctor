@@ -30,7 +30,7 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
   useEffect(() => {
     (async () => {
       const user = await getUserApi(logout);
-      setUser(user);
+      setUser(user.filter((user) => user?.role?.name === "Doctor"));
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth]);
@@ -98,12 +98,12 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
         <Form onSubmit={formik.handleSubmit} className="mt-10">
           <div className=" grid xl:grid-cols-3 xl:gap-6">
             <div className="text-lg w-full mb-6 group">
-              <p
+              <label
                 htmlFor="name"
                 className="block text-xl font-bold  text-gray-800 "
               >
                 Nombres
-              </p>
+              </label>
               <Form.Input
                 type="text"
                 id="name"
@@ -115,12 +115,12 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
               />
             </div>
             <div className="text-lg w-full mb-6 group">
-              <p
+              <label
                 htmlFor="last"
                 className="block font-bold text-xl  text-gray-700"
               >
                 Apellidos
-              </p>
+              </label>
               <Form.Input
                 type="text"
                 name="last"
@@ -132,12 +132,12 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
               />
             </div>
             <div className="text-lg w-full mb-6 group">
-              <p
+              <label
                 htmlFor="gender"
                 className="block font-bold text-xl text-gray-700"
               >
                 Género
-              </p>
+              </label>
 
               <Form.Dropdown
                 id="gender"
@@ -154,12 +154,12 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
           </div>
           <div className="grid xl:grid-cols-6 xl:gap-6">
             <div className="text-lg w-full mb-6 group">
-              <p
+              <label
                 htmlFor="address"
                 className="block font-bold text-xl text-gray-700"
               >
                 Calle y Número
-              </p>
+              </label>
               <Form.Input
                 type="text"
                 name="address"
@@ -171,12 +171,12 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
               />
             </div>
             <div className="text-lg w-full mb-6 group">
-              <p
+              <label
                 htmlFor="suburb"
                 className="block font-bold text-xl text-gray-700"
               >
                 Colonia
-              </p>
+              </label>
               <Form.Input
                 type="text"
                 name="suburb"
@@ -188,12 +188,12 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
               />
             </div>
             <div className="text-lg w-full mb-6 group">
-              <p
+              <label
                 htmlFor="town"
                 className="block font-bold text-xl text-gray-700"
               >
                 Municipio
-              </p>
+              </label>
               <Form.Input
                 type="text"
                 name="town"
@@ -205,12 +205,12 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
               />
             </div>
             <div className="text-lg w-full mb-6 group">
-              <p
+              <label
                 htmlFor="number_int_address"
                 className="block font-bold text-xl text-gray-700"
               >
                 Número interior
-              </p>
+              </label>
               <Form.Input
                 type="text"
                 name="number_int_address"
@@ -219,12 +219,12 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
               />
             </div>
             <div className="text-lg w-full mb-6 group">
-              <p
+              <label
                 htmlFor="zip"
                 className="block font-bold text-xl text-gray-700"
               >
                 Código postal
-              </p>
+              </label>
               <Form.Input
                 type="text"
                 name="zip"
@@ -236,12 +236,12 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
               />
             </div>
             <div className="text-lg w-full mb-6 group">
-              <p
+              <label
                 htmlFor="state"
                 className="block font-bold text-xl text-gray-700"
               >
                 Estado
-              </p>
+              </label>
               <Dropdown
                 placeholder="Seleciona un Estado"
                 options={contriesOptions}
@@ -258,12 +258,12 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
           </div>
           <div className="grid xl:grid-cols-3 xl:gap-6">
             <div className="text-lg w-full mb-6 group">
-              <p
+              <label
                 htmlFor="phone"
                 className="block font-bold text-xl text-gray-700"
               >
                 Número de télefono
-              </p>
+              </label>
               <Form.Input
                 type="tel"
                 name="phone"
@@ -275,12 +275,12 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
               />
             </div>
             <div className="text-lg w-full mb-6 group">
-              <p
+              <label
                 htmlFor="birthday"
                 className="block font-bold text-xl text-gray-700"
               >
                 Fecha de Nacimiento
-              </p>
+              </label>
               <Form.Input
                 type="date"
                 min={minDate}
@@ -294,12 +294,12 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
               />
             </div>
             <div className="text-lg w-full mb-6 group">
-              <p
+              <label
                 htmlFor="user"
                 className="block text-xl font-bold text-gray-800 "
               >
                 Usuario
-              </p>
+              </label>
               <select
                 value={formik.values.user}
                 name="user"
@@ -345,12 +345,12 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
           </div>
           <div className="grid xl:grid-cols-2 xl:gap-6">
             <div className="text-lg w-full mb-6 group">
-              <p
+              <label
                 htmlFor="birthday"
                 className="block font-bold text-xl text-gray-700"
               >
                 Especialidad
-              </p>
+              </label>
               <Form.Dropdown
                 id="specialties"
                 placeholder="Seleciona una especialidad"
@@ -365,12 +365,12 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
               />
             </div>
             <div className="text-lg w-full mb-6 group">
-              <p
+              <label
                 htmlFor="status"
                 className="block font-bold text-xl text-gray-700"
               >
                 Estatus del doctor
-              </p>
+              </label>
               <Form.Dropdown
                 id="status"
                 placeholder="Seleciona un Estatus del Doctor"
