@@ -82,6 +82,7 @@ export function HomeView() {
           </svg>
         </div>
 
+
         <div className="container mx-auto">
           <div className="flex flex-wrap items-center">
             <div className="w-10/12 md:w-6/12 lg:w-4/12 px-12 md:px-4 mr-auto ml-auto -mt-32">
@@ -99,13 +100,13 @@ export function HomeView() {
                 <div className="w-full md:w-6/12 px-4">
                   <div className="relative flex flex-col mt-4">
                     <div className="px-4 py-5 flex-auto">
-                      <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-                        <i className="fas fa-stethoscope"></i>
+                      <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-14 h-14 mb-5 shadow-lg rounded-full bg-white">
+                        <i className="fas fa-stethoscope text-xl"></i>
                       </div>
                       <h6 className="text-2xl mb-1 font-semibold">
                         Más experiencia
                       </h6>
-                      <p className="mb-4 text-blueGray-500 text-lg text-justify">
+                      <p className="mb-4 text-blueGray-500 text-xl text-justify">
                         Los millones de pacientes a quienes brindamos
                         tratamiento cada año nos preparan para tratar a la
                         persona que más importa: tú.
@@ -114,13 +115,13 @@ export function HomeView() {
                   </div>
                   <div className="relative flex flex-col min-w-0">
                     <div className="px-4 py-5 flex-auto">
-                      <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-                        <i className="fas fa-user-nurse"></i>
+                      <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-14 h-14 mb-5 shadow-lg rounded-full bg-white">
+                        <i className="fas fa-user-nurse text-xl"></i>
                       </div>
                       <h6 className="text-2xl mb-1 font-semibold">
                         Tú eres la prioridad
                       </h6>
-                      <p className="mb-4 text-blueGray-500 text-lg text-justify">
+                      <p className="mb-4 text-blueGray-500 text-xl text-justify">
                         El tratamiento en Santa Barbara es verdaderamente una
                         experiencia humana. Recibes atención médica como una
                         persona, antes que nada.
@@ -131,13 +132,13 @@ export function HomeView() {
                 <div className="w-full md:w-6/12 px-4">
                   <div className="relative flex flex-col min-w-0 mt-4">
                     <div className="px-4 py-5 flex-auto">
-                      <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-                        <i className="fas fa-notes-medical"></i>{" "}
+                      <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-14 h-14 mb-5 shadow-lg rounded-full bg-white">
+                        <i className="fas fa-notes-medical text-xl"></i>{" "}
                       </div>
-                      <h6 className="text-2xl mb-1 font-semibold">
+                      <h6 className="text-2xl mb-1 font-semibold ">
                         Las respuestas correctas
                       </h6>
-                      <p className="mb-4 text-blueGray-500 text-lg text-justify">
+                      <p className="mb-4 text-blueGray-500 text-xl text-justify">
                         Confía en nuestros expertos para obtener un diagnóstico
                         preciso y el mejor plan para ti la primera vez.
                       </p>
@@ -145,13 +146,13 @@ export function HomeView() {
                   </div>
                   <div className="relative flex flex-col min-w-0">
                     <div className="px-4 py-5 flex-auto">
-                      <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-                        <i className="fas fa-file-alt"></i>
+                      <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-14 h-14 mb-5 shadow-lg rounded-full bg-white">
+                        <i className="fas fa-file-alt text-xl"></i>
                       </div>
                       <h6 className="text-2xl mb-1 font-semibold">
                         Innovación con repercusión
                       </h6>
-                      <p className="mb-4 text-blueGray-500 text-lg text-justify">
+                      <p className="mb-4 text-blueGray-500 text-xl text-justify">
                         Toda la atención médica a nuestros pacientes, la
                         educación y la investigación están orientadas a realizar
                         descubrimientos que puedan ayudar a que te recuperes.

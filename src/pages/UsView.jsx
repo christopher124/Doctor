@@ -81,7 +81,7 @@ export function UsView() {
                 <h3 className="text-3xl mb-2 font-semibold leading-normal">
                   Misión
                 </h3>
-                <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-black text-justify">
+                <p className="text-xl font-light leading-relaxed mt-0 mb-4 text-black text-justify">
                   Mejorar la salud y la calidad de vida de los ciudadanos,
                   ofertando servicios sanitarios de calidad, con el paciente como
                   centro de nuestra atención, y profesionales altamente cualificados,
@@ -134,11 +134,11 @@ export function UsView() {
               <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
                 <div className="md:pr-12 -mt-20">
                   <div className="text-blue-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
-                    <i className="fas fa-eye text-xl"></i>
+                    <i className="fas fa-hospital text-xl"></i>
                   </div>
                   <h3 className="text-3xl font-semibold">Visión</h3>
                   {/* text-blue-500 */}
-                  <p className="mt-4 text-lg leading-relaxed text-black text-justify">
+                  <p className="mt-4 text-xl leading-relaxed text-black text-justify ">
                     Conseguir la mejor asistencia médica y ética, que nos permita crecer,
                     mejorar en eficacia y eficiencia, ser reconocidos por nuestros
                     usuarios por la calidad en los servicios. Ofrecer
@@ -150,9 +150,24 @@ export function UsView() {
                 </div>
               </div>
             </div>
+            {/* Acordion */}
           </div>
         </section>
+        <div className="p-10 bg-gray-200 text-gray-700">
+          <div className=" relative w-[400px] overflow-hidden">
+            <input type="checkbox" />
+            <div className=" bg-blue-500 h-12 w-full pl-5 flex items-center">
+              <h1 className=" text-lg font-semibold text-white">¿Donde estamos ubicados?</h1>
+            </div>
+            {/* icono de flecha */}
+            <div>
+              <i className="fas fa-chevron-down"></i>
+            </div>
+          </div>
+        </div>
+        {/* Preguntas frecuentes */}
       </main>
+
       <Footer />
     </>
   );
