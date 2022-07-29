@@ -2,6 +2,7 @@ import { NavBar } from "../components/navbar/NavBar";
 import { Link } from "react-router-dom";
 import { Footer } from "../components/footer/Footer";
 import Imghome from "../assets/img/prueba3.jpg";
+import Home2 from "../assets/img/Home-2Img.jpg"
 
 export function HomeView() {
   return (
@@ -86,11 +87,11 @@ export function HomeView() {
         <div className="container mx-auto">
           <div className="flex flex-wrap items-center">
             <div className="w-10/12 md:w-6/12 lg:w-4/12 px-12 md:px-4 mr-auto ml-auto -mt-32">
-              <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-lightBlue-500">
+              <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-lightBlue-500">
                 <img
                   alt="..."
-                  src="https://t4.ftcdn.net/jpg/02/93/11/31/240_F_293113129_4K3WjrKQY6BEnW7xBINa5NY5vpzFsWxm.jpg"
-                  className="w-full align-middle rounded-t-lg -mb-44"
+                  src={Home2}
+                  className="w-full align-middle rounded-2xl -mb-44"
                 />
               </div>
             </div>
