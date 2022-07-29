@@ -32,6 +32,7 @@ import { PrescripView } from "../../pages/admin/prescription/PrescripView";
 import { EditPrescriptionView } from "../../pages/admin/prescription/EditPrescriptionView";
 import { PrivacityView } from "../../pages/admin/PrivacityView";
 import { MapsView } from "../../pages/admin/MapsView";
+import { ReportView } from "../../pages/admin/reports/ReportView";
 
 export function AppRouter() {
   const [user, setUser] = useState({});
@@ -66,6 +67,7 @@ export function AppRouter() {
         {user?.role?.name === "Administrador" ? (
           <Route path="/admin" element={<SideBar />}>
             <Route path="dashboard" element={<DashboardView />} />
+            <Route path="reportes" element={<ReportView />} />
             <Route path="micuenta" element={<AccountView />} />
             <Route path="doctores" element={<ListDocView />} />
             <Route path="doctor/:id" element={<DocView />} />
