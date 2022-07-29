@@ -25,8 +25,8 @@ export function DoughnutChartUser() {
     datasets: [
       {
         data: [usersA.length, usersP.length],
-        backgroundColor: ["#00A652", "#DB2626"],
-        borderColor: ["#00A652", "#DB2626"],
+        backgroundColor: ["#6BB19A", "#E77C71"],
+        borderColor: ["#6BB19A", "#E77C71"],
         borderWidth: 1,
       },
     ],
@@ -54,14 +54,14 @@ export function DoughnutChartUser() {
 
   return (
     <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-700 to-slate-700">
-      <div className="flex flex-row items-center justify-between mb-6">
+      <div className="flex flex-row items-center justify-between mb-10">
         <div className="flex flex-col">
           <div className="text-sm font-light text-white">
             <span className="text-white">
-              <i className=" p-1 fas fa-user-md text-white text-xl"></i>
+              <i className="p-1 fas fa-user-md text-white text-xl"></i>
             </span>
             <div className="text-ls font-bold text-white">
-              Actividad del usuario
+              Estatus del usuario
             </div>
           </div>
         </div>

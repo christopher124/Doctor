@@ -8,18 +8,18 @@ export function ListQuotesUserView({ quotes }) {
   return (
     <>
       <tr className=" border-b bg-cyan-800 border-white">
-        <th
+        <td
           scope="row"
           className="px-6 py-4 font-medium text-white whitespace-nowrap"
         >
           {customer?.name} {customer?.last}
-        </th>
+        </td>
         <td className="text-white px-6 py-4">
           {doctor?.name} {doctor?.last}
         </td>
         <td className="text-white px-6 py-4">
           {" "}
-          {format(new Date(date ? date : "N/A"), "dd/MM/yyyy hh:mm a")}
+          {date ? format(new Date(date), "dd/MM/yyyy hh:mm a") : "N/A"}
         </td>
         <td className="text-white px-6 py-4">
           {service ? service : "Sin asignación de servicio"}

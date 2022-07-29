@@ -24,6 +24,7 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
     validationSchema: Yup.object(validationSchema()),
     onSubmit: async (formData) => {
       handleSubmit(formData);
+      console.log(formData);
     },
   });
   const { auth, logout } = useAuth();
@@ -209,13 +210,16 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
                 htmlFor="number_int_address"
                 className="block font-bold text-xl text-gray-700"
               >
-                Número interior
+                Numero interior
               </label>
               <Form.Input
                 type="text"
                 name="number_int_address"
                 id="number_int_address"
-                placeholder="Numero Interior (Opcional)"
+                value={formik.values.number_int_address}
+                error={formik.errors.number_int_address}
+                onChange={formik.handleChange}
+                placeholder="G-204"
               />
             </div>
             <div className="text-lg w-full mb-6 group">

@@ -101,20 +101,38 @@ export function BarChartDoctor() {
           citasUro.length,
         ],
         backgroundColor: [
-          "rgba(255, 99, 132)",
-          "rgba(54, 162, 235)",
-          "rgba(255, 206, 86)",
-          "rgba(75, 192, 192)",
-          "rgba(153, 102, 255)",
-          "rgba(255, 159, 64)",
+          "#FFB6AF",
+          "#FFE1AD",
+          "#FAFDB0",
+          "#B0F2C2",
+          "#B0C2F2",
+          "#FFFFE6",
+          "#EAE2CC",
+          "#FFE6ED",
+          "#8064a2",
+          "#E9B1F2",
+          "#BBDFF1",
+          "#80A5CB",
+          "#5B97AF",
+          "#429BD6",
+          "#AD5E95",
         ],
         borderColor: [
-          "rgba(255, 99, 132, 1)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(255, 206, 86, 1)",
-          "rgba(75, 192, 192, 1)",
-          "rgba(153, 102, 255, 1)",
-          "rgba(255, 159, 64, 1)",
+          "#FFB6AF",
+          "#FFE1AD",
+          "#FAFDB0",
+          "#B0F2C2",
+          "#B0C2F2",
+          "#FFFFE6",
+          "#EAE2CC",
+          "#FFE6ED",
+          "#8064a2",
+          "#E9B1F2",
+          "#BBDFF1",
+          "#80A5CB",
+          "#5B97AF",
+          "#429BD6",
+          "#AD5E95",
         ],
         borderWidth: 1,
       },
@@ -165,7 +183,7 @@ export function BarChartDoctor() {
               <i className=" p-1 fas fa-user-md text-white text-xl"></i>
             </span>
             <div className="text-ls font-bold text-white">
-              Citas por especialidad.
+              Citas por especialidad
             </div>
           </div>
         </div>

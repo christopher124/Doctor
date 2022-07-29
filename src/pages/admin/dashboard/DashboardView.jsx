@@ -135,7 +135,7 @@ export function DashboardView() {
               <BarChartDoctor />
             </div>
             <div className="w-full lg:w-1/3">
-              <DoughnutChartUser className="m-4" />
+              <DoughnutChartUser />
             </div>
           </div>
           <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
