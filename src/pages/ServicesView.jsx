@@ -1,7 +1,7 @@
 import { NavBar } from "../components/navbar/NavBar";
 import { Link } from "react-router-dom";
 import { Footer } from "../components/footer/Footer";
-import Servicios from "../assets/img/Servicios.jpg"
+import Servicios from "../assets/img/Servicios-Principal.jpg"
 import Paq1 from "../assets/img/Paq-parto.jpg"
 import Paq2 from "../assets/img/Paq-cesarea.jpg"
 import Paq3 from "../assets/img/paq-lips.jpg"
@@ -41,7 +41,7 @@ export function ServicesView() {
                   <h1 className="text-[#46B0CF] font-semibold text-7xl">
                     Servicios
                   </h1>
-                  <p className="mt-4 text-2xl text-black mr-60 px-3 py-4 text-justify bg-blue-200 rounded-2xl">
+                  <p className="mt-2 text-2xl text-black mr-60 px-2 py-1 text-justify">
                     Instalaciones cómodas y equipo médico de la más alta calidad,
                     convergen para ofrecer una experiencia que sobrepasa las expectativas
                     de un hospital convencional.
