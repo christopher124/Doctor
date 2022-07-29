@@ -7,7 +7,7 @@ export function ListQuotesView({ quotes, handleDelited }) {
 
   return (
     <>
-      <tr className=" border-b bg-gray-800 border-gray-700">
+      <tr className=" border-b bg-cyan-800 border-white">
         <th
           scope="row"
           className="px-6 py-4 font-medium text-white whitespace-nowrap"
@@ -19,7 +19,7 @@ export function ListQuotesView({ quotes, handleDelited }) {
         </td>
         <td className="text-white px-6 py-4">
           {" "}
-          {format(new Date(date ? date : "N/A"), "dd/MM/yyyy HH:mm")}
+          {date ? format(new Date(date), "dd/MM/yyyy hh:mm a") : "N/A"}
         </td>
 
         <td className="py-3 px-6 text-center">
