@@ -7,13 +7,16 @@ export function ListPrescriptionView({ handleDelited, prescription }) {
   const {
     doctor,
     customer,
-    title,
     file_number,
     allergies,
     observations,
     created_at,
     id,
   } = prescription;
+
+  let str = observations;
+  let res = str.substring(0, 50);
+  let final = res + "...";
 
   return (
     <>
@@ -28,7 +31,7 @@ export function ListPrescriptionView({ handleDelited, prescription }) {
           {allergies ? allergies : "N/A"}
         </td>
         <td className="text-white font-medium px-6 py-4 text-center">
-          {observations ? observations : "N/A"}
+          {final ? final + "\n" : "N/A"}
         </td>
         <td className="text-white font-medium px-6 py-4 text-center">
           {format(new Date(created_at), "dd/MM/yyyy hh:mm:ss a")}
