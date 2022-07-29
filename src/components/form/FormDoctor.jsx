@@ -285,7 +285,6 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
                 type="date"
                 min={minDate}
                 max={today}
-                start
                 value={formik.values.birthday}
                 error={formik.errors.birthday}
                 onChange={formik.handleChange}

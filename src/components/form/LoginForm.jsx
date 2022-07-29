@@ -19,7 +19,7 @@ export function LoginForm() {
       setLoading(true);
       try {
         const response = await loginApi(formData);
-        if (response?.jwt && response?.user?.role?.name === "Admin") {
+        if (response?.jwt && response?.user?.role?.name === "Administrador") {
           login(response.jwt);
           toast.success("Bienvenido" + " " + response.user.username);
           navigate("/admin/dashboard");

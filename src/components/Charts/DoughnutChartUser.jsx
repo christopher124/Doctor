@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
-import { getCountUserApi, getUserApi } from "../../api/admin/user";
-import { getDoctorApi, getCountDoctorApi } from "../../api/admin/doctor";
+import { useState, useEffect, useCallback, useRef } from "react";
+import { getUserApi } from "../../api/admin/user";
 
 import useAuth from "../../hooks/useAuth";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
@@ -11,26 +10,23 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 export function DoughnutChartUser() {
   const [usersA, setUsersA] = useState([]);
   const [usersP, setUsersP] = useState([]);
-  const [usersD, setUsersD] = useState([]);
 
   const { auth, logout } = useAuth();
   useEffect(() => {
     (async () => {
       const users = await getUserApi(logout);
-      setUsersA(users.filter((user) => user?.role?.name === "Admin"));
-      setUsersP(users.filter((user) => user?.role?.name === "Paciente"));
-      setUsersD(users.filter((user) => user?.role?.name === "Doctor"));
+      setUsersA(users.filter((user) => user?.confirmed === true));
+      setUsersP(users.filter((user) => user?.blocked === true));
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth, logout]);
   let data = {
-    labels: [" administradores", " Doctores", " Pacientes"],
+    labels: ["Activos", "Bloqueados"],
     datasets: [
       {
-        label: "Roles de usuarios",
-        data: [usersA.length, usersD.length, usersP.length],
-        backgroundColor: ["#EC7652", "#00A652", "#f2f2f2"],
-        borderColor: ["#EC7652", "#00A652", "#f2f2f2"],
+        data: [usersA.length, usersP.length],
+        backgroundColor: ["#00A652", "#DB2626"],
+        borderColor: ["#00A652", "#DB2626"],
         borderWidth: 1,
       },
     ],
@@ -47,5 +43,42 @@ export function DoughnutChartUser() {
       },
     },
   };
-  return <Doughnut data={data} options={options} />;
+  const ref = useRef(null);
+
+  const downloadImage = useCallback(() => {
+    const link = document.createElement("a");
+    link.download = "chart.jpeg";
+    link.href = ref.current.toBase64Image("image/jpeg", 1);
+    link.click();
+  }, []);
+
+  return (
+    <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-700 to-slate-700">
+      <div className="flex flex-row items-center justify-between mb-6">
+        <div className="flex flex-col">
+          <div className="text-sm font-light text-white">
+            <span className="text-white">
+              <i className=" p-1 fas fa-user-md text-white text-xl"></i>
+            </span>
+            <div className="text-ls font-bold text-white">
+              Actividad del usuario
+            </div>
+          </div>
+        </div>
+        <div className="relative inline-block text-left z-10">
+          <button
+            className="inline-flex items-center justify-center w-8 h-8 text-white  rounded-full bg-slate-700  hover:bg-slate-500  focus:outline-none"
+            id="headlessui-menu-button-:Rcmal6:"
+            type="button"
+            onClick={downloadImage}
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <i className="fas fa-solid fa-download"></i>
+          </button>
+        </div>
+      </div>
+      <Doughnut data={data} ref={ref} options={options} />
+    </div>
+  );
 }

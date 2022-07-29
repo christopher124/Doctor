@@ -63,7 +63,7 @@ export function AppRouter() {
         <Route path="/ubicacion" element={<MapsView />} />
         <Route path="*" element={<NotFound />} />
         {/* Rutas privadas: Administrador*/}
-        {user?.role?.name === "Admin" ? (
+        {user?.role?.name === "Administrador" ? (
           <Route path="/admin" element={<SideBar />}>
             <Route path="dashboard" element={<DashboardView />} />
             <Route path="micuenta" element={<AccountView />} />
