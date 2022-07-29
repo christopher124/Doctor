@@ -75,12 +75,12 @@ export function FormUser({ user }) {
         <Form onSubmit={formik.handleSubmit} className="mt-10">
           <div className=" grid xl:grid-cols-3 xl:gap-6">
             <div className="text-lg w-full mb-6 group">
-              <p
+              <label
                 htmlFor="username"
                 className="block text-xl font-bold  text-gray-800 "
               >
                 Nombre de usuario
-              </p>
+              </label>
               <Form.Input
                 type="text"
                 id="username"
@@ -92,12 +92,12 @@ export function FormUser({ user }) {
               />
             </div>
             <div className="  w-full mb-6 group">
-              <p
+              <label
                 htmlFor="email"
                 className="block font-bold text-xl  text-gray-700"
               >
                 Correo
-              </p>
+              </label>
               <Form.Input
                 type="email"
                 name="email"
@@ -109,12 +109,12 @@ export function FormUser({ user }) {
               />
             </div>
             <div className=" w-full mb-6 group">
-              <p
+              <label
                 htmlFor="password"
                 className="block font-bold text-xl text-gray-700"
               >
                 Contraseña
-              </p>
+              </label>
               <Form.Input
                 type="password"
                 name="password"
@@ -126,12 +126,12 @@ export function FormUser({ user }) {
               />
             </div>
             <div className=" w-full mb-6 group">
-              <p
+              <label
                 htmlFor="password"
                 className="block font-bold text-xl text-gray-700"
               >
                 Estatus del usuario
-              </p>
+              </label>
               <Form.Checkbox
                 checked={formik.values.confirmed}
                 error={formik.errors.confirmed}
@@ -152,12 +152,12 @@ export function FormUser({ user }) {
               />
             </div>
             <div className="text-lg w-full mb-6 group">
-              <p
+              <label
                 htmlFor="name"
                 className="block text-xl font-bold  text-gray-800 "
               >
                 Rol de Usuario
-              </p>
+              </label>
               <select
                 value={formik.values.role}
                 name="role"

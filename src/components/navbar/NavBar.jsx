@@ -48,6 +48,19 @@ export function NavBar(props) {
                 Nosotros
               </Link>
             </li>
+            <li className="flex items-center">
+              <Link
+                className={
+                  "px-3 py-4 lg:py-2 flex items-center text-sm uppercase font-bold " +
+                  (window.location.href.indexOf("/ubicacion") !== -1
+                    ? "text-black-700 hover:text-blue-600"
+                    : "text-blue-700 hover:text-blue-500")
+                }
+                to="/ubicacion"
+              >
+                Ubicacion
+              </Link>
+            </li>
 
             <li className="flex items-center">
               <Link

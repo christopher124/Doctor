@@ -277,7 +277,7 @@ export function DocView() {
                     </tr>
                   </thead>
                   <tbody>
-                    {quotes.map((quotes) => (
+                    {quotes?.map((quotes) => (
                       <ListQuotesUserView key={quotes.id} quotes={quotes} />
                     ))}
                   </tbody>

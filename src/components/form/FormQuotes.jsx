@@ -55,12 +55,12 @@ export function FormQuotes() {
         <Form onSubmit={formik.handleSubmit} className="mt-10">
           <div className=" grid xl:grid-cols-3 xl:gap-6">
             <div className="text-lg w-full mb-6 group">
-              <p
+              <label
                 htmlFor="name"
                 className="block text-xl font-bold  text-gray-800 "
               >
                 Nombre del Cliente
-              </p>
+              </label>
               <select
                 value={formik.values.customer}
                 name="customer"
@@ -79,12 +79,12 @@ export function FormQuotes() {
               </select>
             </div>
             <div className="text-lg w-full mb-6 group">
-              <p
+              <label
                 htmlFor="name"
                 className="block text-xl font-bold  text-gray-800 "
               >
                 Nombre del doctor
-              </p>
+              </label>
               <select
                 value={formik.values.doctor}
                 onChange={(data) =>
@@ -102,12 +102,12 @@ export function FormQuotes() {
               </select>
             </div>
             <div className="text-lg w-full mb-6 group">
-              <p
+              <label
                 htmlFor="date"
                 className="block text-xl font-bold  text-gray-800 "
               >
                 Fecha y hora de la cita
-              </p>
+              </label>
               <Form.Input
                 type="datetime-local"
                 id="date"

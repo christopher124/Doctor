@@ -103,7 +103,7 @@ export function ListQuotView() {
             </tr>
           </thead>
           <tbody>
-            {quotes.map((quotes) => (
+            {quotes?.map((quotes) => (
               <ListQuotesView key={quotes.id} quotes={quotes} />
             ))}
           </tbody>

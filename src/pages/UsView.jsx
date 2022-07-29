@@ -1,6 +1,9 @@
 import { NavBar } from "../components/navbar/NavBar";
 import { Footer } from "../components/footer/Footer";
 import Imgn from "../assets/img/home.png"
+import Mision from "../assets/img/Mision-img.jpg"
+import Vision from "../assets/img/Vision-img.jpg"
+
 export function UsView() {
   return (
     <>
@@ -81,7 +84,7 @@ export function UsView() {
                 <h3 className="text-3xl mb-2 font-semibold leading-normal">
                   Misión
                 </h3>
-                <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-black text-justify">
+                <p className="text-xl font-light leading-relaxed mt-0 mb-4 text-black text-justify">
                   Mejorar la salud y la calidad de vida de los ciudadanos,
                   ofertando servicios sanitarios de calidad, con el paciente como
                   centro de nuestra atención, y profesionales altamente cualificados,
@@ -93,8 +96,8 @@ export function UsView() {
                 <div className="relative flex flex-col min-w-0 break-words w-full mb-6 rounded-lg pt-40">
                   <img
                     alt="..."
-                    src="https://img.freepik.com/foto-gratis/joven-doctora-pulgares-arriba-gesto-pie-pasillo-hospital_1303-21220.jpg?t=st=1658298917~exp=1658299517~hmac=fd6abd477f30e7c616df4b49ec5965c94fdd61ca19e9ab08cfdf5f1bd5ff9300&w=1380"
-                    className="w-full align-middle rounded-t-lg"
+                    src={Mision}
+                    className="w-full align-middle rounded-2xl"
                   />
                 </div>
               </div>
@@ -127,18 +130,18 @@ export function UsView() {
               <div className="w-full md:w-4/12 ml-auto mr-auto px-4">
                 <img
                   alt="..."
-                  className="max-w-full rounded-lg shadow-lg mb-20"
-                  src="https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGRvY3RvcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                  className="max-w-full rounded-2xl shadow-lg mb-20"
+                  src={Vision}
                 />
               </div>
               <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
                 <div className="md:pr-12 -mt-20">
                   <div className="text-blue-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
-                    <i className="fas fa-eye text-xl"></i>
+                    <i className="fas fa-hospital text-xl"></i>
                   </div>
                   <h3 className="text-3xl font-semibold">Visión</h3>
                   {/* text-blue-500 */}
-                  <p className="mt-4 text-lg leading-relaxed text-black text-justify">
+                  <p className="mt-4 text-xl leading-relaxed text-black text-justify ">
                     Conseguir la mejor asistencia médica y ética, que nos permita crecer,
                     mejorar en eficacia y eficiencia, ser reconocidos por nuestros
                     usuarios por la calidad en los servicios. Ofrecer
@@ -151,8 +154,233 @@ export function UsView() {
               </div>
             </div>
           </div>
+          <div className=" px-10 text-gray-700 mb-32 mt-20 pb-10 pt-5 w-[50%] ml-auto mr-auto">
+            <h2 className=" text-center text-3xl mt-3 mb-3 text-black font-semibold">Preguntas Frecuentes</h2>
+            <div className=" relative w-auto overflow-hidden">
+              <input type="checkbox" className="
+             absolute top-0 inset-x-0 peer
+             w-full h-12
+             opacity-0 z-10 cursor-pointer
+            "/>
+              <div className=" bg-blue-500 h-12 w-full pl-5 flex items-center">
+                <h1 className=" text-2xl font-semibold text-white">¿Qué costos tienen las consultas?</h1>
+              </div>
+              {/* icono de flecha */}
+              <div className=" absolute top-3 right-3
+            text-white transition-transform duration-500
+            rotate-0 peer-checked:rotate-180
+            ">
+                <i className="fas fa-chevron-down"></i>
+              </div>
+              <div className="bg-gray-200 overflow-hidden transition-all 
+            duration-500
+             max-h-0 peer-checked:max-h-40
+            ">
+                <div className=" p-4 ">
+                  <p className=" text-xl text-justify">La consulta general tiene un costo de $200 y las especialidades $700.</p>
+                </div>
+              </div>
+            </div>
+            {/* Segunda Pregunta */}
+            <div className=" relative w-auto overflow-hidden">
+              <input type="checkbox" className="
+             absolute top-0 inset-x-0 peer
+             w-full h-12
+             opacity-0 z-10 cursor-pointer
+            "/>
+              <div className=" bg-blue-500 h-12 w-full pl-5 flex items-center">
+                <h1 className=" text-2xl font-semibold text-white">¿Qué especialidades tienen?</h1>
+              </div>
+              {/* icono de flecha */}
+              <div className=" absolute top-3 right-3
+            text-white transition-transform duration-500
+            rotate-0 peer-checked:rotate-180
+            ">
+                <i className="fas fa-chevron-down"></i>
+              </div>
+              <div className="bg-gray-200 overflow-hidden transition-all 
+            duration-500
+             max-h-0 peer-checked:max-h-40
+            ">
+                <div className=" p-4 ">
+                  <p className=" text-xl text-justify">Contamos con cardiólogo, cirujano plástico, dermatólogo,
+                    gastroenterólogo, geriatra, ginecólogo, neurólogo, nutriólogo,
+                    oftalmólogo, oncólogo, oncólogo, otorrinolaringólogo, pediatra,
+                    traumatólogo y urólogo.</p>
+                </div>
+              </div>
+            </div>
+            {/* Tercera Pregunta */}
+            <div className=" relative w-auto overflow-hidden">
+              <input type="checkbox" className="
+             absolute top-0 inset-x-0 peer
+             w-full h-12
+             opacity-0 z-10 cursor-pointer
+            "/>
+              <div className=" bg-blue-500 h-12 w-full pl-5 flex items-center">
+                <h1 className=" text-2xl font-semibold text-white">¿Cuentan con farmacia?</h1>
+              </div>
+              {/* icono de flecha */}
+              <div className=" absolute top-3 right-3
+            text-white transition-transform duration-500
+            rotate-0 peer-checked:rotate-180
+            ">
+                <i className="fas fa-chevron-down"></i>
+              </div>
+              {/* Contenido */}
+              <div className="bg-gray-200 overflow-hidden transition-all 
+            duration-500
+             max-h-0 peer-checked:max-h-40
+            ">
+                <div className=" p-4 ">
+                  <p className=" text-xl text-justify">Sí, contamos una gran variedad de medicamentos en nuestra farmacia.</p>
+                </div>
+              </div>
+            </div>
+            {/* Cuarta Pregunta */}
+            <div className=" relative w-auto overflow-hidden">
+              <input type="checkbox" className="
+             absolute top-0 inset-x-0 peer
+             w-full h-12
+             opacity-0 z-10 cursor-pointer
+            "/>
+              <div className=" bg-blue-500 h-12 w-full pl-5 flex items-center">
+                <h1 className=" text-2xl font-semibold text-white">¿Qué horario de trabajo tienen?</h1>
+              </div>
+              {/* icono de flecha */}
+              <div className=" absolute top-3 right-3
+            text-white transition-transform duration-500
+            rotate-0 peer-checked:rotate-180
+            ">
+                <i className="fas fa-chevron-down"></i>
+              </div>
+              {/* Contenido */}
+              <div className="bg-gray-200 overflow-hidden transition-all 
+            duration-500
+             max-h-0 peer-checked:max-h-40
+            ">
+                <div className=" p-4 ">
+                  <p className=" text-xl text-justify">La clínica está abierta las 24 horas y nuestros especialistas atienden de 9 a.m. - 5 p.m.
+                    (consultar agenda de citas para ver disponibilidad).</p>
+                </div>
+              </div>
+            </div>
+            {/* Quinta Pregunta */}
+            <div className=" relative w-auto overflow-hidden">
+              <input type="checkbox" className="
+             absolute top-0 inset-x-0 peer
+             w-full h-12
+             opacity-0 z-10 cursor-pointer
+            "/>
+              <div className=" bg-blue-500 h-12 w-full pl-5 flex items-center">
+                <h1 className=" text-2xl font-semibold text-white">¿Cómo puedo agendar una cita?</h1>
+              </div>
+              {/* icono de flecha */}
+              <div className=" absolute top-3 right-3
+            text-white transition-transform duration-500
+            rotate-0 peer-checked:rotate-180
+            ">
+                <i className="fas fa-chevron-down"></i>
+              </div>
+              {/* Contenido */}
+              <div className="bg-gray-200 overflow-hidden transition-all 
+            duration-500
+             max-h-0 peer-checked:max-h-40
+            ">
+                <div className=" p-4 ">
+                  <p className=" text-xl text-justify">Vaya al apartado 'Agendar cita', seleccione un especialista y
+                    se mostrarán los horarios y días disponibles, una vez seleccionados fecha y hora,
+                    presione el botón 'AGENDAR CITA'.</p>
+                </div>
+              </div>
+            </div>
+            {/* Sexta Pregunta */}
+            <div className=" relative w-auto overflow-hidden">
+              <input type="checkbox" className="
+             absolute top-0 inset-x-0 peer
+             w-full h-12
+             opacity-0 z-10 cursor-pointer
+            "/>
+              <div className=" bg-blue-500 h-12 w-full pl-5 flex items-center">
+                <h1 className=" text-2xl font-semibold text-white">¿Cómo puedo pagar mi cita?</h1>
+              </div>
+              {/* icono de flecha */}
+              <div className=" absolute top-3 right-3
+            text-white transition-transform duration-500
+            rotate-0 peer-checked:rotate-180
+            ">
+                <i className="fas fa-chevron-down"></i>
+              </div>
+              {/* Contenido */}
+              <div className="bg-gray-200 overflow-hidden transition-all 
+              duration-500
+             max-h-0 peer-checked:max-h-40
+            ">
+                <div className=" p-4 ">
+                  <p className=" text-xl text-justify">El pago se realiza en la cínica con efectivo, tarjeta de crédito o débito.</p>
+                </div>
+              </div>
+            </div>
+            {/* Septima Pregunta */}
+            <div className=" relative w-auto overflow-hidden">
+              <input type="checkbox" className="
+             absolute top-0 inset-x-0 peer
+             w-full h-12
+             opacity-0 z-10 cursor-pointer
+            "/>
+              <div className=" bg-blue-500 h-12 w-full pl-5 flex items-center">
+                <h1 className=" text-2xl font-semibold text-white">¿Cuentan con estacionamiento?</h1>
+              </div>
+              {/* icono de flecha */}
+              <div className=" absolute top-3 right-3
+            text-white transition-transform duration-500
+            rotate-0 peer-checked:rotate-180
+            ">
+                <i className="fas fa-chevron-down"></i>
+              </div>
+              {/* Contenido */}
+              <div className="bg-gray-200 overflow-hidden transition-all 
+            duration-500
+             max-h-0 peer-checked:max-h-40
+            ">
+                <div className=" p-4 ">
+                  <p className=" text-xl text-justify">Sí, contamos con amplio estacionamiento para clientes y empleados.</p>
+                </div>
+              </div>
+            </div>
+            {/* Octava pregunta */}
+            <div className=" relative w-auto overflow-hidden">
+              <input type="checkbox" className="
+             absolute top-0 inset-x-0 peer
+             w-full h-12
+             opacity-0 z-10 cursor-pointer
+            "/>
+              <div className=" bg-blue-500 h-12 w-full pl-5 flex items-center">
+                <h1 className=" text-2xl font-semibold text-white">¿Cómo llegar mediante transporte público?</h1>
+              </div>
+              {/* icono de flecha */}
+              <div className=" absolute top-3 right-3
+            text-white transition-transform duration-500
+            rotate-0 peer-checked:rotate-180
+            ">
+                <i className="fas fa-chevron-down"></i>
+              </div>
+              {/* Contenido */}
+              <div className="bg-gray-200 overflow-hidden transition-all 
+            duration-500
+             max-h-0 peer-checked:max-h-40
+            ">
+                <div className=" p-4 ">
+                  <p className=" text-xl text-justify">Las rutas T11A-C02 (51A Guadalupe), T11A-C03 (51B Tepeyac-Colli), T04B-1 (59-B) y la R-101 Vía 1 pasan cerca de nuestras instalaciones.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
+        {/* Acordion */}
+
       </main>
+
       <Footer />
     </>
   );
