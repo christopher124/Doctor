@@ -23,13 +23,16 @@ export function LoginForm() {
           login(response.jwt);
           toast.success("Bienvenido" + " " + response.user.username);
           navigate("/admin/dashboard");
+        } else if (
+          response?.jwt &&
+          response?.user?.role?.name === "Recepción"
+        ) {
+          login(response.jwt);
+          toast.success("Bienvenido" + " " + response?.user?.username);
+          navigate("/admin/dashboard");
         } else if (response?.jwt && response?.user?.role?.name === "Doctor") {
           login(response.jwt);
-          toast.success("Bienvenido" + " " + response.user.username);
-          navigate("/admin/dashboard");
-        } else if (response?.jwt && response?.user.role?.name === "Recepción") {
-          login(response.jwt);
-          toast.success("Bienvenido" + " " + response.user.username);
+          toast.success("Bienvenido" + " " + response?.user?.username);
           navigate("/admin/dashboard");
         } else {
           setLoading(false);

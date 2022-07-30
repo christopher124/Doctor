@@ -6,6 +6,7 @@ import { Spinner } from "../../../components/spinner/Spinner";
 import { ListCustomersView } from "../../../components/Admin/customers/ListCustomersView.jsx";
 import Excel from "react-html-table-to-excel";
 import Swal from "sweetalert2";
+import Img404 from "../../../assets/img/story-404.svg";
 
 export function ListCustomeView() {
   const navigate = useNavigate();
@@ -150,7 +151,7 @@ export function ListCustomeView() {
               <input
                 type="search"
                 className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
-                placeholder="Busqueda por nombres y apellidos"
+                placeholder="Búsqueda por nombres y apellidos"
                 value={searchUser}
                 onChange={handleChangeUsers}
               />
@@ -179,7 +180,7 @@ export function ListCustomeView() {
               <input
                 type="search"
                 className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
-                placeholder="Busqueda por Municipio"
+                placeholder="Búsqueda por Municipio"
                 value={searchState}
                 onChange={handleChangeState}
               />
@@ -187,6 +188,14 @@ export function ListCustomeView() {
           </div>
         </div>
       </div>
+      {Object.keys(customer).length === 0 ? (
+        <div className="text-xs font-bold text-gray-500 uppercase">
+          <div className="justify-center flex p-5">
+            <img className="ui centered image w-96 h-96" src={Img404} />
+          </div>
+          <p className="text-center">No hay datos registrados</p>
+        </div>
+      ) : null}
     </div>
   ) : (
     <div className="w-full min-h-screen p-4">
@@ -246,7 +255,7 @@ export function ListCustomeView() {
               <input
                 type="search"
                 className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
-                placeholder="Busqueda por nombres y apellidos"
+                placeholder="Búsqueda por nombres y apellidos"
                 value={searchUser}
                 onChange={handleChangeUsers}
               />
@@ -275,7 +284,7 @@ export function ListCustomeView() {
               <input
                 type="search"
                 className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
-                placeholder="Busqueda por Municipio"
+                placeholder="Búsqueda por Municipio"
                 value={searchState}
                 onChange={handleChangeState}
               />
@@ -297,27 +306,30 @@ export function ListCustomeView() {
               <th scope="col" className="text-white py-3 px-6  text-center">
                 Apellido
               </th>
-              <th scope="col" className="text-white py-3 px-6  text-center">
-                Dirección
-              </th>
-              <th scope="col" className="text-white py-3 px-6  text-center">
-                Codigo postal
-              </th>
-              <th scope="col" className="text-white py-3 px-6  text-center">
-                Municipio
-              </th>
-              <th scope="col" className="text-white py-3 px-6  text-center">
-                Colonia
-              </th>
-              <th scope="col" className="text-white py-3 px-6  text-center">
-                Estado
-              </th>
               <th scope="col" className=" text-white py-3 px-6  text-center">
                 Género
               </th>
               <th scope="col" className="text-white py-3 px-6  text-center">
                 Teléfono
               </th>{" "}
+              <th scope="col" className="text-white py-3 px-6  text-center">
+                Dirección
+              </th>
+              <th scope="col" className="text-white py-3 px-6  text-center">
+                Numero inteiror
+              </th>
+              <th scope="col" className="text-white py-3 px-6  text-center">
+                Colonia
+              </th>
+              <th scope="col" className="text-white py-3 px-6  text-center">
+                Municipio
+              </th>
+              <th scope="col" className="text-white py-3 px-6  text-center">
+                Estado
+              </th>
+              <th scope="col" className="text-white py-3 px-6  text-center">
+                Codigo postal
+              </th>
               <th scope="col" className="text-white py-3 px-6  text-center">
                 Estatus del Cliente
               </th>
@@ -330,7 +342,7 @@ export function ListCustomeView() {
             </tr>
           </thead>
           <tbody>
-            {customer.map((customer) => (
+            {customer?.map((customer) => (
               <ListCustomersView
                 handleDelited={handleDelited}
                 key={customer.id}

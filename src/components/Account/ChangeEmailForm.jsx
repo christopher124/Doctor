@@ -5,7 +5,6 @@ import * as Yup from "yup";
 import { Form, Button } from "semantic-ui-react";
 import { updateEmailApi, getMeApi } from "../../api/admin/user";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
 
 export function ChangeEmailForm() {
   const [user, setUser] = useState({});
@@ -25,10 +24,10 @@ export function ChangeEmailForm() {
       setLoading(true);
       const response = await updateEmailApi(id, formData, logout);
       if (!response) {
-        toast.warning("Error al actulizar el correo");
+        toast.warning("Error al actualizar el correo, intento lo mas tarde");
       } else {
         setReloadUser(true);
-        toast.success("Correo actulizado correctamente");
+        toast.success("Correo actualizado correctamente");
       }
       setLoading(false);
     },
@@ -80,7 +79,7 @@ export function ChangeEmailForm() {
             </div>
           </div>
           <Button loading={loading} type="submit" color="blue" value="">
-            Actulizar
+            Actualizar
           </Button>
         </Form>
       </div>

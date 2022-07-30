@@ -8,6 +8,7 @@ import { getOneCustomerApi } from "../../../api/admin/customer";
 import { getQuotesUserApi } from "../../../api/admin/quote";
 import Avatar from "avvvatars-react";
 import { ListQuotesUserView } from "../../../components/Admin/quotes/ListQuotesUserView";
+import Img404 from "../../../assets/img/story-404.svg";
 
 export function CustomeView() {
   const { id } = useParams();
@@ -50,10 +51,14 @@ export function CustomeView() {
     birthday,
     gender,
     phone,
+    number_int_address,
+    suburb,
+    town,
+    zip,
+    state,
     created_at,
     updated_at,
   } = custumer;
-  console.log(custumer);
   return cargando ? (
     <Spinner />
   ) : Object.keys(custumer).length === 0 ? (
@@ -66,13 +71,14 @@ export function CustomeView() {
               <div className="text-xl font-bold">
                 <span className="text-gray-600">Pacientes</span>
               </div>
-              <div className="flex flex-col items-center justify-center h-full">
-                <div className="text-center text-gray-600">
-                  No hay Resultados
-                </div>
-              </div>
             </div>
           </div>
+        </div>
+        <div className="text-xs font-bold text-gray-500 uppercase">
+          <div className="justify-center flex p-5">
+            <img className="ui centered image w-96 h-96" src={Img404} />
+          </div>
+          <p className="text-center">No se encontraron resultados</p>
         </div>
       </div>
     </div>
@@ -90,7 +96,7 @@ export function CustomeView() {
           </div>
         </div>
         <button
-          className="text-white bg-blue-600 font-bold py-2 px-4 rounded-xl"
+          className="text-white bg-[#1678C2] font-bold py-2 px-4 rounded-xl"
           onClick={() => navigate(`/admin/pacientes`)}
         >
           <i className="fas fa-arrow-left text-white mr-2 text-lg"></i>
@@ -133,51 +139,56 @@ export function CustomeView() {
           <div className="font-noto w-full p-4  rounded-lg bg-cyan-800 border-white">
             <div className="flex flex-row items-center justify-between mb-6">
               <div className="flex flex-col">
-                <div className="text-sm font-bold text-white">Doctor</div>
+                <div className="text-sm font-bold text-white">Paciente</div>
                 <div className="text-sm font-bold text-white">
-                  <span>Información del Doctor</span>
+                  <span>Información del paciente</span>
                 </div>
               </div>
               <div className="relative inline-block text-left z-10"></div>
             </div>
             <div className=" flex flex-col w-full text-left">
               <p className="py-1 font-bold text-white ">
-                Nombre del Doctor:{" "}
+                Nombre completo del paciente:{" "}
                 <span className="">
                   {name} {last}
                 </span>
               </p>
-
               <p className="py-1 font-bold text-white ">
-                Dirección: <span className=""> {address}</span>
+                Género: <span className=""> {gender}</span>
               </p>
               <p className="py-1 font-bold text-white ">
-                Fecha de Nacimiento:{" "}
+                Teléfono: <span className=""> {phone}</span>
+              </p>
+              <p className="py-1 font-bold text-white ">
+                Fecha de nacimiento:{" "}
                 <span className="">
                   {format(new Date(created_at), "dd/MM/yyyy")}{" "}
                 </span>
               </p>
               <p className="py-1 font-bold text-white ">
-                Edad del Cliente:{" "}
+                Edad del paciente:{" "}
                 <span className=""> {getEdad(birthday)} años</span>
               </p>
-              <p className="py-1 font-bold text-white ">
-                Género: <span className=""> {gender}</span>
+              <p className="py-[0.15rem] font-bold text-white font-noto">
+                Dirección:{" "}
+                <span className="text-bold">
+                  {" "}
+                  {address ? address : "No hay datos"}, INT:{" "}
+                  {number_int_address ? number_int_address : "N/A"},{" "}
+                  {suburb ? suburb : "No hay datos"},{" "}
+                  {town ? town : "No hay datos"},{" "}
+                  {state ? state : "No hay datos"}, {zip ? zip : "No hay datos"}
+                </span>
               </p>
-
               <p className="py-1 font-bold text-white ">
-                Teléfono: <span className=""> {phone}</span>
-              </p>
-
-              <p className="py-1 font-bold text-white ">
-                Fecha de Creación:{" "}
+                Fecha de creación:{" "}
                 <span className="">
                   {" "}
                   {format(new Date(created_at), "dd/MM/yyyy hh:mm:ss a")}
                 </span>
               </p>
               <p className="py-1 font-bold text-white ">
-                Última Actulización:{" "}
+                Última actulización:{" "}
                 <span className="">
                   {" "}
                   {format(new Date(updated_at), "dd/MM/yyyy hh:mm:ss a")}{" "}
@@ -201,7 +212,7 @@ export function CustomeView() {
             <Spinner />
           ) : Object.keys(quotes).length === 0 ? (
             <p className="py-1 font-bold text-center text-white ">
-              El paciente no tiene citas agendadas
+              El paciente no tiene citas agendadas.
             </p>
           ) : (
             <div className="flex flex-col w-full">

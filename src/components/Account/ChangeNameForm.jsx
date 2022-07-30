@@ -27,10 +27,12 @@ export function ChangeNameForm() {
       setLoading(true);
       const response = await updateNameApi(id, formData, logout);
       if (!response) {
-        toast.warning("Error al actulizar el nombre del usuario");
+        toast.warning(
+          "Error al actualizar el nombre del usuario, intento lo mas tarde"
+        );
       } else {
         setReloadUser(true);
-        toast.success("Nombre de usuario actulizado correctamente");
+        toast.success("Nombre de usuario actualizado correctamente");
       }
       setLoading(false);
     },
@@ -63,7 +65,7 @@ export function ChangeNameForm() {
             </div>
           </div>
           <Button loading={loading} type="submit" color="blue" value="">
-            Actulizar
+            Actualizar
           </Button>
         </Form>
       </div>

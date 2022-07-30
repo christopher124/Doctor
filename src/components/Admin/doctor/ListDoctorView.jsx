@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { format } from "date-fns";
 
 export function ListDoctorView({ doctor, handleDelited }) {
   const navigate = useNavigate();
 
-  const { name, last, user, birthday, id, phone, status, specialties } = doctor;
+  const { name, last, user, id, phone, status, specialties, gender } = doctor;
   const [estadoDoctor, setEstadoDoctor] = useState(status);
   const [clase, setClase] = useState("");
   console.log(doctor);
@@ -44,27 +43,23 @@ export function ListDoctorView({ doctor, handleDelited }) {
           className=" justify-center flex p-9 px-6 py-4 text-center"
         >
           <td className="text-white px-6 py-4 font-medium text-center">
-            {name ? name : "N/A"}
+            {name ? name : "No hay datos"}
           </td>
         </th>
-        <th
-          scope="row"
-          className="px-6 py-4 font-medium text-white whitespace-nowrap"
-        >
-          {last ? last : "N/A"}
-        </th>
-        <td className="text-white font-medium px-6 py-4 text-center">
-          {user?.email ? user?.email : "N/A"}
+        <td className="px-6 py-4 font-medium text-white whitespace-nowrap">
+          {last ? last : "No hay datos"}
         </td>
         <td className="text-white font-medium px-6 py-4 text-center">
-          {format(new Date(birthday), "dd/MM/yyyy")}
-        </td>
-        {/* <td className="text-white px-6 py-4 text-center">{adress}</td> */}
-        <td className="text-white font-medium px-6 py-4 text-center">
-          {phone}
+          {gender ? gender : "No hay datos"}
         </td>
         <td className="text-white font-medium px-6 py-4 text-center">
-          {specialties ? specialties : "N/A"}
+          {phone ? phone : "No hay datos"}
+        </td>
+        <td className="text-white font-medium px-6 py-4 text-center">
+          {user?.email ? user?.email : "No hay datos"}
+        </td>
+        <td className="text-white font-medium px-6 py-4 text-center">
+          {specialties ? specialties : "No hay datos"}
         </td>
         <td className="text-white whitespace-nowrap">
           <span className="relative inline-block px-3 py-1 text-white font-semibold  leading-tight">
@@ -73,7 +68,7 @@ export function ListDoctorView({ doctor, handleDelited }) {
               className={`${clase} absolute inset-0  rounded-full`}
             ></span>
             <span className="relative font-medium">
-              {status ? status : "N/A"}
+              {status ? status : "No hay datos"}
             </span>
           </span>
         </td>

@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import Avvvatars from "avvvatars-react";
+import Avatar from "avvvatars-react";
 
 export function DoctorView({ doctor }) {
   const { name, last, address, status, phone, specialties, user } = doctor;
-
+  console.log(doctor);
   const [estadoDoctor, setEstadoDoctor] = useState(status);
   const [clase, setClase] = useState("");
 
@@ -34,26 +34,29 @@ export function DoctorView({ doctor }) {
     <>
       <div className="flex items-center justify-start space-x-4 ">
         <div className="shrink-0 w-8">
-          <Avvvatars value={user?.username ? user?.username : "NU"} size={40} />
+          <Avatar value={user?.username ? user?.username : "NU"} size={40} />
         </div>
         <div className="flex flex-col w-full">
           <div className="p-1 text-sm font-bold text-white">
-            Nombre y Apelido: {name + " " + last ? name + " " + last : "N/A"}
+            Nombre y Apelido:{" "}
+            {name + " " + last ? name + " " + last : "No hay datos"}
           </div>
 
           <div className=" font-bold p-1 text-sm text-white">
-            Dirección: {address ? address : "N/A"}
+            Dirección: {address ? address : "No hay datos"}
           </div>
           <div className=" font-bold p-1 text-sm text-white">
-            Teléfono: {phone ? phone : "N/A"}
+            Teléfono: {phone ? phone : "No hay datos"}
           </div>
           <div className=" font-bold p-1 text-sm text-white">
-            Especialidad: {specialties ? specialties : "N/A"}
+            Especialidad: {specialties ? specialties : "No hay datos"}
           </div>
 
           <div className="p-1 text-white whitespace-nowrap">
             Estatus:{" "}
-            <span className={`${clase} `}>{status ? status : "N/A"}</span>
+            <span className={`${clase} `}>
+              {status ? status : "No hay datos"}
+            </span>
           </div>
         </div>
       </div>

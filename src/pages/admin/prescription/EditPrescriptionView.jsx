@@ -4,6 +4,7 @@ import useAuth from "../../../hooks/useAuth";
 import { getOnePrescripApi } from "../../../api/admin/prescription";
 import { FormPrescription } from "../../../components/form/FormPrescription";
 import { Spinner } from "../../../components/spinner/Spinner";
+import Img404 from "../../../assets/img/story-404.svg";
 
 export function EditPrescriptionView() {
   const [prescription, setPrescription] = useState({});
@@ -32,10 +33,7 @@ export function EditPrescriptionView() {
             <div className="text-xs font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista general</span>
               <div className="justify-center flex p-9">
-                <img
-                  className=""
-                  src="https://www.wattpad.com/img/errors/story-404.svg"
-                />
+                <img className="" src={Img404} />
               </div>
               <p className="text-center">No se encontraron resultados</p>
             </div>

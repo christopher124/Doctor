@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import useAuth from "../../hooks/useAuth";
-import { Form, Dropdown } from "semantic-ui-react";
+import { Form, Button } from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
 import { getUserApi } from "../../api/admin/user";
 import { createDoctorApi, updateDoctorApi } from "../../api/admin/doctor";
@@ -10,6 +10,7 @@ import {
   contriesOptions,
   specialtiesOptions,
   statusOptions,
+  DateOptions,
 } from "../../api/data/data.js";
 import { Spinner } from "../spinner/Spinner";
 import * as Yup from "yup";
@@ -17,14 +18,13 @@ import { toast } from "react-toastify";
 
 export function FormDoctor({ doctor, cargando, setCargando }) {
   const [user, setUser] = useState([]);
-
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: initialValues(doctor),
     validationSchema: Yup.object(validationSchema()),
     onSubmit: async (formData) => {
       handleSubmit(formData);
-      console.log(formData);
     },
   });
   const { auth, logout } = useAuth();
@@ -39,10 +39,10 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
   const handleSubmit = async (formData) => {
     const formDataTemp = {
       ...formData,
-      user: auth.idUser,
     };
     let respuesta;
     try {
+      setLoading(true);
       if (doctor?.id) {
         respuesta = await updateDoctorApi(doctor?.id, formDataTemp, logout);
         if (!respuesta) {
@@ -62,7 +62,7 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
       }
       await respuesta.json();
     } catch (err) {
-      console.log(err);
+      setLoading(false);
     }
   };
   let today = new Date();
@@ -86,7 +86,7 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
   ) : (
     <>
       <button
-        className="text-white bg-blue-600 font-bold py-2 px-4 rounded-xl"
+        className="text-white bg-[#1678C2] font-bold py-2 px-4 rounded-xl"
         onClick={() => navigate(`/admin/doctores`)}
       >
         <i className="fas fa-arrow-left text-white mr-2 text-lg"></i>
@@ -246,7 +246,7 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
               >
                 Estado
               </label>
-              <Dropdown
+              <Form.Dropdown
                 placeholder="Seleciona un Estado"
                 options={contriesOptions}
                 value={formik.values.state}
@@ -346,7 +346,7 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
               )}
             </div>
           </div>
-          <div className="grid xl:grid-cols-2 xl:gap-6">
+          <div className="grid xl:grid-cols-3 xl:gap-6">
             <div className="text-lg w-full mb-6 group">
               <label
                 htmlFor="birthday"
@@ -387,13 +387,32 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
                 selection
               />
             </div>
+            <div className="text-lg w-full mb-6 group">
+              <label
+                htmlFor="workdates"
+                className="block font-bold text-xl text-gray-700"
+              >
+                Dias de trabajo
+              </label>
+              <Form.Dropdown
+                id="workdates"
+                placeholder="Seleciona una especialidad"
+                options={DateOptions}
+                value={formik.values.workdates[0].workdates}
+                error={formik.errors.workdates}
+                onChange={(_, data) =>
+                  formik.setFieldValue("workdates", data.value)
+                }
+                multiple
+                search
+                selection
+              />
+            </div>
           </div>
 
-          <input
-            type="submit"
-            value={doctor?.id ? "Editar Doctor" : "Crear Doctor"}
-            className="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          />
+          <Button type="submit" loading={loading} primary>
+            {doctor?.id ? "Editar Doctor" : "Crear Doctor"}
+          </Button>
         </Form>
       </div>
     </>
@@ -405,6 +424,11 @@ function initialValues(doctor) {
     name: doctor?.name ?? "",
     last: doctor?.last ?? "",
     user: null,
+    workdates: [
+      {
+        workdates: "",
+      },
+    ],
     address: doctor?.address ?? "",
     gender: doctor?.gender ?? "",
     phone: doctor?.phone ?? "",
