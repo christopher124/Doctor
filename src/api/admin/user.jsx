@@ -13,6 +13,7 @@ export async function loginApi(formData) {
     };
     const response = await fetch(url, params);
     const result = await response.json();
+    // eslint-disable-next-line no-throw-literal
     if (result.statusCode === 500) throw "Error del servidor";
     return result;
   } catch (error) {
@@ -51,8 +52,11 @@ export async function registerApi(user, logout) {
       body: JSON.stringify(user),
     };
     const result = await authFetch(url, params, logout);
+    // eslint-disable-next-line no-throw-literal
     if (result.statusCode === 500) throw "Error del servidor";
+    // eslint-disable-next-line no-throw-literal
     else if (result.statusCode === 404) throw "Error del servidor";
+    // eslint-disable-next-line no-throw-literal
     else if (result.statusCode === 400) throw "Error del servidor";
     return true;
   } catch (error) {
@@ -71,6 +75,7 @@ export async function deleteUserApi(id, logout) {
       },
     };
     const result = await authFetch(url, params, logout);
+    // eslint-disable-next-line no-throw-literal
     if (result.statusCode === 500) throw "Error del servidor";
     return true;
   } catch (error) {
@@ -90,6 +95,7 @@ export async function updateUserApi(id, users, logout) {
       body: JSON.stringify(users),
     };
     const result = await authFetch(url, params, logout);
+    // eslint-disable-next-line no-throw-literal
     if (result.statusCode === 400) throw "Error del servidor";
     return result;
   } catch (error) {
@@ -109,6 +115,7 @@ export async function updateNameApi(id, data, logout) {
       body: JSON.stringify(data),
     };
     const result = await authFetch(url, params, logout);
+    // eslint-disable-next-line no-throw-literal
     if (result.statusCode === 400) throw "Error del servidor";
     return result;
   } catch (error) {
@@ -128,6 +135,7 @@ export async function updateEmailApi(id, email, logout) {
       body: JSON.stringify(email),
     };
     const result = await authFetch(url, params, logout);
+    // eslint-disable-next-line no-throw-literal
     if (result.statusCode === 400) throw "Error del servidor";
     return result;
   } catch (error) {
@@ -146,6 +154,7 @@ export async function updatePasswordApi(id, password, logout) {
       body: JSON.stringify(password),
     };
     const result = await authFetch(url, params, logout);
+    // eslint-disable-next-line no-throw-literal
     if (result.statusCode === 400) throw "Error del servidor";
     return result;
   } catch (error) {
