@@ -6,6 +6,7 @@ import { ListDoctorView } from "../../../components/Admin/doctor/ListDoctorView"
 import { Spinner } from "../../../components/spinner/Spinner";
 import Swal from "sweetalert2";
 import Excel from "react-html-table-to-excel";
+import Img404 from "../../../assets/img/story-404.svg";
 
 export function ListDocView() {
   const navigate = useNavigate();
@@ -193,6 +194,14 @@ export function ListDocView() {
           </div>
         </div>
       </div>
+      {Object.keys(doctor).length === 0 ? (
+        <div className="text-xs font-bold text-gray-500 uppercase">
+          <div className="justify-center flex p-5">
+            <img className="ui centered image w-96 h-96" src={Img404} />
+          </div>
+          <p className="text-center">No hay datos registrados</p>
+        </div>
+      ) : null}
     </div>
   ) : (
     <div className="w-full min-h-screen p-4">
@@ -303,13 +312,13 @@ export function ListDocView() {
                 Apellido
               </th>
               <th scope="col" className="text-white py-3 px-6 text-center">
-                Correo
-              </th>
-              <th scope="col" className=" text-white py-3 px-6 text-center">
-                Fecha de Cumpleaños
+                Genero
               </th>
               <th scope="col" className="text-white py-3 px-6 text-center">
                 Teléfono
+              </th>
+              <th scope="col" className="text-white py-3 px-6 text-center">
+                Correo
               </th>
               <th scope="col" className="text-white py-3 px-6 text-center">
                 Especialidad
@@ -326,7 +335,7 @@ export function ListDocView() {
             </tr>
           </thead>
           <tbody>
-            {doctor.map((doctor) => (
+            {doctor?.map((doctor) => (
               <ListDoctorView
                 handleDelited={handleDelited}
                 key={doctor.id}

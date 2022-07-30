@@ -27,7 +27,9 @@ export function ChangePasswordForm() {
       setLoading(true);
       const response = await updatePasswordApi(id, formData, logout);
       if (!response) {
-        toast.warning("Error al actulizar el nombre del usuario");
+        toast.warning(
+          "Error al actualizar el la contraseña del usuario, intento lo mas tarde"
+        );
       } else {
         logout();
       }

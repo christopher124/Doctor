@@ -58,7 +58,7 @@ export function NavBar(props) {
                 }
                 to="/ubicacion"
               >
-                Ubicacion
+                ubicación
               </Link>
             </li>
 

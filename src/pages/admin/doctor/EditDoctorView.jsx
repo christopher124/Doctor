@@ -4,6 +4,7 @@ import useAuth from "../../../hooks/useAuth";
 import { getOneDoctorApi } from "../../../api/admin/doctor";
 import { FormDoctor } from "../../../components/form/FormDoctor";
 import { Spinner } from "../../../components/spinner/Spinner";
+import Img404 from "../../../assets/img/story-404.svg";
 
 export function EditDoctorView() {
   const [doctor, setDoctor] = useState({});
@@ -27,19 +28,18 @@ export function EditDoctorView() {
     <div className="w-full min-h-screen p-4">
       <div className="w-full mb-6 pt-3">
         <div className="flex flex-row items-center justify-between mb-4">
-          <div className="flex flex-col">
-            <div className="text-xs font-bold text-gray-500 uppercase">
-              <span className="text-gray-600">Vista general</span>
-              <div className="justify-center flex p-9">
-                <img
-                  className=""
-                  src="https://www.wattpad.com/img/errors/story-404.svg"
-                />
-              </div>
-              <p className="text-center">No se encontraron resultados</p>
-            </div>
-          </div>
+          <div className="flex flex-col"></div>
         </div>
+      </div>
+      <div className="text-xs font-bold text-gray-500 uppercase">
+        <span className="text-gray-600">Vista general</span>
+        <div className="text-xl font-bold">
+          <span className="text-gray-600">Editar Doctores</span>
+        </div>
+        <div className="justify-center flex p-5">
+          <img className="ui centered image w-96 h-96" src={Img404} />
+        </div>
+        <p className="text-center">No se encontraron resultados</p>
       </div>
     </div>
   ) : (

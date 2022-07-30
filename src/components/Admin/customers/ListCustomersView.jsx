@@ -4,6 +4,7 @@ export function ListCustomersView({ customer, handleDelited }) {
     name,
     last,
     address,
+    number_int_address,
     gender,
     phone,
     state,
@@ -18,31 +19,34 @@ export function ListCustomersView({ customer, handleDelited }) {
   return (
     <tr className=" border-b bg-cyan-800 border-white">
       <td className="text-white px-6 py-4 text-center">
-        {name ? name : "N/A"}
+        {name ? name : "No hay datos"}
       </td>
       <td className="px-6 py-4 font-medium text-white ">
         {last ? last : "No hay datos"}
-      </td>
-      <td className="text-white font-medium px-6 py-4 text-center">
-        {address ? address : "No hay datos"}
-      </td>
-      <td className="text-white px-6 font-medium py-4 text-center">
-        {zip ? zip : "No hay datos"}
-      </td>
-      <td className="text-white px-6 font-medium py-4 text-center">
-        {town ? town : "No hay datos"}
-      </td>
-      <td className="text-white px-6 font-medium py-4 text-center">
-        {suburb ? suburb : "No hay datos"}
-      </td>
-      <td className="text-white px-6 font-medium py-4 text-center">
-        {state ? state : "No hay datos"}
       </td>
       <td className="text-white px-6 font-medium py-4 text-center">
         {gender ? gender : "No hay datos"}
       </td>
       <td className="text-white px-6 font-medium py-4 text-center">
         {phone ? phone : "No hay datos"}
+      </td>
+      <td className="text-white font-medium px-6 py-4 text-center">
+        {address ? address : "No hay datos"}
+      </td>
+      <td className="text-white px-6 font-medium py-4 text-center">
+        {number_int_address ? number_int_address : "No hay datos"}
+      </td>
+      <td className="text-white px-6 font-medium py-4 text-center">
+        {suburb ? suburb : "No hay datos"}
+      </td>
+      <td className="text-white px-6 font-medium py-4 text-center">
+        {town ? town : "No hay datos"}
+      </td>
+      <td className="text-white px-6 font-medium py-4 text-center">
+        {state ? state : "No hay datos"}
+      </td>
+      <td className="text-white px-6 font-medium py-4 text-center">
+        {zip ? zip : "No hay datos"}
       </td>
       <td className="text-white px-6 font-medium py-4 text-center">
         {" "}

@@ -31,6 +31,25 @@ export async function getQuotesApi(logout) {
   }
 }
 
+export async function deleteQuotesApi(id, logout) {
+  try {
+    const url = `${API_URL_DEV}/quotes/${id}`;
+    const params = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    const result = await authFetch(url, params, logout);
+    // eslint-disable-next-line no-throw-literal
+    if (result.statusCode === 500) throw "Error del servidor";
+    return true;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+}
+
 export async function getQuotesUserApi(idCustomer, logout) {
   try {
     const url = `${API_URL_PROD}/quotes?customer=${idCustomer}`;
@@ -51,7 +70,7 @@ export async function getQuotesDoctorApi(idCustomer, logout) {
   }
 }
 
-export async function getCountQuoteApi(logout) {
+export async function getCountQuotesApi(logout) {
   try {
     const url = `${API_URL_PROD}/quotes/count`;
     const result = await authFetch(url, null, logout);

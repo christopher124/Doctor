@@ -12,6 +12,7 @@ export async function createDoctorApi(doctor, logout) {
       body: JSON.stringify(doctor),
     };
     const result = await authFetch(url, params, logout);
+    // eslint-disable-next-line no-throw-literal
     if (result.statusCode === 500) throw "Error del servidor";
     return true;
   } catch (error) {
@@ -58,6 +59,7 @@ export async function updateDoctorApi(id, doctor, logout) {
       body: JSON.stringify(doctor),
     };
     const result = await authFetch(url, params, logout);
+    // eslint-disable-next-line no-throw-literal
     if (result.statusCode === 400) throw "Error del servidor";
     return result;
   } catch (error) {
@@ -76,6 +78,7 @@ export async function deleteDoctorApi(id, logout) {
       },
     };
     const result = await authFetch(url, params, logout);
+    // eslint-disable-next-line no-throw-literal
     if (result.statusCode === 500) throw "Error del servidor";
     return true;
   } catch (error) {
