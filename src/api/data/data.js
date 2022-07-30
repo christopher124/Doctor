@@ -75,5 +75,35 @@ const specialtiesOptions = [
   { key: "Traumatólogo", value: "Traumatólogo", text: "Traumatólogo" },
   { key: "Urólogo", value: "Urólogo", text: "Urólogo" },
 ];
+const roomsOptions = [
+  { key: "1", value: "1", text: "1" },
+  { key: "2", value: "2", text: "2" },
+  { key: "3", value: "3", text: "3" },
+  { key: "4", value: "4", text: "4" },
+  { key: "5", value: "5", text: "5" },
+  { key: "6", value: "6", text: "6" },
+  { key: "7", value: "7", text: "7" },
+];
+const DateOptions = [
+  { key: "01/08/2022", value: "02/08/2022", text: "02/08/2022" },
+  { key: "02/08/2022", value: "02/08/2022", text: "02/08/2022" },
+  { key: "03/08/2022", value: "03/08/2022", text: "03/08/2022" },
+  { key: "04/08/2022", value: "04/08/2022", text: "04/08/2022" },
+  { key: "05/08/2022", value: "05/08/2022", text: "05/08/2022" },
+  { key: "06/08/2022", value: "06/08/2022", text: "06/08/2022" },
+  { key: "07/08/2022", value: "07/08/2022", text: "07/08/2022" },
+  { key: "08/08/2022", value: "08/08/2022", text: "08/08/2022" },
+  { key: "09/08/2022", value: "09/08/2022", text: "09/08/2022" },
+  { key: "10/08/2022", value: "10/08/2022", text: "10/08/2022" },
+  { key: "11/08/2022", value: "11/08/2022", text: "11/08/2022" },
+  { key: "12/08/2022", value: "12/08/2022", text: "12/08/2022" },
+];
 
-export { options, contriesOptions, statusOptions, specialtiesOptions };
+export {
+  options,
+  contriesOptions,
+  statusOptions,
+  specialtiesOptions,
+  DateOptions,
+  roomsOptions,
+};
