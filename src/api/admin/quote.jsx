@@ -33,7 +33,7 @@ export async function getQuotesApi(logout) {
 
 export async function deleteQuotesApi(id, logout) {
   try {
-    const url = `${API_URL_DEV}/quotes/${id}`;
+    const url = `${API_URL_PROD}/quotes/${id}`;
     const params = {
       method: "DELETE",
       headers: {
