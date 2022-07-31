@@ -158,13 +158,12 @@ export function ListDocView() {
             <input
               type="search"
               className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
-              placeholder="Busqueda por nombres y apellidos"
+              placeholder="Búsqueda por nombres"
               value={searchDoctor}
               onChange={handleChangeDoctors}
             />
           </div>
         </div>
-
         <div className="inline-flex justify-start">
           <div className="relative">
             <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -187,7 +186,7 @@ export function ListDocView() {
             <input
               type="search"
               className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
-              placeholder="Busqueda por Especialidad"
+              placeholder="Búsqueda por especialidad"
               value={searchSpecialties}
               onChange={handleChangeSpecialties}
             />
@@ -221,7 +220,7 @@ export function ListDocView() {
                 id="buttonExcel"
                 className="flex flex-row items-center justify-center px-4 py-4 text-xs font-bold text-white uppercase bg-green-700 rounded-lg hover:bg-green-800 space-x-2"
                 table="tableDoctors"
-                filename="tableDoctors"
+                filename="Doctores"
                 sheet="pagina 1"
                 buttonText="Exportar a excel"
               />
@@ -260,7 +259,7 @@ export function ListDocView() {
               <input
                 type="search"
                 className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
-                placeholder="Busqueda por nombres y apellidos"
+                placeholder="Búsqueda por nombre"
                 value={searchDoctor}
                 onChange={handleChangeDoctors}
               />
@@ -289,7 +288,7 @@ export function ListDocView() {
               <input
                 type="search"
                 className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
-                placeholder="Busqueda por Especialidad"
+                placeholder="Búsqueda por especialidad"
                 value={searchSpecialties}
                 onChange={handleChangeSpecialties}
               />
@@ -297,7 +296,6 @@ export function ListDocView() {
           </div>
         </div>
       </div>
-
       <div className="relative overflow-x-auto shadow-2xl sm:rounded-lg">
         <table
           id="tableDoctors"
@@ -306,13 +304,13 @@ export function ListDocView() {
           <thead className="text-xs uppercase bg-[#687584] text-white">
             <tr>
               <th scope="col" className="text-white py-3 px-6 text-center">
-                Nombre
+                Nombre(s)
               </th>
               <th scope="col" className="text-white py-3 px-6 text-center">
-                Apellido
+                Apellido(s)
               </th>
               <th scope="col" className="text-white py-3 px-6 text-center">
-                Genero
+                Género
               </th>
               <th scope="col" className="text-white py-3 px-6 text-center">
                 Teléfono

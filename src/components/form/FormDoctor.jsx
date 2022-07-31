@@ -15,8 +15,9 @@ import {
 import { Spinner } from "../spinner/Spinner";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
+import { format } from "date-fns";
 
-export function FormDoctor({ doctor, cargando, setCargando }) {
+export function FormDoctor({ doctor, cargando }) {
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -49,7 +50,7 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
           toast.warning(
             "Problemas con actualizar el doctor, inténtelo mas tarde"
           );
-        } else toast.success("Doctor actulizado correctamente");
+        } else toast.success("Datos actualizados correctamente");
         navigate("/admin/doctores");
       } else {
         respuesta = await createDoctorApi(formDataTemp, logout);
@@ -80,6 +81,12 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
 
   today = yyyy + "-" + mm + "-" + dd;
   let minDate = "1902-01-01";
+  function randomDate(start, end, startHour, endHour) {
+    var date = new Date(+start + Math.random() * (end - start));
+    var hour = (startHour + Math.random() * (endHour - startHour)) | 0;
+    date.setHours(hour);
+    return date;
+  }
 
   return cargando ? (
     <Spinner />
@@ -103,7 +110,7 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
                 htmlFor="name"
                 className="block text-xl font-bold  text-gray-800 "
               >
-                Nombres
+                Nombre (s)
               </label>
               <Form.Input
                 type="text"
@@ -120,7 +127,7 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
                 htmlFor="last"
                 className="block font-bold text-xl  text-gray-700"
               >
-                Apellidos
+                Apellido (s)
               </label>
               <Form.Input
                 type="text"
@@ -159,7 +166,7 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
                 htmlFor="address"
                 className="block font-bold text-xl text-gray-700"
               >
-                Calle y Número
+                Calle y número
               </label>
               <Form.Input
                 type="text"
@@ -210,7 +217,7 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
                 htmlFor="number_int_address"
                 className="block font-bold text-xl text-gray-700"
               >
-                Numero interior
+                Número interior
               </label>
               <Form.Input
                 type="text"
@@ -283,7 +290,7 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
                 htmlFor="birthday"
                 className="block font-bold text-xl text-gray-700"
               >
-                Fecha de Nacimiento
+                Fecha de nacimiento
               </label>
               <Form.Input
                 type="date"
@@ -341,7 +348,7 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
                   role="alert"
                   aria-atomic="true"
                 >
-                  El Usuario es Obligatorio
+                  Campo obligatorio
                 </p>
               )}
             </div>
@@ -372,11 +379,11 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
                 htmlFor="status"
                 className="block font-bold text-xl text-gray-700"
               >
-                Estatus del doctor
+                Estatus
               </label>
               <Form.Dropdown
                 id="status"
-                placeholder="Seleciona un Estatus del Doctor"
+                placeholder="Seleciona un Estatus"
                 options={statusOptions}
                 value={formik.values.status}
                 error={formik.errors.status}
@@ -392,11 +399,11 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
                 htmlFor="workdates"
                 className="block font-bold text-xl text-gray-700"
               >
-                Dias de trabajo
+                Días de trabajo
               </label>
               <Form.Dropdown
                 id="workdates"
-                placeholder="Seleciona una especialidad"
+                placeholder="Selecione los dias a trabajar"
                 options={DateOptions}
                 value={formik.values.workdates[0].workdates}
                 error={formik.errors.workdates}
@@ -410,8 +417,8 @@ export function FormDoctor({ doctor, cargando, setCargando }) {
             </div>
           </div>
 
-          <Button type="submit" loading={loading} primary>
-            {doctor?.id ? "Editar Doctor" : "Crear Doctor"}
+          <Button type="submit"  disabled={!formik.dirty} loading={loading} primary>
+            {doctor?.id ? "Editar" : "Guardar cambios"}
           </Button>
         </Form>
       </div>
@@ -452,7 +459,7 @@ function validationSchema() {
         "Ingrese solo letras y sin espacios al final"
       )
       .max(50, "El Nombre es muy largo")
-      .required("El Nombre del Doctor es Obligatorio"),
+      .required("Campo obligatorio"),
     last: Yup.string()
       .min(5, "El Nombre es muy corto")
       .matches(
@@ -460,22 +467,20 @@ function validationSchema() {
         "Ingrese solo letras y sin espacios al final"
       )
       .max(50, "El Nombre es muy largo")
-      .required("El Nombre del doctor es obligatorio"),
-    address: Yup.string().required("La dirección del doctor es obligatorio"),
-    gender: Yup.string().required("El género del doctor es obligatorio"),
-    specialties: Yup.string().required(
-      "La especialidad del doctor es obligatorio"
-    ),
-    status: Yup.string().required("El estatus del doctor es obligatorio"),
+      .required("Campo obligatorio"),
+    address: Yup.string().required("Campo obligatorio"),
+    gender: Yup.string().required("Campo obligatorio"),
+    specialties: Yup.string().required("Campo obligatorio"),
+    status: Yup.string().required("Campo obligatorio"),
     phone: Yup.string()
-      .required("El numero de teléfono del doctor es obligatorio")
+      .required("Campo obligatorio")
       .matches(/^[0-9]+$/, "Deben ser solo dígitos")
       .min(10, "Debe tener exactamente 10 dígitos")
       .max(10, "Debe tener exactamente 10 dígitos"),
-    birthday: Yup.string().required("La fecha de cumpleaños es obligatorio"),
-    state: Yup.string().required("El estado es obligatorio"),
-    zip: Yup.string().required("El código postal es obligatorio"),
-    suburb: Yup.string().required("La colonia del doctor es obligatorio"),
-    town: Yup.string().required("El municipio del doctor es obligatorio"),
+    birthday: Yup.string().required("Campo obligatorio"),
+    state: Yup.string().required("Campo obligatorio"),
+    zip: Yup.string().required("Campo obligatorio"),
+    suburb: Yup.string().required("Campo obligatorio"),
+    town: Yup.string().required("Campo obligatorio"),
   };
 }

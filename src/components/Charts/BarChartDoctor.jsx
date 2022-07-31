@@ -32,37 +32,62 @@ export function BarChartDoctor() {
   useEffect(() => {
     (async () => {
       const Citas = await getQuotesApi(logout);
-      setCitasG(Citas.filter((citas) => citas?.especialites === "General"));
-      setCitasCa(Citas.filter((citas) => citas?.especialites === "Cardiólogo"));
+      setCitasG(
+        Citas.filter((citas) => citas?.doctor?.specialties === "General")
+      );
+      console.log(Citas);
+
+      setCitasCa(
+        Citas.filter((citas) => citas?.doctor?.specialties === "Cardiólogo")
+      );
       setCitasCp(
-        Citas.filter((citas) => citas?.especialites === "Cirujano plástico")
+        Citas.filter(
+          (citas) => citas?.doctor?.specialties === "Cirujano plástico"
+        )
       );
-      setCitasD(Citas.filter((citas) => citas?.especialites === "Dermatólogo"));
+      setCitasD(
+        Citas.filter((citas) => citas?.doctor?.specialties === "Dermatólogo")
+      );
       setCitasGas(
-        Citas.filter((citas) => citas?.especialites === "Gastroenterólogo")
+        Citas.filter(
+          (citas) => citas?.doctor?.specialties === "Gastroenterólogo"
+        )
       );
-      setCitasGeri(Citas.filter((citas) => citas?.especialites === "Geriatra"));
+      setCitasGeri(
+        Citas.filter((citas) => citas?.doctor?.especialites === "Geriatra")
+      );
       setCitasGine(
-        Citas.filter((citas) => citas?.especialites === "Ginecólogo")
+        Citas.filter((citas) => citas?.doctor?.especialites === "Ginecólogo")
       );
-      setCitasNe(Citas.filter((citas) => citas?.especialites === "Neurólogo"));
-      setCitasNu(Citas.filter((citas) => citas?.especialites === "Nutriólogo"));
+      setCitasNe(
+        Citas.filter((citas) => citas?.doctor?.especialites === "Neurólogo")
+      );
+      setCitasNu(
+        Citas.filter((citas) => citas?.doctor?.especialites === "Nutriólogo")
+      );
       setCitasOf(
-        Citas.filter((citas) => citas?.especialites === "Oftalmólogo")
+        Citas.filter((citas) => citas?.doctor?.especialites === "Oftalmólogo")
       );
-      setCitasOn(Citas.filter((citas) => citas?.especialites === "Oncólogo"));
+      setCitasOn(
+        Citas.filter((citas) => citas?.doctor?.especialites === "Oncólogo")
+      );
       setCitasOto(
-        Citas.filter((citas) => citas?.especialites === "Otorrinolaringólogo")
+        Citas.filter(
+          (citas) => citas?.doctor?.especialites === "Otorrinolaringólogo"
+        )
       );
-      setCitasPedi(Citas.filter((citas) => citas?.especialites === "Pediatra"));
+      setCitasPedi(
+        Citas.filter((citas) => citas?.doctor?.especialites === "Pediatra")
+      );
       setCitasTrau(
-        Citas.filter((citas) => citas?.especialites === "Traumatólogo")
+        Citas.filter((citas) => citas?.doctor?.especialites === "Traumatólogo")
       );
-      setCitasUro(Citas.filter((citas) => citas?.especialites === "Urólogo"));
+      setCitasUro(
+        Citas.filter((citas) => citas?.doctor?.especialites === "Urólogo")
+      );
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth, logout]);
-
   let data = {
     labels: [
       "General",
