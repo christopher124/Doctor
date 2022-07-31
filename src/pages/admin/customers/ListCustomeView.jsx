@@ -31,7 +31,7 @@ export function ListCustomeView() {
 
   const handleDelited = async (id) => {
     Swal.fire({
-      title: " ¿Estas seguro de eliminar?",
+      title: " ¿Estás seguro de eliminar?",
       text: "¡No podrás revertir esto!",
       icon: "question",
       showCancelButton: true,
@@ -151,7 +151,7 @@ export function ListCustomeView() {
               <input
                 type="search"
                 className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
-                placeholder="Búsqueda por nombres y apellidos"
+                placeholder="Búsqueda por nombres"
                 value={searchUser}
                 onChange={handleChangeUsers}
               />
@@ -180,7 +180,7 @@ export function ListCustomeView() {
               <input
                 type="search"
                 className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
-                placeholder="Búsqueda por Municipio"
+                placeholder="Búsqueda por municipio"
                 value={searchState}
                 onChange={handleChangeState}
               />
@@ -209,14 +209,13 @@ export function ListCustomeView() {
               </div>
             </div>
           </div>
-
           <div className="shrink-0 space-x-2 ">
             <div className="inline-flex rounded-md shadow-sm">
               <Excel
                 id="buttonExcel"
                 className="flex flex-row items-center justify-center px-4 py-4 text-xs font-bold text-white uppercase bg-green-700 rounded-lg hover:bg-green-800 space-x-2"
                 table="tableCustomers"
-                filename="tableCustomers"
+                filename="Pacientes"
                 sheet="pagina 1"
                 buttonText="Exportar a excel"
               />
@@ -255,7 +254,7 @@ export function ListCustomeView() {
               <input
                 type="search"
                 className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
-                placeholder="Búsqueda por nombres y apellidos"
+                placeholder="Búsqueda por nombre"
                 value={searchUser}
                 onChange={handleChangeUsers}
               />
@@ -284,7 +283,7 @@ export function ListCustomeView() {
               <input
                 type="search"
                 className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
-                placeholder="Búsqueda por Municipio"
+                placeholder="Búsqueda por municipio"
                 value={searchState}
                 onChange={handleChangeState}
               />
@@ -301,10 +300,10 @@ export function ListCustomeView() {
           <thead className="text-xs uppercase bg-[#505964] text-white">
             <tr>
               <th scope="col" className="text-white py-3 px-6  text-center">
-                Nombre
+                Nombre(s)
               </th>
               <th scope="col" className="text-white py-3 px-6  text-center">
-                Apellido
+                Apellido(s)
               </th>
               <th scope="col" className=" text-white py-3 px-6  text-center">
                 Género
@@ -313,10 +312,10 @@ export function ListCustomeView() {
                 Teléfono
               </th>{" "}
               <th scope="col" className="text-white py-3 px-6  text-center">
-                Dirección
+                Domicilio
               </th>
               <th scope="col" className="text-white py-3 px-6  text-center">
-                Numero inteiror
+                NÚMERO INTERIOR
               </th>
               <th scope="col" className="text-white py-3 px-6  text-center">
                 Colonia
@@ -328,10 +327,10 @@ export function ListCustomeView() {
                 Estado
               </th>
               <th scope="col" className="text-white py-3 px-6  text-center">
-                Codigo postal
+                CÓDIGO POSTAL
               </th>
               <th scope="col" className="text-white py-3 px-6  text-center">
-                Estatus del Cliente
+                ESTATUS
               </th>
               <th
                 scope="col"

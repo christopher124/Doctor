@@ -21,22 +21,24 @@ export function LoginForm() {
         const response = await loginApi(formData);
         if (response?.jwt && response?.user?.role?.name === "Administrador") {
           login(response.jwt);
-          toast.success("Bienvenido" + " " + response.user.username);
+          toast.success("Bienvenido," + " " + response.user.username);
           navigate("/admin/dashboard");
         } else if (
           response?.jwt &&
           response?.user?.role?.name === "Recepción"
         ) {
           login(response.jwt);
-          toast.success("Bienvenido" + " " + response?.user?.username);
+          toast.success("Bienvenido," + " " + response?.user?.username);
           navigate("/admin/dashboard");
         } else if (response?.jwt && response?.user?.role?.name === "Doctor") {
           login(response.jwt);
-          toast.success("Bienvenido" + " " + response?.user?.username);
+          toast.success("Bienvenido," + " " + response?.user?.username);
           navigate("/admin/dashboard");
         } else {
           setLoading(false);
-          toast.error("Usuario o contraseña incorrectos");
+          toast.error(
+            "Usuario y/o contraseña incorrecto o su cuenta ha sido bloqueada."
+          );
         }
       } catch (e) {
         console.log(e);
@@ -66,7 +68,7 @@ export function LoginForm() {
                       error={
                         formik.touched.identifier && formik.errors.identifier
                       }
-                      placeholder="Ejemplo@gmail.com"
+                      placeholder="Ejemplo@gmail.com o nombre de usurio"
                     />
 
                     <span className="absolute inset-y-0 inline-flex items-center right-4">
@@ -126,7 +128,7 @@ function initialValues() {
 }
 function validationSchema() {
   return {
-    identifier: Yup.string().email(true).required(true),
+    identifier: Yup.string().required(true),
     password: Yup.string().required(true),
   };
 }

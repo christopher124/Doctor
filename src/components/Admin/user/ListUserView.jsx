@@ -22,16 +22,12 @@ export function ListUserView({ user, handleDelited }) {
         <td className="text-white px-6 py-4 text-center">
           {email ? email : "N/A"}
         </td>
-        {/* <td className="text-white px-6 py-4">{adress}</td> */}
+
         <td className="text-white px-6 py-4 text-center">
           {role?.name ? role.name : "N/A"}
         </td>
         <td className="text-white text-center">
-          <span className="relative inline-block px-3 py-1 text-white font-semibold  leading-tight">
-            <span
-              aria-hidden
-              // className={`${clase} absolute inset-0  rounded-full`}
-            ></span>
+          <span className="relative inline-block px-3 py-1 text-white  leading-tight">
             <span className="relative text-center">
               {confirmed === true ? "Confirmado" : "usuario no confirmado"}
             </span>
@@ -43,12 +39,6 @@ export function ListUserView({ user, handleDelited }) {
 
         <td className="py-3 px-6 text-center">
           <div className="flex item-center justify-center">
-            <button
-              onClick={() => navigate(`/admin/usuario/${id}`)}
-              className="w-4 mr-2 transform hover:text-blue-500 hover:scale-110"
-            >
-              <i className="pr-4 text-lg fa fas fa-eye"></i>
-            </button>
             <button
               onClick={() => navigate(`/admin/editar/usuario/${id}`)}
               className="w-4 mr-2 transform  hover:text-yellow-500 hover:scale-110"
