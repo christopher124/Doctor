@@ -37,22 +37,22 @@ export function DoctorView({ doctor }) {
           <Avatar value={user?.username ? user?.username : "NU"} size={40} />
         </div>
         <div className="flex flex-col w-full">
-          <div className="p-1 text-sm font-bold text-white">
-            Nombre y Apelido:{" "}
+          <div className="p-1  font-bold text-white">
+            Nombre completo:{" "}
             {name + " " + last ? name + " " + last : "No hay datos"}
           </div>
 
-          <div className=" font-bold p-1 text-sm text-white">
-            Dirección: {address ? address : "No hay datos"}
+          <div className=" font-bold p-1  text-white">
+            Domicilio: {address ? address : "No hay datos"}
           </div>
-          <div className=" font-bold p-1 text-sm text-white">
+          <div className=" font-bold p-1  text-white">
             Teléfono: {phone ? phone : "No hay datos"}
           </div>
-          <div className=" font-bold p-1 text-sm text-white">
+          <div className=" font-bold p-1  text-white">
             Especialidad: {specialties ? specialties : "No hay datos"}
           </div>
 
-          <div className="p-1 text-white whitespace-nowrap">
+          <div className="p-1 text-white font-bold whitespace-nowrap">
             Estatus:{" "}
             <span className={`${clase} `}>
               {status ? status : "No hay datos"}

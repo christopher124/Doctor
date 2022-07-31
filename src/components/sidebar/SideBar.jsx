@@ -123,7 +123,7 @@ export function SideBar() {
                           : "text-black hover:text-gray-600")
                       }
                     ></i>{" "}
-                    Dashboard
+                    Tablero principal
                   </Link>
                 </li>
                 <hr className="my-4 lg:min-w-full" />
@@ -265,7 +265,7 @@ export function SideBar() {
                           : "text-black hover:text-gray-600")
                       }
                     ></i>{" "}
-                    Dashboard
+                    Tablero principal
                   </Link>
                 </li>
                 <hr className="my-4 lg:min-w-full" />
@@ -331,7 +331,7 @@ export function SideBar() {
                           : "text-black hover:text-gray-600")
                       }
                     ></i>{" "}
-                    Dashboard
+                    Tablero principal
                   </Link>
                 </li>
                 <hr className="my-4 lg:min-w-full" />
@@ -426,8 +426,8 @@ export function SideBar() {
               className="text-white bg-gradient-to-r from-cyan-800 to-sky-700 font-bold py-2 px-4 rounded-xl"
               onClick={() => exit()}
             >
-              <i className="fas fa-door-open text-white mr-2 text-sm"></i> Cerra
-              sesión
+              <i className="fas fa-door-open text-white mr-2 text-sm"></i>{" "}
+              Cerrar sesión
             </button>
           </div>
         </div>

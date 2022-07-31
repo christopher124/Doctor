@@ -39,17 +39,17 @@ export function FormUser({ user }) {
         respuesta = await updateUserApi(user?.id, formDataTemp, logout);
         if (!respuesta) {
           toast.warning(
-            "Problemas con actualizar el doctor, inténtelo mas tarde"
+            "Problemas con actualizar el usuario, inténtelo mas tarde"
           );
         } else setReloadUser(true);
-        toast.success("Doctor actulizado correctamente");
+        toast.success("Datos actulizado correctamente");
         navigate("/admin/usuarios");
       } else {
         respuesta = await registerApi(formDataTemp, logout);
         if (!respuesta) {
-          toast.warning("Problemas con crear el doctor, inténtelo mas tarde");
+          toast.warning("Problemas con crear el usuario, inténtelo mas tarde");
         } else {
-          toast.success("Doctor creado correctamente");
+          toast.success("Usuario creado correctamente");
           navigate("/admin/usuarios");
         }
       }
@@ -75,7 +75,7 @@ export function FormUser({ user }) {
         </h1>
         <Form onSubmit={formik.handleSubmit} className="mt-10">
           <div className=" grid xl:grid-cols-3 xl:gap-6">
-            <div className="text-lg w-full mb-6 group">
+            <div className="w-full mb-6 group">
               <label
                 htmlFor="username"
                 className="block text-xl font-bold  text-gray-800 "
@@ -92,7 +92,7 @@ export function FormUser({ user }) {
                 placeholder="Nombre de usuario"
               />
             </div>
-            <div className="  w-full mb-6 group">
+            <div className="w-full mb-6 group">
               <label
                 htmlFor="email"
                 className="block font-bold text-xl  text-gray-700"
@@ -131,7 +131,7 @@ export function FormUser({ user }) {
                 htmlFor="password"
                 className="block font-bold text-xl text-gray-700"
               >
-                Estatus del usuario
+                Estatus
               </label>
               <Form.Checkbox
                 checked={formik.values.confirmed}
@@ -149,7 +149,7 @@ export function FormUser({ user }) {
                   formik.setFieldValue("blocked", data.checked)
                 }
                 toggle
-                label="Usuario no bloquedo / Usuario bloqueado"
+                label="Usuario no bloqueado / Usuario bloqueado"
               />
             </div>
             <div className="text-lg w-full mb-6 group">
@@ -194,12 +194,17 @@ export function FormUser({ user }) {
                   role="alert"
                   aria-atomic="true"
                 >
-                  El Rol del usuario es obligatorio
+                  Campo obligatorio
                 </p>
               )}
             </div>
           </div>
-          <Button type="submit" primary loading={loading}>
+          <Button
+            type="submit"
+            disabled={!formik.dirty}
+            primary
+            loading={loading}
+          >
             {user?.username ? "Editar Usuario" : "Agregar Usuario"}
           </Button>
         </Form>
@@ -220,17 +225,14 @@ function initialValues(user) {
 }
 function validationSchema() {
   return {
-    username: Yup.string()
-      .required("El Nombre del usuario es obligatorio")
-      .min(5)
-      .max(15),
+    username: Yup.string().required("Campo obligatorio").min(5).max(15),
     email: Yup.string()
       .email("Formato de correo inválido")
-      .required("El mail correo es obligatorio"),
+      .required("Campo obligatorio"),
 
     password: Yup.string()
       .min(9, "La contraseña debe de tener minimo 9 caracteres")
-      .required("La contraseña es obligatorio"),
+      .required("Campo obligatorio"),
     role: Yup.string().required(true),
   };
 }

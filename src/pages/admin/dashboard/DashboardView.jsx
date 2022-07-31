@@ -56,7 +56,9 @@ export function DashboardView() {
             <div className="text-xs font-bold text-gray-500 uppercase">
               <span className="font-mont  text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
-                <span className="font-mont text-gray-600">Dashboard</span>
+                <span className="font-mont text-gray-600">
+                  Tablero principal
+                </span>
               </div>
             </div>
           </div>

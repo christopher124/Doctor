@@ -151,7 +151,7 @@ export function ListPrescripView() {
           <thead className="text-xs uppercase bg-[#687584] text-white">
             <tr>
               <th scope="col" className="text-white py-3 px-6 text-center">
-                Numero de expediente
+                Número de expediente
               </th>
               <th scope="col" className="text-white py-3 px-6 text-center">
                 Nombre del paciente
@@ -160,10 +160,10 @@ export function ListPrescripView() {
                 Alergias
               </th>
               <th scope="col" className="text-white py-3 px-6 text-center">
-                Obsarvaciones
+                Observaciones
               </th>
               <th scope="col" className="text-white py-3 px-6 text-center">
-                Fecha y hora de elaboracion
+                Fecha y hora de elaboración
               </th>
               <th
                 scope="col"

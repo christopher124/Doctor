@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import { getOneDoctorApi } from "../../../api/admin/doctor";
 import { getQuotesDoctorApi } from "../../../api/admin/quote";
-
 import Avatar from "avvvatars-react";
 import { ListQuotesUserView } from "../../../components/Admin/quotes/ListQuotesUserView";
 import Img404 from "../../../assets/img/story-404.svg";
@@ -116,7 +115,7 @@ export function DocView() {
               <div className="flex flex-col">
                 <div className="text-sm font-light text-white">Doctor</div>
                 <div className="text-sm text-white font-bold">
-                  <span>Información del Usuario (Doctor)</span>
+                  <span>Información de usuario</span>
                 </div>
               </div>
             </div>
@@ -151,27 +150,27 @@ export function DocView() {
               <div className="flex flex-col">
                 <div className="text-sm font-bold text-white">Doctor</div>
                 <div className="text-sm font-bold text-white">
-                  <span>Información del doctor</span>
+                  <span>Información personal</span>
                 </div>
               </div>
               <div className="relative inline-block text-left z-10"></div>
             </div>
             <div className="p-0 flex flex-col w-full">
               <p className="py-[0.15rem] text-white font-noto">
-                Nombre completo del doctor:{" "}
+                Nombre completo:{" "}
                 <span className="text-bold">
                   {name} {last}
                 </span>
               </p>
               <p className="py-[0.15rem] text-white font-noto">
-                Genero:{" "}
+                Género:{" "}
                 <span className="text-bold">
                   {" "}
                   {gender ? gender : "No hay datos"}
                 </span>
               </p>
               <p className="py-[0.15rem] text-white font-noto">
-                Teléfono celular:{" "}
+                Teléfono:{" "}
                 <span className="text-bold">
                   {" "}
                   {phone ? phone : "No hay datos"}
@@ -184,25 +183,25 @@ export function DocView() {
                 </span>
               </p>
               <p className="py-[0.15rem] text-white font-noto">
-                Edad de doctor:{" "}
+                Edad:{" "}
                 <span className="text-bold"> {getEdad(birthday)} años</span>
               </p>
               <p className="py-[0.15rem] text-white font-noto">
-                Estatus del doctor:{" "}
+                Estatus:{" "}
                 <span className="text-bold">
                   {" "}
                   {status ? status : "No hay datos"}
                 </span>
               </p>
               <p className="py-[0.15rem] text-white font-noto">
-                Especialidad del doctor:{" "}
+                Especialidad:{" "}
                 <span className="text-bold">
                   {" "}
                   {specialties ? specialties : "No hay datos"}
                 </span>
               </p>
               <p className="py-[0.15rem] text-white font-noto">
-                Dirección:{" "}
+                Domicilio:{" "}
                 <span className="text-bold">
                   {" "}
                   {address ? address : "No hay datos"}, INT:{" "}
@@ -223,7 +222,7 @@ export function DocView() {
                 </span>
               </p>
               <p className="py-[0.15rem] text-white font-noto">
-                Última actulización:{" "}
+                Última actualización:{" "}
                 <span className="text-bold">
                   {" "}
                   {format(
@@ -242,7 +241,7 @@ export function DocView() {
             <div className="flex flex-col">
               <div className="text-sm font-bold text-white">Doctor</div>
               <div className="text-sm font-bold text-white">
-                <span>Citas con paciente</span>
+                <span>Citas</span>
               </div>
             </div>
           </div>
@@ -250,7 +249,7 @@ export function DocView() {
             <Spinner />
           ) : Object.keys(quotes).length === 0 ? (
             <p className="py-[0.15rem] font-bold text-center text-white ">
-              El paciente no tiene citas agendadas
+              El Doctor no tiene citas agendadas
             </p>
           ) : (
             <div className="flex flex-col w-full">
@@ -265,13 +264,13 @@ export function DocView() {
                         scope="col"
                         className="text-white py-3 px-6  text-center"
                       >
-                        Nombre del paciente
+                        paciente
                       </th>
                       <th
                         scope="col"
                         className="text-white py-3 px-6  text-center"
                       >
-                        Nombre del doctor
+                        doctor
                       </th>
                       <th
                         scope="col"

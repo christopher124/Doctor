@@ -154,7 +154,7 @@ export function ListUseView() {
             <input
               type="search"
               className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
-              placeholder="Busqueda por nombre de usuario"
+              placeholder="Búsqueda por usuario"
               value={searchUserName}
               onChange={handleChangeUserName}
             />
@@ -183,7 +183,7 @@ export function ListUseView() {
             <input
               type="search"
               className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
-              placeholder="Busqueda por rol de usuario"
+              placeholder="Búsqueda por rol de usuario"
               value={searchRole}
               onChange={handleChangeRole}
             />
@@ -248,7 +248,7 @@ export function ListUseView() {
               <input
                 type="search"
                 className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
-                placeholder="Busqueda por nombre de usuario"
+                placeholder="Búsqueda por usuario"
                 value={searchUserName}
                 onChange={handleChangeUserName}
               />
@@ -277,7 +277,7 @@ export function ListUseView() {
               <input
                 type="search"
                 className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
-                placeholder="Busqueda por rol de usuario"
+                placeholder="Búsqueda por rol de usuario"
                 value={searchRole}
                 onChange={handleChangeRole}
               />
@@ -294,22 +294,22 @@ export function ListUseView() {
           <thead className="text-xs uppercase bg-[#687584] text-white">
             <tr>
               <th scope="col" className="text-white py-3 px-6 text-center">
-                Foto de Usuario
+                FOTO
               </th>
               <th scope="col" className="text-white py-3 px-6 text-center">
-                Nombre de Usuario{" "}
+                NOMBRE{" "}
               </th>
               <th scope="col" className="text-white py-3 px-6 text-center">
                 Correo
               </th>
               <th scope="col" className=" text-white py-3 px-6 text-center">
-                Rol de Usuario
+                Rol
               </th>
               <th scope="col" className=" text-white py-3 px-6 text-center">
                 Verificación del Usuario
               </th>
               <th scope="col" className=" text-white py-3 px-6 text-center">
-                Estatus del Usuario
+                Estatus
               </th>
               <th
                 scope="col"

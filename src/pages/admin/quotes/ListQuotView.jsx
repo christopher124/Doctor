@@ -148,7 +148,7 @@ export function ListQuotView() {
                 Nombre y Apellido del Doctor
               </th>
               <th scope="col" className="text-white py-3 px-6 text-center">
-                Dia de la cita
+                FECHA DE LA CITA
               </th>
 
               <th

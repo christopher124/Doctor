@@ -9,7 +9,7 @@ export function NewPrescriptionView() {
             <div className="text-xs font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
-                <span className="text-gray-600">Nuevo Doctor</span>
+                <span className="text-gray-600">Nueva Receta</span>
               </div>
             </div>
           </div>
