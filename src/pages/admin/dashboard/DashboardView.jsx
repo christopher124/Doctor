@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { getCountUserApi, getUserApi } from "../../../api/admin/user";
 import { getCountCustomerApi } from "../../../api/admin/customer";
 import { getDoctorApi, getCountDoctorApi } from "../../../api/admin/doctor";
-import { getCountQuoteApi } from "../../../api/admin/quote";
+import { getCountQuotesApi } from "../../../api/admin/quote";
 import { getMeApi } from "../../../api/admin/user";
 import { Spinner } from "../../../components/spinner/Spinner";
 import { DoctorView } from "../../../components/Admin/doctor/DoctorView";
@@ -36,7 +36,7 @@ export function DashboardView() {
       setDoctorCount(countDoctor);
       const countCustumer = await getCountCustomerApi(logout);
       setCustomerCount(countCustumer);
-      const countQuote = await getCountQuoteApi(logout);
+      const countQuote = await getCountQuotesApi(logout);
       setQuoteCount(countQuote);
       const me = await getMeApi(logout);
       setUser(me);
@@ -135,7 +135,7 @@ export function DashboardView() {
               <BarChartDoctor />
             </div>
             <div className="w-full lg:w-1/3">
-              <DoughnutChartUser className="m-4" />
+              <DoughnutChartUser />
             </div>
           </div>
           <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
@@ -311,12 +311,10 @@ export function DashboardView() {
           </div>
           <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
             <div className="w-full lg:w-2/3">
-              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-700 to-slate-700"></div>
+              <BarChartDoctor />
             </div>
             <div className="w-full lg:w-1/3">
-              <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-700 to-slate-700">
-                <DoughnutChartUser />
-              </div>
+              <DoughnutChartUser />
             </div>
           </div>
           <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">

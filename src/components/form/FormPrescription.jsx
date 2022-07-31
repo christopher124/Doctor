@@ -42,6 +42,7 @@ export function FormPrescription({ prescription }) {
     const formDataTemp = {
       ...formData,
       user: auth.idUser,
+      file_number: Math.random().toString(36).substr(2),
     };
     let respuesta;
     try {
@@ -75,7 +76,7 @@ export function FormPrescription({ prescription }) {
   return (
     <>
       <button
-        className="text-white bg-blue-600 font-bold py-2 px-4 rounded-xl"
+        className="text-white bg-[#1678C2] font-bold py-2 px-4 rounded-xl"
         onClick={() => navigate(`/admin/recetas`)}
       >
         <i className="fas fa-arrow-left text-white mr-2 text-lg"></i>
@@ -293,8 +294,7 @@ function initialValues(prescription) {
     allergies: prescription?.allergies ?? "",
     observations: prescription?.observations ?? "",
     treatment: prescription?.treatment ?? "",
-    file_number:
-      prescription?.file_number ?? Math.random().toString(36).substr(2),
+    file_number: prescription?.file_number ?? "",
     weight: prescription?.weight ?? "",
   };
 }

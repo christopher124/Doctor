@@ -4,6 +4,8 @@ import useAuth from "../../../hooks/useAuth";
 import { getOneCustomerApi } from "../../../api/admin/customer";
 import { FormCustumer } from "../../../components/form/FormCustumer";
 import { Spinner } from "../../../components/spinner/Spinner";
+import Img404 from "../../../assets/img/story-404.svg";
+
 export function EditCustomerView() {
   const [customer, setCustumer] = useState({});
   const navigate = useNavigate();
@@ -36,10 +38,16 @@ export function EditCustomerView() {
             <div className="text-xs font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
-                <span className="text-gray-600 ">ID mal</span>
+                <span className="text-gray-600">Editar Paciente</span>
               </div>
             </div>
           </div>
+        </div>
+        <div className="text-xs font-bold text-gray-500 uppercase">
+          <div className="justify-center flex p-5">
+            <img className="ui centered image w-96 h-96" src={Img404} />
+          </div>
+          <p className="text-center">No se encontraron resultados</p>
         </div>
       </div>
     </div>
@@ -57,15 +65,11 @@ export function EditCustomerView() {
           </div>
         </div>
       </div>
-      {customer?.id ? (
-        <FormCustumer
-          customer={customer}
-          cargando={cargando}
-          setCargando={setCargando}
-        />
-      ) : (
-        <p>ID Inválido</p>
-      )}
+      <FormCustumer
+        customer={customer}
+        cargando={cargando}
+        setCargando={setCargando}
+      />
     </div>
   );
 }

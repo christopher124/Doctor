@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import useAuth from "../../hooks/useAuth";
-import { Form } from "semantic-ui-react";
+import { Form, Button } from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
 import { getUserApi } from "../../api/admin/user";
 import { contriesOptions, options } from "../../api/data/data.js";
@@ -33,7 +33,7 @@ export function FormCustumer({ customer }) {
   const handleSubmit = async (formData) => {
     const formDataTemp = {
       ...formData,
-      user: auth.idUser,
+      // users: auth.idUser,
     };
     let respuesta;
     try {
@@ -42,16 +42,16 @@ export function FormCustumer({ customer }) {
         respuesta = await updateCustomerApi(customer?.id, formDataTemp, logout);
         if (!respuesta) {
           toast.warning(
-            "Problemas con actulizar al usaurio, intentelo mas tarde"
+            "Problemas con actualizar al paciente, Inténtelo más tarde"
           );
-        } else toast.success("Usuario actulizado correctamente");
+        } else toast.success("Paciente actualizado correctamente");
         navigate("/admin/pacientes");
       } else {
         respuesta = await createCustomerApi(formDataTemp, logout);
         if (!respuesta) {
-          toast.warning("El nombre de usuario y el correo ya estan utilizados");
+          toast.warning("Problemas con crear el paciente, Inténtelo más tarde");
         } else {
-          toast.success("Usuario creado correctamente");
+          toast.success("Paciente creado correctamente");
           navigate("/admin/pacientes");
         }
       }
@@ -79,7 +79,7 @@ export function FormCustumer({ customer }) {
   return (
     <>
       <button
-        className="text-white bg-blue-600 font-bold py-2 px-4 rounded-xl"
+        className="text-white bg-[#1678C2] font-bold py-2 px-4 rounded-xl"
         onClick={() => navigate(`/admin/pacientes`)}
       >
         <i className="fas fa-arrow-left text-white mr-2 text-lg"></i>
@@ -105,7 +105,7 @@ export function FormCustumer({ customer }) {
                 value={formik.values.name}
                 onChange={formik.handleChange}
                 error={formik.errors.name}
-                placeholder="Nombres... "
+                placeholder="Nombres..."
               />
             </div>
             <div className="text-lg w-full mb-6 group">
@@ -181,7 +181,7 @@ export function FormCustumer({ customer }) {
                 placeholder="La Floresta II Seccion"
               />
             </div>
-            <div className="  w-full mb-6 group">
+            <div className="w-full mb-6 group">
               <label
                 htmlFor="town"
                 className="block font-bold text-xl text-gray-700"
@@ -209,7 +209,7 @@ export function FormCustumer({ customer }) {
                 type="text"
                 name="number_int_address"
                 id="number_int_address"
-                placeholder="Numero Interior (Opcional)"
+                placeholder="Número Interior (Opcional)"
               />
             </div>
             <div className="text-lg w-full mb-6 group">
@@ -289,10 +289,10 @@ export function FormCustumer({ customer }) {
             </div>
             <div className="text-lg w-full mb-6 group">
               <label
-                htmlFor="user"
+                htmlFor="name"
                 className="block text-xl font-bold  text-gray-800 "
               >
-                Usuario
+                Rol de Usuario
               </label>
               <select
                 value={formik.values.user}
@@ -303,21 +303,18 @@ export function FormCustumer({ customer }) {
                     shouldValidate: true,
                   })
                 }
-                onError={formik.errors.user}
-                onSelect
               >
-                {customer?.id ? (
+                {user?.id ? (
                   <option value="">
-                    Selecione un nuevo usuario para el Paciente
+                    Selecione un nuevo Rol para el usuario
                   </option>
                 ) : (
-                  <option value="">
-                    Selecione un usuario para el Paciente
-                  </option>
+                  <option value="">Selecione un Rol para el usuario</option>
                 )}
+
                 {user?.map((user) => (
                   <option key={user?.id} value={user?.id}>
-                    {user?.email} / {user?.role?.name}
+                    {user?.email}
                   </option>
                 ))}
               </select>
@@ -334,17 +331,14 @@ export function FormCustumer({ customer }) {
                   role="alert"
                   aria-atomic="true"
                 >
-                  El Usuario es Obligatorio
+                  El Rol del usuario es obligatorio
                 </p>
               )}
             </div>
           </div>
-          <input
-            type="submit"
-            loading={loading}
-            className=" text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            value={customer?.id ? "Editar Paciente" : "Agregar Paciente"}
-          />
+          <Button type="submit" loading={loading} primary>
+            {customer?.id ? "Editar Paciente" : "Agregar Paciente"}
+          </Button>
         </Form>
       </div>
     </>
@@ -371,19 +365,18 @@ function validationSchema() {
   return {
     user: Yup.string().required(true),
     name: Yup.string()
-      .required("El Nombre del Paciente es Obligatorio")
+      .required("El Nombre del Paciente es obligatorio")
       .matches(
         /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g,
-        "Ingrese solo letras"
+        "Ingrese solo letras y sin espacios al final"
       )
       .min(2, "El Nombre es muy corto")
       .max(50, "El Nombre es muy largo"),
-
     last: Yup.string()
       .min(2, "El Apellidos es muy corto")
       .matches(
         /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g,
-        "Ingrese solo letras"
+        "Ingrese solo letras y sin espacios al final"
       )
       .max(50, "El Apellidos es muy largo")
       .required("El Nombre del Paciente es obligatorio"),
@@ -394,9 +387,21 @@ function validationSchema() {
       .matches(/^[0-9]+$/, "Deben ser solo dígitos")
       .min(10, "Debe tener exactamente 10 dígitos")
       .max(10, "Debe tener exactamente 10 dígitos"),
-    zip: Yup.string().required("El código postal es obligatorio"),
-    suburb: Yup.string().required("La colonia del Paciente es obligatorio"),
-    town: Yup.string().required("El municipio del Paciente es obligatorio"),
+    zip: Yup.string()
+      .matches(/^[0-9]+$/, "Deben ser solo dígitos")
+      .required("El código postal es obligatorio"),
+    suburb: Yup.string()
+      .matches(
+        /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g,
+        "Ingrese solo letras y sin espacios al final"
+      )
+      .required("La colonia del Paciente es obligatorio"),
+    town: Yup.string()
+      .matches(
+        /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g,
+        "Ingrese solo letras y sin espacios al final"
+      )
+      .required("El municipio del Paciente es obligatorio"),
     state: Yup.string().required("El Estado del Paciente es obligatorio"),
     birthday: Yup.string().required("La fecha de cumpleaños es obligatorio"),
   };

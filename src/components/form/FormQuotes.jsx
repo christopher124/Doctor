@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import useAuth from "../../hooks/useAuth";
-import { Form } from "semantic-ui-react";
+import { Form, Button } from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
 import { getCustomerApi } from "../../api/admin/customer";
 import { getDoctorApi } from "../../api/admin/doctor";
@@ -27,22 +27,25 @@ export function FormQuotes() {
     validationSchema: Yup.object(validationSchema()),
     onSubmit: async (formData) => {
       handleSutmit(formData);
+      console.log(formData);
     },
   });
   const navigate = useNavigate();
   const handleSutmit = async (formData) => {
-    const hola = await createQuotesApi(formData, logout);
-    if (!hola && customer.status === false) {
-      toast.warning("Problemas con actulizar al doctor, intentelo mas tarde");
-    } else toast.success("Doctor actulizado correctamente");
-    navigate("/admin/citas");
+    const quotes = await createQuotesApi(formData, logout);
+    if (!quotes) {
+      toast.warning("Problemas con actualizar al doctor, Inténtelo más tarde.");
+    } else if (formData.quotes.date === undefined) {
+      toast.success("Doctor actualizado correctamente.");
+      navigate("/admin/citas");
+    }
   };
 
   return (
     <>
       {" "}
       <button
-        className="text-white bg-blue-600 font-bold py-2 px-4 rounded-xl"
+        className="text-white bg-[#1678C2] font-bold py-2 px-4 rounded-xl"
         onClick={() => navigate(`/admin/citas`)}
       >
         <i className="fas fa-arrow-left text-white mr-2 text-lg"></i>
@@ -56,50 +59,99 @@ export function FormQuotes() {
           <div className=" grid xl:grid-cols-3 xl:gap-6">
             <div className="text-lg w-full mb-6 group">
               <label
-                htmlFor="name"
+                htmlFor="customer"
                 className="block text-xl font-bold  text-gray-800 "
               >
-                Nombre del Cliente
+                Nombre del paciente
               </label>
               <select
                 value={formik.values.customer}
                 name="customer"
                 id="customer"
                 onChange={(data) =>
-                  formik.setFieldValue("customer", data.target.value)
+                  formik.setFieldValue("customer", data.target.value, {
+                    shouldValidate: true,
+                  })
                 }
+                onError={formik.errors.customer}
               >
-                <option>Selecione un usuario</option>
-
+                {customer?.id ? (
+                  <option value="">
+                    Selecione un nuevo paciente para la cita
+                  </option>
+                ) : (
+                  <option value="">Selecione un paciente para la cita</option>
+                )}
                 {customer?.map((customer) => (
                   <option key={customer?.id} value={customer?.id}>
                     {customer?.name} {customer?.last}
                   </option>
                 ))}
               </select>
+              {formik.errors.customer && (
+                <p
+                  style={{
+                    whitespace: "normal",
+                    background: "#fff",
+                    border: "1px solid #e0b4b4",
+                    color: "#9f3a38",
+                  }}
+                  className="ui pointing above prompt label "
+                  id="birthday-error-message"
+                  role="alert"
+                  aria-atomic="true"
+                >
+                  El paciente es Obligatorio
+                </p>
+              )}
             </div>
             <div className="text-lg w-full mb-6 group">
               <label
-                htmlFor="name"
+                htmlFor="doctor"
                 className="block text-xl font-bold  text-gray-800 "
               >
                 Nombre del doctor
               </label>
               <select
                 value={formik.values.doctor}
-                onChange={(data) =>
-                  formik.setFieldValue("doctor", data.target.value)
-                }
                 name="doctor"
                 id="doctor"
+                onChange={(data) =>
+                  formik.setFieldValue("doctor", data.target.value, {
+                    shouldValidate: true,
+                  })
+                }
+                onError={formik.errors.doctor}
               >
-                <option>Selecione un doctor</option>
+                {doctor?.id ? (
+                  <option value="">
+                    Selecione un nuevo doctor para la cita.
+                  </option>
+                ) : (
+                  <option value="">Selecione un doctor para la cita.</option>
+                )}
                 {doctor?.map((doctor) => (
                   <option key={doctor?.id} value={doctor?.id}>
-                    {doctor?.name}
+                    {doctor?.name} {doctor?.last}
                   </option>
                 ))}
               </select>
+              {formik.errors.doctor && (
+                <p
+                  style={{
+                    whitespace: "normal",
+                    background: "#fff",
+                    border: "1px solid #e0b4b4",
+                    color: "#9f3a38",
+                  }}
+                  className="ui pointing above prompt label "
+                  id="birthday-error-message"
+                  role="alert"
+                  aria-atomic="true"
+                >
+                  El doctor es Obligatorio
+                </p>
+              )}
             </div>
             <div className="text-lg w-full mb-6 group">
               <label
@@ -109,21 +161,18 @@ export function FormQuotes() {
                 Fecha y hora de la cita
               </label>
               <Form.Input
-                type="datetime-local"
-                id="date"
+                type="date"
                 name="date"
+                min={new Date().toISOString().split("T")[0]}
                 value={formik.values.date}
                 onChange={formik.handleChange}
                 error={formik.errors.date}
               />
             </div>
           </div>
-
-          <input
-            type="submit"
-            value={doctor?.id ? "Editar Doctor" : "Crear Doctor"}
-            className="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          />
+          <Button type="submit" primary>
+            {doctor?.id ? "Editar Doctor" : "Crear Doctor"}
+          </Button>
         </Form>
       </div>
     </>
@@ -137,5 +186,8 @@ function initialValues() {
   };
 }
 function validationSchema() {
-  return {};
+  return {
+    customer: Yup.string().required(true),
+    doctor: Yup.string().required(true),
+  };
 }

@@ -58,7 +58,11 @@ export function NavBar(props) {
                 }
                 to="/ubicacion"
               >
+<<<<<<< HEAD
                 Ubicación
+=======
+                ubicación
+>>>>>>> 0ae6c01cf9263787911dd51fa696cf8778706323
               </Link>
             </li>
 

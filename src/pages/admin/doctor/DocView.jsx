@@ -9,6 +9,7 @@ import { getQuotesDoctorApi } from "../../../api/admin/quote";
 
 import Avatar from "avvvatars-react";
 import { ListQuotesUserView } from "../../../components/Admin/quotes/ListQuotesUserView";
+import Img404 from "../../../assets/img/story-404.svg";
 
 export function DocView() {
   const { id } = useParams();
@@ -19,6 +20,11 @@ export function DocView() {
     user,
     birthday,
     address,
+    number_int_address,
+    suburb,
+    town,
+    state,
+    zip,
     gender,
     phone,
     status,
@@ -71,13 +77,14 @@ export function DocView() {
               <div className="text-xl font-bold">
                 <span className="text-gray-600">Doctores</span>
               </div>
-              <div className="flex flex-col items-center justify-center h-full">
-                <div className="text-center text-gray-600">
-                  No hay Resultados
-                </div>
-              </div>
             </div>
           </div>
+        </div>
+        <div className="text-xs font-bold text-gray-500 uppercase">
+          <div className="justify-center flex p-5">
+            <img className="ui centered image w-96 h-96" src={Img404} />
+          </div>
+          <p className="text-center">No se encontraron resultados</p>
         </div>
       </div>
     </div>
@@ -95,7 +102,7 @@ export function DocView() {
           </div>
         </div>
         <button
-          className="text-white bg-blue-600 font-bold py-2 px-4 rounded-xl"
+          className="text-white bg-[#1678C2] font-bold py-2 px-4 rounded-xl"
           onClick={() => navigate(`/admin/doctores`)}
         >
           <i className="fas fa-arrow-left text-white mr-2 text-lg"></i>
@@ -104,7 +111,7 @@ export function DocView() {
       </div>
       <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
         <div className="w-full lg:w-1/3 lg:h-1/3">
-          <div className="font-noto w-full p-11 rounded-lg bg-cyan-800 border-white">
+          <div className="font-noto w-full p-3 rounded-lg bg-cyan-800 border-white">
             <div className="w-full flex flex-row items-center justify-between mb-6">
               <div className="flex flex-col">
                 <div className="text-sm font-light text-white">Doctor</div>
@@ -112,99 +119,115 @@ export function DocView() {
                   <span>Información del Usuario (Doctor)</span>
                 </div>
               </div>
-              <div className="relative inline-block text-left z-10"></div>
             </div>
-            <div className="justify-center flex p-9">
+            <div
+              className=" justify-center flex p-7
+            "
+            >
               <Avatar
                 value={user?.username ? user?.username : "NU"}
                 size={99}
               />
             </div>
-            <div className=" text-center flex flex-col w-full">
-              <p className="py-1 font-bold text-white ">
+            <div className="p-5 text-center flex flex-col w-full">
+              <p className="py-1 text-white ">
                 Nombre de Usuario:{" "}
                 <span className="">
-                  {user?.username ? user?.username : "N/A"}
+                  {user?.username ? user?.username : "No hay datos"}
                 </span>
               </p>
-              <p className="py-0.5 font-bold text-white ">
-                Correo :{" "}
-                <span className="">{user?.email ? user?.email : "N/A"}</span>
+              <p className="py-1 text-white ">
+                Correo:{" "}
+                <span className="">
+                  {user?.email ? user?.email : "No hay datos"}
+                </span>
               </p>
             </div>
           </div>
         </div>
         <div className="w-full lg:w-2/3 lg:h-1/3">
-          <div className="w-full p-4 rounded-lg bg-[#14566D]">
+          <div className="w-full p-3 rounded-lg bg-cyan-800">
             <div className="flex flex-row items-center justify-between mb-6">
               <div className="flex flex-col">
                 <div className="text-sm font-bold text-white">Doctor</div>
                 <div className="text-sm font-bold text-white">
-                  <span>Información del Doctor</span>
+                  <span>Información del doctor</span>
                 </div>
               </div>
               <div className="relative inline-block text-left z-10"></div>
             </div>
-            <div className=" flex flex-col w-full">
-              <p className="py-1 text-white font-noto">
-                Nombre del Doctor:{" "}
+            <div className="p-0 flex flex-col w-full">
+              <p className="py-[0.15rem] text-white font-noto">
+                Nombre completo del doctor:{" "}
                 <span className="text-bold">
                   {name} {last}
                 </span>
               </p>
-
-              <p className="py-1 text-white font-noto">
-                Dirección:{" "}
-                <span className="text-bold"> {address ? address : "N/A"}</span>
-              </p>
-              <p className="py-1 text-white font-noto">
-                Fecha de Nacimiento:
-                <span className="text-bold">
-                  {birthday ? birthday : "N/A"}{" "}
-                </span>
-              </p>
-              <p className="py-1 text-white font-noto">
-                Edad de Médico:{" "}
-                <span className="text-bold"> {getEdad(birthday)} años</span>
-              </p>
-              <p className="py-1 text-white font-noto">
+              <p className="py-[0.15rem] text-white font-noto">
                 Genero:{" "}
-                <span className="text-bold"> {gender ? gender : "N/A"}</span>
-              </p>
-
-              <p className="py-1 text-white font-noto">
-                Teléfono:{" "}
-                <span className="text-bold"> {phone ? phone : "N/A"}</span>
-              </p>
-              <p className="py-1 text-white font-noto">
-                Estatus del Doctor:{" "}
-                <span className="text-bold"> {status ? status : "N/A"}</span>
-              </p>
-
-              <p className="py-1 text-white font-noto">
-                Especialidad del Doctor:{" "}
                 <span className="text-bold">
                   {" "}
-                  {specialties ? specialties : "N/A"}
+                  {gender ? gender : "No hay datos"}
                 </span>
               </p>
-
-              <p className="py-1 text-white font-noto">
-                Fecha de Creación:{" "}
+              <p className="py-[0.15rem] text-white font-noto">
+                Teléfono celular:{" "}
+                <span className="text-bold">
+                  {" "}
+                  {phone ? phone : "No hay datos"}
+                </span>
+              </p>
+              <p className="py-[0.15rem] text-white font-noto">
+                Fecha de nacimiento:
+                <span className="text-bold">
+                  {birthday ? birthday : "No hay datos"}{" "}
+                </span>
+              </p>
+              <p className="py-[0.15rem] text-white font-noto">
+                Edad de doctor:{" "}
+                <span className="text-bold"> {getEdad(birthday)} años</span>
+              </p>
+              <p className="py-[0.15rem] text-white font-noto">
+                Estatus del doctor:{" "}
+                <span className="text-bold">
+                  {" "}
+                  {status ? status : "No hay datos"}
+                </span>
+              </p>
+              <p className="py-[0.15rem] text-white font-noto">
+                Especialidad del doctor:{" "}
+                <span className="text-bold">
+                  {" "}
+                  {specialties ? specialties : "No hay datos"}
+                </span>
+              </p>
+              <p className="py-[0.15rem] text-white font-noto">
+                Dirección:{" "}
+                <span className="text-bold">
+                  {" "}
+                  {address ? address : "No hay datos"}, INT:{" "}
+                  {number_int_address ? number_int_address : "N/A"},{" "}
+                  {suburb ? suburb : "No hay datos"},{" "}
+                  {town ? town : "No hay datos"},{" "}
+                  {state ? state : "No hay datos"}, {zip ? zip : "No hay datos"}
+                </span>
+              </p>
+              <p className="py-[0.15rem] text-white font-noto">
+                Fecha de creación:{" "}
                 <span className="text-bold">
                   {" "}
                   {format(
-                    new Date(created_at ? created_at : "N/A"),
+                    new Date(created_at ? created_at : "No hay datos"),
                     "dd/MM/yyyy hh:mm:ss a"
                   )}
                 </span>
               </p>
-              <p className="py-0 text-white font-noto">
-                Última Actulización:{" "}
+              <p className="py-[0.15rem] text-white font-noto">
+                Última actulización:{" "}
                 <span className="text-bold">
                   {" "}
                   {format(
-                    new Date(updated_at ? updated_at : "N/A"),
+                    new Date(updated_at ? updated_at : "No hay datos"),
                     "dd/MM/yyyy hh:mm:ss a"
                   )}{" "}
                 </span>
@@ -226,7 +249,7 @@ export function DocView() {
           {cargando ? (
             <Spinner />
           ) : Object.keys(quotes).length === 0 ? (
-            <p className="py-1 font-bold text-center text-white ">
+            <p className="py-[0.15rem] font-bold text-center text-white ">
               El paciente no tiene citas agendadas
             </p>
           ) : (
@@ -277,7 +300,7 @@ export function DocView() {
                     </tr>
                   </thead>
                   <tbody>
-                    {quotes.map((quotes) => (
+                    {quotes?.map((quotes) => (
                       <ListQuotesUserView key={quotes.id} quotes={quotes} />
                     ))}
                   </tbody>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useFormik } from "formik";
-import { Form } from "semantic-ui-react";
+import { Form, Button } from "semantic-ui-react";
 import * as Yup from "yup";
 import { registerApi, updateUserApi } from "../../api/admin/user";
 import { getRolesApi } from "../../api/admin/roles";
@@ -12,8 +12,8 @@ export function FormUser({ user }) {
   const navigate = useNavigate();
   const [role, setRoles] = useState([]);
   const { auth, logout, setReloadUser } = useAuth();
+  const [loading, setLoading] = useState(false);
   const { roles } = role;
-  console.log(roles);
   useEffect(() => {
     (async () => {
       const role = await getRolesApi(logout);
@@ -34,6 +34,7 @@ export function FormUser({ user }) {
     };
     let respuesta;
     try {
+      setLoading(true);
       if (user?.id) {
         respuesta = await updateUserApi(user?.id, formDataTemp, logout);
         if (!respuesta) {
@@ -54,14 +55,14 @@ export function FormUser({ user }) {
       }
       await respuesta.json();
     } catch (err) {
-      console.log(err);
+      setLoading(false);
     }
   };
 
   return (
     <>
       <button
-        className="text-white bg-blue-600 font-bold py-2 px-4 rounded-xl"
+        className="text-white bg-[#1678C2] font-bold py-2 px-4 rounded-xl"
         onClick={() => navigate(`/admin/usuarios`)}
       >
         <i className="fas fa-arrow-left text-white mr-2 text-lg"></i>
@@ -198,11 +199,9 @@ export function FormUser({ user }) {
               )}
             </div>
           </div>
-          <input
-            type="submit"
-            className="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            value={user?.username ? "Editar Usuario" : "Agregar Usuario"}
-          />
+          <Button type="submit" primary loading={loading}>
+            {user?.username ? "Editar Usuario" : "Agregar Usuario"}
+          </Button>
         </Form>
       </div>
     </>
