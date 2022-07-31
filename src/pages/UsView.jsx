@@ -84,11 +84,10 @@ export function UsView() {
                 <h3 className="text-3xl mb-2 font-semibold leading-normal">
                   Misión
                 </h3>
-                <p className="text-xl font-light leading-relaxed mt-0 mb-4 text-black text-justify">
+                <p className="text-2xl font-light leading-relaxed mt-0 mb-4 text-black text-justify">
                   Mejorar la salud y la calidad de vida de los ciudadanos,
-                  ofertando servicios sanitarios de calidad, con el paciente como
-                  centro de nuestra atención, y profesionales altamente cualificados,
-                  en un hospital privado con vocación docente e investigadora.
+                  ofreciendo servicios sanitarios de calidad, con el paciente como
+                  centro de nuestra atención, en una Clínica privada con vocación docente e investigadora.
                 </p>
               </div>
 
@@ -141,11 +140,11 @@ export function UsView() {
                   </div>
                   <h3 className="text-3xl font-semibold">Visión</h3>
                   {/* text-blue-500 */}
-                  <p className="mt-4 text-xl leading-relaxed text-black text-justify ">
+                  <p className="mt-4 text-2xl leading-relaxed text-black text-justify ">
                     Conseguir la mejor asistencia médica y ética, que nos permita crecer,
                     mejorar en eficacia y eficiencia, ser reconocidos por nuestros
-                    usuarios por la calidad en los servicios. Ofrecer
-                    un servicio preciso, sensato e integral consiguiendo
+                    clientes por la calidad en los servicios. Ofrecer
+                    un diagnóstico preciso, sensato e integral, obteniendo
                     la excelencia en el servicio asistencial y trato humano.
                   </p>
                   <ul className="list-none mt-6">
@@ -155,7 +154,7 @@ export function UsView() {
             </div>
           </div>
           <div className=" px-10 text-gray-700 mb-32 mt-20 pb-10 pt-5 w-[50%] ml-auto mr-auto">
-            <h2 className=" text-center text-3xl mt-3 mb-3 text-black font-semibold">Preguntas Frecuentes</h2>
+            <h2 className=" text-center text-3xl mt-3 mb-3 text-black font-semibold">Preguntas frecuentes</h2>
             <div className=" relative w-auto overflow-hidden">
               <input type="checkbox" className="
              absolute top-0 inset-x-0 peer
@@ -288,9 +287,8 @@ export function UsView() {
              max-h-0 peer-checked:max-h-40
             ">
                 <div className=" p-4 ">
-                  <p className=" text-xl text-justify">Vaya al apartado 'Agendar cita', seleccione un especialista y
-                    se mostrarán los horarios y días disponibles, una vez seleccionados fecha y hora,
-                    presione el botón 'AGENDAR CITA'.</p>
+                  <p className=" text-xl text-justify">A través de la aplicación móvil GoCare Doc o contactando a nuestro
+                    personal mediante teléfono, correo o redes sociales.</p>
                 </div>
               </div>
             </div>

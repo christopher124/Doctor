@@ -45,15 +45,15 @@ export function LoginForm() {
       <div className="flex w-full h-screen bg-gradient-to-r from-cyan-800 to-slate-900 ">
         <div className="w-full flex items-center justify-center lg:w-1/2">
           <div className="bg-white px-20 py-32 rounded-3xl border-2 border-gray-100">
-            <h1 className="text-5xl font-semibold">¡Bienvenido!</h1>
-            <p className="font-medium text-lg text-gray-500 mt-4">
-              A continuación, ingresa tus datos.
+            <h1 className="text-5xl font-semibold">¡Bienvenido(a)!</h1>
+            <p className="font-medium text-xl text-gray-500 mt-4 text-center">
+              A continuación, ingrese sus datos.
             </p>
             <div className=" mt-8">
               <Form onSubmit={formik.handleSubmit}>
                 <div>
                   <label htmlFor="email" className="text-xl font-semibold">
-                    Correo
+                    Correo / Usuario
                   </label>
                   <div className="relative">
                     <Form.Input
@@ -63,7 +63,7 @@ export function LoginForm() {
                       error={
                         formik.touched.identifier && formik.errors.identifier
                       }
-                      placeholder="Ejemplo@gmail.com"
+                      placeholder="ejemplo@gmail.com"
                     />
 
                     <span className="absolute inset-y-0 inline-flex items-center right-4">

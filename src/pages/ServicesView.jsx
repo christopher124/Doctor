@@ -42,9 +42,8 @@ export function ServicesView() {
                     Servicios
                   </h1>
                   <p className="mt-2 text-2xl text-black mr-60 px-2 py-1 text-justify">
-                    Instalaciones cómodas y equipo médico de la más alta calidad,
-                    convergen para ofrecer una experiencia que sobrepasa las expectativas
-                    de un hospital convencional.
+                    Atención de primer nivel, contamos con un gran número de especialistas y médicos generales altamente cualificados,
+                    listos para brindarte la hospitalidad y los servicios que mereces.
                   </p>
                 </div>
               </div>
@@ -76,7 +75,7 @@ export function ServicesView() {
                       <i className="fas fa-calendar text-xl"></i>
                     </div>
 
-                    <h6 className="text-xl font-semibold">Antiguedad</h6>
+                    <h6 className="text-xl font-semibold">Antigüedad</h6>
                     <p className="mt-2 mb-4 text-blue-500 text-center text-lg">
                       Tenemos más de cinco años de experiencia
                       cuidando la salud de las personas y brindando el mejor servicio.
@@ -93,7 +92,7 @@ export function ServicesView() {
                     </div>
                     <h6 className="text-xl font-semibold">Especialistas</h6>
                     <p className="mt-2 mb-4 text-blue-500 text-center text-lg">
-                      Tenemos los mejores especialistas, listos para
+                      Contamos con los mejores especialistas, listos para
                       brindarte la atención y el servicio que mereces.
                     </p>
                   </div>
@@ -106,10 +105,10 @@ export function ServicesView() {
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-emerald-400">
                       <i className="fas fa-syringe text-xl"></i>
                     </div>
-                    <h6 className="text-xl font-semibold">Equipos Especializados</h6>
+                    <h6 className="text-xl font-semibold">Equipos especializados</h6>
                     <p className="mt-2 mb-4 text-blue-500 text-center text-lg">
-                      Nuestros quirófanos cuentan con equipos de la mas alta
-                      tecnología de vanguardia  facilitándoles a nuestros médicos
+                      Nuestros quirófanos cuentan con equipos de la más alta
+                      tecnología de vanguardia.
                     </p>
                   </div>
                 </div>
@@ -119,33 +118,33 @@ export function ServicesView() {
             <div className="flex flex-wrap items-center mt-20 mb-10 ">
               <div className="w-full md:w-6/12 px-20 mr-auto ml-auto mb-20 bg-white rounded-3xl">
                 <h3 className="text-3xl pt-3 pb-10 font-semibold leading-normal text-center">
-                  Paquete Maternidad
+                  Paquete de maternidad
                 </h3>
                 <h4 className="text-2xl font-semibold ">Instalaciones</h4>
                 <p className="text-xl font-light leading-relaxed mt-1 mb-1 text-black ">
-                  -1 Dia de hospitalización. <br />
-                  -1 Dia de cunero. <br />
-                  -1 Habitación estándar. <br />
-                  -Televisión wifi. <br />
-                  -Cama eléctrica. <br />
-                  -Derecho de sala 2 horas. <br />
-                  -Equipo de cirugia de parto <br />
-                  -Monitor de presión.
+                  - Un Día de hospitalización. <br />
+                  - Un Día de cunero. <br />
+                  - Una Habitación estándar. <br />
+                  - Televisión Wi-Fi. <br />
+                  - Cama eléctrica. <br />
+                  - Derecho de sala por dos horas. <br />
+                  - Equipo de cirugía de parto <br />
+                  - Monitor de presión.
                 </p>
                 <h4 className="text-2xl mt-3 font-semibold ">Materiales (Mamá)</h4>
                 <p className="text-xl font-light leading-relaxed mt-1 mb-1 text-black ">
-                  -1 Aguja desechable. <br />
-                  -1 Paquete de gasas. <br />
-                  -1 Rastrillo desechable. <br />
-                  -Pañales para adulto. <br />
-                  -Toalla obstetricia. <br />
-                  -1 Sultura. <br />
-                  -1 Yelco <br />
-                  -1 Sonda nélaton. <br />
-                  -1 Cinta umbilical. <br />
-                  -1 Equipo de venoclisis. <br />
-                  -2 Guantes tacto. <br />
-                  -2 Jeringas. <br />
+                  - Una Aguja desechable. <br />
+                  - Un Paquete de gasas. <br />
+                  - Un Rastrillo desechable. <br />
+                  - Pañales para adulto. <br />
+                  - Toalla obstetricia. <br />
+                  - Una Sutura. <br />
+                  - Un Yelco. <br />
+                  - Una Sonda Nélaton. <br />
+                  - Una Cinta umbilical. <br />
+                  - Un Equipo de venoclisis. <br />
+                  - Dos Guantes tacto. <br />
+                  - Dos Jeringas. <br />
                   <br />
                 </p>
               </div>
@@ -153,24 +152,24 @@ export function ServicesView() {
               <div className=" -ml-96 mr-60 mb-44 ">
                 <h4 className="text-2xl font-semibold ">Medicamento (Mamá)</h4>
                 <p className="text-xl font-light leading-relaxed mt-1 mb-3 text-black  float-left">
-                  -3 Sueros 1000ml. <br />
-                  -4 Oxitocinas AMP. <br />
-                  -20 CODE Xylocaina. <br />
-                  -Tabletas para prodolina<br />
+                  - Tres sueros (1000 ml). <br />
+                  - Cuatro Oxitocinas AMP. <br />
+                  - Veinte CODE Xylocaína. <br />
+                  - Tabletas para Prodolina<br />
                   u otro analgésico.
                 </p>
-                <h4 className="text-2xl font-semibold ">Medicamento (Bebé)</h4>
+                <h4 className="text-2xl font-semibold ">Materiales (Bebé)</h4>
                 <p className="text-xl font-light leading-relaxed mt-1 mb-1 text-black float-left">
-                  -1 Senda k-31. <br />
-                  -4hrs Incubadora en cunero. <br />
-                  -4hrs Oxigeno max. <br />
-                  -Pañales.<br />
-                  -Cloranfenicol en gotas. <br />
-                  -1 Solución glucosada 500ml. <br />
-                  -1 Biberón. <br />
-                  -1 jeringa #20. <br />
-                  -1 Jeringa insulina. <br />
-                  -Formula durante la estancia.
+                  - Una sonda k-31. <br />
+                  - Cuatro hrs. incubadora en cunero. <br />
+                  - Cuatro hrs. Oxigeno max. <br />
+                  - Pañales.<br />
+                  - Cloranfenicol en gotas. <br />
+                  - Una Solución glucosada 500ml. <br />
+                  - Un Biberón. <br />
+                  - Una jeringa #20. <br />
+                  - Una Jeringa insulina. <br />
+                  - Fórmula durante la estancia.
                 </p>
               </div>
 
@@ -192,8 +191,8 @@ export function ServicesView() {
                       EL MEJOR CUIDADO PARA TI Y TU BEBÉ
                     </h4>
                     <p className="text-xl font-light mt-2 text-white">
-                      Paquete básico desde 9,999 MXN y 14,999 MXN el paquete plus que incluye
-                      consultas y esconogramas.
+                      Paquete básico desde $9,999 MXN y $14,999 MXN el Paquete Plus que incluye
+                      consultas y ecosonogramas.
                     </p>
                   </blockquote>
                 </div>
@@ -246,8 +245,8 @@ export function ServicesView() {
                     LOS MEJORES CUIDADOS PARA TI Y TU BEBÉ
                   </h4>
                   <p className="text-xl font-light mt-2 text-white text-justify">
-                    Paquete básico desde 14,999 MXN y 16,999 MXN el paquete plus que incluye
-                    consultas y esconogramas.
+                    Paquete básico desde $14,999 MXN y $16,999 MXN el Paquete Plus que incluye
+                    consultas y ecosonogramas.
                   </p>
                 </blockquote>
               </div>
@@ -257,59 +256,60 @@ export function ServicesView() {
               <div className="w-full md:w-6/12 px-16 mr-auto ml-auto mb-0 bg-blue-200 rounded-3xl">
                 <div className="md:pr-12">
                   <h3 className="text-3xl pt-3 pb-10 font-semibold leading-normal text-center">
-                    Cesarea
+                    Cesárea
                   </h3>
                   <h4 className="text-2xl font-semibold ">Instalaciones</h4>
                   <p className="text-xl font-light leading-relaxed mt-1 mb-1 text-black ">
-                    -24hrs de hospitalización. <br />
-                    -1 Dia cunero. <br />
-                    -Habitación estándar. <br />
-                    -Televisión wifi. <br />
-                    -Cama eléctrica. <br />
-                    -Derecho de sala 2 horas. <br />
-                    -Equipo de cirugia cesarea <br />
-                    -Monitor de presión.
+                    - Un Día de hospitalización. <br />
+                    - Un Día de cunero. <br />
+                    - Una Habitación estándar. <br />
+                    - Televisión Wi-Fi. <br />
+                    - Cama eléctrica. <br />
+                    - Derecho de sala por dos horas. <br />
+                    - Equipo de cirugía de cesárea. <br />
+                    - Monitor de presión.
                   </p>
-                  <h4 className="text-2xl font-semibold mt-3">Materiales (Mamá)</h4>
+                  <h4 className="text-2xl font-semibold mt-3">Materiales (Bebé)</h4>
                   <p className="text-xl font-light leading-relaxed mt-1 mb-1 text-black float-left">
-                    -1 Aguja desechable. <br />
-                    -1 Paquete de gasas. <br />
-                    -1 Rastrillo desechable. <br />
-                    -Pañales para adulto. <br />
-                    -Toalla obstetricia. <br />
-                    -1 Sultura. <br />
-                    -1 Yelco <br />
-                    -1 Sonda nélaton. <br />
-                    -1 Cinta umbilical. <br />
-                    -1 Brazalete <br />
-                    -1 Equipo de venoclisis. <br />
-                    -2 Guantes tacto. <br />
-                    -2 Jeringas. <br />
+                    {/* bebe */}
+                    - Una sonda k-31. <br />
+                    - Cuatro hrs. incubadora en cunero. <br />
+                    - Cuatro hrs. Oxigeno max. <br />
+                    - Pañales.<br />
+                    - Cloranfenicol en gotas. <br />
+                    - Una Solución glucosada 500ml. <br />
+                    - Un Biberón. <br />
+                    - Una jeringa #20. <br />
+                    - Una Jeringa insulina. <br />
+                    - Fórmula durante la estancia. <br />
                     <br />
                   </p>
 
                 </div>
               </div>
-              <div className="-ml-96 -mr-72 mb-40 mt-0 pr-72">
+              <div className="-ml-96 -mr-72 mb-0 mt-6 pr-72">
                 <h4 className="text-2xl font-semibold">Medicamento (Mamá)</h4>
                 <p className="text-xl font-light leading-relaxed mt-1 mb-3 text-black">
-                  -2 Sueros 1000ml. <br />
-                  -4 Oxitocinas AMP. <br />
-                  -20 CODE Xylocaina. <br />
-                  -Tabletas para prodolina<br />
+                  - Dos sueros (1000 ml). <br />
+                  - Cuatro Oxitocinas AMP. <br />
+                  - Veinte CODE Xylocaína. <br />
+                  - Tabletas para Prodolina<br />
                   u otro analgésico.
                 </p>
-                <h4 className="text-2xl font-semibold ">Medicamento (Bebé)</h4>
+                <h4 className="text-2xl font-semibold ">Materiales (Mamá)</h4>
                 <p className="text-xl font-light leading-relaxed mt-1 mb-1 text-black">
-                  -1 Senda k-31. <br />
-                  -4hrs Incubadora en cunero. <br />
-                  -4hrs Oxigeno max. <br />
-                  -Pañales.<br />
-                  -Cloranfenicol en gotas. <br />
-                  -1 Solución glucosada 500ml. <br />
-                  -1 Biberón. <br />
-                  -1 jeringa #20. <br />
-                  -1 Jeringa insulina. <br />
+                  - Una Aguja desechable. <br />
+                  - Un Paquete de gasas. <br />
+                  - Un Rastrillo desechable. <br />
+                  - Pañales para adulto. <br />
+                  - Toalla obstetricia. <br />
+                  - Una Sutura. <br />
+                  - Un Yelco. <br />
+                  - Una Sonda Nélaton. <br />
+                  - Una Cinta umbilical. <br />
+                  - Un Equipo de venoclisis. <br />
+                  - Dos Guantes tacto. <br />
+                  - Dos Jeringas. <br />
                 </p>
               </div>
             </div>
@@ -348,14 +348,14 @@ export function ServicesView() {
                 </h3>
                 <h4 className="text-2xl font-semibold text-center">¿Qué es?</h4>
                 <p className="text-xl font-light leading-relaxed mt-5 text-black text-justify px-5">
-                  -Cirugía estética. <br />
-                  -Aumentar volumen en los labios. <br />
-                  -Brindar mejor hidratación. <br />
-                  -Apariencia de un labio natural. <br />
-                  -Correción de asimetrías en los labios. <br />
-                  -Mejora la apariencia de tu sonrisa. <br />
-                  -Duración de hasta a 18 meses.  <br />
-                  -Monitor de presión. <br />
+                  Es una cirugía estética que incluye: <br />
+                  - Aumento de volumen en los labios. <br />
+                  - Mejor hidratación. <br />
+                  - Apariencia de labios naturales. <br />
+                  - Correción de asimetrías en los labios. <br />
+                  - Mejora de la apariencia de tu sonrisa. <br />
+                  - Duración de hasta a 18 meses.  <br />
+                  - Monitor de presión. <br />
                   <br />
                 </p>
               </div>
@@ -376,11 +376,12 @@ export function ServicesView() {
                       className="absolute left-0 w-full block h-95-px -top-94-px"
                     ></svg>
                     <h4 className="text-2xl font-bold text-white">
-                      AUMENTO DE LABIOS CON ÁCIDO HIALURÓNICO
+                      AUMENTO DE VOLUMEN DE LABIOS
                     </h4>
                     <p className="text-xl font-light mt-2 text-white text-justify">
-                      Reponer el volumen perdido con los años en el tercio medio de la cara y rellenar arrugas estáticas en el tercio inferior.
-                      (Precio establecido de 4,500 MXN).
+                      Reponer el volumen perdido con los años en el tercio medio del rostro y rellenar arrugas
+                      estéticas en el tercio inferior.
+                      Precio establecido de $4,500 MXN.
                     </p>
                   </blockquote>
                 </div>
@@ -432,7 +433,7 @@ export function ServicesView() {
                     TRATAMIENTO ESPECIALIZADO CON BOTOX
                   </h4>
                   <p className="text-xl font-light mt-2 text-white text-justify">
-                    Procedimiento especializado no quirúrgico con precio de 4,000 MXN
+                    Procedimiento especializado no quirúrgico con precio de $4,000 MXN
                   </p>
                 </blockquote>
               </div>
@@ -442,17 +443,18 @@ export function ServicesView() {
               <div className="w-full md:w-4/12 px-20 mr-auto ml-auto mb-5 bg-blue-200 rounded-3xl">
                 <div className="md:pr-12">
                   <h3 className="text-3xl pt-5 pb-5 font-semibold leading-normal text-center ml-10">
-                    Paquete Botox Especial
+                    Paquete Bótox Especial
                   </h3>
                   <h4 className="text-2xl font-semibold text-center ml-10">¿Qué es?</h4>
-                  <p className="text-xl font-light leading-relaxed mt-5 text-black px-8">
-                    -Eliminar lineas de expresión. <br />
-                    -Eliminar patas de gallo. <br />
-                    -Tratamiento de arrugas. <br />
-                    -Relajación de musculos. <br />
-                    -Duración de 4 a 8 meses. <br />
-                    -Tratamiento del ojo vago. <br />
-                    -Seguimiento regular. <br />
+                  <p className="text-xl font-light leading-relaxed mt-5 text-black ml-8 mr-auto">
+                    Procedimiento estético que incluye: <br />
+                    - Eliminar líneas de expresión. <br />
+                    - Eliminar patas de gallo. <br />
+                    - Tratamiento de arrugas. <br />
+                    - Relajación de músculos. <br />
+                    - Duración de 4 a 8 meses. <br />
+                    - Tratamiento del ojo vago. <br />
+                    - Seguimiento regular. <br />
                     <br />
                   </p>
                 </div>
@@ -524,7 +526,7 @@ export function ServicesView() {
                         </div>
                         <div className="px-6 mt-16">
                           <h1 className="font-bold text-3xl text-center mb-1">
-                            Dr. Sergio Espino
+                            Dr. Sergio Espinoza
                           </h1>
                           <p className="text-gray-800 text-lg text-center">
                             Oftalmólogo
@@ -619,7 +621,7 @@ export function ServicesView() {
                             Dr. Iván Zepeda
                           </h1>
                           <p className="text-gray-800 text-lg text-center">
-                            Cardiólogo
+                            Médico Cardiólogo
                           </p>
                           <p className="text-center text-gray-600 text-base pt-3 font-normal">
                             Médico Cardiólogo, debidamente certificado por el Consejo
@@ -714,8 +716,8 @@ export function ServicesView() {
                             Úrologo
                           </p>
                           <p className="text-center text-gray-600 text-base pt-3 font-normal">
-                            Alta Especialidad en Endourología, caracterizado por un trato humano donde resolver
-                            las dudas de los pacientes.
+                            Alta Especialidad en Endourología, caracterizado por un trato humano y
+                            profesional.
                           </p>
                           <div className="w-full flex justify-center pt-5 pb-5">
                             <a href="https://twitter.com/?lang=es" className="mx-5">
@@ -803,7 +805,7 @@ export function ServicesView() {
                             Dra. Sofía Vargas
                           </h1>
                           <p className="text-gray-800 text-lg text-center">
-                            Dermatóloga
+                            Dermatología cosmética
                           </p>
                           <p className="text-center text-gray-600 text-base pt-3 font-normal">
                             Dermatóloga certificada que cuenta con una amplia formación
@@ -898,8 +900,8 @@ export function ServicesView() {
                             Neuróloga
                           </p>
                           <p className="text-center text-gray-600 text-base pt-3 font-normal">
-                            Neuróloga con Alta Especialidad en Enfermedades Neuromusculares,
-                            siendo la Única en el Occidente del País con esta formación.
+                            Neuróloga con alta especialidad en enfermedades neuromusculares,
+                            siendo la única en el occidente del País con esta formación.
                           </p>
                           <div className="w-full flex justify-center pt-5 pb-5">
                             <a href="https://twitter.com/?lang=es" className="mx-5">
@@ -1171,16 +1173,16 @@ export function ServicesView() {
                             Lic. Carolina Ávila
                           </h1>
                           <p className="text-gray-800 text-lg text-center">
-                            Nutríologo
+                            Nutrióloga
                           </p>
                           <p className="text-center text-gray-600 text-base pt-3 font-normal">
                             Especialista en Nutrición Clínica y Deportiva,
-                            realicé mis practicas Clínicas en el servició de bariatria, obesidad, gastroenterología, prevención,
-                            geriatria y control de peso.
+                            realicé mis practicas Clínicas en el servició de bariatría, obesidad, gastroenterología, prevención,
+                            geriatría y control de peso.
                           </p>
                           <div className="w-full flex justify-center pt-5 pb-5">
                             <a href="https://twitter.com/?lang=es" className="mx-5">
-                              <div aria-label="Github">
+                              <div aria-label="Twitter">
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
                                   width={24}
@@ -1191,13 +1193,12 @@ export function ServicesView() {
                                   strokeWidth="1.5"
                                   strokeLinecap="round"
                                   strokeLinejoin="round"
-                                  className="feather feather-github"
+                                  className="feather feather-twitter"
                                 >
-                                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
                                 </svg>
                               </div>
                             </a>
-                            {/* Facebook */}
                             <a href="https://www.facebook.com/" className="mx-5">
                               <div aria-label="Twitter">
                                 <svg
