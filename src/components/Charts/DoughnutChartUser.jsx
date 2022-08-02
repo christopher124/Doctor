@@ -58,7 +58,7 @@ export function DoughnutChartUser() {
         <div className="flex flex-col">
           <div className="text-sm font-light text-white">
             <span className="text-white">
-              <i className="p-1 fas fa-user-md text-white text-xl"></i>
+              <i className="p-1 fas fa-user text-white text-xl"></i>
             </span>
             <div className="text-ls font-bold text-white">
               Estatus del usuario

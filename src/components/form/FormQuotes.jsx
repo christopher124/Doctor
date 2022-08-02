@@ -85,7 +85,7 @@ export function FormQuotes() {
                 )}
                 {customer?.map((customer) => (
                   <option key={customer?.id} value={customer?.id}>
-                    {customer?.name} {customer?.last}
+                    {customer?.name} {customer?.last} / {customer?.user?.email}
                   </option>
                 ))}
               </select>
@@ -133,7 +133,7 @@ export function FormQuotes() {
                 )}
                 {doctor?.map((doctor) => (
                   <option key={doctor?.id} value={doctor?.id}>
-                    {doctor?.name} {doctor?.last}
+                    {doctor?.name} {doctor?.last} / {doctor?.user?.email}
                   </option>
                 ))}
               </select>
@@ -162,7 +162,7 @@ export function FormQuotes() {
                 Fecha y hora de la cita
               </label>
               <Form.Input
-                type="date"
+                type="datetime-local"
                 name="date"
                 min={new Date().toISOString().split("T")[0]}
                 value={formik.values.date}

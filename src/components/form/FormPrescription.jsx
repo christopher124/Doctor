@@ -2,11 +2,10 @@ import { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import useAuth from "../../hooks/useAuth";
-import { Form } from "semantic-ui-react";
+import { Form, Button } from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
 import { getDoctorApi } from "../../api/admin/doctor";
 import { getCustomerApi } from "../../api/admin/customer";
-import { contriesOptions, options } from "../../api/data/data.js";
 import {
   createPrescripApi,
   updatePrescripApi,
@@ -34,7 +33,6 @@ export function FormPrescription({ prescription }) {
     validationSchema: Yup.object(validationSchema()),
     onSubmit: async (formData) => {
       handleSubmit(formData);
-      console.log(formData);
     },
   });
 
@@ -46,6 +44,7 @@ export function FormPrescription({ prescription }) {
     };
     let respuesta;
     try {
+      setLoading(true);
       if (prescription?.id) {
         respuesta = await updatePrescripApi(
           prescription?.id,
@@ -54,22 +53,22 @@ export function FormPrescription({ prescription }) {
         );
         if (!respuesta) {
           toast.warning(
-            "Problemas con actualizar el doctor, inténtelo mas tarde"
+            "Problemas con actualizar el doctor, inténtelo mas tarde."
           );
-        } else toast.success("Datos actulizado correctamente");
-        navigate("/admin/citas");
+        } else toast.success("Datos actulizado correctamente.");
+        navigate("/admin/recetas");
       } else {
         respuesta = await createPrescripApi(formDataTemp, logout);
         if (!respuesta) {
-          toast.warning("Problemas con crear la receta, inténtelo mas tarde");
+          toast.warning("Problemas con crear la receta, inténtelo mas tarde.");
         } else {
-          toast.success("Receta creado correctamente");
-          navigate("/admin/citas");
+          toast.success("Receta creado correctamente.");
+          navigate("/admin/recetas");
         }
       }
       await respuesta.json();
     } catch (err) {
-      console.log(err);
+      setLoading(false);
     }
   };
 
@@ -116,7 +115,7 @@ export function FormPrescription({ prescription }) {
                 )}
                 {customer?.map((customer) => (
                   <option key={customer?.id} value={customer?.id}>
-                    {customer?.name} {customer?.last}
+                    {customer?.name} {customer?.last} / {customer?.user?.email}
                   </option>
                 ))}
               </select>
@@ -133,7 +132,7 @@ export function FormPrescription({ prescription }) {
                   role="alert"
                   aria-atomic="true"
                 >
-                  Campo obligatorio
+                  El campo es requerido.
                 </p>
               )}
             </div>
@@ -165,7 +164,7 @@ export function FormPrescription({ prescription }) {
                 )}
                 {doctor?.map((doctor) => (
                   <option key={doctor?.id} value={doctor?.id}>
-                    {doctor?.name} {doctor?.last}
+                    {doctor?.name} {doctor?.last} / {doctor?.user?.email}
                   </option>
                 ))}
               </select>
@@ -274,12 +273,9 @@ export function FormPrescription({ prescription }) {
               />
             </div>
           </div>
-          <input
-            type="submit"
-            loading={loading}
-            className=" text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            value={prescription?.id ? "Editar" : "Guardar Cambios"}
-          />
+          <Button type="submit" loading={loading} primary>
+            {prescription?.id ? "Editar" : "Guardar Cambios"}
+          </Button>
         </Form>
       </div>
     </>
@@ -302,10 +298,10 @@ function validationSchema() {
   return {
     customer: Yup.string().required(true),
     doctor: Yup.string().required(true),
-    size: Yup.string().matches(/^[0-9]+$/, "Deben ser solo dígitos"),
-    allergies: Yup.string().required("Campo obligatorio"),
+    size: Yup.string().matches(/^[0-9]+$/, "Deben ser solo dígitos."),
+    allergies: Yup.string().required("El campo es requerido."),
     observations: Yup.string(),
-    weight: Yup.string().matches(/^[0-9]+$/, "Deben ser solo dígitos"),
-    treatment: Yup.string().required("Campo obligatorio"),
+    weight: Yup.string().matches(/^[0-9]+$/, "Deben ser solo dígitos."),
+    treatment: Yup.string().required("El campo es requerido."),
   };
 }

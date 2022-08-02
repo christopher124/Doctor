@@ -13,6 +13,8 @@ export function FormUser({ user }) {
   const [role, setRoles] = useState([]);
   const { auth, logout, setReloadUser } = useAuth();
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const switchShown = () => setShowPassword(!showPassword);
   const { roles } = role;
   useEffect(() => {
     (async () => {
@@ -39,17 +41,17 @@ export function FormUser({ user }) {
         respuesta = await updateUserApi(user?.id, formDataTemp, logout);
         if (!respuesta) {
           toast.warning(
-            "Problemas con actualizar el usuario, inténtelo mas tarde"
+            "Problemas con actualizar el usuario, inténtelo mas tarde."
           );
         } else setReloadUser(true);
-        toast.success("Datos actulizado correctamente");
+        toast.success("Datos actulizado correctamente.");
         navigate("/admin/usuarios");
       } else {
         respuesta = await registerApi(formDataTemp, logout);
         if (!respuesta) {
-          toast.warning("Problemas con crear el usuario, inténtelo mas tarde");
+          toast.warning("Problemas con crear el usuario, inténtelo mas tarde.");
         } else {
-          toast.success("Usuario creado correctamente");
+          toast.success("Usuario creado correctamente.");
           navigate("/admin/usuarios");
         }
       }
@@ -109,7 +111,7 @@ export function FormUser({ user }) {
                 placeholder="Apellidos"
               />
             </div>
-            <div className=" w-full mb-6 group">
+            <div className="w-full mb-6 group">
               <label
                 htmlFor="password"
                 className="block font-bold text-xl text-gray-700"
@@ -124,7 +126,7 @@ export function FormUser({ user }) {
                 onChange={formik.handleChange}
                 error={formik.errors.password}
                 placeholder="Ingrese una contraseña"
-              />
+              />{" "}
             </div>
             <div className=" w-full mb-6 group">
               <label

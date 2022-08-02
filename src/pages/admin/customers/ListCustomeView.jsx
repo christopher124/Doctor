@@ -12,9 +12,9 @@ export function ListCustomeView() {
   const navigate = useNavigate();
   const [customer, setCustumer] = useState([]);
   const [tableCustomer, SetTableCustomer] = useState([]);
-  const [cargando, setCargando] = useState(true);
   const [searchUser, setSearchUser] = useState("");
   const [searchState, setSearchState] = useState("");
+  const [cargando, setCargando] = useState(true);
 
   const { auth, logout } = useAuth();
   useEffect(() => {

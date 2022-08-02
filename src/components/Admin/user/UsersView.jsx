@@ -38,7 +38,7 @@ export function UsersView({ users }) {
           <div className="p-1 font-bold text-white"> Correo: {email}</div>
           <div className="p-1  font-bold text-white">Rol: {role?.name}</div>
           <div className="p-1  font-bold text-white">
-            Verificaciónn del usuario:{" "}
+            Verificación del usuario:{" "}
             <span className={`${clase} `}>
               {confirmed === true ? " Confirmado" : " No confirmado"}
             </span>

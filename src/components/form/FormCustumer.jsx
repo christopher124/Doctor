@@ -42,16 +42,18 @@ export function FormCustumer({ customer }) {
         respuesta = await updateCustomerApi(customer?.id, formDataTemp, logout);
         if (!respuesta) {
           toast.warning(
-            "Problemas con actualizar al paciente, Inténtelo más tarde"
+            "Problemas con actualizar al paciente, Inténtelo más tarde."
           );
-        } else toast.success("Datos actualizado correctamente");
+        } else toast.success("Datos actualizado correctamente.");
         navigate("/admin/pacientes");
       } else {
         respuesta = await createCustomerApi(formDataTemp, logout);
         if (!respuesta) {
-          toast.warning("Problemas con crear el paciente, Inténtelo más tarde");
+          toast.warning(
+            "Problemas con crear el paciente, Inténtelo más tarde."
+          );
         } else {
-          toast.success("Paciente creado correctamente");
+          toast.success("Paciente creado correctamente.");
           navigate("/admin/pacientes");
         }
       }
@@ -336,7 +338,7 @@ export function FormCustumer({ customer }) {
                   role="alert"
                   aria-atomic="true"
                 >
-                  Campo obligatorio
+                  El campo es requerido.
                 </p>
               )}
             </div>
@@ -375,44 +377,44 @@ function validationSchema() {
   return {
     user: Yup.string().required(true),
     name: Yup.string()
-      .required("Campo obligatorio")
+      .required("El campo es requerido.")
       .matches(
         /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g,
-        "Ingrese solo letras y sin espacios al final"
+        "Ingrese solo letras y sin espacios al final."
       )
-      .min(3, "El Nombre es muy corto")
-      .max(50, "El Nombre es muy largo"),
+      .min(3, "El Nombre es muy corto.")
+      .max(50, "El Nombre es muy largo."),
     last: Yup.string()
-      .min(2, "El Apellidos es muy corto")
+      .min(2, "El Apellidos es muy corto.")
       .matches(
         /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g,
-        "Ingrese solo letras y sin espacios al final"
+        "Ingrese solo letras y sin espacios al final."
       )
-      .max(50, "El Apellidos es muy largo")
-      .required("Campo obligatorio"),
-    address: Yup.string().required("Campo obligatorio"),
-    gender: Yup.string().required("Campo obligatorio"),
+      .max(50, "El Apellidos es muy largo.")
+      .required("El campo es requerido."),
+    address: Yup.string().required("El campo es requerido."),
+    gender: Yup.string().required("El campo es requerido."),
     phone: Yup.string()
-      .required("Campo obligatorio")
+      .required("El campo es requerido.")
       .matches(/^[0-9]+$/, "Deben ser solo dígitos")
       .min(10, "Debe tener exactamente 10 dígitos")
       .max(10, "Debe tener exactamente 10 dígitos"),
     zip: Yup.string()
       .matches(/^[0-9]+$/, "Deben ser solo dígitos")
-      .required("Campo obligatorio"),
+      .required("El campo es requerido."),
     suburb: Yup.string()
       .matches(
         /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g,
-        "Ingrese solo letras y sin espacios al final"
+        "Ingrese solo letras y sin espacios al final."
       )
-      .required("Campo obligatorio"),
+      .required("El campo es requerido."),
     town: Yup.string()
       .matches(
         /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g,
-        "Ingrese solo letras y sin espacios al final"
+        "Ingrese solo letras y sin espacios al final."
       )
-      .required("Campo obligatorio"),
-    state: Yup.string().required("Campo obligatorio"),
-    birthday: Yup.string().required("Campo obligatorio"),
+      .required("El campo es requerido."),
+    state: Yup.string().required("El campo es requerido."),
+    birthday: Yup.string().required("El campo es requerido."),
   };
 }

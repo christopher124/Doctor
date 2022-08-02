@@ -40,7 +40,7 @@ export function ListUseView() {
 
   const handleDelited = async (id) => {
     Swal.fire({
-      title: " ¿Estas seguro de eliminar?",
+      title: "¿Estás seguro de eliminar?",
       text: "¡No podrás revertir esto!",
       icon: "question",
       showCancelButton: true,

@@ -12,6 +12,8 @@ export function LoginForm() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const { login } = useAuth();
+  const [showPassword, setShowPassword] = useState(false);
+  const switchShown = () => setShowPassword(!showPassword);
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: Yup.object(validationSchema()),
@@ -81,7 +83,7 @@ export function LoginForm() {
                     </label>
                     <div className="relative">
                       <Form.Input
-                        type="Password"
+                        type={showPassword ? "text" : "password"}
                         name="password"
                         onChange={formik.handleChange}
                         error={
@@ -89,6 +91,19 @@ export function LoginForm() {
                         }
                         placeholder="********"
                       />
+                      <span className="absolute inset-y-0 inline-flex items-center right-4">
+                        {showPassword ? (
+                          <i
+                            onClick={switchShown}
+                            className="fas fa-solid fa-eye-slash"
+                          ></i>
+                        ) : (
+                          <i
+                            onClick={switchShown}
+                            class="fas fa-solid fa-eye"
+                          ></i>
+                        )}
+                      </span>
                     </div>
                   </div>
                 </div>

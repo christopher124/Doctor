@@ -14,7 +14,6 @@ export function ListDocView() {
   const [tableDoctor, SetTableDoctor] = useState([]);
   const [searchDoctor, setSearchDoctor] = useState("");
   const [searchSpecialties, setSearchSpecialties] = useState("");
-
   const [cargando, setCargando] = useState(true);
   const { auth, logout } = useAuth();
   useEffect(() => {
@@ -38,7 +37,7 @@ export function ListDocView() {
 
   const handleDelited = async (id) => {
     Swal.fire({
-      title: " ¿Estas seguro de eliminar?",
+      title: " ¿Estás seguro de eliminar?",
       text: "¡No podrás revertir esto!",
       icon: "question",
       showCancelButton: true,

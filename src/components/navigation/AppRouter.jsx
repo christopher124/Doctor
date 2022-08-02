@@ -33,6 +33,8 @@ import { EditPrescriptionView } from "../../pages/admin/prescription/EditPrescri
 import { PrivacityView } from "../../pages/admin/PrivacityView";
 import { MapsView } from "../../pages/admin/MapsView";
 import { ReportView } from "../../pages/admin/reports/ReportView";
+import { EditQuotesView } from "../../pages/admin/quotes/EditQuotesView";
+import { QuotView } from "../../pages/admin/quotes/QuotView";
 
 export function AppRouter() {
   const [user, setUser] = useState({});
@@ -82,10 +84,9 @@ export function AppRouter() {
             <Route path="nuevo/paciente" element={<NewCustomerView />} />
             <Route path="editar/paciente/:id" element={<EditCustomerView />} />
             <Route path="citas" element={<ListQuotView />} />
-            {/* <Route path="cita/:id" element={<CustomeView />} /> */}
+            <Route path="cita/:id" element={<QuotView />} />
             <Route path="nueva/cita" element={<NewQuotesView />} />
-            {/* <Route path="editar/cita/:id" element={<EditCustomerView />} />
-             */}
+            <Route path="editar/cita/:id" element={<EditQuotesView />} />
             <Route path="recetas" element={<ListPrescripView />} />
             <Route path="nueva/receta" element={<NewPrescriptionView />} />
             <Route path="receta/:id" element={<PrescripView />} />

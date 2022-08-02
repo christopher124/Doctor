@@ -348,12 +348,12 @@ export function FormDoctor({ doctor, cargando }) {
                   role="alert"
                   aria-atomic="true"
                 >
-                  Campo obligatorio
+                  El campo es requerido.
                 </p>
               )}
             </div>
           </div>
-          <div className="grid xl:grid-cols-3 xl:gap-6">
+          <div className="grid xl:grid-cols-4 xl:gap-6">
             <div className="text-lg w-full mb-6 group">
               <label
                 htmlFor="birthday"
@@ -403,7 +403,7 @@ export function FormDoctor({ doctor, cargando }) {
               </label>
               <Form.Dropdown
                 id="workdates"
-                placeholder="Selecione los dias a trabajar"
+                placeholder="dias a trabajar"
                 options={DateOptions}
                 value={formik.values.workdates[0].workdates}
                 error={formik.errors.workdates}
@@ -415,9 +415,31 @@ export function FormDoctor({ doctor, cargando }) {
                 selection
               />
             </div>
+            <div className="text-lg w-full mb-6 group">
+              <label
+                htmlFor="cellule"
+                className="block font-bold text-xl text-gray-700"
+              >
+                Cedula Profesional
+              </label>
+              <Form.Input
+                type="tex"
+                name="cellule"
+                id="cellule"
+                value={formik.values.cellule}
+                error={formik.errors.cellule}
+                onChange={formik.handleChange}
+                placeholder="PEJ360477"
+              />
+            </div>
           </div>
 
-          <Button type="submit"  disabled={!formik.dirty} loading={loading} primary>
+          <Button
+            type="submit"
+            disabled={!formik.dirty}
+            loading={loading}
+            primary
+          >
             {doctor?.id ? "Editar" : "Guardar cambios"}
           </Button>
         </Form>
@@ -436,6 +458,7 @@ function initialValues(doctor) {
         workdates: "",
       },
     ],
+    cellule: doctor?.cellule ?? "",
     address: doctor?.address ?? "",
     gender: doctor?.gender ?? "",
     phone: doctor?.phone ?? "",
@@ -453,34 +476,35 @@ function validationSchema() {
   return {
     user: Yup.string().required(true),
     name: Yup.string()
-      .min(5, "El Nombre es muy corto")
+      .min(5, "El Nombre es muy corto.")
       .matches(
         /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g,
-        "Ingrese solo letras y sin espacios al final"
+        "Ingrese solo letras y sin espacios al final."
       )
-      .max(50, "El Nombre es muy largo")
-      .required("Campo obligatorio"),
+      .max(50, "El Nombre es muy largo.")
+      .required("El campo es requerido."),
     last: Yup.string()
-      .min(5, "El Nombre es muy corto")
+      .min(5, "El Nombre es muy corto.")
       .matches(
         /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g,
-        "Ingrese solo letras y sin espacios al final"
+        "Ingrese solo letras y sin espacios al fina."
       )
-      .max(50, "El Nombre es muy largo")
-      .required("Campo obligatorio"),
-    address: Yup.string().required("Campo obligatorio"),
-    gender: Yup.string().required("Campo obligatorio"),
-    specialties: Yup.string().required("Campo obligatorio"),
-    status: Yup.string().required("Campo obligatorio"),
+      .max(50, "El Nombre es muy largo.")
+      .required("El campo es requerido."),
+    address: Yup.string().required("El campo es requerido."),
+    cellule: Yup.string().required("El campo es requerido."),
+    gender: Yup.string().required("El campo es requerido."),
+    specialties: Yup.string().required("El campo es requerido."),
+    status: Yup.string().required("El campo es requerido."),
     phone: Yup.string()
-      .required("Campo obligatorio")
-      .matches(/^[0-9]+$/, "Deben ser solo dígitos")
-      .min(10, "Debe tener exactamente 10 dígitos")
-      .max(10, "Debe tener exactamente 10 dígitos"),
-    birthday: Yup.string().required("Campo obligatorio"),
-    state: Yup.string().required("Campo obligatorio"),
-    zip: Yup.string().required("Campo obligatorio"),
-    suburb: Yup.string().required("Campo obligatorio"),
-    town: Yup.string().required("Campo obligatorio"),
+      .required("El campo es requerido.")
+      .matches(/^[0-9]+$/, "Deben ser solo dígitos.")
+      .min(10, "Debe tener exactamente 10 dígitos.")
+      .max(10, "Debe tener exactamente 10 dígitos."),
+    birthday: Yup.string().required("El campo es requerido."),
+    state: Yup.string().required("El campo es requerido."),
+    zip: Yup.string().required("El campo es requerido."),
+    suburb: Yup.string().required("El campo es requerido."),
+    town: Yup.string().required("El campo es requerido."),
   };
 }
