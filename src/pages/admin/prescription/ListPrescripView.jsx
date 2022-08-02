@@ -18,12 +18,15 @@ export function ListPrescripView() {
   const navigate = useNavigate();
   const [prescription, setPrescription] = useState([]);
   const [tableRecetas, SetTableRecetas] = useState([]);
+  const [searchNum, setSearchNum] = useState("");
+  const [searchCustomer, setSearchCustumer] = useState("");
   const [cargando, setCargando] = useState(true);
   const { auth, logout } = useAuth();
   useEffect(() => {
     (async () => {
       const prescription = await getPrescripApi(logout);
       setPrescription(prescription);
+      SetTableRecetas(prescription);
     })(
       setTimeout(() => {
         setCargando(!cargando);
@@ -65,6 +68,47 @@ export function ListPrescripView() {
       }
     });
   };
+  const handleChangeNum = (e) => {
+    setSearchNum(e.target.value);
+    filterNumber(e.target.value);
+  };
+
+  const handleChangeCustomer = (e) => {
+    setSearchCustumer(e.target.value);
+    filtrarCustumer(e.target.value);
+  };
+
+  const filtrarCustumer = (searchUsers) => {
+    let searchResult = tableRecetas.filter((elements) => {
+      if (
+        elements?.customer?.name
+          .toString()
+          .toLowerCase()
+          .includes(searchUsers.toLowerCase()) ||
+        elements?.customer?.last
+          .toString()
+          .toLowerCase()
+          .includes(searchUsers.toLowerCase())
+      ) {
+        return elements;
+      }
+    });
+    setPrescription(searchResult);
+  };
+
+  const filterNumber = (searchState) => {
+    let searchResult = tableRecetas.filter((elements) => {
+      if (
+        elements?.file_number
+          .toString()
+          .toLowerCase()
+          .includes(searchState.toLowerCase())
+      ) {
+        return elements;
+      }
+    });
+    setPrescription(searchResult);
+  };
 
   return cargando ? (
     <Spinner />
@@ -98,10 +142,72 @@ export function ListPrescripView() {
           </div>
         </div>
       </div>
+      <div className="shrink-0 space-x-2">
+        <div className="inline-flex justify-start">
+          <div className="relative">
+            <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+              <svg
+                aria-hidden="true"
+                className="w-5 h-5 text-gray-500 dark:text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                ></path>
+              </svg>
+            </div>
+            <input
+              type="search"
+              className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
+              placeholder="Búsqueda por expediente"
+              value={searchNum}
+              onChange={handleChangeNum}
+            />
+          </div>
+        </div>
+        <div className="inline-flex justify-start">
+          <div className="relative">
+            <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+              <svg
+                aria-hidden="true"
+                className="w-5 h-5 text-gray-500 dark:text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                ></path>
+              </svg>
+            </div>
+            <input
+              type="search"
+              className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
+              placeholder="Búsqueda por nombre"
+              value={searchCustomer}
+              onChange={handleChangeCustomer}
+            />
+          </div>
+        </div>
+      </div>
       {Object.keys(prescription).length === 0 ? (
         <div className="text-xs font-bold text-gray-500 uppercase">
           <div className="justify-center flex p-5">
-            <img className="ui centered image w-96 h-96" src={Img404} />
+            <img
+              className="ui centered image w-96 h-96"
+              src={Img404}
+              alt="Logo"
+            />
           </div>
           <p className="text-center">No hay datos registrados</p>
         </div>
@@ -141,6 +247,64 @@ export function ListPrescripView() {
             </div>
           </div>
         </div>
+        <div className="shrink-0 space-x-2">
+          <div className="inline-flex justify-start">
+            <div className="relative">
+              <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                <svg
+                  aria-hidden="true"
+                  className="w-5 h-5 text-gray-500 dark:text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  ></path>
+                </svg>
+              </div>
+              <input
+                type="search"
+                className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
+                placeholder="Búsqueda por expediente"
+                value={searchNum}
+                onChange={handleChangeNum}
+              />
+            </div>
+          </div>
+          <div className="inline-flex justify-start">
+            <div className="relative">
+              <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                <svg
+                  aria-hidden="true"
+                  className="w-5 h-5 text-gray-500 dark:text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  ></path>
+                </svg>
+              </div>
+              <input
+                type="search"
+                className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
+                placeholder="Búsqueda por nombre"
+                value={searchCustomer}
+                onChange={handleChangeCustomer}
+              />
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="relative overflow-x-auto shadow-2xl sm:rounded-lg">
@@ -151,7 +315,7 @@ export function ListPrescripView() {
           <thead className="text-xs uppercase bg-[#687584] text-white">
             <tr>
               <th scope="col" className="text-white py-3 px-6 text-center">
-                Numero de expediente
+                Número de expediente
               </th>
               <th scope="col" className="text-white py-3 px-6 text-center">
                 Nombre del paciente
@@ -160,10 +324,13 @@ export function ListPrescripView() {
                 Alergias
               </th>
               <th scope="col" className="text-white py-3 px-6 text-center">
-                Obsarvaciones
+                Observaciones
               </th>
               <th scope="col" className="text-white py-3 px-6 text-center">
-                Fecha y hora de elaboracion
+                Tratamiento
+              </th>
+              <th scope="col" className="text-white py-3 px-6 text-center">
+                Fecha y hora de elaboración
               </th>
               <th
                 scope="col"

@@ -2,13 +2,14 @@ import { NavBar } from "../components/navbar/NavBar";
 import { Link } from "react-router-dom";
 import { Footer } from "../components/footer/Footer";
 import Imghome from "../assets/img/prueba3.jpg";
-import Home2 from "../assets/img/Home-2Img.jpg"
+// import Home2 from "../assets/img/Home-2Img.jpg"
+import Home2 from "../assets/img/SB-recepcion.jpg"
 
 export function HomeView() {
   return (
     <>
       <NavBar fixed />
-      <div className="relative pt-16 pb-32 flex content-center items-center justify-center">
+      <div className="relative pt-16 pb-32 flex content-center items-center justify-center ml-auto mr-auto">
         <div
           className="absolute w-[100%] h-[100%] bg-center bg-cover right-0 mt-56"
           style={{
@@ -29,9 +30,9 @@ export function HomeView() {
                   <span className="text-[#235B7C]">Bárbara</span>
                 </h1>
                 <p className="mt-4 text-black mr-[78px] text-2xl text-justify">
-                  Instalaciones cómodas y equipo médico de la más alta calidad,
+                  Instalaciones cómodas y equipo médico de la más alta calidad
                   convergen para ofrecer una experiencia que sobrepasa las
-                  expectativas de un hospital convencional.
+                  expectativas de una Clínica convencional.
                 </p>
                 <div className="mt-8">
                   <button
@@ -108,8 +109,8 @@ export function HomeView() {
                         Más experiencia
                       </h6>
                       <p className="mb-4 text-blueGray-500 text-xl text-justify">
-                        Los millones de pacientes a quienes brindamos
-                        tratamiento cada año nos preparan para tratar a la
+                        Los miles de pacientes a quienes brindamos
+                        nuestros servicios cada año, nos preparan para tratar a la
                         persona que más importa: tú.
                       </p>
                     </div>
@@ -123,7 +124,7 @@ export function HomeView() {
                         Tú eres la prioridad
                       </h6>
                       <p className="mb-4 text-blueGray-500 text-xl text-justify">
-                        El tratamiento en Santa Barbara es verdaderamente una
+                        El tratamiento en Santa Bárbara Clínica es verdaderamente una
                         experiencia humana. Recibes atención médica como una
                         persona, antes que nada.
                       </p>
@@ -141,7 +142,7 @@ export function HomeView() {
                       </h6>
                       <p className="mb-4 text-blueGray-500 text-xl text-justify">
                         Confía en nuestros expertos para obtener un diagnóstico
-                        preciso y el mejor plan para ti la primera vez.
+                        preciso y el mejor plan para ti.
                       </p>
                     </div>
                   </div>
@@ -155,7 +156,7 @@ export function HomeView() {
                       </h6>
                       <p className="mb-4 text-blueGray-500 text-xl text-justify">
                         Toda la atención médica a nuestros pacientes, la
-                        educación y la investigación están orientadas a realizar
+                        educación y la investigación, están orientadas a realizar
                         descubrimientos que puedan ayudar a que te recuperes.
                       </p>
                     </div>

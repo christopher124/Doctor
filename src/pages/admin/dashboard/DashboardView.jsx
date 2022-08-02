@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import { UsersView } from "../../../components/Admin/user/UsersView";
 import { DoughnutChartUser } from "../../../components/Charts/DoughnutChartUser";
 import { BarChartDoctor } from "../../../components/Charts/BarChartDoctor";
+import Img404 from "../../../assets/img/story-404.svg";
 
 export function DashboardView() {
   const [user, setUser] = useState({});
@@ -43,7 +44,7 @@ export function DashboardView() {
     })(
       setTimeout(() => {
         setCargando(!cargando);
-      }, 2400)
+      }, 3400)
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth, logout]);
@@ -56,7 +57,9 @@ export function DashboardView() {
             <div className="text-xs font-bold text-gray-500 uppercase">
               <span className="font-mont  text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
-                <span className="font-mont text-gray-600">Dashboard</span>
+                <span className="font-mont text-gray-600">
+                  Tablero principal
+                </span>
               </div>
             </div>
           </div>
@@ -400,7 +403,14 @@ export function DashboardView() {
             </div>
           </div>
         </>
-      ) : null}
+      ) : (
+        <div className="text-xs font-bold text-gray-500 uppercase">
+          <div className="justify-center flex p-5">
+            <img className="ui centered image w-96 h-96" src={Img404} />
+          </div>
+          <p className="text-center">No hay datos registrados</p>
+        </div>
+      )}
     </div>
   );
 }

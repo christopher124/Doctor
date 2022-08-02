@@ -25,27 +25,24 @@ export function Footer() {
           <div className="flex flex-wrap text-center lg:text-left">
             <div className="w-full lg:w-6/12 px-4">
               <h4 className="text-3xl font-semibold">Clínica Santa Bárbara</h4>
-              <h5 className="text-lg mt-0 mb-2 text-blue-600">
+              <h5 className="text-xl mt-0 -mb-2 text-blue-600">
                 Encuentra tu especialista y pide tu cita
               </h5>
               <div className="mt-6 lg:mb-0 mb-6">
                 <button
-                  className="bg-white text-blue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                  type="button"
-                >
-                  <i className="fab fa-twitter"></i>
-                </button>
-                <button
                   className="bg-white text-blue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                   type="button"
+
                 >
-                  <i className="fab fa-facebook-square"></i>
+                  <a href="https://www.facebook.com/SBClinicaSantaBarbara">
+                    <i className="fab fa-facebook-square text-2xl"></i>
+                  </a>
                 </button>
                 <button
                   className="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                   type="button"
                 >
-                  <i className="fab fa-instagram"></i>
+                  <i className="fab fa-instagram text-2xl"></i>
                 </button>
               </div>
             </div>
@@ -75,6 +72,22 @@ export function Footer() {
                     <li>
                       <a
                         className="text-blue-600 hover:text-blue-800 font-semibold block pb-2 text-sm"
+                        href="/ubicacion"
+                      >
+                        Ubicación
+                      </a>
+                      <li>
+                        <a
+                          className="text-blue-600 hover:text-blue-800 font-semibold block pb-2 text-sm"
+                          href="/privacidad"
+                        >
+                          Política de privacidad
+                        </a>
+                      </li>
+                    </li>
+                    <li>
+                      <a
+                        className="text-blue-600 hover:text-blue-800 font-semibold block pb-2 text-sm"
                         href="/servicios"
                       >
                         CSB@clinicasantabarbaramx.com
@@ -91,9 +104,9 @@ export function Footer() {
                       className="text-blue-600 hover:text-blue-800 font-semibold block pb-2 text-sm"
                       href="https://github.com/creativetimofficial/notus-react/blob/main/LICENSE.md?ref=nr-footer"
                     >
-                      Arenales Tapatio 92 45066 Zapopan, Jalisco, México
-                      <br />(+52)3322751432
-                      <br />(+52)3370896654
+                      Domicilio: Arenales Tapatíos 92, 45066 Zapopan, Jalisco, México.
+                      <br />Tel: 33 1028 8440
+                      <br />Tel: 33 1981 4337
                     </p>
                   </div>
                 </div>
@@ -109,7 +122,7 @@ export function Footer() {
                   href="https://www.creative-tim.com?ref=nr-footer"
                   className="text-blue-500 hover:text-blue-800"
                 >
-                  Nextia Solutions
+                  Nextia Solutions MX
                 </a>
                 .
               </div>

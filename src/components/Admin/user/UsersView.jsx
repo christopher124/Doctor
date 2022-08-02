@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Avvvatars from "avvvatars-react";
+import Avatar from "avvvatars-react";
 
 export function UsersView({ users }) {
   const { email, role, username, blocked, confirmed } = users;
@@ -28,29 +28,26 @@ export function UsersView({ users }) {
     <>
       <div className="flex items-center justify-start  space-x-4">
         <div className="shrink-0 w-8">
-          <Avvvatars value={username ? username : "NU"} size={40} />
+          <Avatar value={username ? username : "NU"} size={40} />
         </div>
         <div className="flex flex-col w-full">
-          <div className="p-1 text-sm font-bold text-white">
-            Nombre de Usuario: {username}
+          <div className="p-1 font-bold text-white">
+            Nombre Usuario: {username}
           </div>
 
-          <div className="p-1 font-bold text-sm text-white">
-            {" "}
-            Correo: {email}
-          </div>
-          <div className="p-1  font-bold text-sm text-white">
-            Rol de Usuario: {role?.name}
-          </div>
-          <div className="p-1  font-bold text-sm text-white">
-            {confirmed === true
-              ? "Usuario Confirmado"
-              : "Usuario no confirmado"}
-          </div>
-
-          <div className="p-1 text-white whitespace-nowrap">
+          <div className="p-1 font-bold text-white"> Correo: {email}</div>
+          <div className="p-1  font-bold text-white">Rol: {role?.name}</div>
+          <div className="p-1  font-bold text-white">
+            Verificación del usuario:{" "}
             <span className={`${clase} `}>
-              {blocked === true ? "Usuario bloquedado" : "Usuario Activo"}
+              {confirmed === true ? " Confirmado" : " No confirmado"}
+            </span>
+          </div>
+
+          <div className="p-[0.25rem] text-white  font-bold whitespace-nowrap">
+            Estatus del usuario:{" "}
+            <span className={`${clase} `}>
+              {blocked === true ? "bloqueado" : " Activo"}
             </span>
           </div>
         </div>

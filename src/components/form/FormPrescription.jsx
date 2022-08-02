@@ -2,11 +2,10 @@ import { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import useAuth from "../../hooks/useAuth";
-import { Form } from "semantic-ui-react";
+import { Form, Button } from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
 import { getDoctorApi } from "../../api/admin/doctor";
 import { getCustomerApi } from "../../api/admin/customer";
-import { contriesOptions, options } from "../../api/data/data.js";
 import {
   createPrescripApi,
   updatePrescripApi,
@@ -34,7 +33,6 @@ export function FormPrescription({ prescription }) {
     validationSchema: Yup.object(validationSchema()),
     onSubmit: async (formData) => {
       handleSubmit(formData);
-      console.log(formData);
     },
   });
 
@@ -46,6 +44,7 @@ export function FormPrescription({ prescription }) {
     };
     let respuesta;
     try {
+      setLoading(true);
       if (prescription?.id) {
         respuesta = await updatePrescripApi(
           prescription?.id,
@@ -54,22 +53,22 @@ export function FormPrescription({ prescription }) {
         );
         if (!respuesta) {
           toast.warning(
-            "Problemas con actualizar el doctor, inténtelo mas tarde"
+            "Problemas con actualizar el doctor, inténtelo mas tarde."
           );
-        } else toast.success("Doctor actulizado correctamente");
-        navigate("/admin/usuarios");
+        } else toast.success("Datos actulizado correctamente.");
+        navigate("/admin/recetas");
       } else {
         respuesta = await createPrescripApi(formDataTemp, logout);
         if (!respuesta) {
-          toast.warning("Problemas con crear el doctor, inténtelo mas tarde");
+          toast.warning("Problemas con crear la receta, inténtelo mas tarde.");
         } else {
-          toast.success("Doctor creado correctamente");
-          navigate("/admin/usuarios");
+          toast.success("Receta creado correctamente.");
+          navigate("/admin/recetas");
         }
       }
       await respuesta.json();
     } catch (err) {
-      console.log(err);
+      setLoading(false);
     }
   };
 
@@ -84,7 +83,7 @@ export function FormPrescription({ prescription }) {
       </button>
       <div className="bg-white mt-10 px-5 py-10 rounded-md shadow-xl md:w-4/2 mx-auto">
         <h1 className="text-gray-600 font-bold text-xl uppercase text-center">
-          {prescription?.id ? "Editar receta" : "Nuevo receta"}
+          {prescription?.id ? "Editar receta" : "Nueva receta"}
         </h1>
         <Form onSubmit={formik.handleSubmit} className="mt-10">
           <div className=" grid xl:grid-cols-5 xl:gap-6">
@@ -116,7 +115,7 @@ export function FormPrescription({ prescription }) {
                 )}
                 {customer?.map((customer) => (
                   <option key={customer?.id} value={customer?.id}>
-                    {customer?.name} {customer?.last}
+                    {customer?.name} {customer?.last} / {customer?.user?.email}
                   </option>
                 ))}
               </select>
@@ -133,7 +132,7 @@ export function FormPrescription({ prescription }) {
                   role="alert"
                   aria-atomic="true"
                 >
-                  El paciente es Obligatorio
+                  El campo es requerido.
                 </p>
               )}
             </div>
@@ -165,7 +164,7 @@ export function FormPrescription({ prescription }) {
                 )}
                 {doctor?.map((doctor) => (
                   <option key={doctor?.id} value={doctor?.id}>
-                    {doctor?.name} {doctor?.last}
+                    {doctor?.name} {doctor?.last} / {doctor?.user?.email}
                   </option>
                 ))}
               </select>
@@ -191,7 +190,7 @@ export function FormPrescription({ prescription }) {
                 htmlFor="weight"
                 className="block font-bold text-xl text-gray-700"
               >
-                Peso del paciente
+                Peso (kg)
               </label>
               <Form.Input
                 type="text"
@@ -200,7 +199,7 @@ export function FormPrescription({ prescription }) {
                 value={formik.values.weight}
                 error={formik.errors.weight}
                 onChange={formik.handleChange}
-                placeholder="65 kg"
+                placeholder="65"
               />
             </div>
             <div className="w-full mb-6 group">
@@ -208,7 +207,7 @@ export function FormPrescription({ prescription }) {
                 htmlFor="size"
                 className="block font-bold text-xl text-gray-700"
               >
-                Altura del paciente
+                Altura (Cm)
               </label>
               <Form.Input
                 type="text"
@@ -217,7 +216,7 @@ export function FormPrescription({ prescription }) {
                 value={formik.values.size}
                 error={formik.errors.size}
                 onChange={formik.handleChange}
-                placeholder="1.70 cm"
+                placeholder="1.70"
               />
             </div>
             <div className="w-full mb-6 group">
@@ -274,12 +273,9 @@ export function FormPrescription({ prescription }) {
               />
             </div>
           </div>
-          <input
-            type="submit"
-            loading={loading}
-            className=" text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            value={prescription?.id ? "Editar Paciente" : "Agregar Paciente"}
-          />
+          <Button type="submit" loading={loading} primary>
+            {prescription?.id ? "Editar" : "Guardar Cambios"}
+          </Button>
         </Form>
       </div>
     </>
@@ -302,10 +298,10 @@ function validationSchema() {
   return {
     customer: Yup.string().required(true),
     doctor: Yup.string().required(true),
-    size: Yup.string().required(true),
-    allergies: Yup.string().required(true),
-    observations: Yup.string().required(true),
-    weight: Yup.string().required(true),
-    treatment: Yup.string().required(true),
+    size: Yup.string().matches(/^[0-9]+$/, "Deben ser solo dígitos."),
+    allergies: Yup.string().required("El campo es requerido."),
+    observations: Yup.string(),
+    weight: Yup.string().matches(/^[0-9]+$/, "Deben ser solo dígitos."),
+    treatment: Yup.string().required("El campo es requerido."),
   };
 }

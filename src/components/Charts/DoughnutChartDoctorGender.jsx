@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import { getUserApi } from "../../api/admin/user";
+import { getDoctorApi } from "../../api/admin/doctor";
 
 import useAuth from "../../hooks/useAuth";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
@@ -7,26 +7,26 @@ import { Doughnut } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export function DoughnutChartUser() {
-  const [usersA, setUsersA] = useState([]);
-  const [usersP, setUsersP] = useState([]);
+export function DoughnutChartDoctorGender() {
+  const [doctorM, setDoctorM] = useState([]);
+  const [doctorF, setDoctorF] = useState([]);
 
   const { auth, logout } = useAuth();
   useEffect(() => {
     (async () => {
-      const users = await getUserApi(logout);
-      setUsersA(users.filter((user) => user?.confirmed === true));
-      setUsersP(users.filter((user) => user?.blocked === true));
+      const doctor = await getDoctorApi(logout);
+      setDoctorM(doctor.filter((doctors) => doctors?.gender === "Masculino"));
+      setDoctorF(doctor.filter((doctors) => doctors?.gender === "Femenino"));
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth, logout]);
   let data = {
-    labels: ["Activos", "Bloqueados"],
+    labels: ["Masculino", "Femenino"],
     datasets: [
       {
-        data: [usersA.length, usersP.length],
-        backgroundColor: ["#6BB19A", "#E77C71"],
-        borderColor: ["#6BB19A", "#E77C71"],
+        data: [doctorM.length, doctorF.length],
+        backgroundColor: ["#5086C1", "#CCA9DD"],
+        borderColor: ["#5086C1", "#CCA9DD"],
         borderWidth: 1,
       },
     ],
@@ -61,7 +61,7 @@ export function DoughnutChartUser() {
               <i className="p-1 fas fa-user text-white text-xl"></i>
             </span>
             <div className="text-ls font-bold text-white">
-              Estatus del usuario
+              Genero del doctor
             </div>
           </div>
         </div>

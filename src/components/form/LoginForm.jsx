@@ -12,6 +12,8 @@ export function LoginForm() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const { login } = useAuth();
+  const [showPassword, setShowPassword] = useState(false);
+  const switchShown = () => setShowPassword(!showPassword);
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: Yup.object(validationSchema()),
@@ -21,22 +23,24 @@ export function LoginForm() {
         const response = await loginApi(formData);
         if (response?.jwt && response?.user?.role?.name === "Administrador") {
           login(response.jwt);
-          toast.success("Bienvenido" + " " + response.user.username);
+          toast.success("Bienvenido," + " " + response.user.username);
           navigate("/admin/dashboard");
         } else if (
           response?.jwt &&
           response?.user?.role?.name === "Recepción"
         ) {
           login(response.jwt);
-          toast.success("Bienvenido" + " " + response?.user?.username);
+          toast.success("Bienvenido," + " " + response?.user?.username);
           navigate("/admin/dashboard");
         } else if (response?.jwt && response?.user?.role?.name === "Doctor") {
           login(response.jwt);
-          toast.success("Bienvenido" + " " + response?.user?.username);
+          toast.success("Bienvenido," + " " + response?.user?.username);
           navigate("/admin/dashboard");
         } else {
           setLoading(false);
-          toast.error("Usuario o contraseña incorrectos");
+          toast.error(
+            "Usuario y/o contraseña incorrecto o su cuenta ha sido bloqueada."
+          );
         }
       } catch (e) {
         console.log(e);
@@ -48,15 +52,15 @@ export function LoginForm() {
       <div className="flex w-full h-screen bg-gradient-to-r from-cyan-800 to-slate-900 ">
         <div className="w-full flex items-center justify-center lg:w-1/2">
           <div className="bg-white px-20 py-32 rounded-3xl border-2 border-gray-100">
-            <h1 className="text-5xl font-semibold">¡Bienvenido!</h1>
-            <p className="font-medium text-lg text-gray-500 mt-4">
-              A continuación, ingresa tus datos.
+            <h1 className="text-5xl font-semibold">¡Bienvenido(a)!</h1>
+            <p className="font-medium text-xl text-gray-500 mt-4 text-center">
+              A continuación, ingrese sus datos.
             </p>
             <div className=" mt-8">
               <Form onSubmit={formik.handleSubmit}>
                 <div>
                   <label htmlFor="email" className="text-xl font-semibold">
-                    Correo
+                    Correo / Usuario
                   </label>
                   <div className="relative">
                     <Form.Input
@@ -66,7 +70,7 @@ export function LoginForm() {
                       error={
                         formik.touched.identifier && formik.errors.identifier
                       }
-                      placeholder="Ejemplo@gmail.com"
+                      placeholder="ejemplo@gmail.com"
                     />
 
                     <span className="absolute inset-y-0 inline-flex items-center right-4">
@@ -79,7 +83,7 @@ export function LoginForm() {
                     </label>
                     <div className="relative">
                       <Form.Input
-                        type="Password"
+                        type={showPassword ? "text" : "password"}
                         name="password"
                         onChange={formik.handleChange}
                         error={
@@ -87,6 +91,19 @@ export function LoginForm() {
                         }
                         placeholder="********"
                       />
+                      <span className="absolute inset-y-0 inline-flex items-center right-4">
+                        {showPassword ? (
+                          <i
+                            onClick={switchShown}
+                            className="fas fa-solid fa-eye-slash"
+                          ></i>
+                        ) : (
+                          <i
+                            onClick={switchShown}
+                            class="fas fa-solid fa-eye"
+                          ></i>
+                        )}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -126,7 +143,7 @@ function initialValues() {
 }
 function validationSchema() {
   return {
-    identifier: Yup.string().email(true).required(true),
+    identifier: Yup.string().required(true),
     password: Yup.string().required(true),
   };
 }

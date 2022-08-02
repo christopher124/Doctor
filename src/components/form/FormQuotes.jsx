@@ -7,6 +7,7 @@ import { getCustomerApi } from "../../api/admin/customer";
 import { getDoctorApi } from "../../api/admin/doctor";
 import { createQuotesApi } from "../../api/admin/quote";
 import * as Yup from "yup";
+import { roomsOptions, specialtiesOptions } from "../../api/data/data";
 import { toast } from "react-toastify";
 
 export function FormQuotes() {
@@ -84,7 +85,7 @@ export function FormQuotes() {
                 )}
                 {customer?.map((customer) => (
                   <option key={customer?.id} value={customer?.id}>
-                    {customer?.name} {customer?.last}
+                    {customer?.name} {customer?.last} / {customer?.user?.email}
                   </option>
                 ))}
               </select>
@@ -132,7 +133,7 @@ export function FormQuotes() {
                 )}
                 {doctor?.map((doctor) => (
                   <option key={doctor?.id} value={doctor?.id}>
-                    {doctor?.name} {doctor?.last}
+                    {doctor?.name} {doctor?.last} / {doctor?.user?.email}
                   </option>
                 ))}
               </select>
@@ -161,7 +162,7 @@ export function FormQuotes() {
                 Fecha y hora de la cita
               </label>
               <Form.Input
-                type="date"
+                type="datetime-local"
                 name="date"
                 min={new Date().toISOString().split("T")[0]}
                 value={formik.values.date}
@@ -170,7 +171,44 @@ export function FormQuotes() {
               />
             </div>
           </div>
-          <Button type="submit" primary>
+          <div className=" grid xl:grid-cols-2 xl:gap-6">
+            <div className="text-lg w-full mb-6 group">
+              <label
+                htmlFor="room"
+                className="block text-xl font-bold  text-gray-800 "
+              >
+                Consultorio
+              </label>
+              <Form.Dropdown
+                id="room"
+                placeholder="Selecione un consultorio"
+                options={roomsOptions}
+                value={formik.values.room}
+                error={formik.errors.room}
+                search
+                onChange={(_, data) => formik.setFieldValue("room", data.value)}
+                selection
+              />
+            </div>
+            <div className="text-lg w-full mb-6 group">
+              <label
+                htmlFor="service"
+                className="block font-bold text-xl text-gray-700"
+              >
+                Información de la cita
+              </label>
+              <Form.TextArea
+                type="text"
+                name="service"
+                id="service"
+                value={formik.values.service}
+                error={formik.errors.service}
+                onChange={formik.handleChange}
+                placeholder="Servicios..."
+              />
+            </div>
+          </div>
+          <Button disabled={!formik.dirty} type="submit" primary>
             {doctor?.id ? "Editar Doctor" : "Crear Doctor"}
           </Button>
         </Form>
@@ -182,6 +220,8 @@ function initialValues() {
   return {
     customer: null,
     doctor: null,
+    room: "",
+    service: "",
     date: "",
   };
 }

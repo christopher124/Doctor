@@ -42,16 +42,18 @@ export function FormCustumer({ customer }) {
         respuesta = await updateCustomerApi(customer?.id, formDataTemp, logout);
         if (!respuesta) {
           toast.warning(
-            "Problemas con actualizar al paciente, Inténtelo más tarde"
+            "Problemas con actualizar al paciente, Inténtelo más tarde."
           );
-        } else toast.success("Paciente actualizado correctamente");
+        } else toast.success("Datos actualizado correctamente.");
         navigate("/admin/pacientes");
       } else {
         respuesta = await createCustomerApi(formDataTemp, logout);
         if (!respuesta) {
-          toast.warning("Problemas con crear el paciente, Inténtelo más tarde");
+          toast.warning(
+            "Problemas con crear el paciente, Inténtelo más tarde."
+          );
         } else {
-          toast.success("Paciente creado correctamente");
+          toast.success("Paciente creado correctamente.");
           navigate("/admin/pacientes");
         }
       }
@@ -96,7 +98,7 @@ export function FormCustumer({ customer }) {
                 htmlFor="name"
                 className="block text-xl font-bold  text-gray-800 "
               >
-                Nombres
+                Nombre (s)
               </label>
               <Form.Input
                 type="text"
@@ -113,7 +115,7 @@ export function FormCustumer({ customer }) {
                 htmlFor="last"
                 className="block text-xl font-bold  text-gray-800 "
               >
-                Apellidos
+                Apellido (s)
               </label>
               <Form.Input
                 type="text"
@@ -152,7 +154,7 @@ export function FormCustumer({ customer }) {
                 htmlFor="address"
                 className="block font-bold text-xl text-gray-700"
               >
-                Calle y Número
+                Calle y número
               </label>
               <Form.Input
                 type="text"
@@ -203,13 +205,16 @@ export function FormCustumer({ customer }) {
                 htmlFor="number_int_address"
                 className="block font-bold text-xl text-gray-700"
               >
-                Número Interior
+                Número interior
               </label>
               <Form.Input
                 type="text"
                 name="number_int_address"
                 id="number_int_address"
-                placeholder="Número Interior (Opcional)"
+                value={formik.values.number_int_address}
+                error={formik.errors.number_int_address}
+                onChange={formik.handleChange}
+                placeholder="Número interior (Opcional)"
               />
             </div>
             <div className="text-lg w-full mb-6 group">
@@ -217,7 +222,7 @@ export function FormCustumer({ customer }) {
                 htmlFor="zip"
                 className="block text-xl font-bold  text-gray-800 "
               >
-                Código Postal
+                Código postal
               </label>
               <Form.Input
                 type="text"
@@ -274,7 +279,7 @@ export function FormCustumer({ customer }) {
                 htmlFor="birthday"
                 className="block text-xl font-bold  text-gray-800 "
               >
-                Fecha de Nacimiento
+                Fecha de nacimiento
               </label>
               <Form.Input
                 type="date"
@@ -292,7 +297,7 @@ export function FormCustumer({ customer }) {
                 htmlFor="name"
                 className="block text-xl font-bold  text-gray-800 "
               >
-                Rol de Usuario
+                Usuario
               </label>
               <select
                 value={formik.values.user}
@@ -306,10 +311,12 @@ export function FormCustumer({ customer }) {
               >
                 {user?.id ? (
                   <option value="">
-                    Selecione un nuevo Rol para el usuario
+                    Selecione un nuevo usuario para el paciente
                   </option>
                 ) : (
-                  <option value="">Selecione un Rol para el usuario</option>
+                  <option value="">
+                    Selecione un usuario para el paciente
+                  </option>
                 )}
 
                 {user?.map((user) => (
@@ -331,13 +338,18 @@ export function FormCustumer({ customer }) {
                   role="alert"
                   aria-atomic="true"
                 >
-                  El Rol del usuario es obligatorio
+                  El campo es requerido.
                 </p>
               )}
             </div>
           </div>
-          <Button type="submit" loading={loading} primary>
-            {customer?.id ? "Editar Paciente" : "Agregar Paciente"}
+          <Button
+            type="submit"
+            disabled={!formik.dirty}
+            loading={loading}
+            primary
+          >
+            {customer?.id ? "Editar" : "Guardar cambios"}
           </Button>
         </Form>
       </div>
@@ -365,44 +377,44 @@ function validationSchema() {
   return {
     user: Yup.string().required(true),
     name: Yup.string()
-      .required("El Nombre del Paciente es obligatorio")
+      .required("El campo es requerido.")
       .matches(
         /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g,
-        "Ingrese solo letras y sin espacios al final"
+        "Ingrese solo letras y sin espacios al final."
       )
-      .min(2, "El Nombre es muy corto")
-      .max(50, "El Nombre es muy largo"),
+      .min(3, "El Nombre es muy corto.")
+      .max(50, "El Nombre es muy largo."),
     last: Yup.string()
-      .min(2, "El Apellidos es muy corto")
+      .min(2, "El Apellidos es muy corto.")
       .matches(
         /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g,
-        "Ingrese solo letras y sin espacios al final"
+        "Ingrese solo letras y sin espacios al final."
       )
-      .max(50, "El Apellidos es muy largo")
-      .required("El Nombre del Paciente es obligatorio"),
-    address: Yup.string().required("La dirección del Paciente es obligatorio"),
-    gender: Yup.string().required("El género del Paciente es obligatorio"),
+      .max(50, "El Apellidos es muy largo.")
+      .required("El campo es requerido."),
+    address: Yup.string().required("El campo es requerido."),
+    gender: Yup.string().required("El campo es requerido."),
     phone: Yup.string()
-      .required("El numero de teléfono del Paciente es obligatorio")
+      .required("El campo es requerido.")
       .matches(/^[0-9]+$/, "Deben ser solo dígitos")
       .min(10, "Debe tener exactamente 10 dígitos")
       .max(10, "Debe tener exactamente 10 dígitos"),
     zip: Yup.string()
       .matches(/^[0-9]+$/, "Deben ser solo dígitos")
-      .required("El código postal es obligatorio"),
+      .required("El campo es requerido."),
     suburb: Yup.string()
       .matches(
         /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g,
-        "Ingrese solo letras y sin espacios al final"
+        "Ingrese solo letras y sin espacios al final."
       )
-      .required("La colonia del Paciente es obligatorio"),
+      .required("El campo es requerido."),
     town: Yup.string()
       .matches(
         /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g,
-        "Ingrese solo letras y sin espacios al final"
+        "Ingrese solo letras y sin espacios al final."
       )
-      .required("El municipio del Paciente es obligatorio"),
-    state: Yup.string().required("El Estado del Paciente es obligatorio"),
-    birthday: Yup.string().required("La fecha de cumpleaños es obligatorio"),
+      .required("El campo es requerido."),
+    state: Yup.string().required("El campo es requerido."),
+    birthday: Yup.string().required("El campo es requerido."),
   };
 }
