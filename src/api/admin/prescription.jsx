@@ -88,7 +88,7 @@ export async function getCountPrescripApi(logout) {
 
 export async function getPrescripCustomerApi(idCustomer, logout) {
   try {
-    const url = `${API_URL_DEV}/prescriptions?customer=${idCustomer}`;
+    const url = `${API_URL_PROD}/prescriptions?customer=${idCustomer}`;
     const result = await authFetch(url, null, logout);
     return result ? result : null;
   } catch (error) {
