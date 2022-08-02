@@ -9,13 +9,13 @@ export function UsView() {
     <>
       <NavBar transparent />
       <main className="font-noto">
-        <div className="relative pt-16 pb-32 flex content-center items-center justify-center">
+        <div className="relative pt-16 pb-32 flex content-center items-center justify-center ml-auto mr-auto">
           <div
-            className="absolute top-20 w-[100%] h-[90%] bg-center bg-cover">
+            className="absolute top-20 w-[100%] h-[90%] bg-center ">
             <img src={Imgn} alt="" />
             <span
               id="blackOverlay"
-              className="w-[20%] h-[20%] absolute opacity-75 "
+              className="w-[100%] h-[100%] absolute opacity-75"
             ></span>
           </div>
           {/* bug */}
@@ -204,7 +204,7 @@ export function UsView() {
                 <div className=" p-4 ">
                   <p className=" text-xl text-justify">Contamos con cardiólogo, cirujano plástico, dermatólogo,
                     gastroenterólogo, geriatra, ginecólogo, neurólogo, nutriólogo,
-                    oftalmólogo, oncólogo, oncólogo, otorrinolaringólogo, pediatra,
+                    oftalmólogo, oncólogo, otorrinolaringólogo, pediatra,
                     traumatólogo y urólogo.</p>
                 </div>
               </div>
@@ -315,7 +315,7 @@ export function UsView() {
              max-h-0 peer-checked:max-h-40
             ">
                 <div className=" p-4 ">
-                  <p className=" text-xl text-justify">El pago se realiza en la cínica con efectivo, tarjeta de crédito o débito.</p>
+                  <p className=" text-xl text-justify">El pago se realiza en la Clínica con efectivo, tarjeta de crédito o débito.</p>
                 </div>
               </div>
             </div>

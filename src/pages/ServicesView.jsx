@@ -23,7 +23,7 @@ export function ServicesView() {
       <main className="font-noto">
         <div className="relative pt-16 pb-32 flex content-center items-center justify-center">
           <div
-            className="absolute top-20 w-full h-full bg-center bg-cover "
+            className="absolute top-20 w-full h-full bg-center bg-cover bg-fixed "
             style={{
               backgroundImage:
                 `url(${Servicios})`,
