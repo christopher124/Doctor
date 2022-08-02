@@ -2,13 +2,14 @@ import { NavBar } from "../components/navbar/NavBar";
 import { Link } from "react-router-dom";
 import { Footer } from "../components/footer/Footer";
 import Imghome from "../assets/img/prueba3.jpg";
-import Home2 from "../assets/img/Home-2Img.jpg"
+// import Home2 from "../assets/img/Home-2Img.jpg"
+import Home2 from "../assets/img/SB-recepcion.jpg"
 
 export function HomeView() {
   return (
     <>
       <NavBar fixed />
-      <div className="relative pt-16 pb-32 flex content-center items-center justify-center">
+      <div className="relative pt-16 pb-32 flex content-center items-center justify-center ml-auto mr-auto">
         <div
           className="absolute w-[100%] h-[100%] bg-center bg-cover right-0 mt-56"
           style={{

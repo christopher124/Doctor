@@ -9,13 +9,13 @@ export function UsView() {
     <>
       <NavBar transparent />
       <main className="font-noto">
-        <div className="relative pt-16 pb-32 flex content-center items-center justify-center">
+        <div className="relative pt-16 pb-32 flex content-center items-center justify-center ml-auto mr-auto">
           <div
-            className="absolute top-20 w-[100%] h-[90%] bg-center bg-cover">
+            className="absolute top-20 w-[100%] h-[90%] bg-center ">
             <img src={Imgn} alt="" />
             <span
               id="blackOverlay"
-              className="w-[20%] h-[20%] absolute opacity-75 "
+              className="w-[100%] h-[100%] absolute opacity-75"
             ></span>
           </div>
           {/* bug */}
