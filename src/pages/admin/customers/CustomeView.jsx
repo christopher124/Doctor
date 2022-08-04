@@ -81,7 +81,11 @@ export function CustomeView() {
         </div>
         <div className="text-xs font-bold text-gray-500 uppercase">
           <div className="justify-center flex p-5">
-            <img className="ui centered image w-96 h-96" src={Img404} />
+            <img
+              className="ui centered image w-96 h-96"
+              src={Img404}
+              alt="Logo"
+            />
           </div>
           <p className="text-center">No se encontraron resultados</p>
         </div>

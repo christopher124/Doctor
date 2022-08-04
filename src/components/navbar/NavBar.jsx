@@ -1,6 +1,6 @@
 /*eslint-disable*/
 import React from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Logo from "../../assets/img/SB sin fondo.png";
 import useAuth from "../../hooks/useAuth";
 // components

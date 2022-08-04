@@ -1,10 +1,34 @@
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { format } from "date-fns";
 
 export function ListQuotesView({ quotes, handleDelited }) {
-  const { customer, doctor, date, id } = quotes;
+  const { customer, doctor, date, status, id } = quotes;
+  const [estadoQuotes, setEstadoQuotes] = useState(status);
+  const [clase, setClase] = useState("");
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (estadoQuotes) {
+      setEstadoQuotes(estadoQuotes);
+    }
+    claseDoctor();
+  }, [estadoQuotes]);
+  const claseDoctor = () => {
+    if (status === "Completa") {
+      setClase(
+        " p-2 uppercase font-bold inline-flex text-center bg-green-700 text-white rounded-lg text-xs px-2 py-0 "
+      );
+    } else if (status === "En proceso") {
+      setClase(
+        " p-2 uppercase font-bold inline-flex text-center bg-orange-400 text-white rounded-lg text-xs px-2 py-0 "
+      );
+    } else if (status === "Cancelada") {
+      setClase(
+        " p-2 uppercase font-bold inline-flex text-center bg-red-700 text-white rounded-lg text-xs px-2 py-0 "
+      );
+    }
+  };
   return (
     <>
       <tr className=" border-b bg-cyan-800 border-white">
@@ -19,7 +43,11 @@ export function ListQuotesView({ quotes, handleDelited }) {
           {" "}
           {date ? format(new Date(date), "dd/MM/yyyy hh:mm a") : "N/A"}
         </td>
-
+        <td className="text-white px-6 py-4">
+          <span className={`${clase} `}>
+            {status ? status : "No hay datos"}
+          </span>
+        </td>
         <td className="py-3 px-6 text-center">
           <div className="flex item-center justify-center">
             <button
