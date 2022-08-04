@@ -52,7 +52,7 @@ export async function deleteQuotesApi(id, logout) {
 
 export async function getOneQuotesApi(id, logout) {
   try {
-    const url = `${API_URL_DEV}/quotes/${id}`;
+    const url = `${API_URL_PROD}/quotes/${id}`;
     const result = await authFetch(url, null, logout);
     return result ? result : null;
   } catch (error) {
