@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import useAuth from "../../hooks/useAuth";
-import { Form, Button } from "semantic-ui-react";
+import { Form, Dropdown, Button } from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
 import { getUserApi } from "../../api/admin/user";
 import { createDoctorApi, updateDoctorApi } from "../../api/admin/doctor";
@@ -15,7 +15,6 @@ import {
 import { Spinner } from "../spinner/Spinner";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
-import { format } from "date-fns";
 
 export function FormDoctor({ doctor, cargando }) {
   const [user, setUser] = useState([]);
@@ -26,6 +25,7 @@ export function FormDoctor({ doctor, cargando }) {
     validationSchema: Yup.object(validationSchema()),
     onSubmit: async (formData) => {
       handleSubmit(formData);
+      console.log(formData);
     },
   });
   const { auth, logout } = useAuth();
@@ -401,18 +401,17 @@ export function FormDoctor({ doctor, cargando }) {
               >
                 Días de trabajo
               </label>
-              <Form.Dropdown
-                id="workdates"
-                placeholder="dias a trabajar"
-                options={DateOptions}
-                value={formik.values.workdates[0].workdates}
-                error={formik.errors.workdates}
-                onChange={(_, data) =>
-                  formik.setFieldValue("workdates", data.value)
-                }
+              <Dropdown
+                placeholder="Días de trabajo"
+                fluid
                 multiple
                 search
                 selection
+                options={DateOptions}
+                value={formik.values.workdates}
+                onChange={(_, data) =>
+                  formik.setFieldValue("workdates", data.value)
+                }
               />
             </div>
             <div className="text-lg w-full mb-6 group">
@@ -453,11 +452,7 @@ function initialValues(doctor) {
     name: doctor?.name ?? "",
     last: doctor?.last ?? "",
     user: null,
-    workdates: [
-      {
-        workdates: "",
-      },
-    ],
+    workdates: doctor?.workdates ?? "",
     cellule: doctor?.cellule ?? "",
     address: doctor?.address ?? "",
     gender: doctor?.gender ?? "",

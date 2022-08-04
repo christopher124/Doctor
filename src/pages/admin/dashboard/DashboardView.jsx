@@ -406,7 +406,11 @@ export function DashboardView() {
       ) : (
         <div className="text-xs font-bold text-gray-500 uppercase">
           <div className="justify-center flex p-5">
-            <img className="ui centered image w-96 h-96" src={Img404} />
+            <img
+              className="ui centered image w-96 h-96"
+              src={Img404}
+              alt="logo"
+            />
           </div>
           <p className="text-center">No hay datos registrados</p>
         </div>
