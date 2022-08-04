@@ -1,7 +1,7 @@
 /*eslint-disable*/
 import { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import Logo from "../../assets/img/Logo.jpeg";
+import Logo from "../../assets/img/Gocare.png";
 import useAuth from "../../hooks/useAuth";
 import { NavBarDashboard } from "../navbar/NavBarDashboard";
 import Swal from "sweetalert2";
@@ -21,7 +21,7 @@ export function SideBar() {
 
   const exit = async () => {
     Swal.fire({
-      title: " ¿Estas seguro de cerrar sesión?",
+      title: "¿Estás seguro de eliminar?",
       icon: "question",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -55,7 +55,7 @@ export function SideBar() {
             <img
               src={Logo}
               alt="logo"
-              className="items-center h-24 w-24 rounded-full ml-16"
+              className="items-center h-28 w-32 rounded-full ml-auto mr-auto"
             />
           </Link>
           {/* User */}
@@ -108,7 +108,7 @@ export function SideBar() {
                 <li className="items-center">
                   <Link
                     className={
-                      "text-xs uppercase py-3 font-bold block " +
+                      "text-base uppercase py-3 font-bold block " +
                       (window.location.href.indexOf("/admin/dashboard") !== -1
                         ? " px-4 py-3 flex  space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
                         : "text-black hover:text-gray-600")
@@ -117,10 +117,10 @@ export function SideBar() {
                   >
                     <i
                       className={
-                        "fab fa-slideshare mr-2 text-base " +
+                        "fab fa-slideshare mr-2 text-lg " +
                         (window.location.href.indexOf("/admin/dashboard") !== -1
-                          ? "opacity-75"
-                          : "text-black hover:text-gray-600")
+                          ? "opacity-75 "
+                          : "text-black hover:text-gray-600 ")
                       }
                     ></i>{" "}
                     Tablero principal
@@ -131,7 +131,7 @@ export function SideBar() {
                 <li className="items-center">
                   <Link
                     className={
-                      "text-xs uppercase py-3 font-bold block " +
+                      "text-base uppercase py-3 font-bold block " +
                       (window.location.href.indexOf("/admin/pacientes") !== -1
                         ? "relative px-4 py-3 flex space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
                         : "text-black hover:text-gray-600")
@@ -150,7 +150,7 @@ export function SideBar() {
                   </Link>
                   <Link
                     className={
-                      "text-xs uppercase py-3 font-bold block " +
+                      "text-base uppercase py-3 font-bold block " +
                       (window.location.href.indexOf("/admin/doctores") !== -1
                         ? "relative px-4 py-3 flex space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
                         : "text-black hover:text-gray-600")
@@ -169,7 +169,7 @@ export function SideBar() {
                   </Link>
                   <Link
                     className={
-                      "text-xs uppercase py-3 font-bold block " +
+                      "text-base uppercase py-3 font-bold block " +
                       (window.location.href.indexOf("/admin/usuarios") !== -1
                         ? " px-4 py-3 flex  space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
                         : "text-black hover:text-gray-600")
@@ -188,7 +188,7 @@ export function SideBar() {
                   </Link>
                   <Link
                     className={
-                      "text-xs uppercase py-3 font-bold block " +
+                      "text-base uppercase py-3 font-bold block " +
                       (window.location.href.indexOf("/admin/citas") !== -1
                         ? " px-4 py-3 flex  space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
                         : "text-black hover:text-gray-600")
@@ -207,7 +207,7 @@ export function SideBar() {
                   </Link>
                   <Link
                     className={
-                      "text-xs uppercase py-3 font-bold block " +
+                      "text-base uppercase py-3 font-bold block " +
                       (window.location.href.indexOf("/admin/recetas") !== -1
                         ? " px-4 py-3 flex  space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
                         : "text-black hover:text-gray-600")
@@ -226,7 +226,7 @@ export function SideBar() {
                   </Link>
                   <Link
                     className={
-                      "text-xs uppercase py-3 font-bold block " +
+                      "text-base uppercase py-3 font-bold block " +
                       (window.location.href.indexOf("/admin/Reportes") !== -1
                         ? " px-4 py-3 flex  space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
                         : "text-black hover:text-gray-600")
@@ -423,7 +423,7 @@ export function SideBar() {
 
             {/* Navigation */}
             <button
-              className="text-white bg-gradient-to-r from-cyan-800 to-sky-700 font-bold py-2 px-4 rounded-xl"
+              className="text-white bg-gradient-to-r from-cyan-800 to-sky-700 font-bold py-2 px-4 rounded-xl text-lg"
               onClick={() => exit()}
             >
               <i className="fas fa-door-open text-white mr-2 text-sm"></i>{" "}

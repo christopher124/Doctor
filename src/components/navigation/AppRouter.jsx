@@ -100,10 +100,10 @@ export function AppRouter() {
             <Route path="dashboard" element={<DashboardView />} />
             <Route path="micuenta" element={<AccountView />} />
             <Route path="citas" element={<ListQuotView />} />
-            {/* <Route path="cita/:id" element={<CustomeView />} /> */}
+            <Route path="cita/:id" element={<CustomeView />} />
             <Route path="nueva/cita" element={<NewQuotesView />} />
-            {/* <Route path="editar/cita/:id" element={<EditCustomerView />} />
-             */}
+            <Route path="editar/cita/:id" element={<EditCustomerView />} />
+
             <Route path="recetas" element={<ListPrescripView />} />
             <Route path="receta/:id" element={<PrescripView />} />
             <Route path="nueva/receta" element={<NewPrescriptionView />} />
@@ -129,10 +129,10 @@ export function AppRouter() {
             <Route path="nuevo/paciente" element={<NewCustomerView />} />
             <Route path="editar/paciente/:id" element={<EditCustomerView />} />
             <Route path="citas" element={<ListQuotView />} />
-            {/* <Route path="cita/:id" element={<CustomeView />} /> */}
+            <Route path="cita/:id" element={<CustomeView />} />
             <Route path="nueva/cita" element={<NewQuotesView />} />
-            {/* <Route path="editar/cita/:id" element={<EditCustomerView />} />
-             */}
+            <Route path="editar/cita/:id" element={<EditCustomerView />} />
+
             <Route path="recetas" element={<ListPrescripView />} />
             <Route path="receta/:id" element={<PrescripView />} />
             <Route path="nueva/receta" element={<NewPrescriptionView />} />

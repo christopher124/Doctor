@@ -191,7 +191,11 @@ export function ListCustomeView() {
       {Object.keys(customer).length === 0 ? (
         <div className="text-xs font-bold text-gray-500 uppercase">
           <div className="justify-center flex p-5">
-            <img className="ui centered image w-96 h-96" src={Img404} />
+            <img
+              className="ui centered image w-96 h-96"
+              src={Img404}
+              alt="Logo"
+            />
           </div>
           <p className="text-center">No hay datos registrados</p>
         </div>
@@ -291,7 +295,6 @@ export function ListCustomeView() {
           </div>
         </div>
       </div>
-
       <div className="relative overflow-x-auto shadow-2xl sm:rounded-lg">
         <table
           id="tableCustomers"

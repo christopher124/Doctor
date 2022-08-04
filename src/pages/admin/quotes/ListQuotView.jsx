@@ -314,15 +314,17 @@ export function ListQuotView() {
           <thead className="text-xs uppercase bg-[#687584] text-white">
             <tr>
               <th scope="col" className="text-white py-3 px-6 text-center">
-                Nombre (s)
+                Nombre (s) paciente
               </th>
               <th scope="col" className="text-white py-3 px-6 text-center">
-                Nombre (s)
+                Nombre (s) Doctor
               </th>
               <th scope="col" className="text-white py-3 px-6 text-center">
-                FECHA DE LA CITA
+                FECHA
               </th>
-
+              <th scope="col" className="text-white py-3 px-6 text-center">
+                Estatus
+              </th>
               <th
                 scope="col"
                 className="text-white font-bold py-3 px-6 text-center "

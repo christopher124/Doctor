@@ -7,10 +7,10 @@ import { getCustomerApi } from "../../api/admin/customer";
 import { getDoctorApi } from "../../api/admin/doctor";
 import { createQuotesApi } from "../../api/admin/quote";
 import * as Yup from "yup";
-import { roomsOptions, specialtiesOptions } from "../../api/data/data";
+import { roomsOptions, statusOptionsQuotes } from "../../api/data/data";
 import { toast } from "react-toastify";
 
-export function FormQuotes() {
+export function FormQuotes({ quotes, cargando }) {
   const [customer, setCustomer] = useState([]);
   const [doctor, setDoctor] = useState([]);
   const { auth, logout } = useAuth();
@@ -19,12 +19,12 @@ export function FormQuotes() {
       const customer = await getCustomerApi(logout);
       setCustomer(customer);
       const doctor = await getDoctorApi(logout);
-      setDoctor(doctor);
+      setDoctor(doctor.filter((doctors) => doctors?.status === "Disponible"));
     })();
   }, [auth]);
 
   const formik = useFormik({
-    initialValues: initialValues(doctor),
+    initialValues: initialValues(quotes),
     validationSchema: Yup.object(validationSchema()),
     onSubmit: async (formData) => {
       handleSutmit(formData);
@@ -36,7 +36,7 @@ export function FormQuotes() {
     const quotes = await createQuotesApi(formData, logout);
     if (!quotes) {
       toast.warning("Problemas con actualizar al doctor, Inténtelo más tarde.");
-    } else if (formData.quotes.date === undefined) {
+    } else {
       toast.success("Doctor actualizado correctamente.");
       navigate("/admin/citas");
     }
@@ -54,10 +54,30 @@ export function FormQuotes() {
       </button>{" "}
       <div className="bg-white mt-10 px-5 py-10 rounded-md shadow-xl md:w-4/2 mx-auto">
         <h1 className="text-gray-600 font-bold text-xl uppercase text-center">
-          Nueva Cita
+          {quotes?.id ? "Editar Cita" : "Crear Cita"}
         </h1>
+        <div>
+          {doctor?.map((doctor) => {
+            return (
+              <div className="text-gray-600 text-center font-bold text">
+                <p className="text-gray-600 font-bold textAlign">
+                  Horarios disponibles
+                </p>
+                <p className="text-gray-600 font-bold textAlign">
+                  {doctor?.name}
+                </p>
+                <li className="text-gray-600 font-bold textAlign">
+                  {doctor?.workdates[1]}
+                </li>
+                <li className="text-gray-600 font-bold textAlign">
+                  {doctor?.workdates[2]}
+                </li>
+              </div>
+            );
+          })}
+        </div>
         <Form onSubmit={formik.handleSubmit} className="mt-10">
-          <div className=" grid xl:grid-cols-3 xl:gap-6">
+          <div className=" grid xl:grid-cols-4 xl:gap-6">
             <div className="text-lg w-full mb-6 group">
               <label
                 htmlFor="customer"
@@ -159,15 +179,34 @@ export function FormQuotes() {
                 htmlFor="date"
                 className="block text-xl font-bold  text-gray-800 "
               >
-                Fecha y hora de la cita
+                Fecha y hora
               </label>
               <Form.Input
                 type="datetime-local"
                 name="date"
-                min={new Date().toISOString().split("T")[0]}
+                min={new Date().toISOString()}
                 value={formik.values.date}
                 onChange={formik.handleChange}
                 error={formik.errors.date}
+              />
+            </div>
+            <div className="text-lg w-full mb-6 group">
+              <label
+                htmlFor="date"
+                className="block text-xl font-bold  text-gray-800 "
+              >
+                Estatus
+              </label>
+              <Form.Dropdown
+                placeholder="Estatus"
+                fluid
+                search
+                selection
+                options={statusOptionsQuotes}
+                value={formik.values.status}
+                onChange={(_, data) =>
+                  formik.setFieldValue("status", data.value)
+                }
               />
             </div>
           </div>
@@ -216,13 +255,14 @@ export function FormQuotes() {
     </>
   );
 }
-function initialValues() {
+function initialValues(quotes) {
   return {
     customer: null,
     doctor: null,
-    room: "",
-    service: "",
-    date: "",
+    room: quotes?.room ?? "",
+    service: quotes?.service ?? "",
+    date: quotes?.date ?? "",
+    status: quotes?.status ?? "En Proceso",
   };
 }
 function validationSchema() {
