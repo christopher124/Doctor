@@ -1,3 +1,5 @@
+import React from 'react'
+
 export function Footer() {
   return (
     <>
@@ -77,12 +79,7 @@ export function Footer() {
                         Ubicación
                       </a>
                       <li>
-                        <a
-                          className="text-blue-600 hover:text-blue-800 font-semibold block pb-2 text-sm"
-                          href="/privacidad"
-                        >
-                          Política de privacidad
-                        </a>
+                        <a href="https://www.iubenda.com/privacy-policy/41356316" className="text-blue-600 hover:text-blue-800 font-semibold block pb-2 text-sm " title="Política de Privacidad ">Política de Privacidad</a>
                       </li>
                     </li>
                     <li>

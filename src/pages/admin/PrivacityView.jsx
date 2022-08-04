@@ -6,6 +6,7 @@ export function PrivacityView() {
     <div>
       <NavBar />
       PrivacityView
+      <a href="https://www.iubenda.com/privacy-policy/41356316" className="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe" title="Política de Privacidad ">Política de Privacidad</a>
     </div>
   );
 }

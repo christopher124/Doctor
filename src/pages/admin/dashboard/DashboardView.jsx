@@ -54,7 +54,7 @@ export function DashboardView() {
       <div className="w-full mb-6 pt-3">
         <div className="flex flex-row items-center justify-between mb-4">
           <div className="flex flex-col">
-            <div className="text-xs font-bold text-gray-500 uppercase">
+            <div className="text-base font-bold text-gray-500 uppercase">
               <span className="font-mont  text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
                 <span className="font-mont text-gray-600">
@@ -74,7 +74,7 @@ export function DashboardView() {
               <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-700 to-slate-700">
                 <div className="flex flex-row items-center justify-between">
                   <div className="flex flex-col">
-                    <div className="font-mont font-semibold text-xs text-white uppercase">
+                    <div className="font-mont font-semibold text-base text-white uppercase">
                       Usuarios
                       <div className=" font-mont  p-1.5 text-xl font-bold">
                         {Usercount ? Usercount : "0"}
@@ -89,7 +89,7 @@ export function DashboardView() {
               <div className="w-full p-4 rounded-lg  border bg-gradient-to-r from-cyan-700 to-slate-700">
                 <div className="flex flex-row items-center justify-between">
                   <div className="flex flex-col">
-                    <div className="text-mont text-xs font-bold text-white uppercase">
+                    <div className="text-mont text-base font-bold text-white uppercase">
                       Doctores
                       <div className=" p-1.5 text-xl font-bold">
                         {Doctorcount ? Doctorcount : "0"}
@@ -105,7 +105,7 @@ export function DashboardView() {
               <div className="w-full p-4 rounded-lg  border bg-gradient-to-r from-cyan-700 to-slate-700">
                 <div className="flex flex-row items-center justify-between">
                   <div className="flex flex-col">
-                    <div className="text-xs font-bold text-white uppercase">
+                    <div className="text-base font-bold text-white uppercase">
                       Clientes Registrados
                       <div className="p-1.5 text-xl font-bold">
                         {Customercount ? Customercount : "0"}
@@ -121,7 +121,7 @@ export function DashboardView() {
               <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-700 to-slate-700">
                 <div className="flex flex-row items-center justify-between">
                   <div className="flex flex-col">
-                    <div className="text-xs font-bold text-white uppercase">
+                    <div className="text-base font-bold text-white uppercase">
                       Citas
                       <div className="p-1.5 text-xl font-bold">
                         {Quotecount ? Quotecount : "0"}
@@ -148,10 +148,10 @@ export function DashboardView() {
                   <div className="flex flex-col">
                     <div className="text-sm font-light text-white">
                       <span className="text-white">
-                        <i className=" p-1 fas fa-user-md text-white text-xl"></i>
+                        <i className=" p-1 fas fa-user-md text-white text-2xl"></i>
                       </span>
-                      <div className="text-ls font-bold text-white">
-                        Lista de Especialistas
+                      <div className="text-base font-bold text-white">
+                        LISTA DE ESPECIALISTAS
                       </div>
                     </div>
                   </div>
@@ -188,9 +188,9 @@ export function DashboardView() {
               <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-700 to-slate-700">
                 <div className="flex flex-row items-center justify-between mb-6">
                   <div className="flex flex-col">
-                    <i className="p-1 fas fa-users text-white text-xl"></i>
-                    <div className="text-sm font-bold">
-                      <span className="text-white">Lista de Usuarios</span>
+                    <i className="p-1 fas fa-users text-white text-2xl"></i>
+                    <div className="text-base font-bold">
+                      <span className="text-white">LISTA DE USUARIOS</span>
                     </div>
                   </div>
                 </div>
@@ -233,7 +233,7 @@ export function DashboardView() {
               <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-700 to-slate-700">
                 <div className="flex flex-row items-center justify-between">
                   <div className="flex flex-col">
-                    <div className="text-xs font-bold text-white uppercase">
+                    <div className="text-base font-bold text-white uppercase">
                       Citas
                       <div className="p-1.5 text-xl font-bold">
                         {Quotecount ? Quotecount : "0"}
@@ -253,7 +253,7 @@ export function DashboardView() {
               <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-700 to-slate-700">
                 <div className="flex flex-row items-center justify-between">
                   <div className="flex flex-col">
-                    <div className="font-mont font-semibold text-xs text-white uppercase">
+                    <div className="font-mont font-semibold text-base text-white uppercase">
                       Usuarios
                       <div className=" font-mont  p-1.5 text-xl font-bold">
                         {Usercount ? Usercount : "0"}
@@ -268,7 +268,7 @@ export function DashboardView() {
               <div className="w-full p-4 rounded-lg  border bg-gradient-to-r from-cyan-700 to-slate-700">
                 <div className="flex flex-row items-center justify-between">
                   <div className="flex flex-col">
-                    <div className="text-mont text-xs font-bold text-white uppercase">
+                    <div className="text-mont text-base font-bold text-white uppercase">
                       Doctores
                       <div className=" p-1.5 text-xl font-bold">
                         {Doctorcount ? Doctorcount : "0"}
@@ -284,7 +284,7 @@ export function DashboardView() {
               <div className="w-full p-4 rounded-lg  border bg-gradient-to-r from-cyan-700 to-slate-700">
                 <div className="flex flex-row items-center justify-between">
                   <div className="flex flex-col">
-                    <div className="text-xs font-bold text-white uppercase">
+                    <div className="text-base font-bold text-white uppercase">
                       Clientes Registrados
                       <div className="p-1.5 text-xl font-bold">
                         {Customercount ? Customercount : "0"}
@@ -300,7 +300,7 @@ export function DashboardView() {
               <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-700 to-slate-700">
                 <div className="flex flex-row items-center justify-between">
                   <div className="flex flex-col">
-                    <div className="text-xs font-bold text-white uppercase">
+                    <div className="text-base font-bold text-white uppercase">
                       Citas
                       <div className="p-1.5 text-xl font-bold">
                         {Quotecount ? Quotecount : "0"}
@@ -327,9 +327,9 @@ export function DashboardView() {
                   <div className="flex flex-col">
                     <div className="text-sm font-light text-white">
                       <span className="text-white">
-                        <i className=" p-1 fas fa-user-md text-white text-xl"></i>
+                        <i className=" p-1 fas fa-user-md text-white text-2xl"></i>
                       </span>
-                      <div className="text-ls font-bold text-white">
+                      <div className="text-base font-bold text-white">
                         Lista de Especialistas
                       </div>
                     </div>
@@ -367,8 +367,8 @@ export function DashboardView() {
               <div className="w-full p-4 rounded-lg border bg-gradient-to-r from-cyan-700 to-slate-700">
                 <div className="flex flex-row items-center justify-between mb-6">
                   <div className="flex flex-col">
-                    <i className="p-1 fas fa-users text-white text-xl"></i>
-                    <div className="text-sm font-bold">
+                    <i className="p-1 fas fa-users text-white text-2xl"></i>
+                    <div className="text-base font-bold">
                       <span className="text-white">Lista de Usuarios</span>
                     </div>
                   </div>

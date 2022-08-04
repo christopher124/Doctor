@@ -58,10 +58,10 @@ export function DoughnutChartUser() {
         <div className="flex flex-col">
           <div className="text-sm font-light text-white">
             <span className="text-white">
-              <i className="p-1 fas fa-user text-white text-xl"></i>
+              <i className="p-1 fas fa-user text-white text-2xl"></i>
             </span>
-            <div className="text-ls font-bold text-white">
-              Estatus del usuario
+            <div className="text-base font-bold text-white">
+              ESTATUS DEL USUARIO
             </div>
           </div>
         </div>
@@ -74,7 +74,7 @@ export function DoughnutChartUser() {
             aria-haspopup="true"
             aria-expanded="false"
           >
-            <i className="fas fa-solid fa-download"></i>
+            <i className="fas fa-solid fa-download text-2xl"></i>
           </button>
         </div>
       </div>

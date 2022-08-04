@@ -60,10 +60,10 @@ export function DoughnutChartDoctor() {
         <div className="flex flex-col">
           <div className="text-sm font-light text-white">
             <span className="text-white">
-              <i className="p-1 fas fa-user-md text-white text-xl"></i>
+              <i className="p-1 fas fa-user-md text-white text-2xl"></i>
             </span>
-            <div className="text-ls font-bold text-white">
-              Estatus del doctor
+            <div className="text-base font-bold text-white">
+              ESTATUS DEL DOCTOR
             </div>
           </div>
         </div>
@@ -76,7 +76,7 @@ export function DoughnutChartDoctor() {
             aria-haspopup="true"
             aria-expanded="false"
           >
-            <i className="fas fa-solid fa-download"></i>
+            <i className="fas fa-solid fa-download text-2xl"></i>
           </button>
         </div>
       </div>

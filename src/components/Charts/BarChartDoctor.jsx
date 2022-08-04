@@ -205,10 +205,10 @@ export function BarChartDoctor() {
         <div className="flex flex-col">
           <div className="text-sm font-light text-white">
             <span className="text-white">
-              <i className=" p-1 fas fa-user-md text-white text-xl"></i>
+              <i className=" p-1 fas fa-user-md text-white text-2xl"></i>
             </span>
-            <div className="text-ls font-bold text-white">
-              Citas por especialidad
+            <div className="text-base font-bold text-white">
+              CITAS POR ESPECIALIDAD
             </div>
           </div>
         </div>
@@ -221,7 +221,7 @@ export function BarChartDoctor() {
             aria-haspopup="true"
             aria-expanded="false"
           >
-            <i className="fas fa-solid fa-download"></i>
+            <i className="fas fa-solid fa-download text-2xl"></i>
           </button>
         </div>
       </div>
