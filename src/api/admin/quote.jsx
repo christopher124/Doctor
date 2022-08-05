@@ -89,3 +89,13 @@ export async function getCountQuotesApi(logout) {
     return null;
   }
 }
+
+export async function getCountQuotesDoctorApi(idDoctor, logout) {
+  try {
+    const url = `${API_URL_PROD}/quotes/count?doctor.user=${idDoctor}`;
+    const result = await authFetch(url, null, logout);
+    return result ? result : null;
+  } catch (error) {
+    return null;
+  }
+}
