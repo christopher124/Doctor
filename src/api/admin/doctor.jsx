@@ -1,9 +1,9 @@
-import { API_URL_PROD } from "../../utils/constants";
+import { API_URL_DEV } from "../../utils/constants";
 import { authFetch } from "../../utils/fetch";
 
 export async function createDoctorApi(doctor, logout) {
   try {
-    const url = `${API_URL_PROD}/doctors`;
+    const url = `${API_URL_DEV}/doctors`;
     const params = {
       method: "POST",
       headers: {
@@ -23,7 +23,7 @@ export async function createDoctorApi(doctor, logout) {
 
 export async function getDoctorApi(logout) {
   try {
-    const url = `${API_URL_PROD}/doctors`;
+    const url = `${API_URL_DEV}/doctors`;
     const result = await authFetch(url, null, logout);
     return result ? result : null;
   } catch (error) {
@@ -32,7 +32,7 @@ export async function getDoctorApi(logout) {
 }
 export async function getOneDoctorApi(id, logout) {
   try {
-    const url = `${API_URL_PROD}/doctors/${id}`;
+    const url = `${API_URL_DEV}/doctors/${id}`;
     const result = await authFetch(url, null, logout);
     return result ? result : null;
   } catch (error) {
@@ -41,7 +41,7 @@ export async function getOneDoctorApi(id, logout) {
 }
 export async function getCountDoctorApi(logout) {
   try {
-    const url = `${API_URL_PROD}/doctors/count`;
+    const url = `${API_URL_DEV}/doctors/count`;
     const result = await authFetch(url, null, logout);
     return result ? result : null;
   } catch (error) {
@@ -50,7 +50,7 @@ export async function getCountDoctorApi(logout) {
 }
 export async function updateDoctorApi(id, doctor, logout) {
   try {
-    const url = `${API_URL_PROD}/doctors/${id}`;
+    const url = `${API_URL_DEV}/doctors/${id}`;
     const params = {
       method: "PUT",
       headers: {
@@ -70,7 +70,7 @@ export async function updateDoctorApi(id, doctor, logout) {
 
 export async function deleteDoctorApi(id, logout) {
   try {
-    const url = `${API_URL_PROD}/doctors/${id}`;
+    const url = `${API_URL_DEV}/doctors/${id}`;
     const params = {
       method: "DELETE",
       headers: {

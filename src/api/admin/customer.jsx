@@ -1,9 +1,9 @@
-import { API_URL_PROD } from "../../utils/constants";
+import { API_URL_DEV } from "../../utils/constants";
 import { authFetch } from "../../utils/fetch";
 
 export async function createCustomerApi(doctor, logout) {
   try {
-    const url = `${API_URL_PROD}/customers`;
+    const url = `${API_URL_DEV}/customers`;
     const params = {
       method: "POST",
       headers: {
@@ -23,7 +23,7 @@ export async function createCustomerApi(doctor, logout) {
 
 export async function getCustomerApi(logout) {
   try {
-    const url = `${API_URL_PROD}/customers`;
+    const url = `${API_URL_DEV}/customers`;
     const result = await authFetch(url, null, logout);
     return result ? result : null;
   } catch (error) {
@@ -32,7 +32,7 @@ export async function getCustomerApi(logout) {
 }
 export async function updateCustomerApi(id, customer, logout) {
   try {
-    const url = `${API_URL_PROD}/customers/${id}`;
+    const url = `${API_URL_DEV}/customers/${id}`;
     const params = {
       method: "PUT",
       headers: {
@@ -51,7 +51,7 @@ export async function updateCustomerApi(id, customer, logout) {
 }
 export async function getOneCustomerApi(id, logout) {
   try {
-    const url = `${API_URL_PROD}/customers/${id}`;
+    const url = `${API_URL_DEV}/customers/${id}`;
     const result = await authFetch(url, null, logout);
     return result ? result : null;
   } catch (error) {
@@ -60,7 +60,7 @@ export async function getOneCustomerApi(id, logout) {
 }
 export async function deleteCustomerApi(id, logout) {
   try {
-    const url = `${API_URL_PROD}/customers/${id}`;
+    const url = `${API_URL_DEV}/customers/${id}`;
     const params = {
       method: "DELETE",
       headers: {
@@ -78,7 +78,7 @@ export async function deleteCustomerApi(id, logout) {
 }
 export async function getCountCustomerApi(logout) {
   try {
-    const url = `${API_URL_PROD}/customers/count`;
+    const url = `${API_URL_DEV}/customers/count`;
     const result = await authFetch(url, null, logout);
     return result ? result : null;
   } catch (error) {
