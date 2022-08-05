@@ -71,7 +71,7 @@ export function DocView() {
       <div className="w-full mb-6 pt-3">
         <div className="flex flex-row items-center justify-between mb-4">
           <div className="flex flex-col">
-            <div className="text-xs font-bold text-gray-500 uppercase">
+            <div className="text-base font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
                 <span className="text-gray-600">Doctores</span>
@@ -96,7 +96,7 @@ export function DocView() {
       <div className="w-full mb-6 pt-3">
         <div className="flex flex-row items-center justify-between mb-4">
           <div className="flex flex-col">
-            <div className="text-xs font-bold text-gray-500 uppercase">
+            <div className="text-base font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
                 <span className="text-gray-600 ">Ver Doctor</span>

@@ -74,7 +74,7 @@ export function CustomeView() {
       <div className="w-full mb-6 pt-3">
         <div className="flex flex-row items-center justify-between mb-4">
           <div className="flex flex-col">
-            <div className="text-xs font-bold text-gray-500 uppercase">
+            <div className="text-base font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
                 <span className="text-gray-600">Pacientes</span>
@@ -82,6 +82,7 @@ export function CustomeView() {
             </div>
           </div>
         </div>
+<<<<<<< HEAD
         {cargando ? (
           Object.keys(custumer) === 0
         ) : null ? (
@@ -91,6 +92,57 @@ export function CustomeView() {
                 className="ui centered image w-96 h-96"
                 src={Img404}
                 alt="Logo"
+=======
+        <div className="text-xs font-bold text-gray-500 uppercase">
+          <div className="justify-center flex p-5">
+            <img
+              className="ui centered image w-96 h-96"
+              src={Img404}
+              alt="Logo"
+            />
+          </div>
+          <p className="text-center">No se encontraron resultados</p>
+        </div>
+      </div>
+    </div>
+  ) : (
+    <div className="w-full min-h-screen p-4">
+      <div className="w-full mb-6 pt-3">
+        <div className="flex flex-row items-center justify-between mb-4">
+          <div className="flex flex-col">
+            <div className="text-base font-bold text-gray-500 uppercase">
+              <span className="text-gray-600">Vista General</span>
+              <div className="text-xl font-bold">
+                <span className="text-gray-600 ">Pacientes</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          className="text-white bg-[#1678C2] font-bold py-2 px-4 rounded-xl"
+          onClick={() => navigate(`/admin/pacientes`)}
+        >
+          <i className="fas fa-arrow-left text-white mr-2 text-lg"></i>
+          Regresar
+        </button>
+      </div>
+      <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
+        <div className="w-full lg:w-1/3 lg:h-1/3">
+          <div className="font-noto w-full p-4 rounded-lg bg-cyan-800 border-white">
+            <div className="w-full flex flex-row items-center justify-between mb-6">
+              <div className="flex flex-col">
+                <div className="text-sm font-light text-white">Paciente</div>
+                <div className="text-sm text-white font-bold">
+                  <span>Información de usuario</span>
+                </div>
+              </div>
+              <div className="relative inline-block text-left z-10"></div>
+            </div>
+            <div className="justify-center flex p-9">
+              <Avatar
+                value={user?.username ? user?.username : "NU"}
+                size={99}
+>>>>>>> 222a549eff3e8ee98717de08c5514bbaf281bc6b
               />
             </div>
             <p className="text-center">No se encontraron resultados</p>

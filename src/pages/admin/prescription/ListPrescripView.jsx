@@ -117,7 +117,7 @@ export function ListPrescripView() {
       <div className="w-full mb-6 pt-3">
         <div className="flex flex-row items-center justify-between mb-4">
           <div className="flex flex-col">
-            <div className="text-xs font-bold text-gray-500 uppercase">
+            <div className="text-base font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
                 <span className="text-gray-600">Recetas</span>
@@ -218,7 +218,7 @@ export function ListPrescripView() {
       <div className="w-full mb-6 pt-3">
         <div className="flex flex-row items-center justify-between mb-4">
           <div className="flex flex-col">
-            <div className="text-xs font-bold text-gray-500 uppercase">
+            <div className="text-base font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
                 <span className="text-gray-600">Recetas</span>
@@ -312,7 +312,7 @@ export function ListPrescripView() {
           id="tablePrescription"
           className="w-full text-sm text-center text-white"
         >
-          <thead className="text-xs uppercase bg-[#687584] text-white">
+          <thead className="text-sm uppercase bg-[#687584] text-white">
             <tr>
               <th scope="col" className="text-white py-3 px-6 text-center">
                 Número de expediente

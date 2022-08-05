@@ -106,7 +106,7 @@ export function PrescripView() {
         <div className="w-full mb-6 pt-3">
           <div className="flex flex-row items-center justify-between mb-4">
             <div className="flex flex-col">
-              <div className="text-xs font-bold text-gray-500 uppercase">
+              <div className="text-base font-bold text-gray-500 uppercase">
                 <span className="text-gray-600">Vista General</span>
                 <div className="text-xl font-bold">
                   <span className="text-gray-600">Recetas</span>
@@ -246,7 +246,7 @@ export function PrescripView() {
                       /> */}
                       <img
                         src={Logo}
-                        className="ui centered circular image w-[14.50rem] h-[14.50rem]"
+                        className="ui centered circular image w-[24.50rem] h-[14.50rem]"
                         alt="LOGO"
                       />
                     </div>
