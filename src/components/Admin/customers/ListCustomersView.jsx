@@ -11,7 +11,6 @@ export function ListCustomersView({ customer, handleDelited }) {
     zip,
     suburb,
     town,
-    status,
     id,
   } = customer;
   const navigate = useNavigate();
@@ -48,13 +47,6 @@ export function ListCustomersView({ customer, handleDelited }) {
       <td className="text-white px-6 font-medium py-4 text-center">
         {zip ? zip : "No hay datos"}
       </td>
-      <td className="text-white px-6 font-medium py-4 text-center">
-        {" "}
-        {status === true
-          ? "Usuario En Consulta"
-          : "El usuario no esta en consulta"}
-      </td>
-
       <td className="py-3 px-6 text-center">
         <div className="flex item-center justify-center">
           <button
