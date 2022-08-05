@@ -245,7 +245,7 @@ export function PrescripView() {
                       /> */}
                       <img
                         src={Logo}
-                        className="ui centered circular image w-[14.50rem] h-[14.50rem]"
+                        className="ui centered circular image w-[24.50rem] h-[14.50rem]"
                         alt="LOGO"
                       />
                     </div>
