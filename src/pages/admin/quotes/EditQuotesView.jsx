@@ -34,7 +34,7 @@ export function EditQuotesView() {
           <div className="flex flex-col"></div>
         </div>
       </div>
-      <div className="text-xs font-bold text-gray-500 uppercase">
+      <div className="text-base font-bold text-gray-500 uppercase">
         <span className="text-gray-600">Vista general</span>
         <div className="text-xl font-bold">
           <span className="text-gray-600">Editar Doctores</span>
@@ -50,7 +50,7 @@ export function EditQuotesView() {
       <div className="w-full mb-6 pt-3">
         <div className="flex flex-row items-center justify-between mb-4">
           <div className="flex flex-col">
-            <div className="text-xs font-bold text-gray-500 uppercase">
+            <div className="text-base font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
                 <span className="text-gray-600 ">Editar Usuario</span>

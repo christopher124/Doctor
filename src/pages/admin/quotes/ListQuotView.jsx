@@ -136,7 +136,7 @@ export function ListQuotView() {
       <div className="w-full mb-6 pt-3">
         <div className="flex flex-row items-center justify-between mb-4">
           <div className="flex flex-col">
-            <div className="text-xs font-bold text-gray-500 uppercase">
+            <div className="text-base font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
                 <span className="text-gray-600">Citas</span>
@@ -275,7 +275,7 @@ export function ListQuotView() {
       <div className="w-full mb-6 pt-3">
         <div className="flex flex-row items-center justify-between mb-4">
           <div className="flex flex-col">
-            <div className="text-xs font-bold text-gray-500 uppercase">
+            <div className="text-base font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
                 <span className="text-gray-600">Citas</span>
@@ -327,7 +327,7 @@ export function ListQuotView() {
               <input
                 type="search"
                 className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
-                placeholder="Búsqueda por nombres"
+                placeholder="Búsqueda por doctor"
                 value={searchDoctor}
                 onChange={handleChangeDoctors}
               />
@@ -394,7 +394,7 @@ export function ListQuotView() {
 
       <div className="relative overflow-x-auto shadow-2xl sm:rounded-lg">
         <table className="w-full text-sm text-center text-white">
-          <thead className="text-xs uppercase bg-[#687584] text-white">
+          <thead className="text-base uppercase bg-[#687584] text-white">
             <tr>
               <th scope="col" className="text-white py-3 px-6 text-center">
                 Nombre (s) paciente

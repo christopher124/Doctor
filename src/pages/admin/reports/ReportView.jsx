@@ -26,34 +26,34 @@ export function ReportView() {
   return cargando ? (
     <Spinner />
   ) : <div className="w-full min-h-screen p-4">
-      <div className="w-full mb-6 pt-3">
-        <div className="flex flex-row items-center justify-between mb-4">
-          <div className="flex flex-col">
-            <div className="text-xs font-bold text-gray-500 uppercase">
-              <span className="text-gray-600">Vista General</span>
-              <div className="text-xl font-bold">
-                <span className="text-gray-600">Doctores</span>
-              </div>
+    <div className="w-full mb-6 pt-3">
+      <div className="flex flex-row items-center justify-between mb-4">
+        <div className="flex flex-col">
+          <div className="text-base font-bold text-gray-500 uppercase">
+            <span className="text-gray-600">Vista General</span>
+            <div className="text-xl font-bold">
+              <span className="text-gray-600">Doctores</span>
             </div>
           </div>
         </div>
-        <div className="text-xs font-bold text-gray-500 uppercase">
-          <div className="justify-center flex p-5">
-            <img
-              className="ui centered image w-96 h-96"
-              src={Img404}
-              alt="logo"
-            />
-          </div>
-          <p className="text-center">No se encontraron resultados</p>
-        </div>
       </div>
-    </div> ? (
+      <div className="text-xs font-bold text-gray-500 uppercase">
+        <div className="justify-center flex p-5">
+          <img
+            className="ui centered image w-96 h-96"
+            src={Img404}
+            alt="logo"
+          />
+        </div>
+        <p className="text-center">No se encontraron resultados</p>
+      </div>
+    </div>
+  </div> ? (
     <div className="w-full min-h-screen p-4">
       <div className="w-full mb-6 pt-3">
         <div className="flex flex-row items-center justify-between mb-4">
           <div className="flex flex-col">
-            <div className="text-xs font-bold text-gray-500 uppercase">
+            <div className="text-base font-bold text-gray-500 uppercase">
               <span className="font-mont  text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
                 <span className="font-mont text-gray-600">Reportes</span>
