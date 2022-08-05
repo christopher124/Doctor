@@ -21,7 +21,7 @@ export function SideBar() {
 
   const exit = async () => {
     Swal.fire({
-      title: "¿Estás seguro de eliminar?",
+      title: "¿Estás seguro de cerrar sesión?",
       icon: "question",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
