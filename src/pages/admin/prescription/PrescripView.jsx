@@ -9,6 +9,7 @@ import Img404 from "../../../assets/img/story-404.svg";
 import Logo from "../../../assets/img/SB sin fondo.png";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { DocPdf } from "./DocPdf";
+
 export function PrescripView() {
   const navigate = useNavigate();
   const { id } = useParams();
