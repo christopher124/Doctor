@@ -1,8 +1,16 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
-import { getDoctorApi, deleteDoctorApi } from "../../../api/admin/doctor";
+import {
+  getDoctorApi,
+  deleteDoctorApi,
+  getDoctorUserApi,
+} from "../../../api/admin/doctor";
+import { getMeApi } from "../../../api/admin/user";
+
 import { ListDoctorView } from "../../../components/Admin/doctor/ListDoctorView";
+import { ListDoctorView as ListDoctor } from "../../../components/Doctor/ListDoctorView";
+
 import { Spinner } from "../../../components/spinner/Spinner";
 import Swal from "sweetalert2";
 import Excel from "react-html-table-to-excel";
@@ -10,7 +18,9 @@ import Img404 from "../../../assets/img/story-404.svg";
 
 export function ListDocView() {
   const navigate = useNavigate();
+  const [users, setUsers] = useState({});
   const [doctor, setDoctor] = useState([]);
+  const [doctorUser, setDoctorUser] = useState([]);
   const [tableDoctor, SetTableDoctor] = useState([]);
   const [searchDoctor, setSearchDoctor] = useState("");
   const [searchSpecialties, setSearchSpecialties] = useState("");
@@ -18,15 +28,22 @@ export function ListDocView() {
   const { auth, logout } = useAuth();
   useEffect(() => {
     (async () => {
+      const users = await getMeApi(logout);
+      setUsers(users);
       const doctor = await getDoctorApi(logout);
       setDoctor(doctor);
       SetTableDoctor(doctor);
+      const doctorUser = await getDoctorUserApi(users?.id, logout);
+      setDoctorUser(doctorUser);
     })(
       setTimeout(() => {
         setCargando(!cargando);
       }, 1000)
     );
   }, [auth]);
+  localStorage.setItem("idUser", users?.id);
+  localStorage.getItem("idUser", users?.id);
+  localStorage.removeItem(users?.id);
   if (logout === undefined) {
     return null;
   }
@@ -201,7 +218,8 @@ export function ListDocView() {
         </div>
       ) : null}
     </div>
-  ) : (
+  ) : users?.role?.name === "Administrador" ||
+    users.role?.name === "Recepción" ? (
     <div className="w-full min-h-screen p-4">
       <div className="w-full mb-6 pt-3">
         <div className="flex flex-row items-center justify-between mb-4">
@@ -343,5 +361,67 @@ export function ListDocView() {
         </table>
       </div>
     </div>
-  );
+  ) : users?.role?.name === "Doctor" ? (
+    <div className="w-full min-h-screen p-4">
+      <div className="w-full mb-6 pt-3">
+        <div className="flex flex-row items-center justify-between mb-4">
+          <div className="flex flex-col">
+            <div className="text-base font-bold text-gray-500 uppercase">
+              <span className="text-gray-600">Vista General</span>
+              <div className="text-xl font-bold">
+                <span className="text-gray-600">Doctores</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="relative overflow-x-auto shadow-2xl sm:rounded-lg">
+        <table
+          id="tableDoctors"
+          className="w-full text-sm text-center text-white"
+        >
+          <thead className="text-sm uppercase bg-[#687584] text-white">
+            <tr>
+              <th scope="col" className="text-white py-3 px-6 text-center">
+                Nombre(s)
+              </th>
+              <th scope="col" className="text-white py-3 px-6 text-center">
+                Apellido(s)
+              </th>
+              <th scope="col" className="text-white py-3 px-6 text-center">
+                Género
+              </th>
+              <th scope="col" className="text-white py-3 px-6 text-center">
+                Teléfono
+              </th>
+              <th scope="col" className="text-white py-3 px-6 text-center">
+                Correo
+              </th>
+              <th scope="col" className="text-white py-3 px-6 text-center">
+                Especialidad
+              </th>
+              <th scope="col" className="text-white py-3 px-6 text-center">
+                Estatus
+              </th>
+              <th
+                scope="col"
+                className="text-white font-bold py-3 px-6 text-center "
+              >
+                Acciones
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {doctorUser?.map((doctorUser) => (
+              <ListDoctor
+                // handleDelited={handleDelited}
+                key={doctorUser.id}
+                doctorUser={doctorUser}
+              />
+            ))}{" "}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  ) : null;
 }

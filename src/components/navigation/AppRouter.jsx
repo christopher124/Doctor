@@ -112,6 +112,8 @@ export function AppRouter() {
             />
             <Route path="doctores" element={<ListDocView />} />
             <Route path="editar/doctor/:id" element={<EditDoctorView />} />
+            <Route path="doctores" element={<ListDocView />} />
+            <Route path="doctor/:id" element={<DocView />} />
           </Route>
         ) : user?.role?.name === "Recepción" ? (
           <Route path="/admin" element={<SideBar />}>
