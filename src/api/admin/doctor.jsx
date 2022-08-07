@@ -30,6 +30,15 @@ export async function getDoctorApi(logout) {
     return null;
   }
 }
+export async function getDoctorUserApi(id, logout) {
+  try {
+    const url = `${API_URL_DEV}/doctors?user=${id}`;
+    const result = await authFetch(url, null, logout);
+    return result ? result : null;
+  } catch (error) {
+    return null;
+  }
+}
 export async function getOneDoctorApi(id, logout) {
   try {
     const url = `${API_URL_DEV}/doctors/${id}`;

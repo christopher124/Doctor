@@ -332,9 +332,6 @@ export function ListCustomeView() {
               <th scope="col" className="text-white py-3 px-6  text-center">
                 CÓDIGO POSTAL
               </th>
-              <th scope="col" className="text-white py-3 px-6  text-center">
-                ESTATUS
-              </th>
               <th
                 scope="col"
                 className="text-white font-bold py-3 px-6  text-center "
