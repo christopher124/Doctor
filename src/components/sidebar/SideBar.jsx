@@ -49,7 +49,7 @@ export function SideBar() {
           </button>
           {/* Brand */}
           {user?.role?.name === "Administrador" ||
-          user?.role?.name === "Recepción" ? (
+            user?.role?.name === "Recepción" ? (
             <Link
               className="lg:block text-left lg:pb-2 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
               to="/admin/dashboard"
@@ -57,7 +57,7 @@ export function SideBar() {
               <img
                 src={Logo}
                 alt="logo"
-                className=" items-center h-24 w-24 rounded-full"
+                className=" m-auto items-center h-24 w-24 rounded-full"
               />
             </Link>
           ) : user?.role?.name === "Doctor" ? (
@@ -68,7 +68,7 @@ export function SideBar() {
               <img
                 src={Logo}
                 alt="logo"
-                className=" items-center h-24 w-24 rounded-full"
+                className=" m-auto items-center h-24 w-24 rounded-full"
               />
             </Link>
           ) : null}
@@ -89,7 +89,7 @@ export function SideBar() {
               <div className="flex flex-wrap">
                 <div className="w-6/12">
                   {user?.role?.name === "Administrador" ||
-                  user?.role?.name === "Recepción" ? (
+                    user?.role?.name === "Recepción" ? (
                     <Link
                       className="lg:block text-left lg:pb-2 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
                       to="/admin/dashboard"
@@ -108,7 +108,7 @@ export function SideBar() {
                       <img
                         src={Logo}
                         alt="logo"
-                        className="m-auto items-center h-24 w-24 rounded-full"
+                        className="m-auto items-center h-0 w-24 rounded-full"
                       />
                     </Link>
                   ) : null}
