@@ -48,16 +48,30 @@ export function SideBar() {
             <i className="fas fa-bars"></i>
           </button>
           {/* Brand */}
-          <Link
-            className="lg:block text-center lg:pb-2 text-blue-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
-            to="/admin/dashboard"
-          >
-            <img
-              src={Logo}
-              alt="logo"
-              className="items-center h-28 w-32 rounded-full ml-auto mr-auto"
-            />
-          </Link>
+          {user?.role?.name === "Administrador" ||
+          user?.role?.name === "Recepción" ? (
+            <Link
+              className="lg:block text-left lg:pb-2 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
+              to="/admin/dashboard"
+            >
+              <img
+                src={Logo}
+                alt="logo"
+                className=" items-center h-24 w-24 rounded-full"
+              />
+            </Link>
+          ) : user?.role?.name === "Doctor" ? (
+            <Link
+              className="lg:block text-left lg:pb-2 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
+              to="/admin/citas"
+            >
+              <img
+                src={Logo}
+                alt="logo"
+                className=" items-center h-24 w-24 rounded-full"
+              />
+            </Link>
+          ) : null}
           {/* User */}
           <ul className=" lg:hidden items-center flex flex-wrap list-none">
             <li className="inline-block relative"></li>
@@ -74,16 +88,30 @@ export function SideBar() {
             <div className="lg:min-w-full lg:hidden block pb-4 mb-4">
               <div className="flex flex-wrap">
                 <div className="w-6/12">
-                  <Link
-                    className="lg:block text-left lg:pb-2 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
-                    to="/admin/dashboard"
-                  >
-                    <img
-                      src={Logo}
-                      alt="logo"
-                      className=" items-center h-24 w-24 rounded-full"
-                    />
-                  </Link>
+                  {user?.role?.name === "Administrador" ||
+                  user?.role?.name === "Recepción" ? (
+                    <Link
+                      className="lg:block text-left lg:pb-2 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
+                      to="/admin/dashboard"
+                    >
+                      <img
+                        src={Logo}
+                        alt="logo"
+                        className="m-auto items-center h-24 w-24 rounded-full"
+                      />
+                    </Link>
+                  ) : user?.role?.name === "Doctor" ? (
+                    <Link
+                      className="lg:block text-left lg:pb-2 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
+                      to="/admin/citas"
+                    >
+                      <img
+                        src={Logo}
+                        alt="logo"
+                        className="m-auto items-center h-24 w-24 rounded-full"
+                      />
+                    </Link>
+                  ) : null}
                 </div>
                 <div className="w-6/12 flex justify-end">
                   <button
@@ -250,29 +278,6 @@ export function SideBar() {
                 <li className="items-center">
                   <Link
                     className={
-                      "text-xs uppercase py-3 font-bold block " +
-                      (window.location.href.indexOf("/admin/dashboard") !== -1
-                        ? " px-4 py-3 flex  space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
-                        : "text-black hover:text-gray-600")
-                    }
-                    to="/admin/dashboard"
-                  >
-                    <i
-                      className={
-                        "fab fa-slideshare mr-2 text-base " +
-                        (window.location.href.indexOf("/admin/dashboard") !== -1
-                          ? "opacity-75"
-                          : "text-black hover:text-gray-600")
-                      }
-                    ></i>{" "}
-                    Tablero principal
-                  </Link>
-                </li>
-                <hr className="my-4 lg:min-w-full" />
-
-                <li className="items-center">
-                  <Link
-                    className={
                       "text-base uppercase py-3 font-bold block " +
                       (window.location.href.indexOf("/admin/doctores") !== -1
                         ? "relative px-4 py-3 flex space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
@@ -288,7 +293,7 @@ export function SideBar() {
                           : "text-black hover:text-gray-600")
                       }
                     ></i>{" "}
-                    Doctores
+                    Doctor
                   </Link>
                   <Link
                     className={
