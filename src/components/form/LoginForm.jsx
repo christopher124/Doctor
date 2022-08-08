@@ -21,21 +21,17 @@ export function LoginForm() {
       setLoading(true);
       try {
         const response = await loginApi(formData);
-        if (response?.jwt && response?.user?.role?.name === "Administrador") {
-          login(response.jwt);
-          toast.success("Bienvenido," + " " + response.user.username);
-          navigate("/admin/dashboard");
-        } else if (
-          response?.jwt &&
+        if (
+          (response?.jwt && response?.user?.role?.name === "Administrador") ||
           response?.user?.role?.name === "Recepción"
         ) {
           login(response.jwt);
-          toast.success("Bienvenido," + " " + response?.user?.username);
+          toast.success("Bienvenido," + " " + response.user.username);
           navigate("/admin/dashboard");
         } else if (response?.jwt && response?.user?.role?.name === "Doctor") {
           login(response.jwt);
           toast.success("Bienvenido," + " " + response?.user?.username);
-          navigate("/admin/dashboard");
+          navigate("/admin/citas");
         } else {
           setLoading(false);
           toast.error(
