@@ -14,23 +14,25 @@ export function NotFound() {
         <div>
           <img
             src={notfound}
-            className=" ml-auto mr-auto -mt-64"
+            className=" mx-[auto] -mt-64"
             alt="logo"
           ></img>
-          <li className="flex items-center">
-            <Link
-              className={
-                "px-3 py-4 lg:py-2 flex items-center text-sm uppercase font-bold " +
-                (window.location.href.indexOf("/login") !== -1
-                  ? "text-black-700 hover:text-blue-600"
-                  : "text-blue-700 hover:text-blue-500")
-              }
-              to="/"
-            >
-              Inicio
-            </Link>
-          </li>
-          <p>No estas logueado o no tienes permisos para ver esta sesion</p>
+          <div className=" items-center -mt-64 ">
+            <li className="flex items-center mx-[49%]  text-xl">
+              <Link
+                className={
+                  "bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded-full text-center" +
+                  (window.location.href.indexOf("/login") !== -1
+                    ? "text-black-700 hover:text-blue-600 text-center "
+                    : "text-blue-700 hover:text-blue-500 ")
+                }
+                to="/"
+              >
+                Inicio
+              </Link>
+            </li>
+            <p className="text-2xl text-center ml-[90px] mt-4">Parece que no se encontró la página</p>
+          </div>
         </div>
       )}
     </div>
