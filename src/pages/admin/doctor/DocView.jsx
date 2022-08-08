@@ -114,11 +114,11 @@ export function DocView() {
       </div>
       <div className="flex flex-col w-full mb-2 lg:flex-row lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
         <div className="w-full lg:w-1/3 lg:h-1/3">
-          <div className="font-noto w-full p-3 rounded-lg bg-cyan-800 border-white">
+          <div className="font-noto w-full p-4 rounded-lg bg-cyan-800 border-white">
             <div className="w-full flex flex-row items-center justify-between mb-6">
               <div className="flex flex-col">
-                <div className="text-sm font-light text-white">Doctor</div>
-                <div className="text-sm text-white font-bold">
+                <div className="text-lg font-light text-white">Doctor</div>
+                <div className="text-base text-white font-bold">
                   <span>Información de usuario</span>
                 </div>
               </div>
@@ -152,8 +152,8 @@ export function DocView() {
           <div className="w-full p-3 rounded-lg bg-cyan-800">
             <div className="flex flex-row items-center justify-between mb-6">
               <div className="flex flex-col">
-                <div className="text-sm font-bold text-white">Doctor</div>
-                <div className="text-sm font-bold text-white">
+                <div className="text-lg font-bold text-white">Doctor</div>
+                <div className="text-base font-bold text-white">
                   <span>Información personal</span>
                 </div>
               </div>
@@ -243,8 +243,8 @@ export function DocView() {
         <div className="font-noto w-full p-4 rounded-lg  bg-cyan-800 border-white">
           <div className="flex flex-row items-center justify-between mb-6">
             <div className="flex flex-col">
-              <div className="text-sm font-bold text-white">Doctor</div>
-              <div className="text-sm font-bold text-white">
+              <div className="text-lg font-bold text-white">Doctor</div>
+              <div className="text-base font-bold text-white">
                 <span>Citas</span>
               </div>
             </div>
@@ -262,7 +262,7 @@ export function DocView() {
                   id="tableCustomers"
                   className="w-full text-sm text-center text-white"
                 >
-                  <thead className="text-xs uppercase bg-cyan-800 text-white">
+                  <thead className="text-base uppercase bg-cyan-800 text-white">
                     <tr>
                       <th
                         scope="col"

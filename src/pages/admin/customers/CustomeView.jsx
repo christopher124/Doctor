@@ -137,10 +137,10 @@ export function CustomeView() {
                 <div className="font-noto w-full p-4 rounded-lg bg-cyan-800 border-white">
                   <div className="w-full flex flex-row items-center justify-between mb-6">
                     <div className="flex flex-col">
-                      <div className="text-sm font-light text-white">
+                      <div className="text-lg font-light text-white">
                         Paciente
                       </div>
-                      <div className="text-sm text-white font-bold">
+                      <div className="text-base text-white font-bold">
                         <span>Información de usuario</span>
                       </div>
                     </div>
@@ -169,13 +169,13 @@ export function CustomeView() {
                 </div>
               </div>
               <div className="w-full lg:w-2/3">
-                <div className="font-noto w-full p-4  rounded-lg bg-cyan-800 border-white">
+                <div className="font-noto w-full p-5  rounded-lg bg-cyan-800 border-white">
                   <div className="flex flex-row items-center justify-between mb-6">
                     <div className="flex flex-col">
-                      <div className="text-sm font-bold text-white">
+                      <div className="text-lg font-bold text-white">
                         Paciente
                       </div>
-                      <div className="text-sm font-bold text-white">
+                      <div className="text-base font-bold text-white">
                         <span>Información personal</span>
                       </div>
                     </div>
@@ -240,8 +240,8 @@ export function CustomeView() {
               <div className="font-noto w-full p-4 rounded-lg  bg-cyan-800 border-white">
                 <div className="flex flex-row items-center justify-between mb-6">
                   <div className="flex flex-col">
-                    <div className="text-sm font-bold text-white">Paciente</div>
-                    <div className="text-sm font-bold text-white">
+                    <div className="text-lg font-bold text-white">Paciente</div>
+                    <div className="text-base font-bold text-white">
                       <span>Citas</span>
                     </div>
                   </div>
@@ -261,7 +261,7 @@ export function CustomeView() {
                         id="tableCustomers"
                         className="w-full text-sm text-center text-white"
                       >
-                        <thead className="text-xs uppercase bg-cyan-800 text-white">
+                        <thead className="text-base uppercase bg-cyan-800 text-white">
                           <tr>
                             <th
                               scope="col"
@@ -320,8 +320,8 @@ export function CustomeView() {
               <div className="font-noto w-full p-4 rounded-lg  bg-cyan-800 border-white">
                 <div className="flex flex-row items-center justify-between mb-6">
                   <div className="flex flex-col">
-                    <div className="text-sm font-bold text-white">Paciente</div>
-                    <div className="text-sm font-bold text-white">
+                    <div className="text-lg font-bold text-white">Paciente</div>
+                    <div className="text-base font-bold text-white">
                       <span>Recetas</span>
                     </div>
                   </div>
@@ -341,7 +341,7 @@ export function CustomeView() {
                         id="tableCustomers"
                         className="w-full text-sm text-center text-white"
                       >
-                        <thead className="text-xs uppercase bg-cyan-800 text-white">
+                        <thead className="text-base uppercase bg-cyan-800 text-white">
                           <tr>
                             <th
                               scope="col"
@@ -540,7 +540,7 @@ export function CustomeView() {
                         id="tableCustomers"
                         className="w-full text-sm text-center text-white"
                       >
-                        <thead className="text-xs uppercase bg-cyan-800 text-white">
+                        <thead className="text-base uppercase bg-cyan-800 text-white">
                           <tr>
                             <th
                               scope="col"
@@ -613,7 +613,7 @@ export function CustomeView() {
                         id="tableCustomers"
                         className="w-full text-sm text-center text-white"
                       >
-                        <thead className="text-xs uppercase bg-cyan-800 text-white">
+                        <thead className="text-base uppercase bg-cyan-800 text-white">
                           <tr>
                             <th
                               scope="col"

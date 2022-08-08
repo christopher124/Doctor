@@ -316,9 +316,9 @@ export function ListDocView() {
       <div className="relative overflow-x-auto shadow-2xl sm:rounded-lg">
         <table
           id="tableDoctors"
-          className="w-full text-sm text-center text-white"
+          className="w-full text-base text-center text-white"
         >
-          <thead className="text-sm uppercase bg-[#687584] text-white">
+          <thead className="text-base uppercase bg-[#687584] text-white">
             <tr>
               <th scope="col" className="text-white py-3 px-6 text-center">
                 Nombre(s)
@@ -378,9 +378,9 @@ export function ListDocView() {
       <div className="relative overflow-x-auto shadow-2xl sm:rounded-lg">
         <table
           id="tableDoctors"
-          className="w-full text-sm text-center text-white"
+          className="w-full text-base text-center text-white"
         >
-          <thead className="text-sm uppercase bg-[#687584] text-white">
+          <thead className="text-base uppercase bg-[#687584] text-white">
             <tr>
               <th scope="col" className="text-white py-3 px-6 text-center">
                 Nombre(s)

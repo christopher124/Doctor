@@ -80,7 +80,7 @@ export function PrescripView() {
       <div className="w-full mb-6 pt-3">
         <div className="flex flex-row items-center justify-between mb-4">
           <div className="flex flex-col">
-            <div className="text-xs font-bold text-gray-500 uppercase">
+            <div className="text-base font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
                 <span className="text-gray-600">Doctores</span>
@@ -152,63 +152,63 @@ export function PrescripView() {
                 <div className="w-full lg:w-2/4">
                   <div className="font-noto w-full p-4 rounded-lg bg-white border-black">
                     <div className=" flex flex-col w-full text-left">
-                      <h1 className="py-1 font-bold text-black ">Doctor</h1>
-                      <p className="py-1 font-bold text-black ">
+                      <h1 className="py-1 font-bold text-black text-lg">Doctor</h1>
+                      <p className="py-1 font-bold text-black text-lg">
                         Nombre :{" "}
                         <span className="py-1 font-bold text-black ">
                           {doctor?.name ? doctor?.name : "N/A"}{" "}
                           {doctor?.last ? doctor?.last : "N/A"}
                         </span>
                       </p>
-                      <p className="py-1 font-bold text-black ">
+                      <p className="py-1 font-bold text-black text-lg">
                         Especialidad:{" "}
                         <span className="py-1 font-bold text-black ">
                           {doctor?.specialties ? doctor?.specialties : "N/A"}{" "}
                         </span>
                       </p>
-                      <p className="py-1 font-bold text-black ">
+                      <p className="py-1 font-bold text-black text-lg">
                         CED. PROF. PROV.{""}
                         <span className="py-1 font-bold text-black ">
                           {doctor?.cellule ? doctor?.cellule : "N/A"}{" "}
                         </span>
                       </p>
-                      <p className="py-1 font-bold text-black ">
+                      <p className="py-1 font-bold text-black text-lg">
                         Teléfono:{" "}
                         <span className="py-1 font-bold text-black ">
                           {" "}
                           {doctor?.phone ? doctor?.phone : "N/A"}
                         </span>
                       </p>
-                      <h1 className="py-1 font-bold text-black ">Paciente</h1>
-                      <p className="py-1 font-bold text-black ">
+                      <h1 className="py-1 font-bold text-black text-lg">Paciente</h1>
+                      <p className="py-1 font-bold text-black text-lg">
                         Nombre:{" "}
                         <span className="py-1 font-bold text-black ">
                           {customer?.name ? customer?.name : "N/A"}{" "}
                           {customer?.last ? customer?.last : "N/A"}
                         </span>
                       </p>
-                      <p className="py-1 font-bold text-black  ">
+                      <p className="py-1 font-bold text-black text-lg ">
                         Edad:{" "}
-                        <span className="py-1 font-bold text-black ">
+                        <span className="py-1 font-bold text-black text-lg">
                           {customer?.birthday
                             ? getEdad(customer?.birthday)
                             : "N/A"}{" "}
                           años
                         </span>
                       </p>{" "}
-                      <p className="py-1 font-bold text-black ">
+                      <p className="py-1 font-bold text-black text-lg">
                         Estatura:{" "}
                         <span className="py-1 font-bold text-black ">
                           {size ? size : "N/A"} cm{" "}
                         </span>
                       </p>
-                      <p className="py-1 font-bold text-black ">
+                      <p className="py-1 font-bold text-black text-lg">
                         Peso:{" "}
                         <span className="py-1 font-bold text-black ">
                           {weight ? weight : "N/A"} Kg{" "}
                         </span>
                       </p>
-                      <p className="py-1 font-bold text-black ">
+                      <p className="py-1 font-bold text-black text-lg">
                         Fecha de nacimiento:{" "}
                         <span className="py-1 font-bold text-black ">
                           {" "}
@@ -222,7 +222,7 @@ export function PrescripView() {
                           )}
                         </span>
                       </p>
-                      <p className="py-1 font-bold text-black ">
+                      <p className="py-1 font-bold text-black text-lg">
                         Teléfono:{" "}
                         <span className="py-1 font-bold text-black ">
                           {" "}
@@ -251,7 +251,7 @@ export function PrescripView() {
                       />
                     </div>
                     <div className=" text-center flex flex-col w-full">
-                      <p className="py-1 font-bold text-black ">
+                      <p className="py-1 font-bold text-black text-lg">
                         Fecha y hora de elaboración:{" "}
                         <span className="py-1 font-bold text-black ">
                           {" "}
@@ -261,7 +261,7 @@ export function PrescripView() {
                           )}
                         </span>
                       </p>
-                      <p className="py-3 font-bold text-black ">
+                      <p className="py-3 font-bold text-black text-lg">
                         Número de Expediente:{" "}
                         <span className="py-1 font-bold text-black ">
                           {file_number ? file_number : "N/A"}
@@ -275,7 +275,7 @@ export function PrescripView() {
                 <div className="w-full lg:w-2/4">
                   <div className="font-noto w-full p-4 rounded-lg bg-white border-black">
                     <div className=" flex flex-col w-full text-left">
-                      <h1 className="py-1 font-bold text-black ">
+                      <h1 className="py-1 font-bold text-black text-lg ">
                         Observaciones:
                       </h1>
 
@@ -285,10 +285,10 @@ export function PrescripView() {
                     </div>
                   </div>
                 </div>
-                <div className="w-full lg:w-2/4 lg:h-2/4">
+                <div className="w-full lg:w-2/4 lg:h-2/4 pt-0">
                   <div className="font-noto w-full p-4 rounded-lg bg-white border-black">
                     <div className=" flex flex-col w-full text-left">
-                      <h1 className="py-1 font-bold text-black ">
+                      <h1 className="py-1 font-bold text-black text-lg">
                         Tratamiento:
                       </h1>
                       <p className="text-justify ">
@@ -298,7 +298,7 @@ export function PrescripView() {
                     <div className="relative h-32 w-32">
                       <div className="absolute bottom-0 -right-96 h-25 w-25 ">
                         _____________________
-                        <p className="text-justify ">Firma del doctor</p>
+                        <p className="text-justify text-lg">Firma del doctor</p>
                       </div>
                     </div>
                   </div>

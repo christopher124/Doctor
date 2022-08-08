@@ -97,51 +97,51 @@ export function QuotView() {
                 <div className="w-full lg:w-2/4">
                   <div className="font-noto w-full p-4 rounded-lg bg-white border-black">
                     <div className=" flex flex-col w-full text-left">
-                      <h1 className="py-1 font-bold text-black ">Doctor</h1>
-                      <p className="py-1 font-bold text-black ">
+                      <h1 className="py-1 font-bold text-black text-lg">Doctor</h1>
+                      <p className="py-1 font-bold text-black text-lg">
                         Nombre :{" "}
                         <span className="py-1 font-bold text-black ">
                           {doctor?.name ? doctor?.name : "N/A"}{" "}
                           {doctor?.last ? doctor?.last : "N/A"}
                         </span>
                       </p>
-                      <p className="py-1 font-bold text-black ">
+                      <p className="py-1 font-bold text-black text-lg">
                         Especialidad:{" "}
                         <span className="py-1 font-bold text-black ">
                           {doctor?.specialties ? doctor?.specialties : "N/A"}{" "}
                         </span>
                       </p>
-                      <p className="py-1 font-bold text-black ">
+                      <p className="py-1 font-bold text-black text-lg">
                         CED. PROF. PROV.{""}
                         <span className="py-1 font-bold text-black ">
                           {doctor?.cellule ? doctor?.cellule : "N/A"}{" "}
                         </span>
                       </p>
-                      <p className="py-1 font-bold text-black ">
+                      <p className="py-1 font-bold text-black text-lg">
                         Teléfono:{" "}
                         <span className="py-1 font-bold text-black ">
                           {" "}
                           {doctor?.phone ? doctor?.phone : "N/A"}
                         </span>
                       </p>
-                      <h1 className="py-1 font-bold text-black ">Paciente</h1>
-                      <p className="py-1 font-bold text-black ">
+                      <h1 className="py-1 font-bold text-black text-lg">Paciente</h1>
+                      <p className="py-1 font-bold text-black text-lg">
                         Nombre:{" "}
                         <span className="py-1 font-bold text-black ">
                           {customer?.name ? customer?.name : "N/A"}{" "}
                           {customer?.last ? customer?.last : "N/A"}
                         </span>
                       </p>
-                      <p className="py-1 font-bold text-black  ">
+                      <p className="py-1 font-bold text-black text-lg">
                         Edad:{" "}
-                        <span className="py-1 font-bold text-black ">
+                        <span className="py-1 font-bold text-black text-lg">
                           {customer?.birthday
                             ? getEdad(customer?.birthday)
                             : "N/A"}{" "}
                           años
                         </span>
                       </p>{" "}
-                      <p className="py-1 font-bold text-black ">
+                      <p className="py-1 font-bold text-black text-lg">
                         Fecha de nacimiento:{" "}
                         <span className="py-1 font-bold text-black ">
                           {" "}
@@ -155,7 +155,7 @@ export function QuotView() {
                           )}
                         </span>
                       </p>
-                      <p className="py-1 font-bold text-black ">
+                      <p className="py-1 font-bold text-black text-lg">
                         Teléfono:{" "}
                         <span className="py-1 font-bold text-black ">
                           {" "}
@@ -181,7 +181,7 @@ export function QuotView() {
                       />
                     </div>
                     <div className=" text-center flex flex-col w-full">
-                      <p className="py-1 font-bold text-black ">
+                      <p className="py-1 font-bold text-black text-lg">
                         Fecha y hora de elaboración:{" "}
                         <span className="py-1 font-bold text-black ">
                           {" "}
@@ -191,14 +191,14 @@ export function QuotView() {
                           )}
                         </span>
                       </p>
-                      <p className="py-1 font-bold text-black ">
+                      <p className="py-1 font-bold text-black text-lg">
                         Consultorio asignado:{" "}
                         <span className="py-1 font-bold text-black ">
                           {" "}
                           {room ? room : "N/A"}
                         </span>
                       </p>
-                      <p className="py-3 font-bold text-black ">
+                      <p className="py-3 font-bold text-black text-lg">
                         Estatus de la cita:{" "}
                         <span className="py-1 font-bold text-black ">
                           {status ? status : "N/A"}
@@ -212,7 +212,7 @@ export function QuotView() {
                 <div className="w-full lg:w-2/4">
                   <div className="font-noto w-full p-4 rounded-lg bg-white border-black">
                     <div className=" flex flex-col w-full text-left">
-                      <h1 className="py-1 font-bold text-black ">
+                      <h1 className="py-1 font-bold text-black text-lg">
                         Comentarios de la cita:
                       </h1>
 
