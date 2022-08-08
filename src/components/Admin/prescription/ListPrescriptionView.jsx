@@ -16,10 +16,10 @@ export function ListPrescriptionView({ handleDelited, prescription }) {
   } = prescription;
 
   let str = observations;
-  let res = str.substring(0, 50);
+  let res = (str || "").substring(0, 50) || "";
   let observation = res + "...";
   let strs = treatment;
-  let ress = strs.substring(0, 50);
+  let ress = (strs || "").substring(0, 50) || "";
   let treatments = ress + "...";
 
   return (
@@ -38,7 +38,7 @@ export function ListPrescriptionView({ handleDelited, prescription }) {
           {observation ? observation : "N/A"}
         </td>
         <td className="text-white font-medium px-6 py-4 text-center">
-          {treatment ? treatments : "N/A"}
+          {treatments ? treatments : "N/A"}
         </td>
         <td className="text-white font-medium px-6 py-4 text-center">
           {format(new Date(created_at), "dd/MM/yyyy hh:mm:ss a")}

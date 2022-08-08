@@ -2,7 +2,10 @@ import { useState, useEffect } from "react";
 import { getCountUserApi, getUserApi } from "../../../api/admin/user";
 import { getCountCustomerApi } from "../../../api/admin/customer";
 import { getDoctorApi, getCountDoctorApi } from "../../../api/admin/doctor";
-import { getCountQuotesApi } from "../../../api/admin/quote";
+import {
+  getCountQuotesApi,
+  getCountQuotesDoctorApi,
+} from "../../../api/admin/quote";
 import { getMeApi } from "../../../api/admin/user";
 import { Spinner } from "../../../components/spinner/Spinner";
 import { DoctorView } from "../../../components/Admin/doctor/DoctorView";
@@ -19,14 +22,19 @@ export function DashboardView() {
   const [Doctorcount, setDoctorCount] = useState(<Spinner />);
   const [Customercount, setCustomerCount] = useState(<Spinner />);
   const [Quotecount, setQuoteCount] = useState(<Spinner />);
-
+  const [QuotecountDoctor, setQuoteCountDoctor] = useState(<Spinner />);
   const [cargando, setCargando] = useState(true);
 
   const [doctor, setDoctor] = useState([]);
   const [users, setUsers] = useState([]);
   const { auth, logout } = useAuth();
+  localStorage.setItem("idUser", user?.id);
+  localStorage.getItem("idUser", user?.id);
+  localStorage.removeItem(user?.id);
   useEffect(() => {
     (async () => {
+      const user = await getMeApi(logout);
+      setUser(user);
       const countUser = await getCountUserApi(logout);
       setUserCount(countUser);
       const doctor = await getDoctorApi(logout);
@@ -39,8 +47,8 @@ export function DashboardView() {
       setCustomerCount(countCustumer);
       const countQuote = await getCountQuotesApi(logout);
       setQuoteCount(countQuote);
-      const me = await getMeApi(logout);
-      setUser(me);
+      const countQuoteDoctor = await getCountQuotesDoctorApi(user?.id, logout);
+      setQuoteCountDoctor(countQuoteDoctor);
     })(
       setTimeout(() => {
         setCargando(!cargando);
@@ -236,7 +244,7 @@ export function DashboardView() {
                     <div className="text-base font-bold text-white uppercase">
                       Citas
                       <div className="p-1.5 text-xl font-bold">
-                        {Quotecount ? Quotecount : "0"}
+                        {QuotecountDoctor ? QuotecountDoctor : "0"}
                       </div>
                     </div>
                   </div>

@@ -22,7 +22,7 @@ export function ListPrescriptionCustomerView({ prescription }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth, logout]);
   let str = observations;
-  let res = str.substring(0, 50);
+  let res = (str || "").substring(0, 50);
   let observation = res + "...";
   return (
     <>
@@ -69,7 +69,7 @@ export function ListPrescriptionCustomerView({ prescription }) {
             {allergies ? allergies : "N/A"}
           </td>
           <td className="text-white font-medium px-6 py-4 text-center">
-            {observation ? observation : "N/A"}
+            {observations ? observations : "N/A"}
           </td>
           <td className="text-white font-medium px-6 py-4 text-center">
             {format(new Date(created_at), "dd/MM/yyyy hh:mm:ss a")}
