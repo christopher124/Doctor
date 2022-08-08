@@ -2,8 +2,7 @@ import { NavBar } from "../components/navbar/NavBar";
 import { Link } from "react-router-dom";
 import { Footer } from "../components/footer/Footer";
 import Imghome from "../assets/img/prueba3.jpg";
-// import Home2 from "../assets/img/Home-2Img.jpg"
-import Home2 from "../assets/img/SB-recepcion.jpg"
+import Home2 from "../assets/img/SB-recepcion.jpg";
 
 export function HomeView() {
   return (
@@ -35,13 +34,13 @@ export function HomeView() {
                   expectativas de una Clínica convencional.
                 </p>
                 <div className="mt-8">
-                  <button
-                    href="https://play.google.com/store/apps/details?id=com.christopherurielsosagarcia.qrcode"
-                    className=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                  <a
+                    href="https://play.google.com/store/apps/details?id=appbynsmx.clinicasb.gocaredoc"
+                    className="text-white hover:text-white bg-blue-700 font-medium rounded-lg text-lg px-5 py-2.5 mr-2 mb-2"
                     target="_blank"
                   >
                     Descargar App
-                  </button>
+                  </a>{" "}
                 </div>
               </div>
             </div>
@@ -84,7 +83,6 @@ export function HomeView() {
           </svg>
         </div>
 
-
         <div className="container mx-auto">
           <div className="flex flex-wrap items-center">
             <div className="w-10/12 md:w-6/12 lg:w-4/12 px-12 md:px-4 mr-auto ml-auto -mt-32">
@@ -109,8 +107,8 @@ export function HomeView() {
                         Más experiencia
                       </h6>
                       <p className="mb-4 text-blueGray-500 text-xl text-justify">
-                        Los miles de pacientes a quienes brindamos
-                        nuestros servicios cada año, nos preparan para tratar a la
+                        Los miles de pacientes a quienes brindamos nuestros
+                        servicios cada año, nos preparan para tratar a la
                         persona que más importa: tú.
                       </p>
                     </div>
@@ -124,9 +122,9 @@ export function HomeView() {
                         Tú eres la prioridad
                       </h6>
                       <p className="mb-4 text-blueGray-500 text-xl text-justify">
-                        El tratamiento en Santa Bárbara Clínica es verdaderamente una
-                        experiencia humana. Recibes atención médica como una
-                        persona, antes que nada.
+                        El tratamiento en Santa Bárbara Clínica es
+                        verdaderamente una experiencia humana. Recibes atención
+                        médica como una persona, antes que nada.
                       </p>
                     </div>
                   </div>
@@ -156,8 +154,9 @@ export function HomeView() {
                       </h6>
                       <p className="mb-4 text-blueGray-500 text-xl text-justify">
                         Toda la atención médica a nuestros pacientes, la
-                        educación y la investigación, están orientadas a realizar
-                        descubrimientos que puedan ayudar a que te recuperes.
+                        educación y la investigación, están orientadas a
+                        realizar descubrimientos que puedan ayudar a que te
+                        recuperes.
                       </p>
                     </div>
                   </div>

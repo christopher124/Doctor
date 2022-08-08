@@ -79,7 +79,15 @@ export async function getQuotesDoctorApi(idCustomer, logout) {
     return null;
   }
 }
-
+export async function getQuotesUsersApi(id, logout) {
+  try {
+    const url = `http://localhost:1337/quotes?doctor.user=${id}`;
+    const result = await authFetch(url, null, logout);
+    return result ? result : null;
+  } catch (error) {
+    return null;
+  }
+}
 export async function getCountQuotesApi(logout) {
   try {
     const url = `${API_URL_DEV}/quotes/count`;

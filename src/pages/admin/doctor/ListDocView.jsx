@@ -9,7 +9,7 @@ import {
 import { getMeApi } from "../../../api/admin/user";
 
 import { ListDoctorView } from "../../../components/Admin/doctor/ListDoctorView";
-import { ListDoctorView as ListDoctor } from "../../../components/Doctor/ListDoctorView";
+import { ListDoctorView as ListDoctor } from "../../../components/Doctors/Doctor/ListDoctorView";
 
 import { Spinner } from "../../../components/spinner/Spinner";
 import Swal from "sweetalert2";
