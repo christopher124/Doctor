@@ -50,7 +50,7 @@ export function EditDoctorView() {
             <div className="text-base font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
-                <span className="text-gray-600 ">Editar Usuario</span>
+                <span className="text-gray-600 ">Editar Doctores</span>
               </div>
             </div>
           </div>
