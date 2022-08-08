@@ -340,7 +340,7 @@ export function SideBar() {
                 <li className="items-center">
                   <Link
                     className={
-                      "text-xs uppercase py-3 font-bold block " +
+                      "text-base uppercase py-3 font-bold block " +
                       (window.location.href.indexOf("/admin/dashboard") !== -1
                         ? " px-4 py-3 flex  space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
                         : "text-black hover:text-gray-600")
@@ -349,7 +349,7 @@ export function SideBar() {
                   >
                     <i
                       className={
-                        "fab fa-slideshare mr-2 text-base " +
+                        "fab fa-slideshare mr-2 text-lg " +
                         (window.location.href.indexOf("/admin/dashboard") !== -1
                           ? "opacity-75"
                           : "text-black hover:text-gray-600")
