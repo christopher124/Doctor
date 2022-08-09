@@ -20,6 +20,25 @@ export async function createQuotesApi(quote, logout) {
     return false;
   }
 }
+export async function updateQuotesApi(id, quotes, logout) {
+  try {
+    const url = `${API_URL_DEV}/quotes/${id}`;
+    const params = {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(quotes),
+    };
+    const result = await authFetch(url, params, logout);
+    // eslint-disable-next-line no-throw-literal
+    if (result.statusCode === 400) throw "Error del servidor";
+    return result;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+}
 
 export async function getQuotesApi(logout) {
   try {

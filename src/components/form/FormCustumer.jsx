@@ -20,6 +20,7 @@ export function FormCustumer({ customer }) {
       const user = await getUserApi(logout);
       setUser(user.filter((user) => user?.role?.name === "Paciente"));
     })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth]);
 
   const formik = useFormik({
