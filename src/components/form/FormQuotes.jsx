@@ -24,18 +24,25 @@ export function FormQuotes({ quotes }) {
       setCustomer(customer);
       const doctor = await getDoctorApi(logout);
       setDoctor(
-        doctor.filter(
-          (doctors) =>
-            doctors.status === "Disponible" || doctors.status === "En consulta"
-        )
+        doctor
+          .filter(
+            (doctors) =>
+              doctors.status === "Disponible" ||
+              doctors.status === "En consulta"
+          )
+          .slice(0, 3)
       );
       SetTableDoctor(
-        doctor.filter(
-          (doctors) =>
-            doctors.status === "Disponible" || doctors.status === "En consulta"
-        )
+        doctor
+          .filter(
+            (doctors) =>
+              doctors.status === "Disponible" ||
+              doctors.status === "En consulta"
+          )
+          .slice(0, 3)
       );
     })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth]);
 
   const formik = useFormik({
