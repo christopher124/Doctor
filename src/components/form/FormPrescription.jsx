@@ -22,7 +22,12 @@ export function FormPrescription({ prescription }) {
   useEffect(() => {
     (async () => {
       const doctor = await getDoctorApi(logout);
-      setDoctor(doctor);
+      setDoctor(
+        doctor.filter(
+          (doctors) =>
+            doctors.status === "Disponible" || doctors.status === "En consulta"
+        )
+      );
       const customer = await getCustomerApi(logout);
       setCustomer(customer);
     })();
