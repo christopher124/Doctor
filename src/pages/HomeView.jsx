@@ -153,8 +153,8 @@ export function HomeView() {
                         Innovación con repercusión
                       </h6>
                       <p className="mb-4 text-blueGray-500 text-xl text-justify">
-                        Toda la atención médica a nuestros pacientes, la
-                        educación y la investigación, están orientadas a
+                        Toda la atención médica a nuestros pacientes,
+                        educación e investigación, están orientadas a
                         realizar descubrimientos que puedan ayudar a que te
                         recuperes.
                       </p>
