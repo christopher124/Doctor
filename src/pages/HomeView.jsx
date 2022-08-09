@@ -31,7 +31,7 @@ export function HomeView() {
                 <p className="mt-4 text-black mr-[78px] text-2xl text-justify">
                   Instalaciones cómodas y equipo médico de la más alta calidad
                   convergen para ofrecer una experiencia que sobrepasa las
-                  expectativas de una Clínica convencional.
+                  expectativas de una clínica convencional.
                 </p>
                 <div className="mt-8">
                   <a
@@ -39,7 +39,7 @@ export function HomeView() {
                     className="text-white hover:text-white bg-blue-700 font-medium rounded-lg text-lg px-5 py-2.5 mr-2 mb-2"
                     target="_blank"
                   >
-                    Descargar App
+                    Descargar app
                   </a>{" "}
                 </div>
               </div>
@@ -122,7 +122,7 @@ export function HomeView() {
                         Tú eres la prioridad
                       </h6>
                       <p className="mb-4 text-blueGray-500 text-xl text-justify">
-                        El tratamiento en Santa Bárbara Clínica es
+                        El tratamiento en Clínica Santa Bárbara es
                         verdaderamente una experiencia humana. Recibes atención
                         médica como una persona, antes que nada.
                       </p>

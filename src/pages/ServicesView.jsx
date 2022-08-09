@@ -116,45 +116,44 @@ export function ServicesView() {
             </div>
 
             <div className="flex flex-wrap items-center mt-20 mb-10 ">
-              <div className="w-full md:w-6/12 px-20 mr-auto ml-auto mb-20 bg-white rounded-3xl">
+              <div className="w-full md:w-6/12 px-10 mr-auto ml-auto mb-20 bg-white rounded-3xl">
                 <h3 className="text-3xl pt-3 pb-10 font-semibold leading-normal text-center">
                   Paquete de maternidad
                 </h3>
                 <h4 className="text-2xl font-semibold ">Instalaciones</h4>
                 <p className="text-xl font-light leading-relaxed mt-1 mb-1 text-black ">
-                  - Un Día de hospitalización. <br />
-                  - Un Día de cunero. <br />
-                  - Una Habitación estándar. <br />
+                  - Un día de hospitalización. <br />
+                  - Un día de cunero. <br />
+                  - Una habitación estándar. <br />
                   - Televisión Wi-Fi. <br />
                   - Cama eléctrica. <br />
-                  - Derecho de sala por dos horas. <br />
                   - Equipo de cirugía de parto <br />
                   - Monitor de presión.
                 </p>
                 <h4 className="text-2xl mt-3 font-semibold ">Materiales (Mamá)</h4>
                 <p className="text-xl font-light leading-relaxed mt-1 mb-1 text-black ">
-                  - Una Aguja desechable. <br />
-                  - Un Paquete de gasas. <br />
-                  - Un Rastrillo desechable. <br />
+                  - Una aguja desechable. <br />
+                  - Un paquete de gasas. <br />
+                  - Un rastrillo desechable. <br />
                   - Pañales para adulto. <br />
-                  - Toalla obstetricia. <br />
-                  - Una Sutura. <br />
-                  - Un Yelco. <br />
-                  - Una Sonda Nélaton. <br />
-                  - Una Cinta umbilical. <br />
-                  - Un Equipo de venoclisis. <br />
-                  - Dos Guantes tacto. <br />
-                  - Dos Jeringas. <br />
+                  - Toalla obstétrica. <br />
+                  - Una sutura. <br />
+                  - Un yelco. <br />
+                  - Una sonda Nélaton. <br />
+                  - Una cinta umbilical. <br />
+                  - Un equipo de venoclisis. <br />
+                  - Dos guantes tacto. <br />
+                  - Dos jeringas. <br />
                   <br />
                 </p>
               </div>
               {/* Seccion 2 */}
-              <div className=" -ml-96 mr-60 mb-44 ">
+              <div className=" -ml-96 mr-60 mb-40 ">
                 <h4 className="text-2xl font-semibold ">Medicamento (Mamá)</h4>
                 <p className="text-xl font-light leading-relaxed mt-1 mb-3 text-black  float-left">
                   - Tres sueros (1000 ml). <br />
-                  - Cuatro Oxitocinas AMP. <br />
-                  - Veinte CODE Xylocaína. <br />
+                  - Cuatro oxitocinas AMP. <br />
+                  - Veinte CC Xylocaína. <br />
                   - Tabletas para Prodolina<br />
                   u otro analgésico.
                 </p>
@@ -162,13 +161,13 @@ export function ServicesView() {
                 <p className="text-xl font-light leading-relaxed mt-1 mb-1 text-black float-left">
                   - Una sonda k-31. <br />
                   - Cuatro hrs. incubadora en cunero. <br />
-                  - Cuatro hrs. Oxigeno max. <br />
+                  - Cuatro hrs. oxígeno máx. <br />
                   - Pañales.<br />
                   - Cloranfenicol en gotas. <br />
-                  - Una Solución glucosada 500ml. <br />
-                  - Un Biberón. <br />
+                  - Una solución glucosada 500ml. <br />
+                  - Un biberón. <br />
                   - Una jeringa #20. <br />
-                  - Una Jeringa insulina. <br />
+                  - Una jeringa insulina. <br />
                   - Fórmula durante la estancia.
                 </p>
               </div>
@@ -260,9 +259,9 @@ export function ServicesView() {
                   </h3>
                   <h4 className="text-2xl font-semibold ">Instalaciones</h4>
                   <p className="text-xl font-light leading-relaxed mt-1 mb-1 text-black ">
-                    - Un Día de hospitalización. <br />
-                    - Un Día de cunero. <br />
-                    - Una Habitación estándar. <br />
+                    - Un día de hospitalización. <br />
+                    - Un día de cunero. <br />
+                    - Una habitación estándar. <br />
                     - Televisión Wi-Fi. <br />
                     - Cama eléctrica. <br />
                     - Derecho de sala por dos horas. <br />
@@ -274,13 +273,13 @@ export function ServicesView() {
                     {/* bebe */}
                     - Una sonda k-31. <br />
                     - Cuatro hrs. incubadora en cunero. <br />
-                    - Cuatro hrs. Oxigeno max. <br />
+                    - Cuatro hrs. oxígeno máx. <br />
                     - Pañales.<br />
                     - Cloranfenicol en gotas. <br />
-                    - Una Solución glucosada 500ml. <br />
-                    - Un Biberón. <br />
+                    - Una solución glucosada 500ml. <br />
+                    - Un biberón. <br />
                     - Una jeringa #20. <br />
-                    - Una Jeringa insulina. <br />
+                    - Una jeringa insulina. <br />
                     - Fórmula durante la estancia. <br />
                     <br />
                   </p>
@@ -291,25 +290,25 @@ export function ServicesView() {
                 <h4 className="text-2xl font-semibold">Medicamento (Mamá)</h4>
                 <p className="text-xl font-light leading-relaxed mt-1 mb-3 text-black">
                   - Dos sueros (1000 ml). <br />
-                  - Cuatro Oxitocinas AMP. <br />
-                  - Veinte CODE Xylocaína. <br />
+                  - Cuatro oxitocinas AMP. <br />
+                  - Veinte CC Xylocaína. <br />
                   - Tabletas para Prodolina<br />
                   u otro analgésico.
                 </p>
                 <h4 className="text-2xl font-semibold ">Materiales (Mamá)</h4>
                 <p className="text-xl font-light leading-relaxed mt-1 mb-1 text-black">
-                  - Una Aguja desechable. <br />
-                  - Un Paquete de gasas. <br />
-                  - Un Rastrillo desechable. <br />
+                  - Una aguja desechable. <br />
+                  - Un paquete de gasas. <br />
+                  - Un rastrillo desechable. <br />
                   - Pañales para adulto. <br />
-                  - Toalla obstetricia. <br />
-                  - Una Sutura. <br />
-                  - Un Yelco. <br />
-                  - Una Sonda Nélaton. <br />
-                  - Una Cinta umbilical. <br />
-                  - Un Equipo de venoclisis. <br />
-                  - Dos Guantes tacto. <br />
-                  - Dos Jeringas. <br />
+                  - Toalla obstétrica. <br />
+                  - Una sutura. <br />
+                  - Un yelco. <br />
+                  - Una sonda Nélaton. <br />
+                  - Una cinta umbilical. <br />
+                  - Un equipo de venoclisis. <br />
+                  - Dos guantes tacto. <br />
+                  - Dos jeringas. <br />
                 </p>
               </div>
             </div>
@@ -352,9 +351,9 @@ export function ServicesView() {
                   - Aumento de volumen en los labios. <br />
                   - Mejor hidratación. <br />
                   - Apariencia de labios naturales. <br />
-                  - Correción de asimetrías en los labios. <br />
+                  - Corrección de asimetrías en los labios. <br />
                   - Mejora de la apariencia de tu sonrisa. <br />
-                  - Duración de hasta a 18 meses.  <br />
+                  - Duración de hasta 18 meses.  <br />
                   - Monitor de presión. <br />
                   <br />
                 </p>
@@ -430,7 +429,7 @@ export function ServicesView() {
                     className="absolute left-0 w-full block h-95-px -top-94-px"
                   ></svg>
                   <h4 className="text-2xl font-bold text-white text-center">
-                    TRATAMIENTO ESPECIALIZADO CON BOTOX
+                    TRATAMIENTO ESPECIALIZADO CON BÓTOX
                   </h4>
                   <p className="text-xl font-light mt-2 text-white text-justify">
                     Procedimiento especializado no quirúrgico con precio de $4,000 MXN
@@ -901,7 +900,7 @@ export function ServicesView() {
                           </p>
                           <p className="text-center text-gray-600 text-base pt-3 font-normal">
                             Neuróloga con alta especialidad en enfermedades neuromusculares,
-                            siendo la única en el occidente del País con esta formación.
+                            siendo la única en el occidente del país con esta formación.
                           </p>
                           <div className="w-full flex justify-center pt-5 pb-5">
                             <a href="https://twitter.com/?lang=es" className="mx-5">
@@ -1177,7 +1176,7 @@ export function ServicesView() {
                           </p>
                           <p className="text-center text-gray-600 text-base pt-3 font-normal">
                             Especialista en Nutrición Clínica y Deportiva,
-                            realicé mis practicas Clínicas en el servició de bariatría, obesidad, gastroenterología, prevención,
+                            realicé mis prácticas clínicas en el servicio de bariatría, obesidad, gastroenterología, prevención,
                             geriatría y control de peso.
                           </p>
                           <div className="w-full flex justify-center pt-5 pb-5">

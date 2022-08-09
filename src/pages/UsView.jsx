@@ -87,7 +87,7 @@ export function UsView() {
                 <p className="text-2xl font-light leading-relaxed mt-0 mb-4 text-black text-justify">
                   Mejorar la salud y la calidad de vida de los ciudadanos,
                   ofreciendo servicios sanitarios de calidad, con el paciente como
-                  centro de nuestra atención, en una Clínica privada con vocación docente e investigadora.
+                  centro de nuestra atención, en una clínica privada con vocación docente e investigadora.
                 </p>
               </div>
 
@@ -315,7 +315,7 @@ export function UsView() {
              max-h-0 peer-checked:max-h-40
             ">
                 <div className=" p-4 ">
-                  <p className=" text-xl text-justify">El pago se realiza en la Clínica con efectivo, tarjeta de crédito o débito.</p>
+                  <p className=" text-xl text-justify">El pago se realiza en la clínica con efectivo, tarjeta de crédito o débito.</p>
                 </div>
               </div>
             </div>

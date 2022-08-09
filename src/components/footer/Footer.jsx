@@ -79,7 +79,7 @@ export function Footer() {
                         Ubicación
                       </a>
                       <li>
-                        <a href="https://www.iubenda.com/privacy-policy/41356316" className="text-blue-600 hover:text-blue-800 font-semibold block pb-2 text-sm " title="Política de Privacidad ">Política de Privacidad</a>
+                        <a href="https://www.iubenda.com/privacy-policy/41356316" className="text-blue-600 hover:text-blue-800 font-semibold block pb-2 text-sm " title="Política de Privacidad ">Política de privacidad</a>
                       </li>
                     </li>
                     <li>
@@ -87,7 +87,7 @@ export function Footer() {
                         className="text-blue-600 hover:text-blue-800 font-semibold block pb-2 text-sm"
                         href="/servicios"
                       >
-                        CSB@clinicasantabarbaramx.com
+                        contacto@clinicasantabarbaramx.com
                       </a>
                     </li>
                   </ul>
@@ -114,7 +114,7 @@ export function Footer() {
           <div className="flex flex-wrap items-center md:justify-between justify-center">
             <div className="w-full md:w-4/12 px-4 mx-auto text-center">
               <div className="text-sm text-blue-500 font-semibold py-1">
-                Copyright © {new Date().getFullYear()} Gocare Doc by{" "}
+                Copyright © {new Date().getFullYear()} GoCare Doc by{" "}
                 <a
                   href="https://www.creative-tim.com?ref=nr-footer"
                   className="text-blue-500 hover:text-blue-800"

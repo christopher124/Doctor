@@ -38,7 +38,7 @@ export function MapsView() {
               </h3>
               <p className="text-2xl font-light leading-relaxed mt-0 mb-4 text-black text-justify">
                 Ubicación accesible, Arenales Tapatíos 92, 45066 Zapopan, Jalisco, México.
-                Ampllio estacionamiento las 24hrs para nuestros clientes y personal.
+                Amplio estacionamiento las 24 horas para nuestros clientes y personal.
               </p>
             </div>
 
@@ -93,8 +93,8 @@ export function MapsView() {
                 <h3 className="text-3xl font-semibold">Atención</h3>
                 {/* text-blue-500 */}
                 <p className="mt-4 text-2xl leading-relaxed text-black text-justify ">
-                  Clínica Santa Bárbara les recuerda que brindamos el mejor servício
-                  de atención médica las 24hrs durante los 365 días del año.
+                  Clínica Santa Bárbara les recuerda que brindamos el mejor servicio
+                  de atención médica las 24 horas durante los 365 días del año.
                 </p>
                 <ul className="list-none mt-6">
                 </ul>
