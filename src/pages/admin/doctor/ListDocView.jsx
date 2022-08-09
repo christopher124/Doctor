@@ -7,10 +7,8 @@ import {
   getDoctorUserApi,
 } from "../../../api/admin/doctor";
 import { getMeApi } from "../../../api/admin/user";
-
 import { ListDoctorView } from "../../../components/Admin/doctor/ListDoctorView";
 import { ListDoctorView as ListDoctor } from "../../../components/Doctors/Doctor/ListDoctorView";
-
 import { Spinner } from "../../../components/spinner/Spinner";
 import Swal from "sweetalert2";
 import Excel from "react-html-table-to-excel";
@@ -212,7 +210,7 @@ export function ListDocView() {
       {Object.keys(doctor).length === 0 ? (
         <div className="text-xs font-bold text-gray-500 uppercase">
           <div className="justify-center flex p-5">
-            <img className="ui centered image w-96 h-96" src={Img404} />
+            <img className="ui centered image w-96 h-96" src={Img404} alt="Logo" />
           </div>
           <p className="text-center">No hay datos registrados</p>
         </div>
