@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 export function Footer() {
   return (
@@ -34,14 +34,13 @@ export function Footer() {
                 <button
                   className="bg-white text-blue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                   type="button"
-
                 >
                   <a href="https://www.facebook.com/SBClinicaSantaBarbara">
                     <i className="fab fa-facebook-square text-2xl"></i>
                   </a>
                 </button>
                 <button
-                  className="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                  className="bg-white text-white shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                   type="button"
                 >
                   <i className="fab fa-instagram text-2xl"></i>
@@ -79,7 +78,13 @@ export function Footer() {
                         Ubicación
                       </a>
                       <li>
-                        <a href="https://www.iubenda.com/privacy-policy/41356316" className="text-blue-600 hover:text-blue-800 font-semibold block pb-2 text-sm " title="Política de Privacidad ">Política de Privacidad</a>
+                        <a
+                          href="https://www.iubenda.com/privacy-policy/41356316"
+                          className="text-blue-600 hover:text-blue-800 font-semibold block pb-2 text-sm "
+                          title="Política de Privacidad "
+                        >
+                          Política de Privacidad
+                        </a>
                       </li>
                     </li>
                     <li>
@@ -101,9 +106,12 @@ export function Footer() {
                       className="text-blue-600 hover:text-blue-800 font-semibold block pb-2 text-sm"
                       href="https://github.com/creativetimofficial/notus-react/blob/main/LICENSE.md?ref=nr-footer"
                     >
-                      Domicilio: Arenales Tapatíos 92, 45066 Zapopan, Jalisco, México.
-                      <br />Tel: 33 1028 8440
-                      <br />Tel: 33 1981 4337
+                      Domicilio: Arenales Tapatíos 92, 45066 Zapopan, Jalisco,
+                      México.
+                      <br />
+                      Tel: 33 1028 8440
+                      <br />
+                      Tel: 33 1981 4337
                     </p>
                   </div>
                 </div>
@@ -116,7 +124,7 @@ export function Footer() {
               <div className="text-sm text-blue-500 font-semibold py-1">
                 Copyright © {new Date().getFullYear()} Gocare Doc by{" "}
                 <a
-                  href="https://www.creative-tim.com?ref=nr-footer"
+                  href="https://nextiasolutionsmx.com/"
                   className="text-blue-500 hover:text-blue-800"
                 >
                   Nextia Solutions MX
