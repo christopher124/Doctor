@@ -144,7 +144,7 @@ export function FormQuotes({ quotes }) {
               </div>
             </div>
           </div>
-          <div className="relative overflow-x-auto shadow-2xl sm:rounded-lg">
+          <div className="relative mt-5 overflow-x-auto shadow-2xl sm:rounded-lg">
             <table
               id="tableDoctors"
               className="w-full border-collapse border border-slate-500 text-base text-center text-white"
