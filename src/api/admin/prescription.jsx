@@ -30,6 +30,7 @@ export async function getPrescripApi(logout) {
     return null;
   }
 }
+
 export async function updatePrescripApi(id, prescription, logout) {
   try {
     const url = `${API_URL_DEV}/prescriptions/${id}`;
@@ -49,6 +50,7 @@ export async function updatePrescripApi(id, prescription, logout) {
     return false;
   }
 }
+
 export async function getOnePrescripApi(id, logout) {
   try {
     const url = `${API_URL_DEV}/prescriptions/${id}`;
@@ -58,6 +60,7 @@ export async function getOnePrescripApi(id, logout) {
     return null;
   }
 }
+
 export async function deletePrescripApi(id, logout) {
   try {
     const url = `${API_URL_DEV}/prescriptions/${id}`;
@@ -76,6 +79,7 @@ export async function deletePrescripApi(id, logout) {
     return false;
   }
 }
+
 export async function getCountPrescripApi(logout) {
   try {
     const url = `${API_URL_DEV}/prescriptions/count`;
@@ -89,6 +93,16 @@ export async function getCountPrescripApi(logout) {
 export async function getPrescripCustomerApi(idCustomer, logout) {
   try {
     const url = `${API_URL_DEV}/prescriptions?customer=${idCustomer}`;
+    const result = await authFetch(url, null, logout);
+    return result ? result : null;
+  } catch (error) {
+    return null;
+  }
+}
+
+export async function getPrescripDoctorUserApi(idUser, logout) {
+  try {
+    const url = `${API_URL_DEV}/prescriptions?doctor.user=${idUser}`;
     const result = await authFetch(url, null, logout);
     return result ? result : null;
   } catch (error) {
