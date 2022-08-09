@@ -19,7 +19,12 @@ export function FormQuotes({ quotes, cargando }) {
       const customer = await getCustomerApi(logout);
       setCustomer(customer);
       const doctor = await getDoctorApi(logout);
-      setDoctor(doctor.filter((doctors) => doctors?.status === "Disponible"));
+      setDoctor(
+        doctor.filter(
+          (doctors) =>
+            doctors.status === "Disponible" || doctors.status === "En consulta"
+        )
+      );
     })();
   }, [auth]);
 
@@ -53,29 +58,61 @@ export function FormQuotes({ quotes, cargando }) {
         Regresar
       </button>{" "}
       <div className="bg-white mt-10 px-5 py-10 rounded-md shadow-xl md:w-4/2 mx-auto">
+        <div className="relative overflow-x-auto shadow-2xl sm:rounded-lg">
+          <table
+            id="tableDoctors"
+            className="w-full text-base text-center text-white"
+          >
+            <thead className="text-base uppercase bg-[#687584] text-white">
+              <tr>
+                <th scope="col" className="text-white py-3 px-6 text-center">
+                  Nombre(s)
+                </th>
+                <th scope="col" className="text-white py-3 px-6 text-center">
+                  Apellido(s)
+                </th>
+
+                <th scope="col" className="text-white py-3 px-6 text-center">
+                  Especialidad
+                </th>
+                <th scope="col" className="text-white py-3 px-6 text-center">
+                  Horarios disponibles
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {doctor?.map((doctorUser) => (
+                <tr className="border-b bg-cyan-800 border-white">
+                  <th
+                    scope="row"
+                    className=" justify-center flex p-9 px-6 py-4 text-center"
+                  >
+                    <td className="text-white px-6 py-4 font-medium text-center">
+                      {doctorUser?.name ? doctorUser?.name : "No hay datos"}
+                    </td>
+                  </th>
+                  <td className="px-6 py-4 font-medium text-white whitespace-nowrap">
+                    {doctorUser?.last ? doctorUser?.last : "No hay datos"}
+                  </td>
+                  <td className="text-white font-medium px-6 py-4 text-center">
+                    {doctorUser?.specialties
+                      ? doctorUser?.specialties
+                      : "No hay datos"}
+                  </td>
+                  <td className="text-white font-medium px-6 py-4 text-center">
+                    {doctorUser?.workdates[1]} / {doctorUser?.workdates[2]}
+                  </td>
+                </tr>
+              ))}{" "}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div className="bg-white mt-10 px-5 py-10 rounded-md shadow-xl md:w-4/2 mx-auto">
         <h1 className="text-gray-600 font-bold text-xl uppercase text-center">
           {quotes?.id ? "Editar Cita" : "Crear Cita"}
         </h1>
-        <div>
-          {doctor?.map((doctor) => {
-            return (
-              <div className="text-gray-600 text-center font-bold text">
-                <p className="text-gray-600 font-bold textAlign">
-                  Horarios disponibles
-                </p>
-                <p className="text-gray-600 font-bold textAlign">
-                  {doctor?.name}
-                </p>
-                <li className="text-gray-600 font-bold textAlign">
-                  {doctor?.workdates[1]}
-                </li>
-                <li className="text-gray-600 font-bold textAlign">
-                  {doctor?.workdates[2]}
-                </li>
-              </div>
-            );
-          })}
-        </div>
+
         <Form onSubmit={formik.handleSubmit} className="mt-10">
           <div className=" grid xl:grid-cols-4 xl:gap-6">
             <div className="text-lg w-full mb-6 group">
