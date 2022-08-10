@@ -1,9 +1,9 @@
-import { API_URL_DEV } from "../../utils/constants";
+import { API_URL_PROD } from "../../utils/constants";
 import { authFetch } from "../../utils/fetch";
 
 export async function createQuotesApi(quote, logout) {
   try {
-    const url = `${API_URL_DEV}/quotes`;
+    const url = `${API_URL_PROD}/quotes`;
     const params = {
       method: "POST",
       headers: {
@@ -22,7 +22,7 @@ export async function createQuotesApi(quote, logout) {
 }
 export async function updateQuotesApi(id, quotes, logout) {
   try {
-    const url = `${API_URL_DEV}/quotes/${id}`;
+    const url = `${API_URL_PROD}/quotes/${id}`;
     const params = {
       method: "PUT",
       headers: {
@@ -42,7 +42,7 @@ export async function updateQuotesApi(id, quotes, logout) {
 
 export async function getQuotesApi(logout) {
   try {
-    const url = `${API_URL_DEV}/quotes`;
+    const url = `${API_URL_PROD}/quotes`;
     const result = await authFetch(url, null, logout);
     return result ? result : null;
   } catch (error) {
@@ -52,7 +52,7 @@ export async function getQuotesApi(logout) {
 
 export async function deleteQuotesApi(id, logout) {
   try {
-    const url = `${API_URL_DEV}/quotes/${id}`;
+    const url = `${API_URL_PROD}/quotes/${id}`;
     const params = {
       method: "DELETE",
       headers: {
@@ -71,7 +71,7 @@ export async function deleteQuotesApi(id, logout) {
 
 export async function getOneQuotesApi(id, logout) {
   try {
-    const url = `${API_URL_DEV}/quotes/${id}`;
+    const url = `${API_URL_PROD}/quotes/${id}`;
     const result = await authFetch(url, null, logout);
     return result ? result : null;
   } catch (error) {
@@ -81,7 +81,7 @@ export async function getOneQuotesApi(id, logout) {
 
 export async function getQuotesUserApi(idCustomer, logout) {
   try {
-    const url = `${API_URL_DEV}/quotes?customer=${idCustomer}`;
+    const url = `${API_URL_PROD}/quotes?customer=${idCustomer}`;
     const result = await authFetch(url, null, logout);
     return result ? result : null;
   } catch (error) {
@@ -91,7 +91,7 @@ export async function getQuotesUserApi(idCustomer, logout) {
 
 export async function getQuotesDoctorApi(idCustomer, logout) {
   try {
-    const url = `${API_URL_DEV}/quotes?doctor=${idCustomer}`;
+    const url = `${API_URL_PROD}/quotes?doctor=${idCustomer}`;
     const result = await authFetch(url, null, logout);
     return result ? result : null;
   } catch (error) {
@@ -109,7 +109,7 @@ export async function getQuotesUsersApi(id, logout) {
 }
 export async function getCountQuotesApi(logout) {
   try {
-    const url = `${API_URL_DEV}/quotes/count`;
+    const url = `${API_URL_PROD}/quotes/count`;
     const result = await authFetch(url, null, logout);
     return result ? result : null;
   } catch (error) {
@@ -119,7 +119,7 @@ export async function getCountQuotesApi(logout) {
 
 export async function getCountQuotesDoctorApi(idDoctor, logout) {
   try {
-    const url = `${API_URL_DEV}/quotes/count?doctor.user=${idDoctor}`;
+    const url = `${API_URL_PROD}/quotes/count?doctor.user=${idDoctor}`;
     const result = await authFetch(url, null, logout);
     return result ? result : null;
   } catch (error) {
