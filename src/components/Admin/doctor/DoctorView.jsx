@@ -51,13 +51,13 @@ export function DoctorView({ doctor }) {
           <div className=" font-bold p-1  text-white">
             Especialidad: {specialties ? specialties : "No hay datos"}
           </div>
-
-          <div className="p-1 text-white font-bold whitespace-nowrap">
+          <div className="p-1 text-white font-bold whitespace-nowrap mb-2">
             Estatus:{" "}
             <span className={`${clase} `}>
               {status ? status : "No hay datos"}
             </span>
           </div>
+          <hr />
         </div>
       </div>
     </>

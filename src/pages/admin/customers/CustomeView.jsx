@@ -169,7 +169,7 @@ export function CustomeView() {
                 </div>
               </div>
               <div className="w-full lg:w-2/3">
-                <div className="font-noto w-full p-5  rounded-lg bg-cyan-800 border-white">
+                <div className="font-noto w-full p-[22px]  rounded-lg bg-cyan-800 border-white">
                   <div className="flex flex-row items-center justify-between mb-6">
                     <div className="flex flex-col">
                       <div className="text-lg font-bold text-white">

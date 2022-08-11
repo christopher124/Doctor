@@ -44,12 +44,13 @@ export function UsersView({ users }) {
             </span>
           </div>
 
-          <div className="p-[0.25rem] text-white font-bold whitespace-nowrap">
+          <div className="p-[0.25rem] text-white font-bold whitespace-nowrap mb-2">
             Estatus del usuario:{" "}
             <span className={`${clase}`}>
               {blocked === true ? "Bloqueado" : "Activo"}
             </span>
           </div>
+          <hr />
         </div>
       </div>
     </>

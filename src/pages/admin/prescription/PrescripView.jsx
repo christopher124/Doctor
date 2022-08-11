@@ -262,7 +262,7 @@ export function PrescripView() {
                         </span>
                       </p>
                       <p className="py-3 font-bold text-black text-lg">
-                        Número de Expediente:{" "}
+                        Número de expediente:{" "}
                         <span className="py-1 font-bold text-black ">
                           {file_number ? file_number : "N/A"}
                         </span>
