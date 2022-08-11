@@ -19,7 +19,7 @@ export function FormQuotes({ quotes }) {
   const [searchSpecialties, setSearchSpecialties] = useState("");
   const [loading, setLoading] = useState(false);
   const { auth, logout } = useAuth();
-
+  console.log(doctor);
   useEffect(() => {
     (async () => {
       const customer = await getCustomerApi(logout);
