@@ -93,8 +93,8 @@ export function DocPdf({ prescription }) {
                 {doctor?.gender === "Masculino"
                   ? "Dr."
                   : doctor?.gender === "Femenino"
-                  ? "Dra."
-                  : null}{" "}
+                    ? "Dra."
+                    : null}{" "}
                 {doctor?.name ? doctor?.name : "N/A"}{" "}
                 {doctor?.last ? doctor?.last : "N/A"}
               </Text>
@@ -253,8 +253,8 @@ export function DocPdf({ prescription }) {
                 {doctor?.gender === "Masculino"
                   ? "Dr."
                   : doctor?.gender === "Femenino"
-                  ? "Dra."
-                  : null}{" "}
+                    ? "Dra."
+                    : null}{" "}
                 {doctor?.name ? doctor?.name : "N/A"}{" "}
                 {doctor?.last ? doctor?.last : "N/A"}
               </Text>

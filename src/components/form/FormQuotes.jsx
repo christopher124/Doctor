@@ -70,7 +70,7 @@ export function FormQuotes({ quotes }) {
           toast.warning(
             "Problemas con actualizar la cita, inténtelo mas tarde."
           );
-        } else toast.success("Datos actulizado correctamente.");
+        } else toast.success("Datos actualizados correctamente.");
         navigate("/admin/citas");
       } else {
         respuesta = await createQuotesApi(formDataTemp, logout);
@@ -406,7 +406,7 @@ export function FormQuotes({ quotes }) {
             type="submit"
             primary
           >
-            {doctor?.id ? "Editar" : "Guardar Cambios"}
+            {doctor?.id ? "Editar" : "Guardar cambios"}
           </Button>
         </Form>
       </div>
