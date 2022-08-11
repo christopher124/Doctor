@@ -26,22 +26,16 @@ export function FormQuotes({ quotes }) {
       setCustomer(customer);
       const doctor = await getDoctorApi(logout);
       setDoctor(
-        doctor
-          .filter(
-            (doctors) =>
-              doctors.status === "Disponible" ||
-              doctors.status === "En consulta"
-          )
-          .slice(0, 3)
+        doctor.filter(
+          (doctors) =>
+            doctors.status === "Disponible" || doctors.status === "En consulta"
+        )
       );
       SetTableDoctor(
-        doctor
-          .filter(
-            (doctors) =>
-              doctors.status === "Disponible" ||
-              doctors.status === "En consulta"
-          )
-          .slice(0, 3)
+        doctor.filter(
+          (doctors) =>
+            doctors.status === "Disponible" || doctors.status === "En consulta"
+        )
       );
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -115,115 +109,6 @@ export function FormQuotes({ quotes }) {
         <i className="fas fa-arrow-left text-white mr-2 text-lg"></i>
         Regresar
       </button>{" "}
-      <div className="bg-white mt-10 px-5 py-10 rounded-md shadow-xl md:w-4/2 mx-auto">
-        <div className="w-full mb-6 pt-3">
-          <div className="shrink-0 space-x-2">
-            <div className="inline-flex justify-start">
-              <div className="relative">
-                <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                  <svg
-                    aria-hidden="true"
-                    className="w-5 h-5 text-gray-500 dark:text-gray-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                    ></path>
-                  </svg>
-                </div>
-                <input
-                  type="search"
-                  className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
-                  placeholder="Búsqueda por especialidad"
-                  value={searchSpecialties}
-                  onChange={handleChangeSpecialties}
-                />
-              </div>
-            </div>
-          </div>
-          <div className="relative mt-5 overflow-x-auto shadow-2xl sm:rounded-lg">
-            <table
-              id="tableDoctors"
-              className="w-full border-collapse border border-slate-500 text-base text-center text-white"
-            >
-              <thead className="text-base uppercase bg-[#687584] text-white">
-                <tr>
-                  <th scope="col" className=" text-white py-3 px-6 text-center">
-                    Nombre(s)
-                  </th>
-                  <th scope="col" className="text-white py-3 px-6 text-center">
-                    Apellido(s)
-                  </th>
-
-                  <th scope="col" className="text-white py-3 px-6 text-center">
-                    Especialidad
-                  </th>
-                  <th scope="col" className="text-white py-3 px-6 text-center">
-                    Horarios disponibles
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {doctor?.map((doctorUser) => (
-                  <tr className="border-b bg-cyan-800 border-white">
-                    <th
-                      scope="row"
-                      className=" justify-center flex p-9 px-6 py-4 text-center"
-                    >
-                      <td className="text-white px-6 py-4 font-medium text-center">
-                        {doctorUser?.name ? doctorUser?.name : "No hay datos"}
-                      </td>
-                    </th>
-                    <td className="px-6 py-4 font-medium text-white whitespace-nowrap">
-                      {doctorUser?.last ? doctorUser?.last : "No hay datos"}
-                    </td>
-                    <td className="text-white font-medium px-6 py-4 text-center">
-                      {doctorUser?.specialties
-                        ? doctorUser?.specialties
-                        : "No hay datos"}
-                    </td>
-                    <td className="text-white font-medium px-6 py-4 text-center">
-                      {doctorUser?.workdates?.[0]
-                        ? doctorUser?.workdates?.[0]
-                        : "..."}{" "}
-                      /{" "}
-                      {doctorUser?.workdates?.[1]
-                        ? doctorUser?.workdates?.[1]
-                        : "..."}{" "}
-                      /{" "}
-                      {doctorUser?.workdates?.[2]
-                        ? doctorUser?.workdates?.[2]
-                        : "..."}{" "}
-                      /{" "}
-                      {doctorUser?.workdates?.[3]
-                        ? doctorUser?.workdates?.[3]
-                        : "..."}
-                      /{" "}
-                      {doctorUser?.workdates?.[4]
-                        ? doctorUser?.workdates?.[4]
-                        : "..."}
-                      /{" "}
-                      {doctorUser?.workdates?.[5]
-                        ? doctorUser?.workdates?.[5]
-                        : "..."}
-                      /{" "}
-                      {doctorUser?.workdates?.[6]
-                        ? doctorUser?.workdates?.[6]
-                        : "..."}
-                    </td>
-                  </tr>
-                ))}{" "}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
       <div className="bg-white mt-10 px-5 py-10 rounded-md shadow-xl md:w-4/2 mx-auto">
         <h1 className="text-gray-600 font-bold text-xl uppercase text-center">
           {quotes?.id ? "Editar Cita" : "Crear Cita"}
@@ -409,6 +294,127 @@ export function FormQuotes({ quotes }) {
             {doctor?.id ? "Editar" : "Guardar cambios"}
           </Button>
         </Form>
+        <div className="bg-white mt-10 px-5 py-10 rounded-md shadow-xl md:w-4/2 mx-auto">
+          <div className="w-full mb-6 pt-3">
+            <div className="shrink-0 space-x-2">
+              <div className="inline-flex justify-start">
+                <div className="relative">
+                  <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                    <svg
+                      aria-hidden="true"
+                      className="w-5 h-5 text-gray-500 dark:text-gray-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <input
+                    type="search"
+                    className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
+                    placeholder="Búsqueda por especialidad"
+                    value={searchSpecialties}
+                    onChange={handleChangeSpecialties}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="relative mt-5 overflow-x-auto shadow-2xl sm:rounded-lg">
+              <table
+                id="tableDoctors"
+                className="w-full border-collapse border border-slate-500 text-base text-center text-white"
+              >
+                <thead className="text-base uppercase bg-[#687584] text-white">
+                  <tr>
+                    <th
+                      scope="col"
+                      className=" text-white py-3 px-6 text-center"
+                    >
+                      Nombre(s)
+                    </th>
+                    <th
+                      scope="col"
+                      className="text-white py-3 px-6 text-center"
+                    >
+                      Apellido(s)
+                    </th>
+
+                    <th
+                      scope="col"
+                      className="text-white py-3 px-6 text-center"
+                    >
+                      Especialidad
+                    </th>
+                    <th
+                      scope="col"
+                      className="text-white py-3 px-6 text-center"
+                    >
+                      Horarios disponibles
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {doctor?.map((doctorUser) => (
+                    <tr className="border-b bg-cyan-800 border-white">
+                      <th
+                        scope="row"
+                        className=" justify-center flex p-9 px-6 py-4 text-center"
+                      >
+                        <td className="text-white px-6 py-4 font-medium text-center">
+                          {doctorUser?.name ? doctorUser?.name : "No hay datos"}
+                        </td>
+                      </th>
+                      <td className="px-6 py-4 font-medium text-white whitespace-nowrap">
+                        {doctorUser?.last ? doctorUser?.last : "No hay datos"}
+                      </td>
+                      <td className="text-white font-medium px-6 py-4 text-center">
+                        {doctorUser?.specialties
+                          ? doctorUser?.specialties
+                          : "No hay datos"}
+                      </td>
+                      <td className="text-white font-medium px-6 py-4 text-center">
+                        {doctorUser?.workdates?.[0]
+                          ? doctorUser?.workdates?.[0]
+                          : "..."}{" "}
+                        /{" "}
+                        {doctorUser?.workdates?.[1]
+                          ? doctorUser?.workdates?.[1]
+                          : "..."}{" "}
+                        /{" "}
+                        {doctorUser?.workdates?.[2]
+                          ? doctorUser?.workdates?.[2]
+                          : "..."}{" "}
+                        /{" "}
+                        {doctorUser?.workdates?.[3]
+                          ? doctorUser?.workdates?.[3]
+                          : "..."}
+                        /{" "}
+                        {doctorUser?.workdates?.[4]
+                          ? doctorUser?.workdates?.[4]
+                          : "..."}
+                        /{" "}
+                        {doctorUser?.workdates?.[5]
+                          ? doctorUser?.workdates?.[5]
+                          : "..."}
+                        /{" "}
+                        {doctorUser?.workdates?.[6]
+                          ? doctorUser?.workdates?.[6]
+                          : "..."}
+                      </td>
+                    </tr>
+                  ))}{" "}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
