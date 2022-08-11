@@ -38,10 +38,12 @@ export function Footer() {
                   </a>
                 </button>
                 <button
-                  className="bg-white text-white shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                  className="bg-white text-blue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                   type="button"
                 >
-                  <i className="fab fa-instagram text-2xl"></i>
+                  <a href="https://www.facebook.com/SBClinicaSantaBarbara">
+                    <i className="fab fa-instagram text-2xl"></i>
+                  </a>
                 </button>
               </div>
             </div>
