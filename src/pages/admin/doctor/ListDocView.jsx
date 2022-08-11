@@ -36,7 +36,7 @@ export function ListDocView() {
     })(
       setTimeout(() => {
         setCargando(!cargando);
-      }, 1000)
+      }, 1500)
     );
   }, [auth]);
   localStorage.setItem("idUser", users?.id);
@@ -210,7 +210,11 @@ export function ListDocView() {
       {Object.keys(doctor).length === 0 ? (
         <div className="text-xs font-bold text-gray-500 uppercase">
           <div className="justify-center flex p-5">
-            <img className="ui centered image w-96 h-96" src={Img404} alt="Logo" />
+            <img
+              className="ui centered image w-96 h-96"
+              src={Img404}
+              alt="Logo"
+            />
           </div>
           <p className="text-center">No hay datos registrados</p>
         </div>

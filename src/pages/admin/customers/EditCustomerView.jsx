@@ -21,7 +21,7 @@ export function EditCustomerView() {
     })(
       setTimeout(() => {
         setCargando(!cargando);
-      }, 1000)
+      }, 1500)
     );
   }, [auth, id, logout]);
   if (!auth) {

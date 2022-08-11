@@ -37,7 +37,7 @@ export function SideBar() {
 
   return (
     <>
-      <nav className="font-noto lg:left-0 lg:block lg:fixed lg:top-0 lg:bottom-0 lg:overflow-y-auto lg:flex-row lg:flex-nowrap lg:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative lg:w-[19rem] z-10 py-4 px-6">
+      <nav className="font-noto lg:left-0 lg:block lg:fixed lg:top-0 lg:bottom-0 lg:overflow-y-auto lg:flex-row lg:flex-nowrap lg:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative lg:w-[18rem] z-10 py-4 px-6">
         <div className="lg:flex-col lg:items-stretch lg:min-h-full lg:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto">
           {/* Toggler */}
           <button
@@ -49,7 +49,7 @@ export function SideBar() {
           </button>
           {/* Brand */}
           {user?.role?.name === "Administrador" ||
-            user?.role?.name === "Recepción" ? (
+          user?.role?.name === "Recepción" ? (
             <Link
               className="lg:block text-left lg:pb-2 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
               to="/admin/dashboard"
@@ -89,7 +89,7 @@ export function SideBar() {
               <div className="flex flex-wrap">
                 <div className="w-6/12">
                   {user?.role?.name === "Administrador" ||
-                    user?.role?.name === "Recepción" ? (
+                  user?.role?.name === "Recepción" ? (
                     <Link
                       className="lg:block text-left lg:pb-2 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
                       to="/admin/dashboard"

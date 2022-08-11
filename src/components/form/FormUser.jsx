@@ -233,7 +233,7 @@ function validationSchema() {
       .required("Campo obligatorio"),
 
     password: Yup.string()
-      .min(9, "La contraseña debe de tener minimo 9 caracteres")
+      .min(9, "La contraseña debe de tener mínimo 9 caracteres")
       .required("Campo obligatorio"),
     role: Yup.string().required(true),
   };

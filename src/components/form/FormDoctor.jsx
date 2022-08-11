@@ -25,7 +25,6 @@ export function FormDoctor({ doctor, cargando }) {
     validationSchema: Yup.object(validationSchema()),
     onSubmit: async (formData) => {
       handleSubmit(formData);
-      console.log(formData);
     },
   });
   const { auth, logout } = useAuth();

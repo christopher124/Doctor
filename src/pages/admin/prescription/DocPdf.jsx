@@ -167,7 +167,7 @@ export function DocPdf({ prescription }) {
               </Text>
               {"                               "}
               <Text style={styles.paragraph2}>
-                FECHA DE NACIMINETO:
+                FECHA DE NACIMIENTO:
                 <Text style={styles.paragraph2}>
                   {" "}
                   {format(
