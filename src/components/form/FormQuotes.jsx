@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import useAuth from "../../hooks/useAuth";
@@ -18,6 +19,7 @@ export function FormQuotes({ quotes }) {
   const [searchSpecialties, setSearchSpecialties] = useState("");
   const [loading, setLoading] = useState(false);
   const { auth, logout } = useAuth();
+
   useEffect(() => {
     (async () => {
       const customer = await getCustomerApi(logout);
@@ -102,6 +104,7 @@ export function FormQuotes({ quotes }) {
     });
     setDoctor(searchResult);
   };
+
   return (
     <>
       {" "}
@@ -186,7 +189,33 @@ export function FormQuotes({ quotes }) {
                         : "No hay datos"}
                     </td>
                     <td className="text-white font-medium px-6 py-4 text-center">
-                      {doctorUser?.workdates[1]} / {doctorUser?.workdates[2]}
+                      {doctorUser?.workdates?.[0]
+                        ? doctorUser?.workdates?.[0]
+                        : "..."}{" "}
+                      /{" "}
+                      {doctorUser?.workdates?.[1]
+                        ? doctorUser?.workdates?.[1]
+                        : "..."}{" "}
+                      /{" "}
+                      {doctorUser?.workdates?.[2]
+                        ? doctorUser?.workdates?.[2]
+                        : "..."}{" "}
+                      /{" "}
+                      {doctorUser?.workdates?.[3]
+                        ? doctorUser?.workdates?.[3]
+                        : "..."}
+                      /{" "}
+                      {doctorUser?.workdates?.[4]
+                        ? doctorUser?.workdates?.[4]
+                        : "..."}
+                      /{" "}
+                      {doctorUser?.workdates?.[5]
+                        ? doctorUser?.workdates?.[5]
+                        : "..."}
+                      /{" "}
+                      {doctorUser?.workdates?.[6]
+                        ? doctorUser?.workdates?.[6]
+                        : "..."}
                     </td>
                   </tr>
                 ))}{" "}
@@ -391,7 +420,7 @@ function initialValues(quotes) {
     room: quotes?.room ?? "",
     service: quotes?.service ?? "",
     date: quotes?.date ?? "",
-    status: quotes?.status ?? "En Proceso",
+    status: quotes?.status ?? "",
   };
 }
 function validationSchema() {
