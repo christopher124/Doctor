@@ -34,7 +34,7 @@ export function ListUserView({ user, handleDelited }) {
           </span>
         </td>
         <td className="text-white px-6 py-4 text-center">
-          {blocked === true ? "Usuario bloquedado" : "Usuario Activo"}
+          {blocked === true ? "Usuario bloqueado" : "Usuario Activo"}
         </td>
 
         <td className="py-3 px-6 text-center">

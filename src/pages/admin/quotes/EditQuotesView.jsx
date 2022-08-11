@@ -37,10 +37,14 @@ export function EditQuotesView() {
       <div className="text-base font-bold text-gray-500 uppercase">
         <span className="text-gray-600">Vista general</span>
         <div className="text-xl font-bold">
-          <span className="text-gray-600">Editar Doctores</span>
+          <span className="text-gray-600">Editar Cita</span>
         </div>
         <div className="justify-center flex p-5">
-          <img className="ui centered image w-96 h-96" src={Img404} />
+          <img
+            className="ui centered image w-96 h-96"
+            src={Img404}
+            alt="Logo"
+          />
         </div>
         <p className="text-center">No se encontraron resultados</p>
       </div>
@@ -53,7 +57,7 @@ export function EditQuotesView() {
             <div className="text-base font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
-                <span className="text-gray-600 ">Editar Usuario</span>
+                <span className="text-gray-600 ">Editar Cita</span>
               </div>
             </div>
           </div>

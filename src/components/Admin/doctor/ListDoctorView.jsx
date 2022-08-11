@@ -7,7 +7,6 @@ export function ListDoctorView({ doctor, handleDelited }) {
   const { name, last, user, id, phone, status, specialties, gender } = doctor;
   const [estadoDoctor, setEstadoDoctor] = useState(status);
   const [clase, setClase] = useState("");
-  console.log(doctor);
   useEffect(() => {
     if (estadoDoctor) {
       setEstadoDoctor(estadoDoctor);
