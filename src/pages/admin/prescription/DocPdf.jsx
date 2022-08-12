@@ -93,13 +93,13 @@ export function DocPdf({ prescription }) {
                 {doctor?.gender === "Masculino"
                   ? "Dr."
                   : doctor?.gender === "Femenino"
-                    ? "Dra."
-                    : null}{" "}
+                  ? "Dra."
+                  : null}{" "}
                 {doctor?.name ? doctor?.name : "N/A"}{" "}
                 {doctor?.last ? doctor?.last : "N/A"}
               </Text>
               {
-                "                                                                         "
+                "                                                                   "
               }
               <Text style={styles.paragraph2}>Original</Text>
             </Text>
@@ -138,7 +138,7 @@ export function DocPdf({ prescription }) {
                 {customer?.last ? customer?.last : "N/A"}
               </Text>
               {
-                "                                                                                "
+                "                                                                          "
               }
               <Text style={styles.paragraph2}>
                 NÚMERO DE EXPEDIENTE:
@@ -154,7 +154,7 @@ export function DocPdf({ prescription }) {
                 {" "}
                 {customer?.gender ? customer?.gender : "N/A"}
               </Text>
-              {"                                                             "}
+              {"                                                  "}
               <Text style={styles.paragraph2}>
                 EDAD:
                 <Text style={styles.paragraph2}>
@@ -213,7 +213,7 @@ export function DocPdf({ prescription }) {
                 {treatment ? treatment : "N/A"}
               </Text>
               {
-                "                                                                                                                                                                                                                                                     "
+                "                                                                                                                                                                                                                                                                                                                                                                                                                                  "
               }
               <Text style={styles.paragraph2}>
                 OBSERVACIONES:
@@ -253,13 +253,13 @@ export function DocPdf({ prescription }) {
                 {doctor?.gender === "Masculino"
                   ? "Dr."
                   : doctor?.gender === "Femenino"
-                    ? "Dra."
-                    : null}{" "}
+                  ? "Dra."
+                  : null}{" "}
                 {doctor?.name ? doctor?.name : "N/A"}{" "}
                 {doctor?.last ? doctor?.last : "N/A"}
               </Text>
               {
-                "                                                                         "
+                "                                                                                     "
               }
               <Text style={styles.paragraph2}>Copia</Text>
             </Text>
@@ -298,7 +298,7 @@ export function DocPdf({ prescription }) {
                 {customer?.last ? customer?.last : "N/A"}
               </Text>
               {
-                "                                                                                "
+                "                                                                             "
               }
               <Text style={styles.paragraph2}>
                 NÚMERO DE EXPEDIENTE:
@@ -373,7 +373,7 @@ export function DocPdf({ prescription }) {
                 {treatment ? treatment : "N/A"}
               </Text>
               {
-                "                                                                                                                                                                                                                                                     "
+                "                                                                                                                                                                                                                                                                                                                                                                                                                                                "
               }
               <Text style={styles.paragraph2}>
                 OBSERVACIONES:

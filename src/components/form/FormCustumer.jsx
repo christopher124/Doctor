@@ -312,7 +312,7 @@ export function FormCustumer({ customer }) {
               >
                 {user?.id ? (
                   <option value="">
-                    Selecione un nuevo usuario para el paciente
+                  Confirmar usuario
                   </option>
                 ) : (
                   <option value="">

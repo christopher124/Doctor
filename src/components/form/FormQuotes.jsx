@@ -294,8 +294,11 @@ export function FormQuotes({ quotes }) {
             {doctor?.id ? "Editar" : "Guardar cambios"}
           </Button>
         </Form>
-        <div className="bg-white mt-10 px-5 py-10 rounded-md shadow-xl md:w-4/2 mx-auto">
+        <div className="bg-white mt-0 px-5 py-10 rounded-md shadow-xl md:w-4/2 mx-auto">
           <div className="w-full mb-6 pt-3">
+            <h1 className="text-gray-600 font-bold text-xl uppercase text-center">
+              Doctores disponibles
+            </h1>
             <div className="shrink-0 space-x-2">
               <div className="inline-flex justify-start">
                 <div className="relative">
@@ -426,7 +429,7 @@ function initialValues(quotes) {
     room: quotes?.room ?? "",
     service: quotes?.service ?? "",
     date: quotes?.date ?? "",
-    status: quotes?.status ?? "",
+    status: quotes?.status ?? "En proceso",
   };
 }
 function validationSchema() {
