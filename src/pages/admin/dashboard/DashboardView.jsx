@@ -114,7 +114,7 @@ export function DashboardView() {
                 <div className="flex flex-row items-center justify-between">
                   <div className="flex flex-col">
                     <div className="text-base font-bold text-white uppercase">
-                      Clientes Registrados
+                      Pacientes
                       <div className="p-1.5 text-xl font-bold">
                         {Customercount ? Customercount : "0"}
                       </div>
@@ -293,7 +293,7 @@ export function DashboardView() {
                 <div className="flex flex-row items-center justify-between">
                   <div className="flex flex-col">
                     <div className="text-base font-bold text-white uppercase">
-                      Clientes Registrados
+                      Pacientes
                       <div className="p-1.5 text-xl font-bold">
                         {Customercount ? Customercount : "0"}
                       </div>
