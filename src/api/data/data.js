@@ -730,5 +730,5 @@ export {
   specialtiesOptions,
   DateOptions,
   roomsOptions,
-  statusOptionsQuotes
+  statusOptionsQuotes,
 };

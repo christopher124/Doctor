@@ -322,9 +322,7 @@ export function FormDoctor({ doctor, cargando }) {
                 onSelect
               >
                 {doctor?.id ? (
-                  <option value="">
-                    Selecione un nuevo usuario para el doctor
-                  </option>
+                  <option value="">Confirmar usuario</option>
                 ) : (
                   <option value="">Selecione un usuario para el doctor</option>
                 )}
@@ -470,7 +468,7 @@ function validationSchema() {
   return {
     user: Yup.string().required(true),
     name: Yup.string()
-      .min(5, "El Nombre es muy corto.")
+      .min(3, "El Nombre es muy corto.")
       .matches(
         /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g,
         "Ingrese solo letras y sin espacios al final."
@@ -478,7 +476,7 @@ function validationSchema() {
       .max(50, "El Nombre es muy largo.")
       .required("El campo es requerido."),
     last: Yup.string()
-      .min(5, "El Nombre es muy corto.")
+      .min(2, "El Nombre es muy corto.")
       .matches(
         /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g,
         "Ingrese solo letras y sin espacios al fina."
