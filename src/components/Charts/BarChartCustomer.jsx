@@ -17,6 +17,7 @@ export function BarChartCustomer() {
   const [customerG, setCustomerG] = useState([]);
   const [customerTLA, setCustomerTLA] = useState([]);
   const [customerT, setCustomerT] = useState([]);
+  const [customerTlajo, setCustomerTlajo] = useState([]);
   const { auth, logout } = useAuth();
   useEffect(() => {
     (async () => {
@@ -28,11 +29,20 @@ export function BarChartCustomer() {
         Customer.filter((doctor) => doctor?.town === "San Pedro Tlaquepaque")
       );
       setCustomerT(Customer.filter((doctor) => doctor?.town === "Tonalá"));
+      setCustomerTlajo(
+        Customer.filter((doctor) => doctor?.town === "Tlajomulco de Zúñiga")
+      );
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth, logout]);
   let data = {
-    labels: ["Zapopan", "Guadalajara", "San Pedro Tlaquepaque", "Tonalá"],
+    labels: [
+      "Zapopan",
+      "Guadalajara",
+      "San Pedro Tlaquepaque",
+      "Tonalá",
+      "Tlajomulco de Zúñiga",
+    ],
     datasets: [
       {
         data: [
@@ -40,9 +50,16 @@ export function BarChartCustomer() {
           customerG.length,
           customerTLA.length,
           customerT.length,
+          customerTlajo.length,
         ],
-        backgroundColor: ["#FFB6AF", "#FFE1AD", "#FAFDB0", "#B0F2C2"],
-        borderColor: ["#FFB6AF", "#FFE1AD", "#FAFDB0", "#B0F2C2"],
+        backgroundColor: [
+          "#FFB6AF",
+          "#FFE1AD",
+          "#FAFDB0",
+          "#B0F2C2",
+          "#FFE6ED",
+        ],
+        borderColor: ["#FFB6AF", "#FFE1AD", "#FAFDB0", "#B0F2C2", "#FFE6ED"],
         borderWidth: 1,
       },
     ],
