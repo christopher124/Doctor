@@ -36,9 +36,11 @@ export function ListQuotesView({ quotes, handleDelited }) {
           scope="row"
           className="px-6 py-4 font-medium text-white whitespace-nowrap"
         >
-          {customer?.name}
+          {customer?.name ? customer?.name : "No hay cliente asignado"}
         </th>
-        <td className="text-white px-6 py-4">{doctor?.name}</td>
+        <td className="text-white px-6 py-4">
+          {doctor?.name ? doctor?.name : "No hay doctor asignado"}
+        </td>
         <td className="text-white px-6 py-4">
           {" "}
           {date ? format(new Date(date), "dd/MM/yyyy hh:mm a") : "N/A"}

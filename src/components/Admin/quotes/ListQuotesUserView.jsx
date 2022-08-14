@@ -30,10 +30,12 @@ export function ListQuotesUserView({ quotes, handleDelited }) {
             scope="row"
             className="px-6 py-4 font-medium text-white whitespace-nowrap"
           >
-            {customer?.name} {customer?.last}
+            {customer?.name ? customer?.name : "No hay paciente signado"}{" "}
+            {customer?.last ? customer?.last : ""}
           </td>
           <td className="text-white px-6 py-4">
-            {doctor?.name} {doctor?.last}
+            {doctor?.name ? doctor?.name : "No hay doctor asignado "}
+            {doctor?.last ? doctor?.last : ""}
           </td>
           <td className="text-white px-6 py-4">
             {" "}
