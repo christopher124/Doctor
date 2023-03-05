@@ -48,22 +48,10 @@ export function SideBar() {
             <i className="fas fa-bars"></i>
           </button>
           {/* Brand */}
-          {user?.role?.name === "Administrador" ||
-          user?.role?.name === "Recepción" ? (
+          {user?.role?.name === "Administrador" ? (
             <Link
               className="lg:block text-left lg:pb-2 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
               to="/admin/dashboard"
-            >
-              <img
-                src={Logo}
-                alt="logo"
-                className=" m-auto items-center h-24 w-24 rounded-full"
-              />
-            </Link>
-          ) : user?.role?.name === "Doctor" ? (
-            <Link
-              className="lg:block text-left lg:pb-2 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
-              to="/admin/citas"
             >
               <img
                 src={Logo}
@@ -174,26 +162,27 @@ export function SideBar() {
                           : "text-black hover:text-gray-600")
                       }
                     ></i>{" "}
-                    Pacientes
+                    Estudiantes
                   </Link>
                   <Link
                     className={
                       "text-base uppercase py-3 font-bold block " +
-                      (window.location.href.indexOf("/admin/doctores") !== -1
+                      (window.location.href.indexOf("/admin/profesores") !== -1
                         ? "relative px-4 py-3 flex space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
                         : "text-black hover:text-gray-600")
                     }
-                    to="/admin/doctores"
+                    to="/admin/profesores"
                   >
                     <i
                       className={
                         "fas fa-stethoscope mr-2 text-base " +
-                        (window.location.href.indexOf("/admin/doctores") !== -1
+                        (window.location.href.indexOf("/admin/profesores") !==
+                        -1
                           ? "opacity-75 "
                           : "text-black hover:text-gray-600")
                       }
                     ></i>{" "}
-                    Doctores
+                    Profesores
                   </Link>
                   <Link
                     className={
@@ -213,229 +202,6 @@ export function SideBar() {
                       }
                     ></i>{" "}
                     Usuarios
-                  </Link>
-                  <Link
-                    className={
-                      "text-base uppercase py-3 font-bold block " +
-                      (window.location.href.indexOf("/admin/citas") !== -1
-                        ? " px-4 py-3 flex  space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
-                        : "text-black hover:text-gray-600")
-                    }
-                    to="/admin/citas"
-                  >
-                    <i
-                      className={
-                        "fas fa-solid fa-clipboard-list mr-2 text-base " +
-                        (window.location.href.indexOf("/admin/citas") !== -1
-                          ? "opacity-75"
-                          : "text-black hover:text-gray-600")
-                      }
-                    ></i>{" "}
-                    Citas
-                  </Link>
-                  <Link
-                    className={
-                      "text-base uppercase py-3 font-bold block " +
-                      (window.location.href.indexOf("/admin/recetas") !== -1
-                        ? " px-4 py-3 flex  space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
-                        : "text-black hover:text-gray-600")
-                    }
-                    to="/admin/recetas"
-                  >
-                    <i
-                      className={
-                        "fas fa-laptop-medical mr-2 text-base " +
-                        (window.location.href.indexOf("/admin/recetas") !== -1
-                          ? "opacity-75"
-                          : "text-black hover:text-gray-600")
-                      }
-                    ></i>{" "}
-                    Recetas
-                  </Link>
-                  <Link
-                    className={
-                      "text-base uppercase py-3 font-bold block " +
-                      (window.location.href.indexOf("/admin/Reportes") !== -1
-                        ? " px-4 py-3 flex  space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
-                        : "text-black hover:text-gray-600")
-                    }
-                    to="/admin/Reportes"
-                  >
-                    <i
-                      className={
-                        "fas fa-file-download mr-2 text-base " +
-                        (window.location.href.indexOf("/admin/Reportes") !== -1
-                          ? "opacity-75"
-                          : "text-black hover:text-gray-600")
-                      }
-                    ></i>{" "}
-                    Reportes
-                  </Link>
-                </li>
-              </ul>
-            ) : user?.role?.name === "Doctor" ? (
-              <ul className="lg:flex-col lg:min-w-full flex flex-col list-none">
-                <li className="items-center">
-                  <Link
-                    className={
-                      "text-base uppercase py-3 font-bold block " +
-                      (window.location.href.indexOf("/admin/doctores") !== -1
-                        ? "relative px-4 py-3 flex space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
-                        : "text-black hover:text-gray-600")
-                    }
-                    to="/admin/doctores"
-                  >
-                    <i
-                      className={
-                        "fas fa-stethoscope mr-2 text-base " +
-                        (window.location.href.indexOf("/admin/doctores") !== -1
-                          ? "opacity-75 "
-                          : "text-black hover:text-gray-600")
-                      }
-                    ></i>{" "}
-                    Doctor
-                  </Link>
-                  <Link
-                    className={
-                      "text-base uppercase py-3 font-bold block " +
-                      (window.location.href.indexOf("/admin/citas") !== -1
-                        ? " px-4 py-3 flex  space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
-                        : "text-black hover:text-gray-600")
-                    }
-                    to="/admin/citas"
-                  >
-                    <i
-                      className={
-                        "fas fa-solid fa-clipboard-list mr-2 text-base " +
-                        (window.location.href.indexOf("/admin/citas") !== -1
-                          ? "opacity-75"
-                          : "text-black hover:text-gray-600")
-                      }
-                    ></i>{" "}
-                    Citas
-                  </Link>
-                  <Link
-                    className={
-                      "text-base uppercase py-3 font-bold block " +
-                      (window.location.href.indexOf("/admin/recetas") !== -1
-                        ? " px-4 py-3 flex  space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
-                        : "text-black hover:text-gray-600")
-                    }
-                    to="/admin/recetas"
-                  >
-                    <i
-                      className={
-                        "fas fa-laptop-medical mr-2 text-base " +
-                        (window.location.href.indexOf("/admin/recetas") !== -1
-                          ? "opacity-75"
-                          : "text-black hover:text-gray-600")
-                      }
-                    ></i>{" "}
-                    Recetas
-                  </Link>
-                </li>
-              </ul>
-            ) : user?.role?.name === "Recepción" ? (
-              <ul className="lg:flex-col lg:min-w-full flex flex-col list-none">
-                <li className="items-center">
-                  <Link
-                    className={
-                      "text-base uppercase py-3 font-bold block " +
-                      (window.location.href.indexOf("/admin/dashboard") !== -1
-                        ? " px-4 py-3 flex  space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
-                        : "text-black hover:text-gray-600")
-                    }
-                    to="/admin/dashboard"
-                  >
-                    <i
-                      className={
-                        "fab fa-slideshare mr-2 text-lg " +
-                        (window.location.href.indexOf("/admin/dashboard") !== -1
-                          ? "opacity-75"
-                          : "text-black hover:text-gray-600")
-                      }
-                    ></i>{" "}
-                    Tablero principal
-                  </Link>
-                </li>
-                <hr className="my-4 lg:min-w-full" />
-
-                <li className="items-center">
-                  <Link
-                    className={
-                      "text-base uppercase py-3 font-bold block " +
-                      (window.location.href.indexOf("/admin/pacientes") !== -1
-                        ? "relative px-4 py-3 flex space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
-                        : "text-black hover:text-gray-600")
-                    }
-                    to="/admin/pacientes"
-                  >
-                    <i
-                      className={
-                        "fas fa-user mr-2 text-base " +
-                        (window.location.href.indexOf("/admin/pacientes") !== -1
-                          ? "opacity-75 "
-                          : "text-black hover:text-gray-600")
-                      }
-                    ></i>{" "}
-                    Pacientes
-                  </Link>
-                  <Link
-                    className={
-                      "text-base uppercase py-3 font-bold block " +
-                      (window.location.href.indexOf("/admin/doctores") !== -1
-                        ? "relative px-4 py-3 flex space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
-                        : "text-black hover:text-gray-600")
-                    }
-                    to="/admin/doctores"
-                  >
-                    <i
-                      className={
-                        "fas fa-stethoscope mr-2 text-base " +
-                        (window.location.href.indexOf("/admin/doctores") !== -1
-                          ? "opacity-75 "
-                          : "text-black hover:text-gray-600")
-                      }
-                    ></i>{" "}
-                    Doctores
-                  </Link>
-                  <Link
-                    className={
-                      "text-base uppercase py-3 font-bold block " +
-                      (window.location.href.indexOf("/admin/usuarios") !== -1
-                        ? " px-4 py-3 flex  space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
-                        : "text-black hover:text-gray-600")
-                    }
-                    to="/admin/usuarios"
-                  >
-                    <i
-                      className={
-                        "fas fa-users  mr-2 text-base " +
-                        (window.location.href.indexOf("/admin/usuarios") !== -1
-                          ? "opacity-75"
-                          : "text-black hover:text-gray-600")
-                      }
-                    ></i>{" "}
-                    Usuarios
-                  </Link>
-                  <Link
-                    className={
-                      "text-base uppercase py-3 font-bold block " +
-                      (window.location.href.indexOf("/admin/citas") !== -1
-                        ? " px-4 py-3 flex  space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
-                        : "text-black hover:text-gray-600")
-                    }
-                    to="/admin/citas"
-                  >
-                    <i
-                      className={
-                        "fas fa-solid fa-clipboard-list mr-2 text-base " +
-                        (window.location.href.indexOf("/admin/citas") !== -1
-                          ? "opacity-75"
-                          : "text-black hover:text-gray-600")
-                      }
-                    ></i>{" "}
-                    Citas
                   </Link>
                 </li>
               </ul>

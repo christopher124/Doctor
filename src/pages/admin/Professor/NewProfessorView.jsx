@@ -1,6 +1,6 @@
-import { FormDoctor } from "../../../components/form/FormDoctor";
+import { FormProfessor } from "../../../components/form/FormProfessor";
 
-export function NewDoctorView() {
+export function NewProfessorView() {
   return (
     <>
       <div className="w-full min-h-screen p-4">
@@ -10,12 +10,12 @@ export function NewDoctorView() {
               <div className="text-base font-bold text-gray-500 uppercase">
                 <span className="text-gray-600">Vista General</span>
                 <div className="text-xl font-bold">
-                  <span className="text-gray-600">Nuevo Doctor</span>
+                  <span className="text-gray-600">Nuevo Profesor</span>
                 </div>
               </div>
             </div>
           </div>
-          <FormDoctor />
+          <FormProfessor />
         </div>
       </div>
     </>

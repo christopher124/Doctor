@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import { getDoctorApi } from "../../api/admin/doctor";
+import { getProfesorsApi } from "../../api/admin/profesors";
 
 import useAuth from "../../hooks/useAuth";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
@@ -14,7 +14,7 @@ export function DoughnutChartDoctorGender() {
   const { auth, logout } = useAuth();
   useEffect(() => {
     (async () => {
-      const doctor = await getDoctorApi(logout);
+      const doctor = await getProfesorsApi(logout);
       setDoctorM(doctor.filter((doctors) => doctors?.gender === "Masculino"));
       setDoctorF(doctor.filter((doctors) => doctors?.gender === "Femenino"));
     })();

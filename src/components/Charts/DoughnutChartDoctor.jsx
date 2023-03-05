@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import { getDoctorApi } from "../../api/admin/doctor";
+import { getProfesorsApi } from "../../api/admin/profesors";
 import useAuth from "../../hooks/useAuth";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
@@ -13,7 +13,7 @@ export function DoughnutChartDoctor() {
   const { auth, logout } = useAuth();
   useEffect(() => {
     (async () => {
-      const doctors = await getDoctorApi(logout);
+      const doctors = await getProfesorsApi(logout);
       setDoctorD(doctors.filter((doctor) => doctor?.status === "Disponible"));
       setDoctorP(doctors.filter((doctor) => doctor?.status === "En consulta"));
       setDoctorC(

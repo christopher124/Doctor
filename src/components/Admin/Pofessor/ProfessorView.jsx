@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Avatar from "avvvatars-react";
 
-export function DoctorView({ doctor }) {
+export function ProfessorView({ doctor }) {
   const { name, last, address, status, phone, specialties, user } = doctor;
   console.log(doctor);
   const [estadoDoctor, setEstadoDoctor] = useState(status);

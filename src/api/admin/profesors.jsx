@@ -1,15 +1,15 @@
 import { API_URL_DEV } from "../../utils/constants";
 import { authFetch } from "../../utils/fetch";
 
-export async function createDoctorApi(doctor, logout) {
+export async function createProfesorsApi(professor, logout) {
   try {
-    const url = `${API_URL_DEV}/doctors`;
+    const url = `${API_URL_DEV}/profesors`;
     const params = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(doctor),
+      body: JSON.stringify(professor),
     };
     const result = await authFetch(url, params, logout);
     // eslint-disable-next-line no-throw-literal
@@ -21,51 +21,43 @@ export async function createDoctorApi(doctor, logout) {
   }
 }
 
-export async function getDoctorApi(logout) {
+export async function getProfesorsApi(logout) {
   try {
-    const url = `${API_URL_DEV}/doctors`;
+    const url = `${API_URL_DEV}/profesors`;
     const result = await authFetch(url, null, logout);
     return result ? result : null;
   } catch (error) {
     return null;
   }
 }
-export async function getDoctorUserApi(id, logout) {
+
+export async function getOneProfesorsApi(id, logout) {
   try {
-    const url = `${API_URL_DEV}/doctors?user=${id}`;
+    const url = `${API_URL_DEV}/profesors/${id}`;
     const result = await authFetch(url, null, logout);
     return result ? result : null;
   } catch (error) {
     return null;
   }
 }
-export async function getOneDoctorApi(id, logout) {
+export async function getCountProfesorsApi(logout) {
   try {
-    const url = `${API_URL_DEV}/doctors/${id}`;
+    const url = `${API_URL_DEV}/profesors/count`;
     const result = await authFetch(url, null, logout);
     return result ? result : null;
   } catch (error) {
     return null;
   }
 }
-export async function getCountDoctorApi(logout) {
+export async function updateProfesorsApi(id, professor, logout) {
   try {
-    const url = `${API_URL_DEV}/doctors/count`;
-    const result = await authFetch(url, null, logout);
-    return result ? result : null;
-  } catch (error) {
-    return null;
-  }
-}
-export async function updateDoctorApi(id, doctor, logout) {
-  try {
-    const url = `${API_URL_DEV}/doctors/${id}`;
+    const url = `${API_URL_DEV}/profesors/${id}`;
     const params = {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(doctor),
+      body: JSON.stringify(professor),
     };
     const result = await authFetch(url, params, logout);
     // eslint-disable-next-line no-throw-literal
@@ -77,9 +69,9 @@ export async function updateDoctorApi(id, doctor, logout) {
   }
 }
 
-export async function deleteDoctorApi(id, logout) {
+export async function deleteProfesorsApi(id, logout) {
   try {
-    const url = `${API_URL_DEV}/doctors/${id}`;
+    const url = `${API_URL_DEV}/profesors/${id}`;
     const params = {
       method: "DELETE",
       headers: {

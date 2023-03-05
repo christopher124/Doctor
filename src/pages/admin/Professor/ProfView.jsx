@@ -4,44 +4,23 @@ import { useParams } from "react-router-dom";
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
-import { getOneDoctorApi } from "../../../api/admin/doctor";
-import { getQuotesDoctorApi } from "../../../api/admin/quote";
+import { getOneProfesorsApi } from "../../../api/admin/profesors";
 import Avatar from "avvvatars-react";
 import { ListQuotesUserView } from "../../../components/Admin/quotes/ListQuotesUserView";
 import Img404 from "../../../assets/img/story-404.svg";
 
-export function DocView() {
+export function ProfView() {
   const { id } = useParams();
-  const [doctor, setDoctor] = useState({});
-  const {
-    name,
-    last,
-    user,
-    birthday,
-    address,
-    number_int_address,
-    suburb,
-    town,
-    state,
-    zip,
-    gender,
-    phone,
-    status,
-    specialties,
-    created_at,
-    updated_at,
-  } = doctor;
-  const [quotes, serQuotes] = useState([]);
+  const [professor, setProfessor] = useState({});
+  const { name, created_at, updated_at } = professor;
   const [cargando, setCargando] = useState(true);
   const navigate = useNavigate();
   const { auth, logout } = useAuth();
 
   useEffect(() => {
     (async () => {
-      const doctor = await getOneDoctorApi(id, logout);
-      setDoctor(doctor);
-      const Quotes = await getQuotesDoctorApi(id, logout);
-      serQuotes(Quotes.slice(0, 5));
+      const professor = await getOneProfesorsApi(id, logout);
+      setProfessor(professor);
     })(
       setTimeout(() => {
         setCargando(!cargando);
@@ -50,6 +29,7 @@ export function DocView() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [logout, auth]);
 
+  //Funcion para calcular la edad
   function getEdad(birthday) {
     let hoy = new Date();
     let fechaNacimiento = new Date(birthday);
@@ -66,7 +46,7 @@ export function DocView() {
 
   return cargando ? (
     <Spinner />
-  ) : Object.keys(doctor).length === 0 ? (
+  ) : Object.keys(professor).length === 0 ? (
     <div className="w-full min-h-screen p-4">
       <div className="w-full mb-6 pt-3">
         <div className="flex flex-row items-center justify-between mb-4">
@@ -74,7 +54,7 @@ export function DocView() {
             <div className="text-base font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
-                <span className="text-gray-600">Doctor</span>
+                <span className="text-gray-600">Profesor</span>
               </div>
             </div>
           </div>
@@ -99,14 +79,14 @@ export function DocView() {
             <div className="text-base font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
-                <span className="text-gray-600 ">Ver Doctor</span>
+                <span className="text-gray-600 ">Ver Profesor</span>
               </div>
             </div>
           </div>
         </div>
         <button
           className="text-white bg-[#1678C2] font-bold py-2 px-4 rounded-xl"
-          onClick={() => navigate(`/admin/doctores`)}
+          onClick={() => navigate(`/admin/profesores`)}
         >
           <i className="fas fa-arrow-left text-white mr-2 text-lg"></i>
           Regresar
@@ -117,7 +97,7 @@ export function DocView() {
           <div className="font-noto w-full p-4 rounded-lg bg-cyan-800 border-white">
             <div className="w-full flex flex-row items-center justify-between mb-6">
               <div className="flex flex-col">
-                <div className="text-lg font-light text-white">Doctor</div>
+                <div className="text-lg font-light text-white">Profesor</div>
                 <div className="text-base text-white font-bold">
                   <span>Información de usuario</span>
                 </div>
@@ -127,13 +107,13 @@ export function DocView() {
               className=" justify-center flex p-7
             "
             >
-              <Avatar
+              {/* <Avatar
                 value={user?.username ? user?.username : "NU"}
                 size={99}
-              />
+              /> */}
             </div>
             <div className="p-5 text-center flex flex-col w-full">
-              <p className="py-1 text-white ">
+              {/* <p className="py-1 text-white ">
                 Nombre de Usuario:{" "}
                 <span className="">
                   {user?.username ? user?.username : "No hay datos"}
@@ -144,7 +124,7 @@ export function DocView() {
                 <span className="">
                   {user?.email ? user?.email : "No hay datos"}
                 </span>
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
@@ -152,7 +132,7 @@ export function DocView() {
           <div className="w-full p-3 rounded-lg bg-cyan-800">
             <div className="flex flex-row items-center justify-between mb-6">
               <div className="flex flex-col">
-                <div className="text-lg font-bold text-white">Doctor</div>
+                <div className="text-lg font-bold text-white">Profesor</div>
                 <div className="text-base font-bold text-white">
                   <span>Información personal</span>
                 </div>
@@ -161,59 +141,56 @@ export function DocView() {
             </div>
             <div className="p-0 flex flex-col w-full">
               <p className="py-[0.15rem] text-white font-noto">
-                Nombre completo:{" "}
-                <span className="text-bold">
-                  {name} {last}
-                </span>
+                Nombre completo: <span className="text-bold">{name}</span>
               </p>
               <p className="py-[0.15rem] text-white font-noto">
                 Género:{" "}
                 <span className="text-bold">
                   {" "}
-                  {gender ? gender : "No hay datos"}
+                  {/* {gender ? gender : "No hay datos"} */}
                 </span>
               </p>
               <p className="py-[0.15rem] text-white font-noto">
                 Teléfono:{" "}
                 <span className="text-bold">
                   {" "}
-                  {phone ? phone : "No hay datos"}
+                  {/* {phone ? phone : "No hay datos"} */}
                 </span>
               </p>
               <p className="py-[0.15rem] text-white font-noto">
                 Fecha de nacimiento:
                 <span className="text-bold">
-                  {birthday ? birthday : "No hay datos"}{" "}
+                  {/* {birthday ? birthday : "No hay datos"}{" "} */}
                 </span>
               </p>
               <p className="py-[0.15rem] text-white font-noto">
                 Edad:{" "}
-                <span className="text-bold"> {getEdad(birthday)} años</span>
+                {/* <span className="text-bold"> {getEdad(birthday)} años</span> */}
               </p>
               <p className="py-[0.15rem] text-white font-noto">
                 Estatus:{" "}
                 <span className="text-bold">
                   {" "}
-                  {status ? status : "No hay datos"}
+                  {/* {status ? status : "No hay datos"} */}
                 </span>
               </p>
               <p className="py-[0.15rem] text-white font-noto">
-                Especialidad:{" "}
+                Profeccion:{" "}
                 <span className="text-bold">
                   {" "}
-                  {specialties ? specialties : "No hay datos"}
+                  {/* {specialties ? specialties : "No hay datos"} */}
                 </span>
               </p>
               <p className="py-[0.15rem] text-white font-noto">
                 Domicilio:{" "}
-                <span className="text-bold">
+                {/* <span className="text-bold">
                   {" "}
                   {address ? address : "No hay datos"}, INT:{" "}
                   {number_int_address ? number_int_address : "N/A"},{" "}
                   {suburb ? suburb : "No hay datos"},{" "}
                   {town ? town : "No hay datos"},{" "}
                   {state ? state : "No hay datos"}, {zip ? zip : "No hay datos"}
-                </span>
+                </span> */}
               </p>
               <p className="py-[0.15rem] text-white font-noto">
                 Fecha de creación:{" "}
@@ -237,80 +214,6 @@ export function DocView() {
               </p>
             </div>
           </div>
-        </div>
-      </div>
-      <div className="w-full mb-2 lg:space-x-2 space-y-2 lg:space-y-0 lg:mb-4">
-        <div className="font-noto w-full p-4 rounded-lg  bg-cyan-800 border-white">
-          <div className="flex flex-row items-center justify-between mb-6">
-            <div className="flex flex-col">
-              <div className="text-lg font-bold text-white">Doctor</div>
-              <div className="text-base font-bold text-white">
-                <span>Citas</span>
-              </div>
-            </div>
-          </div>
-          {cargando ? (
-            <Spinner />
-          ) : Object.keys(quotes).length === 0 ? (
-            <p className="py-[0.15rem] font-bold text-center text-white ">
-              El Doctor no tiene citas agendadas
-            </p>
-          ) : (
-            <div className="flex flex-col w-full">
-              <div className="overflow-x-scroll lg:overflow-hidden">
-                <table
-                  id="tableCustomers"
-                  className="w-full text-sm text-center text-white"
-                >
-                  <thead className="text-base uppercase bg-cyan-800 text-white">
-                    <tr>
-                      <th
-                        scope="col"
-                        className="text-white py-3 px-6  text-center"
-                      >
-                        paciente
-                      </th>
-                      <th
-                        scope="col"
-                        className="text-white py-3 px-6  text-center"
-                      >
-                        doctor
-                      </th>
-                      <th
-                        scope="col"
-                        className="text-white py-3 px-6  text-center"
-                      >
-                        Fecha de la cita
-                      </th>
-                      <th
-                        scope="col"
-                        className="text-white py-3 px-6  text-center"
-                      >
-                        Tipo de servicio
-                      </th>
-                      <th
-                        scope="col"
-                        className="text-white py-3 px-6 text-center"
-                      >
-                        Consultorio asignado
-                      </th>
-                      <th
-                        scope="col"
-                        className="text-white font-bold py-3 px-6  text-center "
-                      >
-                        Acciones
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {quotes?.map((quotes) => (
-                      <ListQuotesUserView key={quotes.id} quotes={quotes} />
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </div>
