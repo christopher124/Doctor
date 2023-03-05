@@ -2,14 +2,9 @@ import { useState, useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
 import { getMeApi } from "../../api/admin/user";
 import { Route, Routes } from "react-router-dom";
-import { ContactView } from "../../pages/ContactView";
 import { DashboardView } from "../../pages/admin/dashboard/DashboardView";
-import { HomeView } from "../../pages/HomeView";
 import { LoginView } from "../../pages/LoginView";
 import { NotFound } from "../../pages/NotFound";
-import { QuotesView } from "../../pages/QuotesView";
-import { ServicesView } from "../../pages/ServicesView";
-import { UsView } from "../../pages/UsView";
 import { SideBar } from "../sidebar/SideBar";
 import { ListDocView } from "../../pages/admin/doctor/ListDocView";
 import { DocView } from "../../pages/admin/doctor/DocView";
@@ -30,8 +25,6 @@ import { ListPrescripView } from "../../pages/admin/prescription/ListPrescripVie
 import { NewPrescriptionView } from "../../pages/admin/prescription/NewPrescriptionView";
 import { PrescripView } from "../../pages/admin/prescription/PrescripView";
 import { EditPrescriptionView } from "../../pages/admin/prescription/EditPrescriptionView";
-import { PrivacityView } from "../../pages/admin/PrivacityView";
-import { MapsView } from "../../pages/admin/MapsView";
 import { ReportView } from "../../pages/admin/reports/ReportView";
 import { EditQuotesView } from "../../pages/admin/quotes/EditQuotesView";
 import { QuotView } from "../../pages/admin/quotes/QuotView";
@@ -56,14 +49,7 @@ export function AppRouter() {
     <div>
       <Routes>
         {/* Rutas publicas: */}
-        <Route path="/" element={<HomeView />} />
-        <Route path="/servicios" element={<ServicesView />} />
-        <Route path="/nosotros" element={<UsView />} />
-        <Route path="/contacto" element={<ContactView />} />
-        <Route path="/citas" element={<QuotesView />} />
         <Route path="/login" element={<LoginView />} />
-        <Route path="/privacidad" element={<PrivacityView />} />
-        <Route path="/ubicacion" element={<MapsView />} />
         <Route path="*" element={<NotFound />} />
         {/* Rutas privadas: Administrador*/}
         {user?.role?.name === "Administrador" ? (
