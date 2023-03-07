@@ -1,22 +1,23 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
-import { getOneProfesorsApi } from "../../../api/admin/profesors";
-import { FormProfessor } from "../../../components/form/FormProfessor";
+import { getOneCoursesApi } from "../../../api/admin/courses";
+import { FormCourses } from "../../../components/form/FormCourses";
 import { Spinner } from "../../../components/spinner/Spinner";
-import Img404 from "../../../assets/img/story-404.svg";
 import { useNavigate } from "react-router-dom";
 
-export function EditProfessorView() {
-  const [professor, setProfessor] = useState({});
+import Img404 from "../../../assets/img/story-404.svg";
+
+export function EditCourseView() {
+  const [courses, setCourses] = useState({});
   const navigate = useNavigate();
   const [cargando, setCargando] = useState(true);
   const { id } = useParams();
   const { auth, logout } = useAuth();
   useEffect(() => {
     (async () => {
-      const doctor = await getOneProfesorsApi(id, logout);
-      setProfessor(doctor);
+      const doctor = await getOneCoursesApi(id, logout);
+      setCourses(doctor);
     })(
       setTimeout(() => {
         setCargando(!cargando);
@@ -26,11 +27,11 @@ export function EditProfessorView() {
   }, [auth]);
   return cargando ? (
     <Spinner />
-  ) : Object.keys(professor).length === 0 ? (
+  ) : Object.keys(courses).length === 0 ? (
     <div className="w-full min-h-screen p-4">
       <button
         className="text-white bg-[#1678C2] font-bold py-2 px-4 rounded-xl"
-        onClick={() => navigate(`/admin/profesores`)}
+        onClick={() => navigate(`/admin/cursos`)}
       >
         <i className="fas fa-arrow-left text-white mr-2 text-lg"></i>
         Regresar
@@ -43,10 +44,14 @@ export function EditProfessorView() {
       <div className="text-base font-bold text-gray-500 uppercase">
         <span className="text-gray-600">Vista general</span>
         <div className="text-xl font-bold">
-          <span className="text-gray-600">Editar Profesor</span>
+          <span className="text-gray-600">Editar Curso</span>
         </div>
         <div className="justify-center flex p-5">
-          <img className="ui centered image w-96 h-96" src={Img404} />
+          <img
+            className="ui centered image w-96 h-96"
+            src={Img404}
+            alt="No image"
+          />
         </div>
         <p className="text-center">No se encontraron resultados</p>
       </div>
@@ -59,14 +64,14 @@ export function EditProfessorView() {
             <div className="text-base font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
-                <span className="text-gray-600 ">Editar Profesor</span>
+                <span className="text-gray-600 ">Editar Curso</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <FormProfessor
-        professor={professor}
+      <FormCourses
+        courses={courses}
         cargando={cargando}
         setCargando={setCargando}
       />

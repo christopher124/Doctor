@@ -1,23 +1,20 @@
 import { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import useAuth from "../../hooks/useAuth";
-import { Form, Dropdown, Button } from "semantic-ui-react";
+import { Form, Button } from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
 import { getUserApi } from "../../api/admin/user";
-import {
-  createProfesorsApi,
-  updateProfesorsApi,
-} from "../../api/admin/profesors";
+import { createCoursesApi, updateCoursesApi } from "../../api/admin/courses";
 import { Spinner } from "../spinner/Spinner";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
 
-export function FormProfessor({ professor, cargando }) {
+export function FormCourses({ courses, cargando }) {
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const formik = useFormik({
-    initialValues: initialValues(professor),
+    initialValues: initialValues(courses),
     validationSchema: Yup.object(validationSchema()),
     onSubmit: async (formData) => {
       handleSubmit(formData);
@@ -39,25 +36,21 @@ export function FormProfessor({ professor, cargando }) {
     let respuesta;
     try {
       setLoading(true);
-      if (professor?.id) {
-        respuesta = await updateProfesorsApi(
-          professor?.id,
-          formDataTemp,
-          logout
-        );
+      if (courses?.id) {
+        respuesta = await updateCoursesApi(courses?.id, formDataTemp, logout);
         if (!respuesta) {
           toast.warning(
-            "Problemas con actualizar el profesor, inténtelo mas tarde"
+            "Problemas con actualizar el curso, inténtelo mas tarde"
           );
         } else toast.success("Datos actualizados correctamente");
-        navigate("/admin/profesores");
+        navigate("/admin/cursos");
       } else {
-        respuesta = await createProfesorsApi(formDataTemp, logout);
+        respuesta = await createCoursesApi(formDataTemp, logout);
         if (!respuesta) {
-          toast.warning("Problemas con crear el profesor, inténtelo mas tarde");
+          toast.warning("Problemas con crear el curso, inténtelo mas tarde");
         } else {
           toast.success("Profesor creado correctamente");
-          navigate("/admin/profesores");
+          navigate("/admin/cursos");
         }
       }
       await respuesta.json();
@@ -72,14 +65,14 @@ export function FormProfessor({ professor, cargando }) {
     <>
       <button
         className="text-white bg-[#1678C2] font-bold py-2 px-4 rounded-xl"
-        onClick={() => navigate(`/admin/profesores`)}
+        onClick={() => navigate(`/admin/cursos`)}
       >
         <i className="fas fa-arrow-left text-white mr-2 text-lg"></i>
         Regresar
       </button>
       <div className="bg-white mt-10 px-5 py-10 rounded-md shadow-xl md:w-4/2 mx-auto">
         <h1 className="text-gray-600 font-bold text-xl uppercase text-center">
-          {professor?.id ? "Editar Profesor" : " Nuevo Profesor"}
+          {courses?.id ? "Editar Curso" : " Nuevo Curso"}
         </h1>
         <Form onSubmit={formik.handleSubmit} className="mt-10">
           <div className=" grid xl:grid-cols-3 xl:gap-6">
@@ -88,7 +81,7 @@ export function FormProfessor({ professor, cargando }) {
                 htmlFor="name"
                 className="block text-xl font-bold  text-gray-800 "
               >
-                Nombre (s)
+                Nombre del curso
               </label>
               <Form.Input
                 type="text"
@@ -100,6 +93,23 @@ export function FormProfessor({ professor, cargando }) {
                 placeholder="Nombres"
               />
             </div>
+            <div className="text-lg w-full mb-6 group">
+              <label
+                htmlFor="name"
+                className="block text-xl font-bold  text-gray-800 "
+              >
+                Descripcion del curso
+              </label>
+              <Form.TextArea
+                type="text"
+                id="description"
+                name="description"
+                value={formik.values.description}
+                onChange={formik.handleChange}
+                error={formik.errors.description}
+                placeholder="Nombres"
+              />
+            </div>
           </div>
 
           <Button
@@ -108,28 +118,37 @@ export function FormProfessor({ professor, cargando }) {
             loading={loading}
             primary
           >
-            {professor?.id ? "Editar" : "Guardar cambios"}
+            {courses?.id ? "Editar" : "Guardar cambios"}
           </Button>
         </Form>
       </div>
     </>
   );
-}
 
-function initialValues(professor) {
-  return {
-    name: professor?.name ?? "",
-  };
-}
-function validationSchema() {
-  return {
-    name: Yup.string()
-      .min(3, "El Nombre es muy corto.")
-      .matches(
-        /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g,
-        "Ingrese solo letras y sin espacios al final."
-      )
-      .max(50, "El Nombre es muy largo.")
-      .required("El campo es requerido."),
-  };
+  function initialValues(courses) {
+    return {
+      name: courses?.name ?? "",
+      description: courses?.description ?? "",
+    };
+  }
+  function validationSchema() {
+    return {
+      name: Yup.string()
+        .min(3, "El Nombre es muy corto.")
+        .matches(
+          /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g,
+          "Ingrese solo letras y sin espacios al final."
+        )
+        .max(50, "El Nombre es muy largo.")
+        .required("El campo es requerido."),
+      description: Yup.string()
+        .min(3, "El Nombre es muy corto.")
+        .matches(
+          /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g,
+          "Ingrese solo letras y sin espacios al final."
+        )
+        .max(50, "El Nombre es muy largo.")
+        .required("El campo es requerido."),
+    };
+  }
 }

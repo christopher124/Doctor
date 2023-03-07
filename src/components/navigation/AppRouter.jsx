@@ -28,7 +28,14 @@ import { StudenView } from "../../pages/admin/Student/StudenView";
 
 // Modelos de cuenta
 import { AccountView } from "../Account/AccountView";
+//************ */
 
+// Modelos de cursos
+import { CoursView } from "../../pages/admin/Courses/CoursView";
+import { EditCourseView } from "../../pages/admin/Courses/EditCourseView";
+import { ListCourseView } from "../../pages/admin/Courses/ListCourseView";
+import { NewCourseView } from "../../pages/admin/Courses/NewCourseView";
+//***************** */
 export function AppRouter() {
   const [user, setUser] = useState({});
   const { auth, logout } = useAuth();
@@ -70,6 +77,10 @@ export function AppRouter() {
               path="editar/estudiante/:id"
               element={<EditStudentsView />}
             />
+            <Route path="cursos" element={<ListCourseView />} />
+            <Route path="curso/:id" element={<CoursView />} />
+            <Route path="nuevo/curso" element={<NewCourseView />} />
+            <Route path="editar/curso/:id" element={<EditCourseView />} />
           </Route>
         ) : null}
       </Routes>

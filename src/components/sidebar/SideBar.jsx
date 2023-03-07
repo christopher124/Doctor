@@ -204,6 +204,25 @@ export function SideBar() {
                     ></i>{" "}
                     Usuarios
                   </Link>
+                  <Link
+                    className={
+                      "text-base uppercase py-3 font-bold block " +
+                      (window.location.href.indexOf("/admin/cursos") !== -1
+                        ? " px-4 py-3 flex  space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
+                        : "text-black hover:text-gray-600")
+                    }
+                    to="/admin/cursos"
+                  >
+                    <i
+                      className={
+                        "fas fa-users  mr-2 text-base " +
+                        (window.location.href.indexOf("/admin/cursos") !== -1
+                          ? "opacity-75"
+                          : "text-black hover:text-gray-600")
+                      }
+                    ></i>{" "}
+                    Cursos
+                  </Link>
                 </li>
               </ul>
             ) : null}

@@ -5,10 +5,8 @@ import {
   getProfesorsApi,
   getCountProfesorsApi,
 } from "../../../api/admin/profesors";
-import {
-  getCountQuotesApi,
-  getCountQuotesDoctorApi,
-} from "../../../api/admin/quote";
+import { getCountCoursesApi } from "../../../api/admin/courses";
+
 import { getMeApi } from "../../../api/admin/user";
 import { Spinner } from "../../../components/spinner/Spinner";
 import useAuth from "../../../hooks/useAuth";
@@ -18,6 +16,7 @@ export function DashboardView() {
   const [Usercount, setUserCount] = useState(<Spinner />);
   const [professorcount, setProfessorCount] = useState(<Spinner />);
   const [studenscount, setStudensCount] = useState(<Spinner />);
+  const [coursescount, setCoursesCount] = useState(<Spinner />);
   const [cargando, setCargando] = useState(true);
 
   const [professor, setProfessor] = useState([]);
@@ -38,6 +37,8 @@ export function DashboardView() {
       setUsers(users.slice(0, 2));
       const countProfessor = await getCountProfesorsApi(logout);
       setProfessorCount(countProfessor);
+      const countCourses = await getCountCoursesApi(logout);
+      setCoursesCount(countCourses);
       const countStudens = await getCountStudentsApi(logout);
       setStudensCount(countStudens);
     })(
@@ -122,7 +123,9 @@ export function DashboardView() {
                   <div className="flex flex-col">
                     <div className="text-base font-bold text-white uppercase">
                       Cursos
-                      <div className="p-1.5 text-xl font-bold"></div>
+                      <div className="p-1.5 text-xl font-bold">
+                        {coursescount ? coursescount : "0"}
+                      </div>
                     </div>
                   </div>
                   <i class="fas fa-solid fa-clipboard-list text-2xl text-white "></i>
