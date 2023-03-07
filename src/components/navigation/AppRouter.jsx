@@ -5,18 +5,28 @@ import { Route, Routes } from "react-router-dom";
 import { DashboardView } from "../../pages/admin/dashboard/DashboardView";
 import { LoginView } from "../../pages/LoginView";
 import { SideBar } from "../sidebar/SideBar";
+// Modelos de profesores
+
 import { ListProfessorView } from "../../pages/admin/Professor/ListProfessorView";
 import { ProfView } from "../../pages/admin/Professor/ProfView";
 import { NewProfessorView } from "../../pages/admin/Professor/NewProfessorView";
+import { EditProfessorView } from "../../pages/admin/Professor/EditProfessorView";
+//****** */
+// Modelos de usuarios
 import { ListUseView } from "../../pages/admin/users/ListUseView";
 import { NewUserView } from "../../pages/admin/users/NewUserView";
 import { EditUserView } from "../../pages/admin/users/EditUserView";
-import { ListCustomeView } from "../../pages/admin/customers/ListCustomeView";
-import { NewCustomerView } from "../../pages/admin/customers/NewCustomerView";
-import { EditCustomerView } from "../../pages/admin/customers/EditCustomerView";
-import { CustomeView } from "../../pages/admin/customers/CustomeView";
-import { EditProfessorView } from "../../pages/admin/Professor/EditProfessorView";
 import { UseView } from "../../pages/admin/users/UseView";
+//************************* */
+
+// Modelos de estudiantes
+import { ListStudenView } from "../../pages/admin/Student/ListStudenView";
+import { NewStudentView } from "../../pages/admin/Student/NewStudentView";
+import { EditStudentsView } from "../../pages/admin/Student/EditStudentsView";
+import { StudenView } from "../../pages/admin/Student/StudenView";
+//********************* */
+
+// Modelos de cuenta
 import { AccountView } from "../Account/AccountView";
 
 export function AppRouter() {
@@ -53,10 +63,13 @@ export function AppRouter() {
             <Route path="usuario/:id" element={<UseView />} />
             <Route path="nuevo/usuario" element={<NewUserView />} />
             <Route path="editar/usuario/:id" element={<EditUserView />} />
-            <Route path="pacientes" element={<ListCustomeView />} />
-            <Route path="paciente/:id" element={<CustomeView />} />
-            <Route path="nuevo/paciente" element={<NewCustomerView />} />
-            <Route path="editar/paciente/:id" element={<EditCustomerView />} />
+            <Route path="estudiantes" element={<ListStudenView />} />
+            <Route path="estudiante/:id" element={<StudenView />} />
+            <Route path="nuevo/estudiante" element={<NewStudentView />} />
+            <Route
+              path="editar/estudiante/:id"
+              element={<EditStudentsView />}
+            />
           </Route>
         ) : null}
       </Routes>

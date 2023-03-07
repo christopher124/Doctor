@@ -7,7 +7,6 @@ import {
 } from "../../../api/admin/profesors";
 import { getMeApi } from "../../../api/admin/user";
 import { ListProfessorView as ListProfessorViews } from "../../../components/Admin/Pofessor/ListProfessorView";
-import { ListDoctorView as ListDoctor } from "../../../components/Doctors/Doctor/ListDoctorView";
 import { Spinner } from "../../../components/spinner/Spinner";
 import Swal from "sweetalert2";
 import Excel from "react-html-table-to-excel";
@@ -299,9 +298,6 @@ export function ListProfessorView() {
                 Teléfono
               </th>
               <th scope="col" className="text-white py-3 px-6 text-center">
-                Correo
-              </th>
-              <th scope="col" className="text-white py-3 px-6 text-center">
                 Especialidad
               </th>
               <th scope="col" className="text-white py-3 px-6 text-center">
@@ -316,11 +312,11 @@ export function ListProfessorView() {
             </tr>
           </thead>
           <tbody>
-            {professor?.map((doctor) => (
+            {professor?.map((professor) => (
               <ListProfessorViews
                 handleDelited={handleDelited}
-                key={doctor.id}
-                doctor={doctor}
+                key={professor.id}
+                professor={professor}
               />
             ))}
           </tbody>

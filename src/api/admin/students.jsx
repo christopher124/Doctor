@@ -1,15 +1,15 @@
 import { API_URL_DEV } from "../../utils/constants";
 import { authFetch } from "../../utils/fetch";
 
-export async function createPrescripApi(prescription, logout) {
+export async function createStudentsApi(students, logout) {
   try {
-    const url = `${API_URL_DEV}/prescriptions`;
+    const url = `${API_URL_DEV}/students`;
     const params = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(prescription),
+      body: JSON.stringify(students),
     };
     const result = await authFetch(url, params, logout);
     // eslint-disable-next-line no-throw-literal
@@ -21,25 +21,24 @@ export async function createPrescripApi(prescription, logout) {
   }
 }
 
-export async function getPrescripApi(logout) {
+export async function getStudentsApi(logout) {
   try {
-    const url = `${API_URL_DEV}/prescriptions`;
+    const url = `${API_URL_DEV}/students`;
     const result = await authFetch(url, null, logout);
     return result ? result : null;
   } catch (error) {
     return null;
   }
 }
-
-export async function updatePrescripApi(id, prescription, logout) {
+export async function updateStudentsApi(id, students, logout) {
   try {
-    const url = `${API_URL_DEV}/prescriptions/${id}`;
+    const url = `${API_URL_DEV}/students/${id}`;
     const params = {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(prescription),
+      body: JSON.stringify(students),
     };
     const result = await authFetch(url, params, logout);
     // eslint-disable-next-line no-throw-literal
@@ -50,20 +49,18 @@ export async function updatePrescripApi(id, prescription, logout) {
     return false;
   }
 }
-
-export async function getOnePrescripApi(id, logout) {
+export async function getOneStudentsApi(id, logout) {
   try {
-    const url = `${API_URL_DEV}/prescriptions/${id}`;
+    const url = `${API_URL_DEV}/students/${id}`;
     const result = await authFetch(url, null, logout);
     return result ? result : null;
   } catch (error) {
     return null;
   }
 }
-
-export async function deletePrescripApi(id, logout) {
+export async function deleteStudentsApi(id, logout) {
   try {
-    const url = `${API_URL_DEV}/prescriptions/${id}`;
+    const url = `${API_URL_DEV}/students/${id}`;
     const params = {
       method: "DELETE",
       headers: {
@@ -79,30 +76,9 @@ export async function deletePrescripApi(id, logout) {
     return false;
   }
 }
-
-export async function getCountPrescripApi(logout) {
+export async function getCountStudentsApi(logout) {
   try {
-    const url = `${API_URL_DEV}/prescriptions/count`;
-    const result = await authFetch(url, null, logout);
-    return result ? result : null;
-  } catch (error) {
-    return null;
-  }
-}
-
-export async function getPrescripCustomerApi(idCustomer, logout) {
-  try {
-    const url = `${API_URL_DEV}/prescriptions?customer=${idCustomer}`;
-    const result = await authFetch(url, null, logout);
-    return result ? result : null;
-  } catch (error) {
-    return null;
-  }
-}
-
-export async function getPrescripDoctorUserApi(idUser, logout) {
-  try {
-    const url = `${API_URL_DEV}/prescriptions?doctor.user=${idUser}`;
+    const url = `${API_URL_DEV}/students/count`;
     const result = await authFetch(url, null, logout);
     return result ? result : null;
   } catch (error) {

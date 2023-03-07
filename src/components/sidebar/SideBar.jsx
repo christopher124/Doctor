@@ -148,16 +148,17 @@ export function SideBar() {
                   <Link
                     className={
                       "text-base uppercase py-3 font-bold block " +
-                      (window.location.href.indexOf("/admin/pacientes") !== -1
+                      (window.location.href.indexOf("/admin/estudiantes") !== -1
                         ? "relative px-4 py-3 flex space-x-4 rounded-xl hover:text-white text-white bg-gradient-to-r from-cyan-800 to-sky-700"
                         : "text-black hover:text-gray-600")
                     }
-                    to="/admin/pacientes"
+                    to="/admin/estudiantes"
                   >
                     <i
                       className={
                         "fas fa-user mr-2 text-base " +
-                        (window.location.href.indexOf("/admin/pacientes") !== -1
+                        (window.location.href.indexOf("/admin/estudiantes") !==
+                        -1
                           ? "opacity-75 "
                           : "text-black hover:text-gray-600")
                       }

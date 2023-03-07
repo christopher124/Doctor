@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import { getOneProfesorsApi } from "../../../api/admin/profesors";
 import Avatar from "avvvatars-react";
-import { ListQuotesUserView } from "../../../components/Admin/quotes/ListQuotesUserView";
 import Img404 from "../../../assets/img/story-404.svg";
 
 export function ProfView() {

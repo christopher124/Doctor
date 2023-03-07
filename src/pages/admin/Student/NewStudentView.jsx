@@ -1,6 +1,6 @@
-import { FormCustumer } from "../../../components/form/FormCustumer";
+import { FormStudents } from "../../../components/form/FormStudents";
 
-export function NewCustomerView() {
+export function NewStudentView() {
   return (
     <div className="w-full min-h-screen p-4">
       <div className="w-full mb-6 pt-3">
@@ -9,12 +9,12 @@ export function NewCustomerView() {
             <div className="text-xs font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
-                <span className="text-gray-600">Nuevo Paciente</span>
+                <span className="text-gray-600">Nuevo Estudiante</span>
               </div>
             </div>
           </div>
         </div>
-        <FormCustumer />
+        <FormStudents />
       </div>
     </div>
   );

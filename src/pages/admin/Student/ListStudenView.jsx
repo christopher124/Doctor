@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import useAuth from "../../../hooks/useAuth";
-import { deleteCustomerApi, getCustomerApi } from "../../../api/admin/customer";
+import { deleteStudentsApi, getStudentsApi } from "../../../api/admin/students";
 import { useNavigate } from "react-router-dom";
 import { Spinner } from "../../../components/spinner/Spinner";
-import { ListCustomersView } from "../../../components/Admin/customers/ListCustomersView.jsx";
+import { ListStudentsView } from "../../../components/Admin/Students/ListStudentsView";
 import Excel from "react-html-table-to-excel";
 import Swal from "sweetalert2";
 import Img404 from "../../../assets/img/story-404.svg";
 
-export function ListCustomeView() {
+export function ListStudenView() {
   const navigate = useNavigate();
-  const [customer, setCustumer] = useState([]);
+  const [student, setStudent] = useState([]);
   const [tableCustomer, SetTableCustomer] = useState([]);
   const [searchUser, setSearchUser] = useState("");
   const [searchState, setSearchState] = useState("");
@@ -19,9 +19,9 @@ export function ListCustomeView() {
   const { auth, logout } = useAuth();
   useEffect(() => {
     (async () => {
-      const customer = await getCustomerApi(logout);
-      setCustumer(customer);
-      SetTableCustomer(customer);
+      const student = await getStudentsApi(logout);
+      setStudent(student);
+      SetTableCustomer(student);
     })(
       setTimeout(() => {
         setCargando(!cargando);
@@ -41,15 +41,15 @@ export function ListCustomeView() {
       cancelButtonText: "¡No, Cancelar!",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const response = await deleteCustomerApi(id, logout);
+        const response = await deleteStudentsApi(id, logout);
         if (response) {
           Swal.fire(
             "¡Eliminado!",
             "El registro ha sido eliminado correctamente.",
             "success"
           );
-          const arrayCustomer = customer.filter((doctor) => doctor.id !== id);
-          setCustumer(arrayCustomer);
+          const arrayStudent = student.filter((student) => student.id !== id);
+          setStudent(arrayStudent);
         }
       }
     });
@@ -80,7 +80,7 @@ export function ListCustomeView() {
         return elements;
       }
     });
-    setCustumer(searchResult);
+    setStudent(searchResult);
   };
 
   const filterState = (searchState) => {
@@ -94,12 +94,12 @@ export function ListCustomeView() {
         return elements;
       }
     });
-    setCustumer(searchResult);
+    setStudent(searchResult);
   };
 
   return cargando ? (
     <Spinner />
-  ) : Object.keys(customer).length === 0 ? (
+  ) : Object.keys(student).length === 0 ? (
     <div className="w-full min-h-screen p-4">
       <div className="w-full mb-6 pt-3">
         <div className="flex flex-row items-center justify-between mb-4">
@@ -107,11 +107,11 @@ export function ListCustomeView() {
             <div className="text-base font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
-                <span className="text-gray-600">Pacientes</span>
+                <span className="text-gray-600">Estudiantes</span>
               </div>
               <div className="flex flex-col items-center justify-center h-full">
                 <div className="text-center text-gray-600">
-                  {Object.keys(customer).length === 0
+                  {Object.keys(student).length === 0
                     ? "No hay usuarios registrados"
                     : "Usuario no encontrado"}
                 </div>
@@ -120,7 +120,7 @@ export function ListCustomeView() {
           </div>
           <div className="shrink-0 space-x-2">
             <button
-              onClick={() => navigate("/admin/nuevo/paciente")}
+              onClick={() => navigate("/admin/nuevo/estudiante")}
               type="button"
               className="flex flex-row items-center justify-center px-4 py-3 text-xs font-bold text-white uppercase bg-blue-500 rounded-lg hover:bg-blue-600 space-x-1"
             >
@@ -188,7 +188,7 @@ export function ListCustomeView() {
           </div>
         </div>
       </div>
-      {Object.keys(customer).length === 0 ? (
+      {Object.keys(setStudent).length === 0 ? (
         <div className="text-xs font-bold text-gray-500 uppercase">
           <div className="justify-center flex p-5">
             <img
@@ -226,7 +226,7 @@ export function ListCustomeView() {
             </div>
             <div className="inline-flex rounded-md shadow-sm">
               <button
-                onClick={() => navigate("/admin/nuevo/paciente")}
+                onClick={() => navigate("/admin/nuevo/estudiante")}
                 type="button"
                 className="flex flex-row items-center justify-center px-4 py-3 text-xs font-bold text-white uppercase bg-blue-500 rounded-lg hover:bg-blue-600 space-x-1"
               >
@@ -311,27 +311,7 @@ export function ListCustomeView() {
               <th scope="col" className=" text-white py-3 px-6  text-center">
                 Género
               </th>
-              <th scope="col" className="text-white py-3 px-6  text-center">
-                Teléfono
-              </th>{" "}
-              <th scope="col" className="text-white py-3 px-6  text-center">
-                Domicilio
-              </th>
-              <th scope="col" className="text-white py-3 px-6  text-center">
-                NÚMERO INTERIOR
-              </th>
-              <th scope="col" className="text-white py-3 px-6  text-center">
-                Colonia
-              </th>
-              <th scope="col" className="text-white py-3 px-6  text-center">
-                Municipio
-              </th>
-              <th scope="col" className="text-white py-3 px-6  text-center">
-                Estado
-              </th>
-              <th scope="col" className="text-white py-3 px-6  text-center">
-                CÓDIGO POSTAL
-              </th>
+
               <th
                 scope="col"
                 className="text-white font-bold py-3 px-6  text-center "
@@ -341,11 +321,11 @@ export function ListCustomeView() {
             </tr>
           </thead>
           <tbody>
-            {customer?.map((customer) => (
-              <ListCustomersView
+            {student?.map((student) => (
+              <ListStudentsView
                 handleDelited={handleDelited}
-                key={customer.id}
-                customer={customer}
+                key={student.id}
+                student={student}
               />
             ))}
           </tbody>

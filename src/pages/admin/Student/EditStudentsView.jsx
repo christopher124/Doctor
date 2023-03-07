@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
-import { getOneCustomerApi } from "../../../api/admin/customer";
-import { FormCustumer } from "../../../components/form/FormCustumer";
+import { getOneStudentsApi } from "../../../api/admin/students";
+import { FormStudents } from "../../../components/form/FormStudents";
 import { Spinner } from "../../../components/spinner/Spinner";
 import Img404 from "../../../assets/img/story-404.svg";
 
-export function EditCustomerView() {
-  const [customer, setCustumer] = useState({});
+export function EditStudentsView() {
+  const [student, setStudent] = useState({});
   const navigate = useNavigate();
   const [cargando, setCargando] = useState(true);
   const { id } = useParams();
@@ -16,8 +16,8 @@ export function EditCustomerView() {
   console.log(auth);
   useEffect(() => {
     (async () => {
-      const customer = await getOneCustomerApi(id, logout);
-      setCustumer(customer);
+      const student = await getOneStudentsApi(id, logout);
+      setStudent(student);
     })(
       setTimeout(() => {
         setCargando(!cargando);
@@ -30,7 +30,7 @@ export function EditCustomerView() {
   }
   return cargando ? (
     <Spinner />
-  ) : Object.keys(customer).length === 0 ? (
+  ) : Object.keys(student).length === 0 ? (
     <div className="w-full min-h-screen p-4">
       <div className="w-full mb-6 pt-3">
         <div className="flex flex-row items-center justify-between mb-4">
@@ -38,7 +38,7 @@ export function EditCustomerView() {
             <div className="text-base font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
-                <span className="text-gray-600">Editar Paciente</span>
+                <span className="text-gray-600">Editar Estudiante</span>
               </div>
             </div>
           </div>
@@ -63,14 +63,14 @@ export function EditCustomerView() {
             <div className="text-base font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
-                <span className="text-gray-600 ">Editar Paciente</span>
+                <span className="text-gray-600 ">Editar Estudiante</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <FormCustumer
-        customer={customer}
+      <FormStudents
+        student={student}
         cargando={cargando}
         setCargando={setCargando}
       />

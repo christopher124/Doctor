@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getCountUserApi, getUserApi } from "../../../api/admin/user";
-import { getCountCustomerApi } from "../../../api/admin/customer";
+import { getCountStudentsApi } from "../../../api/admin/students";
 import {
   getProfesorsApi,
   getCountProfesorsApi,
@@ -12,22 +12,15 @@ import {
 import { getMeApi } from "../../../api/admin/user";
 import { Spinner } from "../../../components/spinner/Spinner";
 import useAuth from "../../../hooks/useAuth";
-import { Link } from "react-router-dom";
-import { UsersView } from "../../../components/Admin/user/UsersView";
-import { DoughnutChartUser } from "../../../components/Charts/DoughnutChartUser";
-import { BarChartDoctor } from "../../../components/Charts/BarChartDoctor";
-import Img404 from "../../../assets/img/story-404.svg";
 
 export function DashboardView() {
   const [user, setUser] = useState({});
   const [Usercount, setUserCount] = useState(<Spinner />);
-  const [Doctorcount, setDoctorCount] = useState(<Spinner />);
-  const [Customercount, setCustomerCount] = useState(<Spinner />);
-  const [Quotecount, setQuoteCount] = useState(<Spinner />);
-  const [QuotecountDoctor, setQuoteCountDoctor] = useState(<Spinner />);
+  const [professorcount, setProfessorCount] = useState(<Spinner />);
+  const [studenscount, setStudensCount] = useState(<Spinner />);
   const [cargando, setCargando] = useState(true);
 
-  const [doctor, setDoctor] = useState([]);
+  const [professor, setProfessor] = useState([]);
   const [users, setUsers] = useState([]);
   const { auth, logout } = useAuth();
   localStorage.setItem("idUser", user?.id);
@@ -39,18 +32,14 @@ export function DashboardView() {
       setUser(user);
       const countUser = await getCountUserApi(logout);
       setUserCount(countUser);
-      const doctor = await getProfesorsApi(logout);
-      setDoctor(doctor.slice(0, 2));
+      const professor = await getProfesorsApi(logout);
+      setProfessor(professor.slice(0, 2));
       const users = await getUserApi(logout);
       setUsers(users.slice(0, 2));
-      const countDoctor = await getCountProfesorsApi(logout);
-      setDoctorCount(countDoctor);
-      const countCustumer = await getCountCustomerApi(logout);
-      setCustomerCount(countCustumer);
-      const countQuote = await getCountQuotesApi(logout);
-      setQuoteCount(countQuote);
-      const countQuoteDoctor = await getCountQuotesDoctorApi(user?.id, logout);
-      setQuoteCountDoctor(countQuoteDoctor);
+      const countProfessor = await getCountProfesorsApi(logout);
+      setProfessorCount(countProfessor);
+      const countStudens = await getCountStudentsApi(logout);
+      setStudensCount(countStudens);
     })(
       setTimeout(() => {
         setCargando(!cargando);
@@ -101,7 +90,9 @@ export function DashboardView() {
                   <div className="flex flex-col">
                     <div className="text-mont text-base font-bold text-white uppercase">
                       Profesores
-                      <div className=" p-1.5 text-xl font-bold"></div>
+                      <div className=" p-1.5 text-xl font-bold">
+                        {professorcount ? professorcount : "0"}
+                      </div>
                     </div>
                   </div>
                   <i className="fas fa-user-md text-white text-2xl"></i>
@@ -115,7 +106,9 @@ export function DashboardView() {
                   <div className="flex flex-col">
                     <div className="text-base font-bold text-white uppercase">
                       Estudiantes
-                      <div className="p-1.5 text-xl font-bold"></div>
+                      <div className="p-1.5 text-xl font-bold">
+                        {studenscount ? studenscount : "0"}
+                      </div>
                     </div>
                   </div>
                   <i className="fas fa-users text-white text-2xl"></i>

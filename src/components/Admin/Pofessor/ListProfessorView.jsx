@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-export function ListProfessorView({ doctor, handleDelited }) {
+export function ListProfessorView({ professor, handleDelited }) {
   const navigate = useNavigate();
 
-  const { name, last, user, id, phone, status, specialties, gender } = doctor;
+  const { name, last, user, id, phone, status, specialties, gender } =
+    professor;
   const [estadoDoctor, setEstadoDoctor] = useState(status);
   const [clase, setClase] = useState("");
   useEffect(() => {
@@ -54,9 +55,7 @@ export function ListProfessorView({ doctor, handleDelited }) {
         <td className="text-white font-medium px-6 py-4 text-center">
           {phone ? phone : "No hay datos"}
         </td>
-        <td className="text-white font-medium px-6 py-4 text-center">
-          {user?.email ? user?.email : "No hay datos"}
-        </td>
+
         <td className="text-white font-medium px-6 py-4 text-center">
           {specialties ? specialties : "No hay datos"}
         </td>
