@@ -1,7 +1,7 @@
 /*eslint-disable*/
 import { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import Logo from "../../assets/img/Gocare.png";
+import Logo from "../../assets/img/logoNumeriq2.svg";
 import useAuth from "../../hooks/useAuth";
 import { NavBarDashboard } from "../navbar/NavBarDashboard";
 import Swal from "sweetalert2";
@@ -76,8 +76,7 @@ export function SideBar() {
             <div className="lg:min-w-full lg:hidden block pb-4 mb-4">
               <div className="flex flex-wrap">
                 <div className="w-6/12">
-                  {user?.role?.name === "Administrador" ||
-                  user?.role?.name === "Recepción" ? (
+                  {user?.role?.name === "Administrador" ? (
                     <Link
                       className="lg:block text-left lg:pb-2 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
                       to="/admin/dashboard"
@@ -88,10 +87,10 @@ export function SideBar() {
                         className="m-auto items-center h-24 w-24 rounded-full"
                       />
                     </Link>
-                  ) : user?.role?.name === "Doctor" ? (
+                  ) : user?.role?.name === "" ? (
                     <Link
                       className="lg:block text-left lg:pb-2 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
-                      to="/admin/citas"
+                      to="/admin/"
                     >
                       <img
                         src={Logo}
@@ -156,7 +155,7 @@ export function SideBar() {
                   >
                     <i
                       className={
-                        "fas fa-user mr-2 text-base " +
+                        "fas fa-users mr-2 text-base " +
                         (window.location.href.indexOf("/admin/estudiantes") !==
                         -1
                           ? "opacity-75 "
@@ -176,7 +175,7 @@ export function SideBar() {
                   >
                     <i
                       className={
-                        "fas fa-stethoscope mr-2 text-base " +
+                        "fas fa-users mr-2 text-base " +
                         (window.location.href.indexOf("/admin/profesores") !==
                         -1
                           ? "opacity-75 "
@@ -215,7 +214,7 @@ export function SideBar() {
                   >
                     <i
                       className={
-                        "fas fa-users  mr-2 text-base " +
+                        "fa fa-folder  mr-2 text-base " +
                         (window.location.href.indexOf("/admin/cursos") !== -1
                           ? "opacity-75"
                           : "text-black hover:text-gray-600")

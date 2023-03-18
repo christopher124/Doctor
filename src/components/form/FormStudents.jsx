@@ -53,7 +53,7 @@ export function FormStudents({ student }) {
             "Problemas con crear el estudiante, Inténtelo más tarde."
           );
         } else {
-          toast.success("Paciente creado correctamente.");
+          toast.success("Estudiante creado correctamente.");
           navigate("/admin/estudiantes");
         }
       }

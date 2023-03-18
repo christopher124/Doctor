@@ -6,18 +6,18 @@ export function ListProfessorView({ professor, handleDelited }) {
 
   const { name, last, user, id, phone, status, specialties, gender } =
     professor;
-  const [estadoDoctor, setEstadoDoctor] = useState(status);
+  const [estadoProfessor, setEstadoProfessor] = useState(status);
   const [clase, setClase] = useState("");
   useEffect(() => {
-    if (estadoDoctor) {
-      setEstadoDoctor(estadoDoctor);
+    if (estadoProfessor) {
+      setEstadoProfessor(estadoProfessor);
     }
-    claseDoctor();
+    claseProfessor();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [estadoDoctor]);
+  }, [estadoProfessor]);
 
   //funcion que modifica el color del pedido de acuerdo a su estado
-  const claseDoctor = () => {
+  const claseProfessor = () => {
     if (status === "Disponible") {
       setClase(
         " p-2 uppercase font-bold inline-flex text-center bg-green-700 text-white rounded-lg text-xs px-2 py-0 "

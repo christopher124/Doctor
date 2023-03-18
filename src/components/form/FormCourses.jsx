@@ -49,7 +49,7 @@ export function FormCourses({ courses, cargando }) {
         if (!respuesta) {
           toast.warning("Problemas con crear el curso, inténtelo mas tarde");
         } else {
-          toast.success("Profesor creado correctamente");
+          toast.success("Curso creado correctamente");
           navigate("/admin/cursos");
         }
       }

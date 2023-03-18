@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react";
 import Avatar from "avvvatars-react";
 
-export function ProfessorView({ doctor }) {
-  const { name, last, address, status, phone, specialties, user } = doctor;
-  console.log(doctor);
-  const [estadoDoctor, setEstadoDoctor] = useState(status);
+export function ProfessorView({ professor }) {
+  const { name, last, address, status, phone, specialties, user } = professor;
+  console.log(professor);
+  const [estadoProfessor, setEstadoProfessor] = useState(status);
   const [clase, setClase] = useState("");
 
   useEffect(() => {
-    if (estadoDoctor) {
-      setEstadoDoctor(estadoDoctor);
+    if (estadoProfessor) {
+      setEstadoProfessor(estadoProfessorr);
     }
-    claseDoctor();
-  }, [estadoDoctor]);
-  const claseDoctor = () => {
+    claseProfessor();
+  }, [estadoProfessor]);
+  const claseProfessor = () => {
     if (status === "Disponible") {
       setClase(
         " p-2 uppercase font-bold inline-flex text-center bg-green-700 text-white rounded-lg text-xs px-2 py-0 "

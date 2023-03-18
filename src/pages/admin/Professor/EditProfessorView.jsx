@@ -15,8 +15,8 @@ export function EditProfessorView() {
   const { auth, logout } = useAuth();
   useEffect(() => {
     (async () => {
-      const doctor = await getOneProfesorsApi(id, logout);
-      setProfessor(doctor);
+      const professor = await getOneProfesorsApi(id, logout);
+      setProfessor(professor);
     })(
       setTimeout(() => {
         setCargando(!cargando);

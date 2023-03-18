@@ -96,7 +96,7 @@ export function DashboardView() {
                       </div>
                     </div>
                   </div>
-                  <i className="fas fa-user-md text-white text-2xl"></i>
+                  <i className="fas fa-users text-white text-2xl"></i>
                 </div>
               </div>
             </div>
@@ -128,7 +128,7 @@ export function DashboardView() {
                       </div>
                     </div>
                   </div>
-                  <i class="fas fa-solid fa-clipboard-list text-2xl text-white "></i>
+                  <i class="fa fa-folder fa-clipboard-list text-2xl text-white "></i>
                 </div>
               </div>
             </div>

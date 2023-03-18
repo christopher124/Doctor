@@ -177,13 +177,7 @@ export function ListStudenView() {
                   ></path>
                 </svg>
               </div>
-              <input
-                type="search"
-                className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
-                placeholder="Búsqueda por municipio"
-                value={searchState}
-                onChange={handleChangeState}
-              />
+              
             </div>
           </div>
         </div>
@@ -209,7 +203,7 @@ export function ListStudenView() {
             <div className="text-base font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
-                <span className="text-gray-600">Pacientes</span>
+                <span className="text-gray-600">Estudiantes</span>
               </div>
             </div>
           </div>
@@ -219,7 +213,7 @@ export function ListStudenView() {
                 id="buttonExcel"
                 className="flex flex-row items-center justify-center px-4 py-4 text-xs font-bold text-white uppercase bg-green-700 rounded-lg hover:bg-green-800 space-x-2"
                 table="tableCustomers"
-                filename="Pacientes"
+                filename="Estudiantes"
                 sheet="pagina 1"
                 buttonText="Exportar a excel"
               />
@@ -284,13 +278,7 @@ export function ListStudenView() {
                   ></path>
                 </svg>
               </div>
-              <input
-                type="search"
-                className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
-                placeholder="Búsqueda por municipio"
-                value={searchState}
-                onChange={handleChangeState}
-              />
+              
             </div>
           </div>
         </div>

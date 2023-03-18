@@ -16,8 +16,8 @@ export function EditCourseView() {
   const { auth, logout } = useAuth();
   useEffect(() => {
     (async () => {
-      const doctor = await getOneCoursesApi(id, logout);
-      setCourses(doctor);
+      const course = await getOneCoursesApi(id, logout);
+      setCourses(course);
     })(
       setTimeout(() => {
         setCargando(!cargando);

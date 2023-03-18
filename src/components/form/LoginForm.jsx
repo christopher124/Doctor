@@ -6,7 +6,7 @@ import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
-import Clinica from "../../assets/img/SB2.jpg";
+import Clinica from "../../assets/img/NumerIQ2.jpg";
 
 export function LoginForm() {
   const navigate = useNavigate();

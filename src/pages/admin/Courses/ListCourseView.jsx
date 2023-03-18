@@ -183,7 +183,7 @@ export function ListCourseView() {
                 id="buttonExcel"
                 className="flex flex-row items-center justify-center px-4 py-4 text-xs font-bold text-white uppercase bg-green-700 rounded-lg hover:bg-green-800 space-x-2"
                 table="tableCourses"
-                filename="Doctores"
+                filename="Cursos"
                 sheet="pagina 1"
                 buttonText="Exportar a excel"
               />
@@ -232,7 +232,7 @@ export function ListCourseView() {
       </div>
       <div className="relative overflow-x-auto shadow-2xl sm:rounded-lg">
         <table
-          id="tableDoctors"
+          id="tableCourses"
           className="w-full text-base text-center text-white"
         >
           <thead className="text-base uppercase bg-[#687584] text-white">

@@ -7,6 +7,7 @@ import useAuth from "../../../hooks/useAuth";
 import { getOneCoursesApi } from "../../../api/admin/courses";
 import Avatar from "avvvatars-react";
 import Img404 from "../../../assets/img/story-404.svg";
+import { Description } from "@mui/icons-material";
 
 export function CoursView() {
   const { id } = useParams();
@@ -118,64 +119,19 @@ export function CoursView() {
               <div className="flex flex-col">
                 <div className="text-lg font-bold text-white">Cursos</div>
                 <div className="text-base font-bold text-white">
-                  <span>Información personal</span>
+                  <span>Información </span>
                 </div>
               </div>
               <div className="relative inline-block text-left z-10"></div>
             </div>
             <div className="p-0 flex flex-col w-full">
               <p className="py-[0.15rem] text-white font-noto">
-                Nombre completo: <span className="text-bold">{name}</span>
+                Nombre del curso: <span className="text-bold">{name}</span>
               </p>
               <p className="py-[0.15rem] text-white font-noto">
-                Género:{" "}
-                <span className="text-bold">
-                  {" "}
-                  {/* {gender ? gender : "No hay datos"} */}
-                </span>
+                Descripción: <span className="text-bold">{}</span>
               </p>
-              <p className="py-[0.15rem] text-white font-noto">
-                Teléfono:{" "}
-                <span className="text-bold">
-                  {" "}
-                  {/* {phone ? phone : "No hay datos"} */}
-                </span>
-              </p>
-              <p className="py-[0.15rem] text-white font-noto">
-                Fecha de nacimiento:
-                <span className="text-bold">
-                  {/* {birthday ? birthday : "No hay datos"}{" "} */}
-                </span>
-              </p>
-              <p className="py-[0.15rem] text-white font-noto">
-                Edad:{" "}
-                {/* <span className="text-bold"> {getEdad(birthday)} años</span> */}
-              </p>
-              <p className="py-[0.15rem] text-white font-noto">
-                Estatus:{" "}
-                <span className="text-bold">
-                  {" "}
-                  {/* {status ? status : "No hay datos"} */}
-                </span>
-              </p>
-              <p className="py-[0.15rem] text-white font-noto">
-                Profeccion:{" "}
-                <span className="text-bold">
-                  {" "}
-                  {/* {specialties ? specialties : "No hay datos"} */}
-                </span>
-              </p>
-              <p className="py-[0.15rem] text-white font-noto">
-                Domicilio:{" "}
-                {/* <span className="text-bold">
-                  {" "}
-                  {address ? address : "No hay datos"}, INT:{" "}
-                  {number_int_address ? number_int_address : "N/A"},{" "}
-                  {suburb ? suburb : "No hay datos"},{" "}
-                  {town ? town : "No hay datos"},{" "}
-                  {state ? state : "No hay datos"}, {zip ? zip : "No hay datos"}
-                </span> */}
-              </p>
+              
               <p className="py-[0.15rem] text-white font-noto">
                 Fecha de creación:{" "}
                 <span className="text-bold">

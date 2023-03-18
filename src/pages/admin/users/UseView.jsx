@@ -33,7 +33,7 @@ export function UseView() {
             <div className="text-base font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
-                <span className="text-gray-600">Doctores</span>
+                <span className="text-gray-600">Usuario</span>
               </div>
               <div className="flex flex-col items-center justify-center h-full">
                 <div className="text-center text-gray-600">
@@ -53,7 +53,7 @@ export function UseView() {
             <div className="text-base font-bold text-gray-500 uppercase">
               <span className="text-gray-600">Vista General</span>
               <div className="text-xl font-bold">
-                <span className="text-gray-600 ">Ver Doctor</span>
+                <span className="text-gray-600 ">Ver Usuario</span>
               </div>
             </div>
           </div>
@@ -64,7 +64,7 @@ export function UseView() {
           <div className="w-full p-4 rounded-lg bg-white border border-gray-100 bg-gray-900 border-gray-800">
             <div className="flex flex-row items-center justify-between mb-6">
               <div className="flex flex-col">
-                <div className="text-sm font-light text-white">Doctor</div>
+                <div className="text-sm font-light text-white">Usuario</div>
                 <div className="text-sm text-white font-bold">
                   <span>Informacion Usuario</span>
                 </div>
